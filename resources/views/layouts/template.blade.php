@@ -16,7 +16,36 @@
 
 <body>
   <header class="header">
-    <p>Шапка</p>
+    
+    <div class="container">
+      <p>Шапка</p>
+      <div class="top-menu hidden-mobile">
+        <div class="menu-item">
+          <a href="/catalog">Каталог</a>
+        </div>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="{{ route('home') }}">Главная</a>
+          </li>
+          <li class="menu-item">
+            <a href="/o-kompanii">О компании</a>
+          </li>
+          <li class="menu-item">
+            <a href="/dostavka-i-oplata">Доставка и оплата</a>
+          </li>
+          <li class="menu-item">
+            <a href="/novosti">Новости</a>
+          </li>
+          <li class="menu-item">
+            <a href="/otzyvy">Отзывы</a>
+          </li>
+          <li class="menu-item">
+            <a href="/kontakty">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
   </header>
   
   @yield('content')

@@ -116,6 +116,37 @@ img {
 
 
 
+/* header */
+.header .top-menu {
+  text-align: center;
+}
+.header .menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.header .menu .menu-item {
+  display: inline-block;
+  margin: 0 1.8%;
+  transition: font-weight .3s;
+}
+.header .menu .menu-item a {
+  color: #2a2a2a;
+}
+.header .menu .menu-item a:hover {
+  color: #000;
+}
+
+
+
+
+.news-section .news-item {
+  background-color: grey;
+}
+
+
+
+
 
 /* we use cookie */
 .messages_cookies {
