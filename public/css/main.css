@@ -141,6 +141,7 @@ img {
 
 
 .news-section .news-item {
+  margin: 0 0 10px 0;
   background-color: grey;
 }
 

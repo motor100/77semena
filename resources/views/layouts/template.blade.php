@@ -51,7 +51,9 @@
   @yield('content')
 
   <footer class="footer">
-    <p>Подвал</p>
+    <div class="container">
+      <p>Подвал</p>
+    </div>
   </footer>
     
 

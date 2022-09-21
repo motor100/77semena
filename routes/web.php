@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +13,28 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', [MainController::class, 'home']) -> name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/o-kompanii', [MainController::class, 'o_kompanii']);
+Route::middleware('can:view-dashboard')->group(function () {
+    // Route::get('/dashboard', [AdminController::class, 'home']);
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
 
-Route::get('/dostavka-i-oplata', [MainController::class, 'dostavka_i_oplata']);
+});
 
-Route::get('/novosti', [MainController::class, 'novosti']);
+Route::middleware('can:view-account')->group(function () {
+    // Route::get('/dashboard', [AdminController::class, 'home']);
+    Route::get('/account', function () {
+        return view('account');
+    });
 
-Route::get('/novosti/{slug}', [MainController::class, 'single_novosti']);
+});
 
-Route::get('/otzyvy', [MainController::class, 'otzyvy']);
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
-Route::get('/kontakty', [MainController::class, 'kontakty']);
-
-Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
+require __DIR__.'/auth.php';
