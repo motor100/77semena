@@ -22,8 +22,8 @@ class MainnewFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'gallery' => NULL,
             'text' => $this->faker->text(100),
-            'created_at' => NULL,
-            'updated_at' => NULL
+            'created_at' => $this->faker->dateTime(),
+            'updated_at' => $this->faker->dateTime()
         ];
     }
 }

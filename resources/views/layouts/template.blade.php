@@ -16,33 +16,56 @@
 
 <body>
   <header class="header">
-    
-    <div class="container">
-      <p>Шапка</p>
-      <div class="top-menu hidden-mobile">
-        <div class="menu-item">
-          <a href="/catalog">Каталог</a>
+
+    <div class="header-top">
+      <div class="container">
+        <span class="city">Челябинск</span>
+        <span class="phone">+7 (858) 754-65-85</span>
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+        <div class="logo">
+          <a href="{{ route('home') }}" class="logo">
+            <img class="logo-img" src="/img/logo.svg" alt="">
+          </a>
         </div>
-        <ul class="menu">
-          <li class="menu-item">
-            <a href="{{ route('home') }}">Главная</a>
-          </li>
-          <li class="menu-item">
-            <a href="/o-kompanii">О компании</a>
-          </li>
-          <li class="menu-item">
-            <a href="/dostavka-i-oplata">Доставка и оплата</a>
-          </li>
-          <li class="menu-item">
-            <a href="/novosti">Новости</a>
-          </li>
-          <li class="menu-item">
-            <a href="/otzyvy">Отзывы</a>
-          </li>
-          <li class="menu-item">
-            <a href="/kontakty">Контакты</a>
-          </li>
-        </ul>
+        <button>Каталог</button>
+        <input type="text" value="">
+        <div class="cart">
+          <div class="cart-icon">
+            <img src="/img/cart-icon.svg" alt="">
+          </div>
+          <div class="couter">
+            <span class="couter-text">3</span>
+          </div>
+          <div class="cart-text">корзина</div>
+        </div>
+
+        <div class="top-menu hidden-mobile">
+          <ul class="menu">
+            <li class="menu-item">
+              <a href="{{ route('home') }}">Главная</a>
+            </li>
+            <li class="menu-item">
+              <a href="/o-kompanii">О компании</a>
+            </li>
+            <li class="menu-item">
+              <a href="/dostavka-i-oplata">Доставка и оплата</a>
+            </li>
+            <li class="menu-item">
+              <a href="/novosti">Новости</a>
+            </li>
+            <li class="menu-item">
+              <a href="/otzyvy">Отзывы</a>
+            </li>
+            <li class="menu-item">
+              <a href="/kontakty">Контакты</a>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
     
@@ -51,8 +74,82 @@
   @yield('content')
 
   <footer class="footer">
-    <div class="container">
-      <p>Подвал</p>
+    <div class="horizontal-line"></div>
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="logo">
+              <img class="logo-img" src="/img/logo.svg" alt="">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="for-customers__title">Покупателям</div>
+            <div class="footer-menu">
+              <ul class="menu">
+                <li class="menu-item">
+                  <a class="menu-item__link" href="/o-kompanii">О компании</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="/dostavka-i-oplata">Доставка и оплата</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="/otzyvy">Отзывы</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="/novosti">Новости</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="for-customers__title"></div>
+            <div class="footer-menu">
+              <ul class="menu">
+                <li class="menu-item">
+                  <a class="menu-item__link" href="/politika-konfidencialnosti">Политика конфиденциальности</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="#">Пользовательское соглашение с публичной офертой</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="#">Гарантия возврата денежных средств</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="#">Сертификация</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="/kontakty">Контакты</a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-item__link" href="#">Личный кабинет партнера</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="socila__title">Мы в соцсетях</div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="copyright">@ 77semena, 2022</div>
+          </div>
+          <div class="col-md-6">
+            <div class="authors">
+              <span class="author">Дизайн Andrewwebnh</span>
+              <span class="author">Поддержка Button</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
     
