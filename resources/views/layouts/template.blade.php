@@ -18,8 +18,19 @@
   <header class="header">
 
     <div class="header-top">
+      <!-- <div class="left"></div>
+      <div class="right"></div> -->
       <div class="container">
-        <span class="city">Челябинск</span>
+      <span class="city header-city-btn">
+        <?php if (empty($_COOKIE['city'])): ?>
+          <script>
+            document.cookie = "city=Миасс; path=/; max-age=2629743; samesite=lax";
+          </script>
+        <?php else: ?>
+          <?php echo $_COOKIE['city']; ?>
+        <?php endif; ?>
+      </span>
+
         <span class="phone">+7 (858) 754-65-85</span>
       </div>
     </div>
@@ -122,7 +133,7 @@
                   <a class="menu-item__link" href="/kontakty">Контакты</a>
                 </li>
                 <li class="menu-item">
-                  <a class="menu-item__link" href="#">Личный кабинет партнера</a>
+                  <a class="menu-item__link" href="/profile">Личный кабинет партнера</a>
                 </li>
               </ul>
             </div>
@@ -140,7 +151,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <div class="copyright">@ 77semena, 2022</div>
+            <div class="copyright">@ 77semena, <?php echo date("Y"); ?></div>
           </div>
           <div class="col-md-6">
             <div class="authors">
@@ -225,8 +236,10 @@
         <div class="modal-close">
           <div class="close"></div>
         </div>
-        <div class="modal-title">Введите город</div>
+        <div class="modal-title">Выберите город</div>
         <div class="city-search">
+          <span class="city-item">Миасс</span>
+          <span class="city-item">Златоуст</span>
           <form class="form" method="post">
             <input type="text" name="city" id="city-search-input" class="input-field city-search-input" autocomplete="off">
           </form>

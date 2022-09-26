@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\Mainnew;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class MainController extends Controller
@@ -17,7 +16,7 @@ class MainController extends Controller
             $nw['short_title'] = Str::limit($nw['title'], 40, '...');
             $nw['date'] = MainController::month_name($nw['created_at']);
         }
-        // dd($news);
+
         return view('home', compact('news'));
     }
 
@@ -32,8 +31,10 @@ class MainController extends Controller
     }
 
     public function novosti()
-    {
-        return view('novosti');
+    {   
+        $news = \App\Models\Mainnew::paginate(10);
+
+        return view('novosti', compact('news'));
     }
 
     public function single_novosti($slug)
@@ -51,8 +52,10 @@ class MainController extends Controller
 
 
     public function otzyvy()
-    {
-        return view('otzyvy');
+    {   
+        $testimonials = \App\Models\Testimonial::paginate(10);
+
+        return view('otzyvy', compact('testimonials'));
     }
 
     public function kontakty()
@@ -105,12 +108,10 @@ class MainController extends Controller
                 break;
         }
 
-        $date = [
+        return [
             'day' => $day,
             'month-year' => $month . ' ' . $year,
         ];
-
-        return $date;
     }
     
 }

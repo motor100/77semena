@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MainnewSeeder extends Seeder
+class TestimonialSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class MainnewSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
-        \App\Models\Mainnew::factory()
-                            ->count(20)
-                            ->create();
+    {
+        \App\Models\Testimonial::factory()
+                                ->count(20)
+                                ->create();
     }
 }

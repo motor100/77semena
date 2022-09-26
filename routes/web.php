@@ -44,6 +44,15 @@ Route::middleware('can:view-dashboard')->group(function () {
 
 });
 
+
+Route::get('/profile', function () {
+    return view('profile');
+})->middleware(['auth']);
+
+
+
+
+/*
 Route::middleware('can:view-account')->group(function () {
     // Route::get('/dashboard', [AdminController::class, 'home']);
     Route::get('/account', function () {
@@ -51,6 +60,7 @@ Route::middleware('can:view-account')->group(function () {
     });
 
 });
+*/
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

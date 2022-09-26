@@ -160,6 +160,7 @@
     </div>
   </div>
   <div class="news">
+    <a href="/novosti">Все новости</a>
     <div class="container">
       <div class="row">
         @foreach($news as $nw)

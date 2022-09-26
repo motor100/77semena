@@ -155,6 +155,22 @@ ul {
 
 
 /* header */
+.header .header-top {
+  display: flex;
+}
+.header .header-top .header-city-btn {
+  cursor: pointer;
+}
+.header .header-top .left {
+  width: 70%;
+  height: 50px;
+  background-color: green;
+}
+.header .header-top .right {
+  width: 30%;
+  height: 50px;
+  background-color: red;
+}
 .header .header-bottom .cart {
   position: relative;
   width: 53px;
