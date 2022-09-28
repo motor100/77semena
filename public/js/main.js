@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   let modalWindow = document.querySelectorAll('.modal-window'),
-      headerCityBtn = document.querySelector('.header-city-btn'),
+      headerCityBtn = document.querySelector('.js-header-city-btn'),
       selectCityModal = document.querySelector('#select-city-modal'),
       modalCloseBtn = document.querySelectorAll('.modal-window .modal-close');
 
@@ -60,13 +60,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Выбор города
-  let cityItems = selectCityModal.querySelectorAll('.city-item');
+  let cityItems = selectCityModal.querySelectorAll('.city-item'),
+      cityName = document.querySelector('.city-name');
 
   for (let i = 0; i < cityItems.length; i++) {
     cityItems[i].onclick = function () {
       let ccity = cityItems[i].innerText;
       document.cookie = "city=" + ccity + "; path=/; max-age=2629743; samesite=lax";
-      headerCityBtn.innerText = ccity;
+      cityName.innerText = ccity;
       modalClose(selectCityModal);
     }
   }

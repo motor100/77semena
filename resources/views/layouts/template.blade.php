@@ -18,63 +18,85 @@
   <header class="header">
 
     <div class="header-top">
-      <!-- <div class="left"></div>
-      <div class="right"></div> -->
-      <div class="container">
-      <span class="city header-city-btn">
-        <?php if (empty($_COOKIE['city'])): ?>
-          <script>
-            document.cookie = "city=Миасс; path=/; max-age=2629743; samesite=lax";
-          </script>
-        <?php else: ?>
-          <?php echo $_COOKIE['city']; ?>
-        <?php endif; ?>
-      </span>
-
-        <span class="phone">+7 (858) 754-65-85</span>
+      <div class="container position-relative">
+        <div class="city js-header-city-btn">
+          <span class="city-text">Город: </span>
+          <span class="city-name">
+            <?php if (empty($_COOKIE['city'])): ?>
+              <script>
+                document.cookie = "city=Миасс; path=/; max-age=2629743; samesite=lax";
+              </script>
+            <?php else: ?>
+              <?php echo $_COOKIE['city']; ?>
+            <?php endif; ?>
+          </span>
+        </div>
+        <div class="phone">
+          <span class="phone-image">
+            <img src="/img/header-phone-icon.svg" alt="">
+          </span>
+          <a href="tel:+7" class="phone-number">+7 (858) 754-65-85</a>
+        </div>
+        <div class="callback-btn">
+          <div class="callback-btn__text">обратный звонок</div>
+        </div>
       </div>
     </div>
 
     <div class="header-bottom">
       <div class="container">
-        <div class="logo">
-          <a href="{{ route('home') }}" class="logo">
-            <img class="logo-img" src="/img/logo.svg" alt="">
-          </a>
-        </div>
-        <button>Каталог</button>
-        <input type="text" value="">
-        <div class="cart">
-          <div class="cart-icon">
-            <img src="/img/cart-icon.svg" alt="">
+        <div class="header-content">
+          <div class="logo">
+            <a href="{{ route('home') }}" class="logo">
+              <img class="logo-img" src="/img/logo.svg" alt="">
+            </a>
           </div>
-          <div class="couter">
-            <span class="couter-text">3</span>
+          <div class="catalog-btn">
+            <span class="catalog-btn__text">Каталог</span>
           </div>
-          <div class="cart-text">корзина</div>
+          <form action="" class="form" method="get">
+            <input type="text" class="search-input" value="">
+          </form>
+          
+          <div class="cart">
+            <div class="cart-icon">
+              <img src="/img/cart-icon.svg" alt="">
+            </div>
+            <div class="couter">
+              <div class="couter-text">3</div>
+            </div>
+            <div class="cart-text">корзина</div>
+          </div>
         </div>
 
         <div class="top-menu hidden-mobile">
-          <ul class="menu">
-            <li class="menu-item">
-              <a href="{{ route('home') }}">Главная</a>
-            </li>
-            <li class="menu-item">
-              <a href="/o-kompanii">О компании</a>
-            </li>
-            <li class="menu-item">
-              <a href="/dostavka-i-oplata">Доставка и оплата</a>
-            </li>
-            <li class="menu-item">
-              <a href="/novosti">Новости</a>
-            </li>
-            <li class="menu-item">
-              <a href="/otzyvy">Отзывы</a>
-            </li>
-            <li class="menu-item">
-              <a href="/kontakty">Контакты</a>
-            </li>
-          </ul>
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6 mx-auto">
+              <ul class="menu">
+                <li class="menu-item">
+                  <a href="{{ route('home') }}">Главная</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/o-kompanii">О компании</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/dostavka-i-oplata">Доставка и оплата</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/novosti">Новости</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/otzyvy">Отзывы</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/kontakty">Контакты</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          
         </div>
 
       </div>

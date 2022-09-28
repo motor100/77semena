@@ -8,10 +8,12 @@
 <div class="new-products-section">
   <div class="section-title-wrapper">
     <div class="container">
-      <div class="section-title">Новинки</div>
-      <div class="arrow-right">
-        <div class="line"></div>
-        <div class="underline"></div>
+      <div class="section-title">
+        <div class="section-title__text">Новинки</div>
+        <div class="arrow-right">
+          <div class="line"></div>
+          <div class="underline"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -71,10 +73,12 @@
 <div class="popular-categories-section">
   <div class="section-title-wrapper">
     <div class="container">
-      <div class="section-title">Популярные категории</div>
-      <div class="arrow-right">
-        <div class="line"></div>
-        <div class="underline"></div>
+      <div class="section-title">
+        <div class="section-title__text">Популярные категории</div>
+        <div class="arrow-right">
+          <div class="line"></div>
+          <div class="underline"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -137,10 +141,12 @@
 <div class="new-seeds-section">
   <div class="section-title-wrapper">
     <div class="container">
-      <div class="section-title">Новинки семян</div>
-      <div class="arrow-right">
-        <div class="line"></div>
-        <div class="underline"></div>
+      <div class="section-title">
+        <div class="section-title__text">Новинки семян</div>
+        <div class="arrow-right">
+          <div class="line"></div>
+          <div class="underline"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -152,10 +158,12 @@
 <div class="news-section">
   <div class="section-title-wrapper">
     <div class="container">
-      <div class="section-title">Новости</div>
-      <div class="arrow-right">
-        <div class="line"></div>
-        <div class="underline"></div>
+      <div class="section-title">
+        <div class="section-title__text">Новости</div>
+        <div class="arrow-right">
+          <div class="line"></div>
+          <div class="underline"></div>
+        </div>
       </div>
     </div>
   </div>
