@@ -55,7 +55,15 @@
             <span class="catalog-btn__text">Каталог</span>
           </div>
           <form action="" class="form" method="get">
-            <input type="text" class="search-input" value="">
+            <div class="form-container position-relative">
+              <input type="text" class="search-input" value="">
+              <button type="submit" class="submit-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.875 18.75C15.2242 18.75 18.75 15.2242 18.75 10.875C18.75 6.52576 15.2242 3 10.875 3C6.52576 3 3 6.52576 3 10.875C3 15.2242 6.52576 18.75 10.875 18.75Z" stroke="#A9A9A9" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16.4437 16.4438L21 21.0001" stroke="#A9A9A9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </form>
           
           <div class="cart">
@@ -72,7 +80,7 @@
         <div class="top-menu hidden-mobile">
           <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-6 mx-auto">
+            <div class="col-md-7 mx-auto">
               <ul class="menu">
                 <li class="menu-item">
                   <a href="{{ route('home') }}">Главная</a>
@@ -94,7 +102,7 @@
                 </li>
               </ul>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
           </div>
           
         </div>
@@ -117,7 +125,7 @@
             </div>
           </div>
           <div class="col-md-2">
-            <div class="for-customers__title">Покупателям</div>
+            <div class="footer-title">Покупателям</div>
             <div class="footer-menu">
               <ul class="menu">
                 <li class="menu-item">
@@ -136,7 +144,7 @@
             </div>
           </div>
           <div class="col-md-3">
-            <div class="for-customers__title"></div>
+            <div class="footer-title"></div>
             <div class="footer-menu">
               <ul class="menu">
                 <li class="menu-item">
@@ -160,11 +168,25 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-5">
-            <div class="socila__title">Мы в соцсетях</div>
+          <div class="col-md-3"></div>
+          <div class="col-md-2">
+            <div class="footer-contacts">
+              <div class="footer-title text-right">Мы в соцсетях</div>
+              <div class="social-icons text-right">
+                <a href="#" class="social-icon__link">
+                  <img src="/img/insta-icon.png" alt="">
+                </a>
+                <a href="#" class="social-icon__link">
+                  <img src="/img/ok-icon.png" alt="">
+                </a>
+                <a href="#" class="social-icon__link">
+                  <img src="/img/vk-icon.png" alt="">
+                </a>
+              </div>
+              <div class="phone">+7 (858) 754-65-85</div>
+              <div class="email">info@77semena.ru</div>
+            </div>
           </div>
-
-          
         </div>
       </div>
     </div>
@@ -173,12 +195,18 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <div class="copyright">@ 77semena, <?php echo date("Y"); ?></div>
+            <div class="copyright font-semibold">@ 77semena, <?php echo date("Y"); ?></div>
           </div>
           <div class="col-md-6">
             <div class="authors">
-              <span class="author">Дизайн Andrewwebnh</span>
-              <span class="author">Поддержка Button</span>
+              <div class="author">
+                <span class="author-text">Дизайн </span>
+                <a href="#" class="author-name font-semibold">Andrewwebnh</a>
+              </div>
+              <div class="author">
+                <span class="author-text">Поддержка </span>
+                <a href="#" class="author-name font-semibold">Button</a>
+              </div>
             </div>
           </div>
         </div>

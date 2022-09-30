@@ -13,6 +13,7 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
+          <a class="full-link" href="#"></a>
         </div>
       </div>
     </div>
@@ -23,12 +24,77 @@
         <div class="col-md-3">
           <div class="new-products-item">
             <div class="new-products-item__text">Товар месяца</div>
-            <div class="new-products-item__title">Клубника ЛЕСНАЯ F1</div>
-            <div class="new-products-item__image">
-              <img src="" alt="">
+            <div class="new-products-item__content">
+              <div class="new-products-item__image">
+                <img src="/img/product-image.jpg" alt="">
+              </div>
+              <div class="new-products-item__title">Клубника ЛЕСНАЯ F1</div>
             </div>
-            <div class="new-products-item__price">18 &#8381;</div>
-            <div class="new-products-item__quantity"></div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+            <a href="#" class="full-link"></a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="new-products-item">
+            <div class="new-products-item__text">Товар месяца</div>
+            <div class="new-products-item__content">
+              <div class="new-products-item__image">
+                <img src="/img/product-image.jpg" alt="">
+              </div>
+              <div class="new-products-item__title">Клубника ЛЕСНАЯ F1</div>
+            </div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+            <a href="#" class="full-link"></a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="new-products-item">
+            <div class="new-products-item__text">Товар месяца</div>
+            <div class="new-products-item__content">
+              <div class="new-products-item__image">
+                <img src="/img/product-image.jpg" alt="">
+              </div>
+              <div class="new-products-item__title">Клубника ЛЕСНАЯ F1</div>
+            </div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+            <a href="#" class="full-link"></a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="new-products-item">
+            <div class="new-products-item__text">Товар месяца</div>
+            <div class="new-products-item__content">
+              <div class="new-products-item__image">
+                <img src="/img/product-image.jpg" alt="">
+              </div>
+              <div class="new-products-item__title">Клубника ЛЕСНАЯ F1</div>
+            </div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+            <a href="#" class="full-link"></a>
           </div>
         </div>
       </div>
@@ -78,6 +144,7 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
+          <a class="full-link" href="#"></a>
         </div>
       </div>
     </div>
@@ -146,12 +213,112 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
+          <a class="full-link" href="#"></a>
         </div>
       </div>
     </div>
   </div>
   <div class="new-seeds">
-    <div class="new-seeds-item"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="new-seeds-item position-relative">
+            <div class="new-seeds-item__info info-yellow">Хит</div>
+            <div class="new-seeds-item__image">
+              <img src="/img/new-seeds-image.jpg" alt="">
+            </div>
+            <div class="new-seeds-item__title">Клубника ЛЕСНАЯ F1</div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="new-seeds-item position-relative">
+            <div class="new-seeds-item__info info-yellow">Хит</div>
+            <div class="new-seeds-item__image">
+              <img src="/img/new-seeds-image.jpg" alt="">
+            </div>
+            <div class="new-seeds-item__title">Клубника ЛЕСНАЯ F1</div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="new-seeds-item position-relative">
+            <div class="new-seeds-item__info info-yellow">Хит</div>
+            <div class="new-seeds-item__image">
+              <img src="/img/new-seeds-image.jpg" alt="">
+            </div>
+            <div class="new-seeds-item__title">Клубника ЛЕСНАЯ F1</div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="new-seeds-item position-relative">
+            <div class="new-seeds-item__info info-grey">Нет в наличии</div>
+            <div class="new-seeds-item__image">
+              <img src="/img/new-seeds-image.jpg" alt="">
+            </div>
+            <div class="new-seeds-item__title">Клубника ЛЕСНАЯ F1</div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="new-seeds-item position-relative">
+            <div class="new-seeds-item__info info-yellow">Хит</div>
+            <div class="new-seeds-item__image">
+              <img src="/img/new-seeds-image.jpg" alt="">
+            </div>
+            <div class="new-seeds-item__title">Клубника ЛЕСНАЯ F1</div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="new-seeds-item position-relative">
+            <div class="new-seeds-item__info info-grey">Нет в наличии</div>
+            <div class="new-seeds-item__image">
+              <img src="/img/new-seeds-image.jpg" alt="">
+            </div>
+            <div class="new-seeds-item__title">Клубника ЛЕСНАЯ F1</div>
+            <div class="new-products-item__price">
+              <span class="new-products-item__value">18</span>
+              <span class="new-products-item__currency"> &#8381;</span>
+            </div>
+            <div class="item__quantity" data-id="">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -163,22 +330,23 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
+          <a class="full-link" href="/novosti"></a>
         </div>
       </div>
     </div>
   </div>
   <div class="news">
-    <a href="/novosti">Все новости</a>
     <div class="container">
       <div class="row">
         @foreach($news as $nw)
           <div class="col-md-3">
             <div class="news-item">
               <div class="news-item__date">
-                <span class="news-item__day">{{ $nw->date['day'] }}</span>
-                <span class="news-item__month-year">{{ $nw->date['month-year'] }}</span>
+                <div class="news-item__day">{{ $nw->date['day'] }}</div>
+                <div class="news-item__month-year">{{ $nw->date['month-year'] }}</div>
               </div>
               <div class="news-item__title">{{ $nw->short_title }}</div>
+              <div class="news-item__arrow"></div>
               <a class="full-link" href="/novosti/{{ $nw->slug }}"></a>
             </div>
           </div>
