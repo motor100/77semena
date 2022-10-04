@@ -151,13 +151,13 @@
                   <a class="menu-item__link" href="/politika-konfidencialnosti">Политика конфиденциальности</a>
                 </li>
                 <li class="menu-item">
-                  <a class="menu-item__link" href="#">Пользовательское соглашение с публичной офертой</a>
+                  <a class="menu-item__link" href="/polzovatelskoe-soglashenie-s-publichnoj-ofertoj">Пользовательское соглашение с публичной офертой</a>
                 </li>
                 <li class="menu-item">
-                  <a class="menu-item__link" href="#">Гарантия возврата денежных средств</a>
+                  <a class="menu-item__link" href="/garantiya-vozvrata-denezhnyh-sredstv">Гарантия возврата денежных средств</a>
                 </li>
                 <li class="menu-item">
-                  <a class="menu-item__link" href="#">Сертификация</a>
+                  <a class="menu-item__link" href="/dokumenty">Документы</a>
                 </li>
                 <li class="menu-item">
                   <a class="menu-item__link" href="/kontakty">Контакты</a>
@@ -286,15 +286,14 @@
         <div class="modal-close">
           <div class="close"></div>
         </div>
-        <div class="modal-title">Выберите город</div>
-        <div class="city-search">
-          <span class="city-item">Миасс</span>
-          <span class="city-item">Златоуст</span>
-          <form class="form" method="post">
-            <input type="text" name="city" id="city-search-input" class="input-field city-search-input" autocomplete="off">
-          </form>
-          <div id="city-search-rezult" class="city-search-rezult"></div>
-        </div>     
+        <div class="modal-title">Ваш город</div>
+        <div class="city-select">
+          @foreach($cities as $city)
+            <div class="city-item">{{ $city->city }}</div>
+          @endforeach
+          <div class="city-item">Челябинск</div>
+          <div class="city-item">Магнитогорск</div>
+        </div>
       </div>
     </div>
   </div>

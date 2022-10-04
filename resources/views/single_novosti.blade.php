@@ -5,14 +5,34 @@
 
 @section('content')
 
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="parent">
+      <a href="{{ route('home') }}">главная страница</a>
+    </div>
+    <div class="arrow"></div>
+    <div class="parent">
+      <a href="{{ url('/novosti') }}">новости</a>
+    </div>
+    <div class="arrow"></div>
+    <div class="active">{{ $single_novosti->title }}</div>
+  </div>
+</div>
 
 <div class="single-novosti">
-  <div class="container">
-    <p>{{ $single_novosti->title }}</p>
-    <div class="single-novosti__image">
-      <img src="{{ $single_novosti->image }}" alt="">
+  <div class="section-title-wrapper">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-title__text">{{ $single_novosti->title }}</div>
+        <div class="single-novosti__date">{{ $single_novosti->date }}</div>
+      </div>
     </div>
-    <p>{{ $single_novosti->text }}</p>
+  </div>
+
+  <div class="text">
+    <div class="container">
+      {{ $single_novosti->text }}
+    </div>
   </div>
 </div>
 

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Testimonial>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\City>
  */
-class TestimonialFactory extends Factory
+class CityFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,7 @@ class TestimonialFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'text' => $this->faker->text(100),
-            'city' => $this->faker->city(),
+            'region' => 'Челябинская область',
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()
         ];

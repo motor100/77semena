@@ -63,13 +63,30 @@ document.addEventListener("DOMContentLoaded", () => {
   let cityItems = selectCityModal.querySelectorAll('.city-item'),
       cityName = document.querySelector('.city-name');
 
-  for (let i = 0; i < cityItems.length; i++) {
-    cityItems[i].onclick = function () {
-      let ccity = cityItems[i].innerText;
+  function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  cityItems.forEach((item) => {
+    item.onclick = function () {
+      let ccity = item.innerText;
       document.cookie = "city=" + ccity + "; path=/; max-age=2629743; samesite=lax";
       cityName.innerText = ccity;
       modalClose(selectCityModal);
+
+      let cityItemActive = document.querySelector('.city-item-active');
+      cityItemActive.classList.remove('city-item-active');
+      item.classList.add('city-item-active');
     }
-  }
+
+    // Если есть город в куки, то делаю его активным
+    if (item.innerText == getCookie('city')) {
+      item.classList.add('city-item-active');
+    }
+  });
+
 
 });

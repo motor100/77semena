@@ -22,5 +22,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         \App\Models\User::factory(3)->create();
+
+        $this->call([
+            MainnewSeeder::class,
+            CitySeeder::class,
+            TestimonialSeeder::class,
+        ]);
     }
 }

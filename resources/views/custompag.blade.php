@@ -1,6 +1,6 @@
 @if ($paginator->lastPage() > 1)
   @if ($paginator->currentPage() > $paginator->lastPage())
-    <div class="product-not-found">Товаров не найдено</div>
+    <div class="not-found">Не найдено</div>
   @endif
   <ul class="pagination">
     @for ($i = 1; $i <= $paginator->lastPage(); $i++)

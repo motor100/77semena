@@ -1,4 +1,4 @@
-@section('title', 'О компании')
+@section('title', 'Гарантия возврата денежных средств')
 
 @extends('layouts.template')
 
@@ -11,13 +11,13 @@
       <a href="{{ route('home') }}">главная страница</a>
     </div>
     <div class="arrow"></div>
-    <div class="active">о компании</div>
+    <div class="active">гарантия возврата денежных средств</div>
   </div>
 </div>
 
-<div class="o-kompanii">
+<div class="politika-konfidencialnosti">
   <div class="container">
-    <p>О компании</p>
+    <p>Гарантия возврата денежных средств</p>
   </div>
 </div>
 

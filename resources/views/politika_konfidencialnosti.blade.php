@@ -1,4 +1,4 @@
-@section('title', 'О компании')
+@section('title', 'Отзывы')
 
 @extends('layouts.template')
 
@@ -11,13 +11,13 @@
       <a href="{{ route('home') }}">главная страница</a>
     </div>
     <div class="arrow"></div>
-    <div class="active">о компании</div>
+    <div class="active">политика конфиденциальности</div>
   </div>
 </div>
 
-<div class="o-kompanii">
+<div class="politika-konfidencialnosti">
   <div class="container">
-    <p>О компании</p>
+    <p>Политика конфиденциальности</p>
   </div>
 </div>
 

@@ -5,11 +5,27 @@
 
 @section('content')
 
-<div class="otzyvy">
+<div class="breadcrumbs">
   <div class="container">
-    <p>Отзывы</p>
+    <div class="parent">
+      <a href="{{ route('home') }}">главная страница</a>
+    </div>
+    <div class="arrow"></div>
+    <div class="active">отзывы</div>
+  </div>
+</div>
 
-    @if (isset($testimonials)) 
+<div class="otzyvy">
+  <div class="section-title-wrapper">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-title__text">Отзывы</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    
       @foreach($testimonials as $ts)
         <div class="item">
           <div class="item-name">{{ $ts->name }}</div>
@@ -18,11 +34,8 @@
       @endforeach
 
       {{ $testimonials->links() }}
-    @endif
-
+   
   </div>
-
 </div>
-
 
 @endsection

@@ -34,6 +34,11 @@ Route::get('/kontakty', [MainController::class, 'kontakty']);
 
 Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
 
+Route::get('/polzovatelskoe-soglashenie-s-publichnoj-ofertoj', [MainController::class, 'polzovatelskoe_soglashenie_s_publichnoj_ofertoj']);
+
+Route::get('/garantiya-vozvrata-denezhnyh-sredstv', [MainController::class, 'garantiya_vozvrata_denezhnyh_sredstv']);
+
+Route::get('/dokumenty', [MainController::class, 'dokumenty']);
 
 
 Route::middleware('can:view-dashboard')->group(function () {

@@ -23,7 +23,9 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    {   
+        // View Composer in ViewServiceProvider class
+
         Paginator::defaultView('custompag');
     }
 }
