@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <!-- <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon"> -->
+  <link rel="shortcut icon" href="{{ asset(/img/favicon.svg') }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ asset('/css/bootstrap-grid.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/bootstrap-reboot.min.css') }}">
   @yield('style')
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <title>@yield('title', 'Магазин семян')</title>
+  <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+  <title>@yield('title', config('app.name') )</title>
 </head>
 
 <body>
@@ -324,8 +324,8 @@
   @endif
 
   @yield('script')
-  <!-- <script src="{{ asset('js/imask.js') }}"></script> -->
-  <script src="{{ asset('js/main.js') }}"></script>
+  <!-- <script src="{{ asset('/js/imask.js') }}"></script> -->
+  <script src="{{ asset('/js/main.js') }}"></script>
 
   
 </body>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\MainnewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,20 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+
+Route::get('/crud', [MainController::class, 'crud']);
+
+Route::get('/novosti/create', [MainnewController::class, 'create'])->name('novosti-create');
+
+Route::post('/novosti/store', [MainnewController::class, 'store'])->name('novosti-store');
+
+Route::get('/novosti/{id}/edit', [MainnewController::class, 'edit'])->name('novosti-edit');
+
+
+
+
+
 
 Route::get('/', [MainController::class, 'home']) -> name('home');
 
@@ -39,6 +54,10 @@ Route::get('/polzovatelskoe-soglashenie-s-publichnoj-ofertoj', [MainController::
 Route::get('/garantiya-vozvrata-denezhnyh-sredstv', [MainController::class, 'garantiya_vozvrata_denezhnyh_sredstv']);
 
 Route::get('/dokumenty', [MainController::class, 'dokumenty']);
+
+
+
+
 
 
 Route::middleware('can:view-dashboard')->group(function () {

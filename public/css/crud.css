@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'montserrat-regular';
+  src: url(../fonts/montserrat-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-light';
+  src: url(../fonts/montserrat-light.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-medium';
+  src: url(../fonts/montserrat-medium.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-semibold';
+  src: url(../fonts/montserrat-semibold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-bold';
+  src: url(../fonts/montserrat-bold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+body {
+  min-width: 320px;
+  max-width: 1920px;
+  position: relative;
+  font-family: "montserrat-regular", sans-serif;
+  color: #3e3e3e;
+  margin: 0 auto;
+}
+input:active, input:focus {
+  outline: none;
+}
+input::-moz-focus-inner {
+  border: 0;
+}
+a, a:focus, a:active {
+  outline: none;
+}
+a, a:hover {
+  text-decoration: none;
+}
+button, button:focus, button:active {
+  outline: none;
+}
+img {
+  border-style: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.full-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.clear-both {
+  clear: both;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-center {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.hidden-desktop {
+  display: none;
+}
+.position-relative {
+  position: relative;
+}
+.pos-rel {
+  position: relative;
+}
+
+
+
+.table-button {
+  text-align: right;
+}
+.table-button .form {
+  display: inline;
+}
+
+.pagination-links {
+  margin: 0 0 16px 0;
+}
+.pagination-links .pagination {
+  display: block;
+  text-align: center;
+}
+.pagination-links .pagination .link {
+  display: inline-block;
+  margin: 0 5px;
+}
+.pagination-links .pagination .link a {
+  color: #000;
+}
+.pagination-links .pagination .active a {
+  font-weight: bold;
+}
+
+
+
+
+
+
+@media only screen and (max-width : 1400px) {
+  
+}
+
+@media only screen and (max-width : 1200px) {
+  
+}
+
+@media only screen and (max-width : 992px) {
+  
+}
+
+@media only screen and (max-width : 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  .hidden-desktop {
+    display: block;
+  }
+  
+  
+  
+}
+
+@media only screen and (max-width : 480px) {
+  
+}
+
+@media only screen and (min-width : 768px) {
+  
+}

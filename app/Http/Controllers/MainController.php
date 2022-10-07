@@ -108,6 +108,15 @@ class MainController extends Controller
 
 
     
+    public function crud()
+    {   
+        $news = \App\Models\Mainnew::orderBy('id', 'desc')->paginate(20);
+        
+        return view('crud', compact('news'));
+    }
+
+
+
 
     
        
