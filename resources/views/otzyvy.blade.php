@@ -24,18 +24,31 @@
     </div>
   </div>
 
-  <div class="container">
-    
+  <div class="testimonials">
+    <div class="container">
       @foreach($testimonials as $ts)
         <div class="item">
           <div class="item-name">{{ $ts->name }}</div>
           <div class="item-text">{{ $ts->text }}</div>
         </div>
       @endforeach
-
-      {{ $testimonials->links() }}
-   
+    </div>
   </div>
+
+  <div class="testimonials-btn-wrapper">
+    <div class="container">
+      <div class="testimonials-btn">
+        <div class="testimonials-btn__text">Оставить отзыв</div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="pagination-links">
+    <div class="container">
+      {{ $testimonials->links() }}
+    </div>
+  </div>
+    
 </div>
 
 @endsection

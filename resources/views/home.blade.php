@@ -1,7 +1,4 @@
-@section('title', 'Home')
-
 @extends('layouts.template')
-
 
 @section('content')
 

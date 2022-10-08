@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Общие переменные
   let body = document.querySelector('body'),
       header = document.querySelector('.header'), // header
-      homePage = document.querySelector('.home-page'); // Главная страница
+      homePage = document.querySelector('.home-page'), // Главная страница
+      otzyvyPage = document.querySelector('.otzyvy'); // Страница отзывы
 
 
   // Скрывание кнопки Мы используем куки we use cookie
@@ -20,10 +21,24 @@ document.addEventListener("DOMContentLoaded", () => {
   let modalWindow = document.querySelectorAll('.modal-window'),
       headerCityBtn = document.querySelector('.js-header-city-btn'),
       selectCityModal = document.querySelector('#select-city-modal'),
+      headerCallbackBtn = document.querySelector('.js-header-callback-btn'),
+      callbackModal = document.querySelector('#callback-modal'),
+      testimonialsBtn = document.querySelector('.testimonials-btn'),
+      testimonialsModal = document.querySelector('#testimonials-modal'),
       modalCloseBtn = document.querySelectorAll('.modal-window .modal-close');
 
   headerCityBtn.onclick = function () {
     modalOpen(selectCityModal);
+  }
+
+  headerCallbackBtn.onclick = function () {
+    modalOpen(callbackModal);
+  }
+
+  if(testimonialsBtn) {
+    testimonialsBtn.onclick = function () {
+      modalOpen(testimonialsModal);
+    }
   }
 
   function modalOpen(win) {
@@ -87,6 +102,22 @@ document.addEventListener("DOMContentLoaded", () => {
       item.classList.add('city-item-active');
     }
   });
+
+  // Маска ввода телефона оформления заказа
+  let elementPhone = document.querySelector('.callback-modal #phone');
+
+  let maskOptionsPhone = {
+    mask: '+{7} (000) 000 00 00'
+  };
+  let mask = IMask(elementPhone, maskOptionsPhone);
+
+
+  // if(otzyvyPage) {
+
+  // }
+
+
+  
 
 
 });

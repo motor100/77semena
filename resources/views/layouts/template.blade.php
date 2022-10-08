@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" href="{{ asset(/img/favicon.svg') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('/img/favicon.svg') }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ asset('/css/bootstrap-grid.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/bootstrap-reboot.min.css') }}">
   @yield('style')
@@ -37,7 +37,7 @@
           </span>
           <a href="tel:+7" class="phone-number">+7 (858) 754-65-85</a>
         </div>
-        <div class="callback-btn">
+        <div class="callback-btn js-header-callback-btn">
           <div class="callback-btn__text">обратный звонок</div>
         </div>
       </div>
@@ -213,7 +213,6 @@
       </div>
     </div>
   </footer>
-    
 
   <div class="burger-menu-wrapper hidden-desktop">
     <div class="burger-menu">
@@ -257,24 +256,22 @@
         <div class="modal-close">
           <div class="close"></div>
         </div>
-        <div class="modal-title">Заполните данные и с вами свяжется наш менеджер</div>
+        <div class="modal-title">Введите свое имя <br>и номер телефона</div>
         <form id="callback-modal-form" class="form" method="post">
           @csrf
           <label class="label">
-            <span>Ваше ФИО</span>
-            <input type="text" id="name" class="input-field" name="name" minlength="3" maxlength="20">
+            <input type="text" id="name" class="input-field" name="name" minlength="3" maxlength="20" placeholder="Ваше имя">
           </label>
           <label class="label">
-            <span>Ваш телефон*</span>
-            <input type="text" id="phone" class="input-field" name="phone" required maxlength="16">
+            <input type="text" id="phone" class="input-field" name="phone" required maxlength="18" placeholder="+7 (999) 999 99 99">
           </label>
           <input type="hidden" name="info" id="info" value="">
-          <div class="required-text">* поля обязательны для заполнения</div>
-          <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-callback-modal" checked required onchange="document.querySelector('.callback-modal-btn').disabled = !this.checked;">
+          <!-- <div class="required-text">Все поля обязательны для заполнения</div> -->
+          <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-callback-modal" checked required onchange="document.querySelector('.js-callback-modal-btn').disabled = !this.checked;">
           <label for="checkbox-callback-modal" class="custom-checkbox-label"></label>
           <span class="checkbox-text">Согласен с <a href="/politika-konfidencialnosti" class="privacy-policy-btn" target="_blank">политикой обработки персональных данных</a></span>
           
-          <input type="button" class="grey-btn submit-btn callback-modal-btn" value="отправить">
+          <input type="button" class="submit-btn js-callback-modal-btn" value="Заказать звонок">
         </form>
       </div>
     </div>
@@ -294,6 +291,34 @@
           <div class="city-item">Челябинск</div>
           <div class="city-item">Магнитогорск</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="testimonials-modal" class="modal-window testimonialsk-modal">
+    <div class="modal-wrapper">
+      <div class="modal-area">
+        <div class="modal-close">
+          <div class="close"></div>
+        </div>
+        <div class="modal-title">Оставьте свой отзыв</div>
+        <form id="testimonials-modal-form" class="form" method="post">
+          @csrf
+          <label class="label">
+            <input type="text" id="name" class="input-field" name="name" minlength="3" maxlength="20" placeholder="Ваше имя">
+          </label>
+          <label class="label">
+            <input type="text" id="city" class="input-field" name="city" required minlength="3" maxlength="30" placeholder="Ваш город">
+          </label>
+          <label class="label">
+            <textarea id="testimonial" class="input-field" name="testimonial" rows="5" placeholder="Напишите отзыв"></textarea>
+          </label>
+          <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-testimonials-modal" checked required onchange="document.querySelector('.js-testimonials-modal-btn').disabled = !this.checked;">
+          <label for="checkbox-testimonials-modal" class="custom-checkbox-label"></label>
+          <span class="checkbox-text">Согласен с <a href="/politika-konfidencialnosti" class="privacy-policy-btn" target="_blank">политикой обработки персональных данных</a></span>
+          
+          <input type="button" class="submit-btn js-testimonials-modal-btn" value="Отправить">
+        </form>
       </div>
     </div>
   </div>
@@ -324,7 +349,7 @@
   @endif
 
   @yield('script')
-  <!-- <script src="{{ asset('/js/imask.js') }}"></script> -->
+  <script src="{{ asset('/js/imask.js') }}"></script>
   <script src="{{ asset('/js/main.js') }}"></script>
 
   

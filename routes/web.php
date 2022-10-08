@@ -29,7 +29,7 @@ Route::post('/novosti/store', [MainnewController::class, 'store'])->name('novost
 Route::get('/novosti/{id}/edit', [MainnewController::class, 'edit'])->name('novosti-edit');
 
 
-
+// /dashboard/tinyfileupload // в файле tiny-file-upload.js
 
 
 
