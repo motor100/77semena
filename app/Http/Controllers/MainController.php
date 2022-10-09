@@ -15,7 +15,7 @@ class MainController extends Controller
         
         foreach ($news as $nw) {
             $nw['short_title'] = Str::limit($nw['title'], 36, '...');
-            $nw['date'] = MainController::month_name($nw['created_at']);
+            $nw['date'] = MainController::datetime_format($nw['created_at'], 2);
         }
 
         return view('home', compact('news'));
@@ -34,29 +34,13 @@ class MainController extends Controller
     public function novosti()
     {   
         $news = \App\Models\Mainnew::limit(60)->get();
-        
+
         foreach ($news as $nw) {
             $nw['short_title'] = Str::limit($nw['title'], 36, '...');
-            $nw['date'] = MainController::month_name($nw['created_at']);
+            $nw['date'] = MainController::datetime_format($nw['created_at'], 2);
         }
 
-        // Пагинация с ограничением limit
-        $perPage = 12;
-        
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-
-        if ($currentPage == 1) {
-            $start = 0;
-        }
-        else {
-            $start = ($currentPage - 1) * $perPage;
-        }
-
-        $currentPageCollection = $news->slice($start, $perPage)->all();
-
-        $paginatedTop100 = new LengthAwarePaginator($currentPageCollection, count($news), $perPage);
-
-        $news = $paginatedTop100->setPath(LengthAwarePaginator::resolveCurrentPath());
+        $news = MainController::custom_paginator($news, 12);
 
         return view('novosti', compact('news'));
     }
@@ -69,14 +53,20 @@ class MainController extends Controller
             return abort(404);
         }
         
-        $single_novosti['date'] = MainController::month_name($single_novosti['created_at'], true);
+        $single_novosti['date'] = MainController::datetime_format($single_novosti['created_at'], 1);
 
         return view('single_novosti', compact('single_novosti'));
     }
 
     public function otzyvy()
     {   
-        $testimonials = \App\Models\Testimonial::paginate(10);
+        $testimonials = \App\Models\Testimonial::limit(100)->get();
+
+        foreach ($testimonials as $ts) {
+            $ts['date'] = MainController::datetime_format($ts['created_at'], 3);
+        }
+
+        $testimonials = MainController::custom_paginator($testimonials, 10);
 
         return view('otzyvy', compact('testimonials'));
     }
@@ -117,62 +107,102 @@ class MainController extends Controller
 
 
 
-
-    
-       
-    public static function month_name($datetime, $fulldate = false)
+    /*
+    * Datetime 0000-00-00 00:00:00 to custom format
+    * format 1 01 января 2022
+    * format 2 array
+    * format 3 01.01.2022
+    */
+    public static function datetime_format($datetime, $format)
     {   
         $year = mb_substr($datetime, 0, 4);
         $month = mb_substr($datetime, 5, 2);
         $day = mb_substr($datetime, 8, 2);
 
+        $month_string = '';
+
         switch ($month) {
             case '01':
-                $month = 'января';
+                $month_string = 'января';
                 break;
             case '02':
-                $month = 'февраля';
+                $month_string = 'февраля';
                 break;
             case '03':
-                $month = 'марта';
+                $month_string = 'марта';
                 break;
             case '04':
-                $month = 'апреля';
+                $month_string = 'апреля';
                 break;
             case '05':
-                $month = 'мая';
+                $month_string = 'мая';
                 break;
             case '06':
-                $month = 'июня';
+                $month_string = 'июня';
                 break;
             case '07':
-                $month = 'июля';
+                $month_string = 'июля';
                 break;
             case '08':
-                $month = 'августа';
+                $month_string = 'августа';
                 break;
             case '09':
-                $month = 'сентября';
+                $month_string = 'сентября';
                 break;
             case '10':
-                $month = 'октября';
+                $month_string = 'октября';
                 break;
             case '11':
-                $month = 'ноября';
+                $month_string = 'ноября';
                 break;
             case '12':
-                $month = 'декабря';
+                $month_string = 'декабря';
                 break;
         }
 
-        if ($fulldate) {
-            return $day . ' ' . $month . ' ' . $year;
-        } else {
-            return [
-                'day' => $day,
-                'month-year' => $month . ' ' . $year,
-            ];
+        $date_time = '';
+
+        switch ($format) {
+            case '1':
+                $date_time = $day . ' ' . $month_string . ' ' . $year;
+                break;
+            case '2':
+                $date_time = [
+                    'day' => $day,
+                    'month-year' => $month_string . ' ' . $year,
+                ];
+                break;
+            case '3':
+                $date_time = $day . '.' . $month . '.' . $year;
+                break;
         }
+
+        return $date_time;
     }
+
+    /*
+    * Pagination with limit
+    * input Illuminate\Database\Eloquent\Collection
+    * return Illuminate\Pagination\LengthAwarePaginator
+    * $perPage count per page
+    */
+    public static function custom_paginator($collection, $perPage)
+    {
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+        if ($currentPage == 1) {
+            $start = 0;
+        }
+        else {
+            $start = ($currentPage - 1) * $perPage;
+        }
+
+        $currentPageCollection = $collection->slice($start, $perPage)->all();
+
+        $paginatedTop100 = new LengthAwarePaginator($currentPageCollection, count($collection), $perPage);
+
+        return $paginatedTop100->setPath(LengthAwarePaginator::resolveCurrentPath());
+    }
+
     
 }

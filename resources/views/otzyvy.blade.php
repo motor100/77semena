@@ -27,9 +27,27 @@
   <div class="testimonials">
     <div class="container">
       @foreach($testimonials as $ts)
-        <div class="item">
-          <div class="item-name">{{ $ts->name }}</div>
-          <div class="item-text">{{ $ts->text }}</div>
+        <!-- <div class="testimonials-item">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="item-name">{{ $ts->name }}</div>
+              <div class="item-date">{{ $ts->date }}</div>
+              <div class="item-city">{{ $ts->city }}</div>
+            </div>
+            <div class="col-md-10">
+              <div class="item-text">{{ $ts->text }}</div>
+            </div>
+          </div>
+        </div> -->
+        <div class="testimonials-item">
+          <div class="testimonials-item__info">
+            <div class="testimonials-item__name">{{ $ts->name }}</div>
+            <div class="testimonials-item__date">{{ $ts->date }}</div>
+            <div class="testimonials-item__city">{{ $ts->city }}</div>
+          </div>
+          <div class="testimonials-item__text">
+            <div class="testimonials-item__text">{{ $ts->text }}</div>
+          </div>
         </div>
       @endforeach
     </div>
