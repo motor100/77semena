@@ -109,7 +109,8 @@ ul {
   position: relative;
 }
 .section-title-wrapper {
-  margin: 0 0 13px 0;
+  /* margin: 0 0 13px 0; */
+  margin: 0 0 32px 0;
 }
 .section-title {
   position: relative;
@@ -749,6 +750,95 @@ ul {
   font-size: 20px;
   text-align: center;
 }
+
+/* o-kompanii */
+.o-kompanii-title {
+  margin: 0 0 32px 0;
+  font-family: 'montserrat-bold';
+  font-size: 32px;
+  color: #8278B8;
+  text-transform: uppercase;
+}
+.o-kompanii .content-wrapper {
+  margin: 0 0 64px 0;
+}
+.o-kompanii .o-kompanii-content {
+  padding: 32px 0 0 0;
+}
+.o-kompanii .text {
+  margin: 0 0 64px 0;
+}
+.o-kompanii .text .text-subtitle {
+  margin: 0 0 16px 0;
+  font-family: 'montserrat-bold';
+  font-size: 24px;
+}
+.o-kompanii .suppliers .suppliers-subtitle {
+  margin: 0 0 16px 0;
+  font-family: 'montserrat-bold';
+}
+.o-kompanii .suppliers .suppliers-list {
+  margin: 0 0 20px 0;
+  padding: 0 0 0 16px;
+  list-style: circle;
+}
+.o-kompanii .suppliers .suppliers-list__item {
+  margin: 0 0 8px 0;
+}
+.o-kompanii .suppliers .suppliers-remark {
+  color: #A9A9A9;
+}
+.o-kompanii .o-kompanii-image img {
+  width: 100%;
+}
+.o-kompanii .o-kompanii-nav .o-kompanii-btn {
+  display: block;
+  min-height: 71px;
+  padding: 17px 0;
+  border-radius: 15px;
+}
+.o-kompanii .o-kompanii-nav .yellow-btn {
+  border: 2px solid #FFD439;
+  background-color: #FFD439;
+}
+.o-kompanii .o-kompanii-nav .btn__text {
+  display: block;
+  font-family: 'montserrat-bold';
+  font-size: 21px;
+  color: #3e3e3e;
+  text-align: center;
+}
+.o-kompanii .o-kompanii-nav .white-btn {
+  border: 2px solid #3E3E3E;
+}
+
+/* kontakty */
+.kontakty .map,
+.kontakty .contacts {
+  border-radius: 15px;
+  overflow: hidden;
+}
+.kontakty .contacts {
+  padding: 5%;
+  background-color: #8278B8;
+  color: #E8E8E8;
+}
+.kontakty .contacts .contacts-item {
+  margin: 0 0 32px 0;
+}
+.kontakty .contacts .contacts-item__content {
+  display: flex;
+}
+.kontakty .contacts .contacts-item__icon {
+  margin: 0 16px 0 0;
+  flex-shrink: 0;
+}
+.kontakty .contacts .contacts-item__title {
+  margin: 0 0 16px 0;
+  font-family: 'montserrat-semibold';
+  font-size: 22px;
+}
+
 
 /* breadcrumbs */
 .breadcrumbs {
