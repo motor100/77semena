@@ -27,8 +27,10 @@ class MainController extends Controller
     }
 
     public function dostavka_i_oplata()
-    {
-        return view('dostavka_i_oplata');
+    {   
+        $cities = \App\Models\City::get();
+
+        return view('dostavka_i_oplata', compact('cities'));
     }
 
     public function novosti()
