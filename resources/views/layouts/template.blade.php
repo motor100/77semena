@@ -265,8 +265,7 @@
           <label class="label">
             <input type="text" id="phone" class="input-field" name="phone" required maxlength="18" placeholder="+7 (999) 999 99 99">
           </label>
-          <input type="hidden" name="info" id="info" value="">
-          <!-- <div class="required-text">Все поля обязательны для заполнения</div> -->
+          <input type="hidden" name="info" id="callback-modal-info" value="">
           <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-callback-modal" checked required onchange="document.querySelector('.js-callback-modal-btn').disabled = !this.checked;">
           <label for="checkbox-callback-modal" class="custom-checkbox-label"></label>
           <span class="checkbox-text">Согласен с <a href="/politika-konfidencialnosti" class="privacy-policy-btn" target="_blank">политикой обработки персональных данных</a></span>

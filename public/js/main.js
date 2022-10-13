@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       callbackModal = document.querySelector('#callback-modal'),
       testimonialsBtn = document.querySelector('.testimonials-btn'),
       testimonialsModal = document.querySelector('#testimonials-modal'),
+      payInfoBtn = document.querySelector('.dostavka-i-oplata .pay-info-btn'),
       modalCloseBtn = document.querySelectorAll('.modal-window .modal-close');
 
   headerCityBtn.onclick = function () {
@@ -38,6 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if(testimonialsBtn) {
     testimonialsBtn.onclick = function () {
       modalOpen(testimonialsModal);
+    }
+  }
+
+  if(payInfoBtn) {
+    payInfoBtn.onclick = function () {
+      modalOpen(callbackModal);
     }
   }
 
