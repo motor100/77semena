@@ -1,6 +1,6 @@
 @section('title', 'Пользовательское соглашение с публичной офертой')
 
-@extends('layouts.template')
+@extends('layouts.main')
 
 
 @section('content')
@@ -15,9 +15,19 @@
   </div>
 </div>
 
-<div class="politika-konfidencialnosti">
-  <div class="container">
-    <p>Пользовательское соглашение с публичной офертой</p>
+<div class="polzovatelskoe-soglashenie-s-publichnoj-ofertoj">
+  <div class="section-title-wrapper">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-title__text">Пользовательское соглашение с публичной офертой</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="container">
+
+    </div>
   </div>
 </div>
 

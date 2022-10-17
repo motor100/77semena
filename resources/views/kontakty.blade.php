@@ -1,6 +1,6 @@
 @section('title', 'Контакты')
 
-@extends('layouts.template')
+@extends('layouts.main')
 
 
 @section('content')
@@ -77,6 +77,10 @@
               </div>
               <div class="col">
                 <div class="info">
+                <div class="about-item">
+                  <div class="about-item__title">Компания</div>
+                  <div class="about-item__text">ООО "Челябинская селекционная станция"</div>
+                </div>
                   <div class="about-item">
                     <div class="about-item__title">Реквизиты</div>
                     <div class="about-item__text">ОГРН 1147415003592</div>

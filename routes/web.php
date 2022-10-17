@@ -47,6 +47,12 @@ Route::get('/otzyvy', [MainController::class, 'otzyvy']);
 
 Route::get('/kontakty', [MainController::class, 'kontakty']);
 
+Route::get('/cart', [MainController::class, 'cart']);
+
+
+
+Route::get('/stat-partnerom', [MainController::class, 'stat_partnerom']);
+
 Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
 
 Route::get('/polzovatelskoe-soglashenie-s-publichnoj-ofertoj', [MainController::class, 'polzovatelskoe_soglashenie_s_publichnoj_ofertoj']);

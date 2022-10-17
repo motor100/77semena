@@ -1,6 +1,6 @@
 @section('title', 'Доставка и оплата')
 
-@extends('layouts.template')
+@extends('layouts.main')
 
 
 @section('content')

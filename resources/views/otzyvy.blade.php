@@ -1,6 +1,6 @@
 @section('title', 'Отзывы')
 
-@extends('layouts.template')
+@extends('layouts.main')
 
 
 @section('content')

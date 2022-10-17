@@ -1,6 +1,6 @@
 @section('title', 'Новости')
 
-@extends('layouts.template')
+@extends('layouts.main')
 
 
 @section('content')

@@ -74,6 +74,7 @@
               <div class="couter-text">3</div>
             </div>
             <div class="cart-text">корзина</div>
+            <a href="/cart" class="full-link"></a>
           </div>
         </div>
 
@@ -260,10 +261,10 @@
         <form id="callback-modal-form" class="form" method="post">
           @csrf
           <label class="label">
-            <input type="text" id="name" class="input-field" name="name" minlength="3" maxlength="20" placeholder="Ваше имя">
+            <input type="text" id="name" class="input-field" name="name" required minlength="3" maxlength="20" placeholder="Ваше имя">
           </label>
           <label class="label">
-            <input type="text" id="phone" class="input-field" name="phone" required maxlength="18" placeholder="+7 (999) 999 99 99">
+            <input type="text" id="phone" class="input-field js-input-phone-mask" name="phone" required maxlength="18" placeholder="+7 (999) 999 99 99">
           </label>
           <input type="hidden" name="info" id="callback-modal-info" value="">
           <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-callback-modal" checked required onchange="document.querySelector('.js-callback-modal-btn').disabled = !this.checked;">
@@ -350,7 +351,6 @@
   @yield('script')
   <script src="{{ asset('/js/imask.js') }}"></script>
   <script src="{{ asset('/js/main.js') }}"></script>
-
   
 </body>
 </html>

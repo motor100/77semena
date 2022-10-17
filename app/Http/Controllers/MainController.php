@@ -78,6 +78,16 @@ class MainController extends Controller
         return view('kontakty');
     }
 
+    public function cart()
+    {
+        return view('cart');
+    }
+
+    public function stat_partnerom()
+    {
+        return view('stat_partnerom');
+    }
+
     public function politika_konfidencialnosti()
     {
         return view('politika_konfidencialnosti');

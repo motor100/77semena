@@ -1,7 +1,6 @@
 @section('title', 'О компании')
 
-@extends('layouts.template')
-
+@extends('layouts.main')
 
 @section('content')
 
@@ -68,7 +67,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a href="#" class="o-kompanii-btn white-btn">
+          <a href="/stat-partnerom" class="o-kompanii-btn white-btn">
             <span class="btn__text">Стать партнером</span>
           </a>
         </div>

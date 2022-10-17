@@ -1,6 +1,6 @@
 @section('title', '404')
 
-@extends('layouts.template')
+@extends('layouts.main')
 
 @section('content')
 <div class="page404">

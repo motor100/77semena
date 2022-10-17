@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let body = document.querySelector('body'),
       header = document.querySelector('.header'), // header
       homePage = document.querySelector('.home-page'), // Главная страница
+      cartPage = document.querySelector('.cart .cart-items-wrapper'), // страника корзина
       otzyvyPage = document.querySelector('.otzyvy'); // Страница отзывы
 
 
@@ -110,20 +111,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Маска ввода телефона оформления заказа
-  let elementPhone = document.querySelector('.callback-modal #phone');
+  // Phone mask
+  let elementPhone = document.querySelectorAll('.js-input-phone-mask');
 
   let maskOptionsPhone = {
     mask: '+{7} (000) 000 00 00'
   };
-  let mask = IMask(elementPhone, maskOptionsPhone);
 
+  elementPhone.forEach((item) => {
+    let mask = IMask(item, maskOptionsPhone);
+  });
 
   // if(otzyvyPage) {
 
   // }
 
+  if (cartPage) {
 
+    let cartItems = document.querySelectorAll('.cart-item');
+    cartItems.forEach((item) => {
+
+      // quantity step
+      let quantityMinus = item.querySelector('.quantity-minus'),
+          quantityPlus = item.querySelector('.quantity-plus'),
+          quantityNumber = item.querySelector('.quantity-number');
+
+      quantityMinus.onclick = function(){
+        quantityNumber.stepDown();
+        // calc();
+      }
+      quantityPlus.onclick = function(){
+        quantityNumber.stepUp();
+        // calc();
+      }
+
+    });
+
+
+  }
   
 
 
