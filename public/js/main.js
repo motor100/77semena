@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Общие переменные
   let body = document.querySelector('body'),
       header = document.querySelector('.header'), // header
-      homePage = document.querySelector('.home-page'), // Главная страница
-      cartPage = document.querySelector('.cart .cart-items-wrapper'), // страника корзина
-      otzyvyPage = document.querySelector('.otzyvy'); // Страница отзывы
+      homePage = document.querySelector('.home-page'), // главная страница
+      cartPage = document.querySelector('.cart .cart-items-wrapper'), // страница корзина
+      catalogPage = document.querySelector('.catalog'), // страница каталог
+      otzyvyPage = document.querySelector('.otzyvy'); // страница отзывы
 
 
   // Скрывание кнопки Мы используем куки we use cookie
@@ -147,8 +148,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
   }
+
+  if (catalogPage) {
+    let catalogNavItemTitle = document.querySelectorAll('.catalog-nav-item__title');
+
+    catalogNavItemTitle.forEach((item) => {
+      item.onclick = function () {
+        item.parentNode.classList.toggle('catalog-nav-item-active');
+      }
+    });
+  }
+  
   
 
 

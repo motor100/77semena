@@ -21,6 +21,11 @@ class MainController extends Controller
         return view('home', compact('news'));
     }
 
+    public function catalog()
+    {
+        return view('catalog');
+    }
+
     public function o_kompanii()
     {
         return view('o_kompanii');

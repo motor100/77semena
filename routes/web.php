@@ -35,6 +35,8 @@ Route::get('/novosti/{id}/edit', [MainnewController::class, 'edit'])->name('novo
 
 Route::get('/', [MainController::class, 'home']) -> name('home');
 
+Route::get('/catalog', [MainController::class, 'catalog']);
+
 Route::get('/o-kompanii', [MainController::class, 'o_kompanii']);
 
 Route::get('/dostavka-i-oplata', [MainController::class, 'dostavka_i_oplata']);
@@ -48,6 +50,7 @@ Route::get('/otzyvy', [MainController::class, 'otzyvy']);
 Route::get('/kontakty', [MainController::class, 'kontakty']);
 
 Route::get('/cart', [MainController::class, 'cart']);
+
 
 
 

@@ -62,7 +62,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <a href="#" class="o-kompanii-btn yellow-btn">
+          <a href="/catalog" class="o-kompanii-btn yellow-btn">
             <span class="btn__text">Перейти к покупкам</span>
           </a>
         </div>

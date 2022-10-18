@@ -51,9 +51,9 @@
               <img class="logo-img" src="/img/logo.svg" alt="">
             </a>
           </div>
-          <div class="catalog-btn">
+          <a href="/catalog" class="catalog-btn">
             <span class="catalog-btn__text">Каталог</span>
-          </div>
+          </a>
           <form action="" class="form" method="get">
             <div class="form-container position-relative">
               <input type="text" class="search-input" value="">
