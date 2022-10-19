@@ -1,0 +1,251 @@
+@font-face {
+  font-family: 'montserrat-regular';
+  src: url(../fonts/montserrat-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-light';
+  src: url(../fonts/montserrat-light.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-medium';
+  src: url(../fonts/montserrat-medium.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-semibold';
+  src: url(../fonts/montserrat-semibold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-bold';
+  src: url(../fonts/montserrat-bold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+body {
+  min-width: 320px;
+  max-width: 1920px;
+  position: relative;
+  font-family: "montserrat-regular", sans-serif;
+  color: #3e3e3e;
+  margin: 0 auto;
+}
+input:active,
+input:focus,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+input::-moz-focus-inner {
+  border: 0;
+}
+textarea {
+  resize: none;
+}
+a, a:focus, a:active {
+  outline: none;
+}
+a, a:hover {
+  text-decoration: none;
+}
+button, button:focus, button:active {
+  outline: none;
+}
+img {
+  border-style: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.full-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.clear-both {
+  clear: both;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-center {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.hidden-desktop {
+  display: none;
+}
+.position-relative {
+  position: relative;
+}
+
+
+.auth-card-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.logo {
+  width: 300px;
+  margin: 0 0 32px 0;
+}
+.logo img {
+  width: 100%;
+}
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  border: 2px solid #8278B8;
+  border-radius: 30px;
+}
+.form-group {
+  margin: 0 0 32px 0;
+}
+.label {
+  display: block;
+  margin: 0 0 16px 0;
+  font-family: 'montserrat-semibold';
+  font-size: 20px;
+}
+.input {
+  display: block;
+  width: 100%;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #A9A9A9;
+  border-left: none;
+}
+
+
+.custom-checkbox-wrapper {
+  display: flex;
+  margin: 0 0 35px 0;
+  align-items: center;
+}
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.custom-checkbox + .custom-checkbox-label::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #E8E8E8;
+  border-radius: 5px;
+  margin: 0 10px 0 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 50%;
+  cursor: pointer;
+}
+.custom-checkbox:checked + .custom-checkbox-label::before {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%238278B8%0D%0A' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+.custom-checkbox-label {
+  display: block;
+}
+.checkbox-text {
+  line-height: 1.2;
+}
+
+.submit-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.forgot-password {
+  width: 50%;
+  padding: 30px 50px 0 0;
+  text-align: right;
+}
+.forgot-password-link {
+  padding: 0 0 2px 0;
+  border-bottom: 1px dotted #8278B8;
+  color: #3E3E3E;
+}
+.submit-btn {
+  display: block;
+  width: 50%;
+  padding: 20px 0;
+  border: none;
+  border-radius: 15px;
+  background: #8278B8;
+  font-family: 'montserrat-semibold';
+  font-size: 22px;
+  color: #E8E8E8;
+  cursor: pointer;
+}
+
+
+
+@media only screen and (max-width : 1400px) {
+  
+}
+
+@media only screen and (max-width : 1200px) {
+  
+}
+
+@media only screen and (max-width : 992px) {
+  
+}
+
+@media only screen and (max-width : 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  .hidden-desktop {
+    display: block;
+  }
+  
+  .messages_cookies-wrapper {
+    margin: 0 12px;
+  }
+  .messages_cookies-text {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .messages_cookies-close {
+    position: static;
+  }
+  
+}
+
+@media only screen and (max-width : 480px) {
+  
+}
+
+@media only screen and (min-width : 768px) {
+  
+}

@@ -88,6 +88,11 @@ class MainController extends Controller
         return view('cart');
     }
 
+    public function poisk(Request $request)
+    {
+        return view('poisk');
+    }
+
     public function stat_partnerom()
     {
         return view('stat_partnerom');

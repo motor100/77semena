@@ -43,7 +43,12 @@
         </div>
         <div class="col-md-10">
           <div class="products">
-            <div class="products-title">Газон</div>
+            <div class="products-title-wrapper">
+              <div class="products-title">Газон</div>
+              <div class="products-filter">
+                <span class="products-filter__text">Сначала дешевые</span>
+              </div>
+            </div>
             <div class="row">
               <div class="col-3">
                 <div class="products-item">

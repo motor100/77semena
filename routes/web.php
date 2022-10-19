@@ -51,6 +51,8 @@ Route::get('/kontakty', [MainController::class, 'kontakty']);
 
 Route::get('/cart', [MainController::class, 'cart']);
 
+Route::get('/poisk', [MainController::class, 'poisk']);
+
 
 
 
