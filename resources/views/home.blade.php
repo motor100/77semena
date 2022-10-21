@@ -34,7 +34,7 @@
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
             </div>
-            <a href="#" class="full-link"></a>
+            <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
         <div class="col-md-3">

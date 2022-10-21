@@ -93,6 +93,17 @@ class MainController extends Controller
         return view('poisk');
     }
 
+    public function single_product()
+    {
+        return view('single-product');
+    }
+
+
+    
+
+
+
+
     public function stat_partnerom()
     {
         return view('stat_partnerom');

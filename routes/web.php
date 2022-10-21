@@ -55,6 +55,9 @@ Route::get('/poisk', [MainController::class, 'poisk']);
 
 
 
+Route::get('/catalog/single-product', [MainController::class, 'single_product']);
+
+
 
 Route::get('/stat-partnerom', [MainController::class, 'stat_partnerom']);
 

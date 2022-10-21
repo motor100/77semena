@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
       homePage = document.querySelector('.home-page'), // главная страница
       cartPage = document.querySelector('.cart .cart-items-wrapper'), // страница корзина
       catalogPage = document.querySelector('.catalog'), // страница каталог
+      singleProduct = document.querySelector('.single-product'), // страница товара
       otzyvyPage = document.querySelector('.otzyvy'); // страница отзывы
 
 
@@ -161,6 +162,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   
+  if (singleProduct) {
+    // single product slider
+    const singleProductSlider = new Swiper('.single-product-slider', {
+      slidesPerView: 1,
+      // loop: true,
+      centeredSlides: true,
+      // navigation: {
+      //   nextEl: ".single-product-slider .slider-navigation .next",
+      //   prevEl: ".single-product-slider .slider-navigation .prev",
+      // },
+    });
+  }
 
 
 });
