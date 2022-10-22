@@ -71,14 +71,13 @@
             <div class="cart-icon">
               <img src="/img/cart-icon.svg" alt="">
             </div>
-            <div class="couter">
-              <div class="couter-text">3</div>
+            <div class="counter">
+              <div class="counter-text">3</div>
             </div>
             <div class="cart-text">корзина</div>
             <a href="/cart" class="full-link"></a>
           </div>
         </div>
-
         <div class="top-menu hidden-mobile">
           <div class="row">
             <div class="col-md-4"></div>
@@ -107,7 +106,6 @@
             <div class="col-md-1"></div>
           </div>
         </div>
-
       </div>
     </div>
     
@@ -327,6 +325,9 @@
   <?php endif; ?>
 
   <div class="sticky-desktop-menu hidden-mobile">
+    <div class="container">
+
+    
     <div class="header-content">
       <div class="logo">
         <a href="{{ route('home') }}" class="logo">
@@ -362,12 +363,13 @@
         <div class="cart-icon">
           <img src="/img/cart-icon.svg" alt="">
         </div>
-        <div class="couter">
-          <div class="couter-text">3</div>
+        <div class="counter">
+          <div class="counter-text">3</div>
         </div>
         <div class="cart-text">корзина</div>
         <a href="/cart" class="full-link"></a>
       </div>
+    </div>
     </div>
   </div>
 

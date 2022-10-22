@@ -120,7 +120,7 @@
           <div class="mission-item__image">
             <img src="/img/document-icon.png" alt="">
           </div>
-          <div class="mission-item__text">Запрашиваем сертификаты качества у поставщиков</div>
+          <div class="mission-item__text">Сертификаты качества</div>
         </div>
         <div class="mission-item">
           <div class="mission-item__image">
