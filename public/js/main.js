@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // Скрывание кнопки Мы используем куки we use cookie
-  let messagesCookies = document.querySelector('.messages_cookies'),
-      messagesCookiesClose = document.querySelector('.messages_cookies-close');
+  let messagesCookies = document.querySelector('.messages-cookies'),
+      messagesCookiesClose = document.querySelector('.messages-cookies-close');
 
   if (messagesCookiesClose) {
     messagesCookiesClose.onclick = function() {
@@ -123,6 +123,19 @@ document.addEventListener("DOMContentLoaded", () => {
   elementPhone.forEach((item) => {
     let mask = IMask(item, maskOptionsPhone);
   });
+
+  // Sticky desktop menu
+  window.onscroll = function() {
+    let scrStickyDesktopMenu = window.pageYOffset || document.documentElement.scrollTop,
+        stickyDesktopMenu = document.querySelector(".sticky-desktop-menu");
+    if (scrStickyDesktopMenu > 400) {
+      stickyDesktopMenu.classList.add('sticky-desktop-menu-active');
+    }
+    if (scrStickyDesktopMenu < 400) {
+      stickyDesktopMenu.classList.remove('sticky-desktop-menu-active');
+    }
+  }
+
 
   // if(otzyvyPage) {
 

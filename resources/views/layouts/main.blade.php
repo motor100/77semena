@@ -106,7 +106,6 @@
             </div>
             <div class="col-md-1"></div>
           </div>
-          
         </div>
 
       </div>
@@ -195,22 +194,14 @@
     <div class="horizontal-line"></div>
     <div class="footer-bottom">
       <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="copyright font-semibold">@ 77semena, <?php echo date("Y"); ?></div>
-          </div>
-          <div class="col-md-6">
-            <div class="authors">
-              <div class="author">
-                <span class="author-text">Дизайн </span>
-                <a href="#" class="author-name font-semibold">Andrewwebnh</a>
-              </div>
-              <div class="author">
-                <span class="author-text">Поддержка </span>
-                <a href="#" class="author-name font-semibold">Button</a>
-              </div>
-            </div>
-          </div>
+        <div class="copyright">@ 77semena, <?php echo date("Y"); ?></div>
+        <div class="author">
+          <span class="author-text">Дизайн </span>
+          <a href="#" class="author-name">Andrewwebnh</a>
+        </div>
+        <div class="author">
+          <span class="author-text">Поддержка </span>
+          <a href="#" class="author-name">Button</a>
         </div>
       </div>
     </div>
@@ -325,14 +316,60 @@
   </div>
 
   <?php if (empty($_COOKIE['we-use-cookie'])): ?>
-    <div class="messages_cookies">
-      <div class="messages_cookies-wrapper">
-        <div class="messages_cookies-text">Этот веб-сайт использует файлы cookie. Вы можете прочитать подробнее о cookie-файлах или изменить настройки браузера. Продолжая пользоваться сайтом без изменения настроек, вы даёте согласие на использование ваших cookie-файлов.</div>
-        <button class="messages_cookies-close">ОК</button>
-        <div class="clear-both"></div>
+    <div class="messages-cookies">
+      <div class="container">
+        <div class="messages-cookies-wrapper">
+          <div class="messages-cookies-text">Этот сайт использует cookies, не пугайтесь.<br>Если согласны, то нажмите "ОК"</div>
+          <button class="messages-cookies-close">ОК</button>
+        </div>
       </div>
     </div>
   <?php endif; ?>
+
+  <div class="sticky-desktop-menu hidden-mobile">
+    <div class="header-content">
+      <div class="logo">
+        <a href="{{ route('home') }}" class="logo">
+          <img class="logo-img" src="/img/logo.svg" alt="">
+        </a>
+      </div>
+      <a href="/catalog" class="catalog-btn">
+        <span class="catalog-btn__text">Каталог</span>
+      </a>
+      <div class="top-menu">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="{{ route('home') }}">Главная</a>
+          </li>
+          <li class="menu-item">
+            <a href="/o-kompanii">О компании</a>
+          </li>
+          <li class="menu-item">
+            <a href="/dostavka-i-oplata">Доставка и оплата</a>
+          </li>
+          <li class="menu-item">
+            <a href="/novosti">Новости</a>
+          </li>
+          <li class="menu-item">
+            <a href="/otzyvy">Отзывы</a>
+          </li>
+          <li class="menu-item">
+            <a href="/kontakty">Контакты</a>
+          </li>
+        </ul>
+      </div>
+      <div class="cart">
+        <div class="cart-icon">
+          <img src="/img/cart-icon.svg" alt="">
+        </div>
+        <div class="couter">
+          <div class="couter-text">3</div>
+        </div>
+        <div class="cart-text">корзина</div>
+        <a href="/cart" class="full-link"></a>
+      </div>
+    </div>
+  </div>
 
   @if(Auth::check())
     <div class="top-line-is-login">

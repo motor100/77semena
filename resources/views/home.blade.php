@@ -126,7 +126,7 @@
           <div class="mission-item__image">
             <img src="/img/shield-icon.png" alt="">
           </div>
-          <div class="mission-item__text">Гарантия возврата и обмена товара в соответствии с законодательством РФ</div>
+          <div class="mission-item__text">Гарантия возврата и обмена товара</div>
         </div>
       </div>
     </div>
@@ -149,52 +149,52 @@
   <div class="popular-categories">
     <div class="container">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="popular-category-item">
-            <div class="popular-category-item__title">Овощи</div>
-            <div class="popular-category-item__image">
-              <img src="/img/popular-category-vegetables-icon.png" alt="">
+            <div class="popular-category-item-title-wrapper">
+              <div class="popular-category-item__title">Перцы</div>
+              <div class="popular-category-item-arrow-right"></div>
             </div>
+            <div class="popular-category-item__image">
+              <img src="/img/popular-category-pepper.png" alt="">
+            </div>
+            <a href="#" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="popular-category-item">
-            <div class="popular-category-item__title">Газон</div>
-            <div class="popular-category-item__image">
-              <img src="/img/popular-category-grass-icon.png" alt="">
+            <div class="popular-category-item-title-wrapper">
+              <div class="popular-category-item__title">Томаты</div>
+              <div class="popular-category-item-arrow-right"></div>
             </div>
+            <div class="popular-category-item__image">
+              <img src="/img/popular-category-tomato.png" alt="">
+            </div>
+            <a href="#" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="popular-category-item">
-            <div class="popular-category-item__title">Цветы</div>
-            <div class="popular-category-item__image">
-              <img src="/img/popular-category-flovers-icon.png" alt="">
+            <div class="popular-category-item-title-wrapper">
+              <div class="popular-category-item__title">Огурцы</div>
+              <div class="popular-category-item-arrow-right"></div>
             </div>
+            <div class="popular-category-item__image">
+              <img src="/img/popular-category-cucumber.png" alt="">
+            </div>
+            <a href="#" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="popular-category-item">
-            <div class="popular-category-item__title">Ягоды</div>
-            <div class="popular-category-item__image">
-              <img src="/img/popular-category-berries-icon.png" alt="">
+            <div class="popular-category-item-title-wrapper">
+              <div class="popular-category-item__title">Агрохимия</div>
+              <div class="popular-category-item-arrow-right"></div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="popular-category-item">
-            <div class="popular-category-item__title">Цветы</div>
             <div class="popular-category-item__image">
-              <img src="/img/popular-category-flovers-icon.png" alt="">
+              <img src="/img/popular-category-chemistry.png" alt="">
             </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="popular-category-item">
-            <div class="popular-category-item__title">Ягоды</div>
-            <div class="popular-category-item__image">
-              <img src="/img/popular-category-berries-icon.png" alt="">
-            </div>
+            <a href="#" class="full-link"></a>
           </div>
         </div>
       </div>
