@@ -10,7 +10,7 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
-          <a class="full-link" href="#"></a>
+          <a class="full-link" href="/novinki"></a>
         </div>
       </div>
     </div>
@@ -20,7 +20,6 @@
       <div class="row">
         <div class="col-md-3">
           <div class="new-products-item">
-            <div class="new-products-item__text">Товар месяца</div>
             <div class="new-products-item__content">
               <div class="new-products-item__image">
                 <img src="/img/product-image.jpg" alt="">
@@ -29,7 +28,7 @@
             </div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -39,7 +38,6 @@
         </div>
         <div class="col-md-3">
           <div class="new-products-item">
-            <div class="new-products-item__text">Товар месяца</div>
             <div class="new-products-item__content">
               <div class="new-products-item__image">
                 <img src="/img/product-image.jpg" alt="">
@@ -48,7 +46,7 @@
             </div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -58,7 +56,6 @@
         </div>
         <div class="col-md-3">
           <div class="new-products-item">
-            <div class="new-products-item__text">Товар месяца</div>
             <div class="new-products-item__content">
               <div class="new-products-item__image">
                 <img src="/img/product-image.jpg" alt="">
@@ -67,7 +64,7 @@
             </div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -77,7 +74,6 @@
         </div>
         <div class="col-md-3">
           <div class="new-products-item">
-            <div class="new-products-item__text">Товар месяца</div>
             <div class="new-products-item__content">
               <div class="new-products-item__image">
                 <img src="/img/product-image.jpg" alt="">
@@ -86,7 +82,7 @@
             </div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -141,7 +137,7 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
-          <a class="full-link" href="#"></a>
+          <a class="full-link" href="/catalog"></a>
         </div>
       </div>
     </div>
@@ -227,7 +223,7 @@
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -244,7 +240,7 @@
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -261,7 +257,7 @@
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -278,7 +274,7 @@
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -295,7 +291,7 @@
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
@@ -312,7 +308,7 @@
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="item__quantity" data-id="">
               <div class="circle"></div>

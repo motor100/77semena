@@ -38,7 +38,7 @@
           <a href="tel:+7" class="phone-number">+7 (858) 754-65-85</a>
         </div>
         <div class="callback-btn js-header-callback-btn">
-          <div class="callback-btn__text">обратный звонок</div>
+          <span class="callback-btn__text">обратный звонок</span>
         </div>
       </div>
     </div>

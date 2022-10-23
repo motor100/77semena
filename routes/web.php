@@ -53,6 +53,7 @@ Route::get('/cart', [MainController::class, 'cart']);
 
 Route::get('/poisk', [MainController::class, 'poisk']);
 
+Route::get('/novinki', [MainController::class, 'novinki']);
 
 
 Route::get('/catalog/single-product', [MainController::class, 'single_product']);
