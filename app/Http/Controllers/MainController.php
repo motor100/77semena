@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
@@ -67,7 +68,10 @@ class MainController extends Controller
 
     public function otzyvy()
     {   
-        $testimonials = \App\Models\Testimonial::limit(100)->get();
+        $testimonials = \App\Models\Testimonial::limit(100)
+                                            ->whereNotNull('publicated_at')
+                                            ->orderBy('created_at', 'desc')
+                                            ->get();
 
         foreach ($testimonials as $ts) {
             $ts['date'] = MainController::datetime_format($ts['created_at'], 3);
@@ -93,15 +97,39 @@ class MainController extends Controller
         return view('poisk');
     }
 
+    public function single_product()
+    {
+        return view('single-product');
+    }
+
+
+
+    // temp
     public function novinki()
     {
         return view('novinki');
     }
 
-    public function single_product()
+    public function peppers()
     {
-        return view('single-product');
+        return view('peppers');
     }
+
+    public function tomatoes()
+    {
+        return view('tomatoes');
+    }
+
+    public function cucumbers()
+    {
+        return view('cucumbers');
+    }
+
+    public function chemicals()
+    {
+        return view('chemicals');
+    }
+
 
 
     
@@ -143,6 +171,26 @@ class MainController extends Controller
         return view('crud', compact('news'));
     }
 
+    public function ajax_testimonial(Request $request)
+    {   
+        $request->validate([
+            'name' => 'required|min:3|max:20',
+            'city' => 'required|min:3|max:30',
+            'text' => 'required|min:3|max:300',
+            'checkbox' => 'accepted'
+        ]);
+
+        $testimonials = new Testimonial([
+            'name' => $request->get('name'),
+            'city' => $request->get('city'),
+            'text' => $request->get('text'),
+            'publicated_at' => NULL
+        ]);
+
+        $testimonials->save();
+
+        return true;
+    }
 
 
     /*

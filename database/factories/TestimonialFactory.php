@@ -20,6 +20,7 @@ class TestimonialFactory extends Factory
             'name' => $this->faker->name(),
             'text' => $this->faker->text(100),
             'city' => $this->faker->city(),
+            'publicated_at' => date('Y-m-d H:i:s'),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()
         ];

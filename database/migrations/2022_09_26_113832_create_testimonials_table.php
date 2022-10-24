@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('city');
             $table->text('text');
+            $table->text('publicated_at')->nullable();
             $table->timestamps();
         });
 

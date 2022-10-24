@@ -278,8 +278,6 @@
           @foreach($cities as $city)
             <div class="city-item">{{ $city->city }}</div>
           @endforeach
-          <div class="city-item">Челябинск</div>
-          <div class="city-item">Магнитогорск</div>
         </div>
       </div>
     </div>
@@ -295,19 +293,20 @@
         <form id="testimonials-modal-form" class="form" method="post">
           @csrf
           <label class="label">
-            <input type="text" id="name" class="input-field" name="name" minlength="3" maxlength="20" placeholder="Ваше имя">
+            <input type="text" id="testimonials-name" class="input-field" name="name" required minlength="3" maxlength="20" placeholder="Ваше имя">
           </label>
           <label class="label">
-            <input type="text" id="city" class="input-field" name="city" required minlength="3" maxlength="30" placeholder="Ваш город">
+            <input type="text" id="testimonials-city" class="input-field" name="city" required minlength="3" maxlength="30" placeholder="Ваш город">
           </label>
           <label class="label">
-            <textarea id="testimonial" class="input-field" name="testimonial" rows="5" placeholder="Напишите отзыв"></textarea>
+            <textarea id="testimonials-text" class="input-field" name="text" rows="5" required minlength="3" maxlength="300" placeholder="Напишите отзыв"></textarea>
           </label>
           <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-testimonials-modal" checked required onchange="document.querySelector('.js-testimonials-modal-btn').disabled = !this.checked;">
           <label for="checkbox-testimonials-modal" class="custom-checkbox-label"></label>
           <span class="checkbox-text">Согласен с <a href="/politika-konfidencialnosti" class="privacy-policy-btn" target="_blank">политикой обработки персональных данных</a></span>
           
           <input type="button" class="submit-btn js-testimonials-modal-btn" value="Отправить">
+          <!-- <input type="submit" class="submit-btn js-testimonials-modal-btn" value="Отправить"> -->
         </form>
       </div>
     </div>

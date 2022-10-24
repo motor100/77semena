@@ -53,8 +53,6 @@ Route::get('/cart', [MainController::class, 'cart']);
 
 Route::get('/poisk', [MainController::class, 'poisk']);
 
-Route::get('/novinki', [MainController::class, 'novinki']);
-
 
 Route::get('/catalog/single-product', [MainController::class, 'single_product']);
 
@@ -71,7 +69,20 @@ Route::get('/garantiya-vozvrata-denezhnyh-sredstv', [MainController::class, 'gar
 Route::get('/dokumenty', [MainController::class, 'dokumenty']);
 
 
+// temp
 
+Route::get('/novinki', [MainController::class, 'novinki']);
+
+Route::get('/peppers', [MainController::class, 'peppers']);
+
+Route::get('/tomatoes', [MainController::class, 'tomatoes']);
+
+Route::get('/cucumbers', [MainController::class, 'cucumbers']);
+
+Route::get('/chemicals', [MainController::class, 'chemicals']);
+
+
+Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
 
 
 

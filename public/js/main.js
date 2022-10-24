@@ -137,9 +137,123 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // if(otzyvyPage) {
+  // Отправка формы ajax в модальном окне
+  let callbackModalForm = document.querySelector("#callback-modal-form"),
+      callbackModalBtn = document.querySelector('.js-callback-modal-btn');
 
-  // }
+  callbackModalBtn.onclick = function() {
+    ajaxCallback(callbackModalForm);
+  }
+
+  function ajaxCallback(form) {
+
+    let inputs = form.querySelectorAll('.input-field');
+    let arr = [];
+
+    let inputName = form.querySelector('#name');
+    if (inputName.value.length < 3 || inputName.value.length > 20 ) {
+      inputName.classList.add('required');
+      arr.push(false);
+    }
+
+    let inputPhone = form.querySelector('#phone');
+    if (inputPhone.value.length != 18) {
+      inputPhone.classList.add('required');
+      arr.push(false);
+    }
+
+    let inputCheckbox = form.querySelector('#checkbox-callback-modal');
+    if (!inputCheckbox.checked) {
+      arr.push(false);
+    }
+
+    if (arr.length == 0) {
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].classList.remove('required');
+      }
+
+      let formData = {
+        name: inputName.value,
+        phone: inputPhone.value,
+        checkbox: inputCheckbox.checked,
+        token: form.querySelector('input[name="_token"]').value
+      };
+
+      let request = new XMLHttpRequest();
+
+      request.open('post', "/vendor/phpmailer/mailer.php");
+      request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      request.send('name=' + encodeURIComponent(formData.name) + '&phone=' + encodeURIComponent(formData.phone) + '&checkbox=' + encodeURIComponent(formData.checkbox) + '&_token=' + encodeURIComponent(formData.token));
+
+      alert("Спасибо. Мы свяжемся с вами.");
+
+      callbackModalForm.reset();
+    }
+  }
+
+  if(otzyvyPage) {
+
+    // Добавление отзывов
+    let testimonialsModalForm = document.querySelector("#testimonials-modal-form"),
+        testimonialsModalBtn = document.querySelector('.js-testimonials-modal-btn');
+
+    testimonialsModalBtn.onclick = function() {
+      ajaxTestimonials(testimonialsModalForm);
+    }
+
+    function ajaxTestimonials(form) {
+
+      let inputs = form.querySelectorAll('.input-field');
+      let arr = [];
+
+      let inputName = form.querySelector('#testimonials-name');
+      if (inputName.value.length < 3 || inputName.value.length > 20 ) {
+        inputName.classList.add('required');
+        arr.push(false);
+      }
+
+      let inputCity = form.querySelector('#testimonials-city');
+      if (inputCity.value.length < 3 || inputCity.value.length > 30 ) {
+        inputCity.classList.add('required');
+        arr.push(false);
+      }
+
+      let inputText = form.querySelector('#testimonials-text');
+      if (inputText.value.length < 3 || inputText.value.length > 300 ) {
+        inputText.classList.add('required');
+        arr.push(false);
+      }
+
+      let inputCheckbox = form.querySelector('#checkbox-testimonials-modal');
+      if (!inputCheckbox.checked) {
+        arr.push(false);
+      }
+
+      if (arr.length == 0) {
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].classList.remove('required');
+        }
+
+        let formData = {
+          name: inputName.value,
+          city: inputCity.value,
+          text: inputText.value,
+          checkbox: inputCheckbox.checked,
+          token: form.querySelector('input[name="_token"]').value
+        };
+
+        let request = new XMLHttpRequest();
+
+        request.open('post', "/ajax/testimonial");
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send('name=' + encodeURIComponent(formData.name) + '&city=' + encodeURIComponent(formData.city) + '&text=' + encodeURIComponent(formData.text) + '&checkbox=' + encodeURIComponent(formData.checkbox) + '&_token=' + encodeURIComponent(formData.token));
+
+        alert("Спасибо за отзыв.");
+
+        testimonialsModalForm.reset();
+      }
+    }
+  }
 
   if (cartPage) {
 

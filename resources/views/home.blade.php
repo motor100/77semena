@@ -154,7 +154,7 @@
             <div class="popular-category-item__image">
               <img src="/img/popular-category-pepper.png" alt="">
             </div>
-            <a href="#" class="full-link"></a>
+            <a href="/peppers" class="full-link"></a>
           </div>
         </div>
         <div class="col-md-3">
@@ -166,7 +166,7 @@
             <div class="popular-category-item__image">
               <img src="/img/popular-category-tomato.png" alt="">
             </div>
-            <a href="#" class="full-link"></a>
+            <a href="/tomatoes" class="full-link"></a>
           </div>
         </div>
         <div class="col-md-3">
@@ -178,7 +178,7 @@
             <div class="popular-category-item__image">
               <img src="/img/popular-category-cucumber.png" alt="">
             </div>
-            <a href="#" class="full-link"></a>
+            <a href="/cucumbers" class="full-link"></a>
           </div>
         </div>
         <div class="col-md-3">
@@ -188,9 +188,9 @@
               <div class="popular-category-item-arrow-right"></div>
             </div>
             <div class="popular-category-item__image">
-              <img src="/img/popular-category-chemistry.png" alt="">
+              <img src="/img/popular-category-chemical.png" alt="">
             </div>
-            <a href="#" class="full-link"></a>
+            <a href="/chemicals" class="full-link"></a>
           </div>
         </div>
       </div>
@@ -202,7 +202,7 @@
   <div class="section-title-wrapper">
     <div class="container">
       <div class="section-title">
-        <div class="section-title__text">Новинки семян</div>
+        <div class="section-title__text">Акции</div>
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
