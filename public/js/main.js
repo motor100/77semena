@@ -293,12 +293,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // single product slider
     const singleProductSlider = new Swiper('.single-product-slider', {
       slidesPerView: 1,
-      // loop: true,
+      loop: true,
       centeredSlides: true,
-      // navigation: {
-      //   nextEl: ".single-product-slider .slider-navigation .next",
-      //   prevEl: ".single-product-slider .slider-navigation .prev",
-      // },
+      navigation: {
+        nextEl: ".single-product-slider .btn-prev",
+        prevEl: ".single-product-slider .btn-next",
+      },
     });
   }
 

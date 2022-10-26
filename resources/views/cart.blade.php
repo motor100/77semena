@@ -27,6 +27,9 @@
     </div>
   </div>
 
+  <!-- <div class="cart-item__stock">нет в наличии</div> -->
+
+<!-- 
   <div class="cart-items-wrapper">
     <div class="container">
 
@@ -38,7 +41,6 @@
         </div>
         <div class="cart-item__content">
           <div class="cart-item__stock cart-item__in-stock">в наличии</div>
-          <!-- <div class="cart-item__stock">нет в наличии</div> -->
           <div class="cart-item__title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1 Огурец "СИБИРСКАЯ ГИРЛЯНДА" F1</div>
 
           <div class="cart-item__quantity">
@@ -67,7 +69,6 @@
         </div>
         <div class="cart-item__content">
           <div class="cart-item__stock cart-item__in-stock">в наличии</div>
-          <!-- <div class="cart-item__stock">нет в наличии</div> -->
           <div class="cart-item__title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1 Огурец "СИБИРСКАЯ ГИРЛЯНДА" F1</div>
 
           <div class="cart-item__quantity">
@@ -96,7 +97,6 @@
         </div>
         <div class="cart-item__content">
           <div class="cart-item__stock cart-item__in-stock">в наличии</div>
-          <!-- <div class="cart-item__stock">нет в наличии</div> -->
           <div class="cart-item__title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1 Огурец "СИБИРСКАЯ ГИРЛЯНДА" F1</div>
 
           <div class="cart-item__quantity">
@@ -156,9 +156,6 @@
           </div>
         </div>
       </div>
-
-    <!-- <div class="cart-is-empty">Корзина пуста</div> -->
-
     </div>
   </div>
 
@@ -282,7 +279,40 @@
       </div>
     </div>
   </div>
- 
+  -->
+
+  <div class="cart-is-empty">
+    <div class="container">
+      <div class="cart-is-empty-content">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <div class="cart-is-empty-image">
+              <img src="/img/cart-is-empty.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-is-empty-content">
+        <div class="row">
+          <div class="cart-is-empty-text">УПС.... В вашей корзине ничего нет(</div>
+        </div>
+      </div>
+      <div class="cart-is-empty-content">
+        <div class="row">
+          <div class="col-md-3 ms-auto">
+            <div class="cart-is-empty-btn cart-is-empty-back-btn" onclick="history.back();">
+              <span class="cart-is-empty-btn__text">Вернуться назад</span>
+            </div>
+          </div>
+          <div class="col-md-3 me-auto">
+            <a href="/" class="cart-is-empty-btn cart-is-empty-home-btn">
+              <span class="cart-is-empty-btn__text">Главная</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 

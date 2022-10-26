@@ -99,7 +99,7 @@ class MainController extends Controller
 
     public function single_product()
     {
-        return view('single-product');
+        return view('single_product');
     }
 
 

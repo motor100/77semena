@@ -50,7 +50,27 @@
                 </div>
               </div>
             </div>
+            <div class="btn-prev">
+              <div class="arrow"></div>
+            </div>
+            <div class="btn-next">
+              <div class="arrow"></div>
+            </div>
           </div>
+
+          <div class="slider-navigation">
+            <div class="circle-arrow prev">
+              <div class="left"></div>
+            </div>
+            <div class="circle-arrow next">
+              <div class="right"></div>
+            </div>
+          </div>
+
+
+
+
+
         </div>
         <div class="col-md-5">
           <div class="single-product-title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1</div>
