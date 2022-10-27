@@ -932,29 +932,52 @@ ul {
   font-family: 'montserrat-medium';
   font-size: 14px;
 }
-.dostavka-i-oplata .select-css { 
-  display: block; 
-  font-size: 20px;
-  font-weight: 700; 
-  color: #444; 
-  padding: 14px 8px;
-  width: 100%; 
-  max-width: 100%; 
-  margin: 0; 
+.dostavka-i-oplata .ss-main .ss-single-selected {
+  height: auto;
+  margin: 0;
+  padding: 20px;
   border: 1px solid #E8E8E8;
   border-radius: 15px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fff; 
-} 
-.dostavka-i-oplata .select-css::-ms-expand {
+  font-family: 'montserrat-medium';
+  font-size: 18px;
+  color: #3E3E3E;
+  transition: border .3s;
+}
+.dostavka-i-oplata .ss-main:hover .ss-single-selected {
+  border-color: #888;
+}
+.dostavka-i-oplata .ss-content {
+  margin: 8px 0 0 0;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) .3s,opacity cubic-bezier(0.215, 0.61, 0.355, 1) .3s,visibility cubic-bezier(0.215, 0.61, 0.355, 1) .3s;
+}
+.dostavka-i-oplata .ss-content.ss-open {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.dostavka-i-oplata .ss-main .ss-single-selected.ss-open-above ~ .ss-content {
+  top: 50px;
+}
+.dostavka-i-oplata .ss-main .ss-single-selected .ss-arrow span {
+  border: solid #3E3E3E;
+  border-width: 0 1px 1px 0;
+  transition: transform .4s,margin .2s;
+}
+.dostavka-i-oplata .ss-main .ss-single-selected .ss-arrow span.arrow-down {
+  margin: 0;
+}
+
+
+
+/* .dostavka-i-oplata .select-city::-ms-expand {
   display: none;
 } 
-.dostavka-i-oplata .select-css:hover {
-  border-color: #888;
-} 
-.dostavka-i-oplata .select-css option {
+*/
+.dostavka-i-oplata .select-city option {
   font-family: 'montserrat-medium';
   font-weight: normal;
   margin: 10px 0;
@@ -1043,7 +1066,13 @@ ul {
   overflow-y: auto;
   scrollbar-color: #fff rgba(255,255,255,0.18);
   scrollbar-width: thin;
-} 
+}
+.offices .offices-name .offices-items::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.offices .offices-name .offices-items::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
 .offices .offices-name .offices-item {
   display: flex;
   margin: 0 0 20px 0;
@@ -1507,39 +1536,41 @@ ul {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 268px;
-  height: 66px;
   margin: 0 0 -1px 0;
-  padding: 17px 0;
-  border: 1px solid #3E3E3E;
-  text-align: center;
-  cursor: pointer;
 }
-.catalog .products .products-filter__text {
-  position: relative;
-  padding: 0 15px 0 0;
+.catalog .products .ss-main {
+  width: 220px;
   font-family: 'montserrat-semibold';
-  font-size: 20px;
   color: #000;
 }
-.catalog .products .products-filter__text::before,
-.catalog .products .products-filter__text::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  width: 10px;
-  height: 1px;
-  background-color: #3E3E3E;
+.catalog .products .ss-main .ss-single-selected {
+  height: auto;
+  padding: 15px 20px;
+  border: 1px solid #3E3E3E;
+  border-radius: 0;
 }
-.catalog .products .products-filter__text::before {
-  top: 8px;
-  transform: rotate(45deg);
+.catalog .products .ss-content {
+  margin: 10px 0 0 0;
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) .3s,opacity cubic-bezier(0.215, 0.61, 0.355, 1) .3s,visibility cubic-bezier(0.215, 0.61, 0.355, 1) .3s;
 }
-.catalog .products .products-filter__text::after {
-  top: 15px;
+.catalog .products .ss-content.ss-open {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.catalog .products .ss-main .ss-single-selected.ss-open-above ~ .ss-content {
+  top: 38px;
+}
+.catalog .products .ss-main .ss-single-selected .ss-arrow span {
+  border: solid #3E3E3E;
+  border-width: 0 1px 1px 0;
+  transition: transform .4s,margin .2s;
+}
+.catalog .products .ss-main .ss-single-selected .ss-arrow span.arrow-down {
+  margin: 0;
   transform: rotate(-45deg);
 }
-
 .catalog .horizontal-line {
   height: 1px;
   margin: 0 0 20px 0;

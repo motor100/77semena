@@ -131,6 +131,9 @@ ul {
 .form-group {
   margin: 0 0 32px 0;
 }
+.first-form-group {
+  margin: 0 0 45px 0;
+}
 .label {
   display: block;
   margin: 0 0 16px 0;
@@ -180,13 +183,13 @@ ul {
   line-height: 1.2;
 }
 
-.submit-btn-wrapper {
+.form-footer {
   display: flex;
   justify-content: space-between;
 }
 .forgot-password {
   width: 50%;
-  padding: 30px 50px 0 0;
+  padding: 24px 50px 0 0;
   text-align: right;
 }
 .forgot-password-link {
@@ -194,9 +197,12 @@ ul {
   border-bottom: 1px dotted #8278B8;
   color: #3E3E3E;
 }
+.submit-btn-wrapper {
+  width: 50%;
+}
 .submit-btn {
   display: block;
-  width: 50%;
+  width: 100%;
   padding: 20px 0;
   border: none;
   border-radius: 15px;

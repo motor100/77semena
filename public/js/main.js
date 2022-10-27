@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cartPage = document.querySelector('.cart .cart-items-wrapper'), // страница корзина
       catalogPage = document.querySelector('.catalog'), // страница каталог
       singleProduct = document.querySelector('.single-product'), // страница товара
+      dostavkaIOplataPage = document.querySelector('.dostavka-i-oplata'), // страница доставка и оплата
       otzyvyPage = document.querySelector('.otzyvy'); // страница отзывы
 
 
@@ -286,9 +287,14 @@ document.addEventListener("DOMContentLoaded", () => {
         item.parentNode.classList.toggle('catalog-nav-item-active');
       }
     });
+
+    const productsFilterSelect = new SlimSelect({
+      select: '#products-filter',
+      showSearch: false,
+      searchFocus: false,
+    })
   }
-  
-  
+    
   if (singleProduct) {
     // single product slider
     const singleProductSlider = new Swiper('.single-product-slider', {
@@ -300,6 +306,14 @@ document.addEventListener("DOMContentLoaded", () => {
         prevEl: ".single-product-slider .btn-next",
       },
     });
+  }
+
+  if (dostavkaIOplataPage) {
+    const selectCity = new SlimSelect({
+      select: '#select-city',
+      showSearch: false,
+      searchFocus: false,
+    })
   }
 
 

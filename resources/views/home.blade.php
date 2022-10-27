@@ -206,7 +206,7 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
-          <a class="full-link" href="#"></a>
+          <a class="full-link" href="/catalog"></a>
         </div>
       </div>
     </div>
@@ -214,7 +214,6 @@
   <div class="new-seeds products">
     <div class="container">
       <div class="row">
-      <!-- col-xxl-3 col-lg-4 col-md-6 d-lg-none d-xxl-block -->
         <div class="col-xxl-2 col-lg-3">
           <div class="products-item">
             <div class="products-item__image">

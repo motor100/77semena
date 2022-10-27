@@ -39,7 +39,7 @@
                 <div class="ml-2 text-sm text-gray-600 checkbox-text">{{ __('Запомнить меня') }}</div>
             </div>
 
-            <div class="flex items-center justify-end mt-4 submit-btn-wrapper">
+            <div class="flex items-center justify-end mt-4 form-footer">
                 @if (Route::has('password.request'))
                     <div class="forgot-password">
                         <a class="underline text-sm text-gray-600 hover:text-gray-900 forgot-password-link" href="{{ route('password.request') }}">
@@ -48,9 +48,11 @@
                     </div>
                 @endif
 
-                <x-primary-button class="ml-3">
-                    {{ __('Войти') }}
-                </x-primary-button>
+                <div class="submit-btn-wrapper">
+                    <x-primary-button class="ml-3">
+                        {{ __('Войти') }}
+                    </x-primary-button>
+                </div>
             </div>
         </form>
     </x-auth-card>

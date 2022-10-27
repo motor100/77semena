@@ -2,6 +2,9 @@
 
 @extends('layouts.main')
 
+@section('style')
+  <link rel="stylesheet" href="{{ asset('css/slimselect.min.css') }}">
+@endsection
 
 @section('content')
 
@@ -30,12 +33,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5">
-            <label for="select-city" class="label">Ваш город</label>
-            <select name="" id="select-city" class="select-css">
+            <div class="label">Ваш город</div>
+
+            <select name="" id="select-city" class="select-city">
               @foreach($cities as $city)
                 <option value="{{ $city->city }}">{{ $city->city }}</option>
               @endforeach
             </select>
+
           </div>
         </div>
       </div>
@@ -143,4 +148,8 @@
   </div>
 </div>
 
+@endsection
+
+@section('script')
+  <script src="{{ asset('js/slimselect.min.js') }}"></script>
 @endsection
