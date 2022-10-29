@@ -17,7 +17,7 @@
 <body>
   <header class="header">
 
-    <div class="header-top">
+    <div class="header-top hidden-mobile">
       <div class="container position-relative">
         <div class="city js-header-city-btn">
           <span class="city-text">Город: </span>
@@ -47,16 +47,16 @@
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <a href="{{ route('home') }}" class="logo">
-              <img class="logo-img" src="/img/logo.svg" alt="">
+            <a href="{{ route('home') }}" class="full-link"></a>
+          </div>
+          <div class="catalog-btn-wrapper hidden-mobile">
+            <a href="/catalog" class="catalog-btn">
+              <span class="catalog-btn__text">Каталог</span>
             </a>
           </div>
-          <a href="/catalog" class="catalog-btn">
-            <span class="catalog-btn__text">Каталог</span>
-          </a>
           <form class="form" action="/poisk" method="get">
             <div class="form-container position-relative">
-              <input type="text" class="search-input" name="q" minlength="3" maxlength="20" required>
+              <input type="text" class="search-input" name="q" minlength="3" maxlength="20" autocomplete="off" required>
               @csrf
               <button type="submit" class="submit-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,10 +64,65 @@
                   <path d="M16.4437 16.4438L21 21.0001" stroke="#A9A9A9" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
+              <!-- <div class="autocomplete-dropdown autocomplete-dropdown-active"> -->
+              <div class="autocomplete-dropdown">
+                <ul class="autocomplete-list">
+                  <li class="autocomplete-list-item">
+                    <div class="autocomplete-list-item__title">Семена арбуза «Семена Алтая» ЭКО 15шт</div>
+                    <div class="autocomplete-list-item__price">
+                      <span class="autocomplete-list-item__value">48</span>
+                      <span class="autocomplete-list-item__currency">&#8381;</span>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                  </li>
+                  <li class="autocomplete-list-item">
+                    <div class="autocomplete-list-item__title">Клубника ЛЕСНАЯ F1</div>
+                    <div class="autocomplete-list-item__price">
+                      <span class="autocomplete-list-item__value">25</span>
+                      <span class="autocomplete-list-item__currency">&#8381;</span>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                  </li>
+                  <li class="autocomplete-list-item">
+                    <div class="autocomplete-list-item__title">Семена арбуза «Семена Алтая» ЭКО 15шт</div>
+                    <div class="autocomplete-list-item__price">
+                      <span class="autocomplete-list-item__value">48</span>
+                      <span class="autocomplete-list-item__currency">&#8381;</span>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                  </li>
+                  <li class="autocomplete-list-item">
+                    <div class="autocomplete-list-item__title">Клубника ЛЕСНАЯ F1</div>
+                    <div class="autocomplete-list-item__price">
+                      <span class="autocomplete-list-item__value">25</span>
+                      <span class="autocomplete-list-item__currency">&#8381;</span>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                  </li>
+                  <li class="autocomplete-list-item">
+                    <div class="autocomplete-list-item__title">Семена арбуза «Семена Алтая» ЭКО 15шт</div>
+                    <div class="autocomplete-list-item__price">
+                      <span class="autocomplete-list-item__value">48</span>
+                      <span class="autocomplete-list-item__currency">&#8381;</span>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                  </li>
+                  <li class="autocomplete-list-item">
+                    <div class="autocomplete-list-item__title">Клубника ЛЕСНАЯ F1</div>
+                    <div class="autocomplete-list-item__price">
+                      <span class="autocomplete-list-item__value">25</span>
+                      <span class="autocomplete-list-item__currency">&#8381;</span>
+                    </div>
+                    <a href="#" class="full-link"></a>
+                  </li>
+                </ul>
+                <div class="autocomplete-see-all">
+                  <a href="#" class="autocomplete-see-all-btn">Смотреть все</a>
+                </div>
+              </div>
             </div>
           </form>
-          
-          <div class="cart">
+          <div class="cart hidden-mobile">
             <div class="cart-icon">
               <img src="/img/cart-icon.svg" alt="">
             </div>
@@ -80,8 +135,8 @@
         </div>
         <div class="top-menu hidden-mobile">
           <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-7 mx-auto">
+            <div class="col-xl-4 col-lg-2"></div>
+            <div class="col-xl-7 col-lg-9">
               <ul class="menu">
                 <li class="menu-item">
                   <a href="{{ route('home') }}">Главная</a>
@@ -103,7 +158,7 @@
                 </li>
               </ul>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-xl-1 col-lg-1"></div>
           </div>
         </div>
       </div>
@@ -120,7 +175,7 @@
         <div class="row">
           <div class="col-md-2">
             <div class="logo">
-              <img class="logo-img" src="/img/logo.svg" alt="">
+              <img class="logo-img" src="/img/desktop-logo.svg" alt="">
             </div>
           </div>
           <div class="col-md-2">
@@ -206,9 +261,7 @@
   </footer>
 
   <div class="burger-menu-wrapper hidden-desktop">
-    <div class="burger-menu">
-      <span></span>
-    </div>
+    <div class="burger-menu"></div>
   </div>
   <div class="mobile-menu hidden-desktop">
     <ul class="menu">
@@ -234,11 +287,6 @@
         <a href="/kontakty">Контакты</a>
       </li>
     </ul>
-    <div class="grey-line"></div>
-    <div class="phone">
-      <a href="tel:+78003506337">+7 800 350 6337</a>
-    </div>
-    <div class="free-call-text">(звонок по России бесплатный)</div>
   </div>
 
   <div id="callback-modal" class="modal-window callback-modal">
@@ -326,13 +374,13 @@
     <div class="container">
       <div class="header-content">
         <div class="logo">
-          <a href="{{ route('home') }}" class="logo">
-            <img class="logo-img" src="/img/logo.svg" alt="">
+          <a href="{{ route('home') }}" class="full-link"></a>
+        </div>
+        <div class="catalog-btn-wrapper">
+          <a href="/catalog" class="catalog-btn">
+            <span class="catalog-btn__text">Каталог</span>
           </a>
         </div>
-        <a href="/catalog" class="catalog-btn">
-          <span class="catalog-btn__text">Каталог</span>
-        </a>
         <form class="form" action="/poisk" method="get">
           <div class="form-container position-relative">
             <input type="text" class="search-input" name="q" minlength="3" maxlength="20" required>

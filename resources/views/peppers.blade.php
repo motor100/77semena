@@ -2,6 +2,10 @@
 
 @extends('layouts.main')
 
+@section('style')
+  <link rel="stylesheet" href="{{ asset('css/slimselect.min.css') }}">
+@endsection
+
 @section('content')
 
 <div class="breadcrumbs">
@@ -45,18 +49,20 @@
           <div class="products">
             <div class="products-title-wrapper">
               <div class="products-title">Перцы</div>
-              <div class="products-filter">
-                <span class="products-filter__text">Сначала дешевые</span>
-              </div>
+              <select name="" id="products-filter" class="products-filter">
+                <option value="new-products">Сначала дорогие</option>
+                <option value="cheap-first">Сначала дешевые</option>
+                <option value="expensive-first">Новинки</option>
+              </select>
             </div>
             <div class="row">
               <div class="col-3">
                 <div class="products-item">
-                  <div class="products-item__info info-yellow">Хит</div>
                   <div class="products-item__image">
                     <img src="/img/new-seeds-image.jpg" alt="">
                   </div>
                   <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
+                  <div class="products-item__info info-yellow">Хит</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -69,11 +75,11 @@
               </div>
               <div class="col-3">
                 <div class="products-item">
-                  <div class="products-item__info info-yellow">Хит</div>
                   <div class="products-item__image">
                     <img src="/img/new-seeds-image.jpg" alt="">
                   </div>
                   <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
+                  <div class="products-item__info info-yellow">Хит</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -86,11 +92,11 @@
               </div>
               <div class="col-3">
                 <div class="products-item">
-                  <div class="products-item__info info-yellow">Хит</div>
                   <div class="products-item__image">
                     <img src="/img/new-seeds-image.jpg" alt="">
                   </div>
                   <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
+                  <div class="products-item__info info-yellow">Хит</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -103,11 +109,11 @@
               </div>
               <div class="col-3">
                 <div class="products-item">
+                  <div class="products-item__image">
+                    <img src="/img/new-seeds-image.jpg" alt="">
+                  </div>
+                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__info info-grey">Нет в наличии</div>
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -120,11 +126,11 @@
               </div>
               <div class="col-3">
                 <div class="products-item">
+                  <div class="products-item__image">
+                    <img src="/img/new-seeds-image.jpg" alt="">
+                  </div>
+                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -137,11 +143,11 @@
               </div>
               <div class="col-3">
                 <div class="products-item">
+                  <div class="products-item__image">
+                    <img src="/img/new-seeds-image.jpg" alt="">
+                  </div>
+                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -154,11 +160,11 @@
               </div>
               <div class="col-3">
                 <div class="products-item">
+                  <div class="products-item__image">
+                    <img src="/img/new-seeds-image.jpg" alt="">
+                  </div>
+                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -171,11 +177,11 @@
               </div>
               <div class="col-3">
                 <div class="products-item">
+                  <div class="products-item__image">
+                    <img src="/img/new-seeds-image.jpg" alt="">
+                  </div>
+                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__info info-grey">Нет в наличии</div>
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
                   <div class="products-item__price">
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
@@ -195,4 +201,8 @@
 
 </div>
 
+@endsection
+
+@section('script')
+  <script src="{{ asset('js/slimselect.min.js') }}"></script>
 @endsection

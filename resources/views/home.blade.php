@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="new-products-section">
-  <div class="section-title-wrapper">
+  <div class="home-page-section-title-wrapper">
     <div class="container">
       <div class="section-title">
         <div class="section-title__text">Новинки</div>
@@ -130,7 +130,7 @@
 </div>
 
 <div class="popular-categories-section">
-  <div class="section-title-wrapper">
+  <div class="home-page-section-title-wrapper">
     <div class="container">
       <div class="section-title">
         <div class="section-title__text">Популярные категории</div>
@@ -142,7 +142,7 @@
       </div>
     </div>
   </div>
-  <div class="popular-categories">
+  <div class="popular-categories hidden-mobile">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -196,10 +196,13 @@
       </div>
     </div>
   </div>
+  <div class="popular-categories-slider hidden-desktop">
+    
+  </div>
 </div>
 
 <div class="promo-section">
-  <div class="section-title-wrapper">
+  <div class="home-page-section-title-wrapper">
     <div class="container">
       <div class="section-title">
         <div class="section-title__text">Акции</div>
@@ -228,7 +231,7 @@
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
             </div>
-            <!-- <a href="#" class="full-link"></a> -->
+            <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
         <div class="col-xxl-2 col-lg-3">
@@ -245,7 +248,7 @@
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
             </div>
-            <!-- <a href="#" class="full-link"></a> -->
+            <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
         <div class="col-xxl-2 col-lg-3">
@@ -262,7 +265,7 @@
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
             </div>
-            <!-- <a href="#" class="full-link"></a> -->
+            <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
         <div class="col-xxl-2 col-lg-3">
@@ -279,7 +282,7 @@
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
             </div>
-            <!-- <a href="#" class="full-link"></a> -->
+            <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
         <div class="col-xxl-2 col-lg-2 d-none d-xxl-block">
@@ -296,7 +299,7 @@
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
             </div>
-            <!-- <a href="#" class="full-link"></a> -->
+            <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
         <div class="col-xxl-2 col-lg-2 d-none d-xxl-block">
@@ -313,7 +316,7 @@
             <div class="item__quantity" data-id="">
               <div class="circle"></div>
             </div>
-            <!-- <a href="#" class="full-link"></a> -->
+            <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
       </div>
@@ -322,7 +325,7 @@
 </div>
 
 <div class="news-section">
-  <div class="section-title-wrapper">
+  <div class="home-page-section-title-wrapper">
     <div class="container">
       <div class="section-title">
         <div class="section-title__text">Новости</div>

@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
-  // Выбор города
+  // header city select
   let cityItems = selectCityModal.querySelectorAll('.city-item'),
       cityName = document.querySelector('.city-name');
 
@@ -108,9 +108,31 @@ document.addEventListener("DOMContentLoaded", () => {
       item.classList.add('city-item-active');
     }
 
-    // Если есть город в куки, то делаю его активным
     if (item.innerText == getCookie('city')) {
       item.classList.add('city-item-active');
+    }
+  });
+
+  // search autocomlete see all btn
+  let searchInput = document.querySelector('.search-input'),
+      token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      autocompleteSseeAllBtn = document.querySelector('.autocomplete-see-all-btn');
+
+  if (searchInput) {
+    searchInput.oninput = function () {
+      if(searchInput.value.length >=3) {
+        autocompleteSseeAllBtn.href = '/poisk?q=' + searchInput.value + '&_token=' + token;
+      }
+    }
+  }
+  
+
+  // Quantity from plus to tick
+  itemQuantityCircle = document.querySelectorAll('.item__quantity .circle');
+
+  itemQuantityCircle.forEach((item) => {
+    item.onclick = function () {
+      item.classList.add('circle-active');
     }
   });
 
@@ -136,6 +158,34 @@ document.addEventListener("DOMContentLoaded", () => {
       stickyDesktopMenu.classList.remove('sticky-desktop-menu-active');
     }
   }
+
+  // mobile menu
+  let burgerMenuWrapper = document.querySelector('.burger-menu-wrapper'),
+      mobileMenu = document.querySelector('.mobile-menu'),
+      burgerMenu = document.querySelector('.burger-menu');
+
+  burgerMenuWrapper.onclick = function () {
+    body.classList.toggle('overflow-hidden');
+    mobileMenu.classList.toggle('down');
+    burgerMenu.classList.toggle('close');
+    burgerMenuWrapper.classList.toggle('active');
+  }
+
+  let listParentClick = document.querySelectorAll('.mobile-menu li.menu-item a');
+  for (let i=0; i < listParentClick.length; i++) {
+    listParentClick[i].onclick = closeMenu;
+  }
+
+  function closeMenu (event) {
+    event.preventDefault();
+    burgerMenuWrapper.classList.remove('active');
+    burgerMenu.classList.remove('close');
+    mobileMenu.classList.remove('down');
+    body.classList.remove('overflow-hidden');
+    let hrefClick = this.href;
+    setTimeout(function() {location.href = hrefClick}, 500);
+  }
+
 
 
   // Отправка формы ajax в модальном окне
