@@ -178,7 +178,7 @@
               <img class="logo-img" src="/img/desktop-logo.svg" alt="">
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-xl-2 col-md-3">
             <div class="footer-title">Покупателям</div>
             <div class="footer-menu">
               <ul class="menu">
@@ -198,7 +198,7 @@
             </div>
           </div>
           <div class="col-md-3">
-            <div class="footer-title"></div>
+            <div class="footer-title hidden-mobile"></div>
             <div class="footer-menu">
               <ul class="menu">
                 <li class="menu-item">
@@ -222,11 +222,11 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-3"></div>
-          <div class="col-md-2">
-            <div class="footer-contacts">
-              <div class="footer-title text-right">Мы в соцсетях</div>
-              <div class="social-icons text-right">
+          <div class="col-xl-2 col-md-1 d-none d-lg-block"></div>
+          <div class="col-md-3">
+            <div class="footer-contacts text-right">
+              <div class="footer-title">Мы в соцсетях</div>
+              <div class="social-icons">
                 <a href="#" class="social-icon__link">
                   <img src="/img/insta-icon.png" alt="">
                 </a>

@@ -134,5 +134,5 @@
 @endsection
 
 @section('script')
-<script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 @endsection

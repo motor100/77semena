@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('style')
+  <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
+@endsection
+
 @section('content')
 
 <div class="new-products-section">
@@ -196,9 +200,48 @@
       </div>
     </div>
   </div>
-  <div class="popular-categories-slider hidden-desktop">
-    
+
+  <div class="popular-categories-slider swiper hidden-desktop">
+    <div class="swiper-wrapper">
+      <div class="slider-item swiper-slide">
+        <div class="slider-item__content">
+          <div class="slider-item__title">Перцы</div>
+          <div class="slider-item__image">
+            <img src="/img/popular-category-pepper.png" alt="">
+          </div>
+        </div>
+        <a href="/peppers" class="full-link"></a>
+      </div>
+      <div class="slider-item swiper-slide">
+        <div class="slider-item__content">
+          <div class="slider-item__title">Томаты</div>
+          <div class="slider-item__image">
+            <img src="/img/popular-category-tomato.png" alt="">
+          </div>
+        </div>
+        <a href="/tomatoes" class="full-link"></a>
+      </div>
+      <div class="slider-item swiper-slide">
+        <div class="slider-item__content">
+          <div class="slider-item__title">Огурцы</div>
+          <div class="slider-item__image">
+            <img src="/img/popular-category-cucumber.png" alt="">
+          </div>
+        </div>
+        <a href="/cucumbers" class="full-link"></a>
+      </div>
+      <div class="slider-item swiper-slide">
+        <div class="slider-item__content">
+          <div class="slider-item__title">Агрохимия</div>
+          <div class="slider-item__image">
+            <img src="/img/popular-category-chemical.png" alt="">
+          </div>
+        </div>
+        <a href="/chemicals" class="full-link"></a>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <div class="promo-section">
@@ -358,4 +401,8 @@
   </div>
 </div>
 
+@endsection
+
+@section('script')
+  <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 @endsection

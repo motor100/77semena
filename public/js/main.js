@@ -159,6 +159,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Popular categories slider
+  const popularCategoriesSlider = new Swiper('.popular-categories-slider', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    centeredSlides: true,
+    loop: true,
+  });
+
+
+
+
+
   // mobile menu
   let burgerMenuWrapper = document.querySelector('.burger-menu-wrapper'),
       mobileMenu = document.querySelector('.mobile-menu'),
