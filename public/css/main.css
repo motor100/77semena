@@ -547,16 +547,20 @@ ul {
 .mission-section .mission-title {
   margin: 0 0 16px 0;
   font-family: 'montserrat-semibold';
-  font-size: 42px;
+  font-size: 40px;
 }
 .mission-section .mission-items {
   display: flex;
+  justify-content: space-between;
 }
 .mission-section .mission-item {
-  width: 25%;
+  width: 24%;
 }
 .mission-section .mission-item__image {
-  margin: 0 0 6px 0;
+  width: 42px;
+  height: 42px;
+  margin: 0 10px 6px 0;
+  flex-shrink: 0;
 }
 .mission-section .mission-item__text {
   font-family: 'montserrat-medium';
@@ -790,8 +794,14 @@ ul {
 .footer .footer-top {
   padding: 32px 0;
 }
-.footer .logo img {
-  width: 100%;
+.footer .footer-top .logo {
+  width: 160px;
+  height: 38px;
+  margin: 0 0 32px 0;
+  background: url('../img/desktop-logo.svg') top no-repeat;
+}
+.footer .footer-contacts {
+  text-align: right;
 }
 .footer .footer-title {
   min-height: 30px;
@@ -799,6 +809,9 @@ ul {
   font-family: 'montserrat-bold';
   font-size: 19px;
   color: #3E3E3E;
+}
+.footer .footer-menu {
+  margin: 0 0 16px 0;
 }
 .footer .menu-item {
   margin: 0 0 8px 0;
@@ -2012,8 +2025,9 @@ ul {
   display: none;
   width: 42px;
   height: 42px;
-  padding: 6px;
-  background-color: #fff;
+  padding: 7px;
+  border-radius: 21px;
+  background-color: #FAFAFA;
   cursor: pointer;
   z-index: 10;
 }
@@ -2309,17 +2323,30 @@ ul {
   .section-title .section-title__text {
     font-size: 30px;
   }
+  .mission-section .mission-title {
+    font-size: 38px;
+  }
 }
 
 @media only screen and (max-width : 1200px) {
   .section-title .section-title__text {
     font-size: 28px;
   }
+  .mission-section .mission-title {
+    font-size: 36px;
+  }
 }
 
 @media only screen and (max-width : 992px) {
   .section-title .section-title__text {
     font-size: 26px;
+  }
+
+  .mission-section .mission-title {
+    font-size: 32px;
+  }
+  .mission-section .mission-item__text {
+    font-size: 14px;
   }
 
   .footer .footer-title {
@@ -2363,6 +2390,58 @@ ul {
     background: url('../img/mobile-logo.svg') center no-repeat;
     background-size: contain;
   }
+  .mission-section .mission {
+    padding: 32px;
+  }
+  .mission-section .mission-title {
+    font-size: 28px;
+    line-height: 1;
+  }
+  .mission-section .mission-items {
+    display: block;
+  }
+  .mission-section .mission-item {
+    display: flex;
+    width: 100%;
+    margin: 0 0 16px 0;
+    align-items: center;
+  }
+  .mission-section .mission-item:last-child {
+    margin: 0;
+  }
+  .mission-section .mission-item__image {
+    margin: 0 10px 0 0;
+  }
+  .mission-section .mission-item__image img {
+    display: block;
+    margin: 0 auto;
+  }
+  .mission-section .mission-item__text {
+    font-size: 16px;
+  }
+
+  .footer .footer-top .logo {
+    width: 142px;
+    height: 53px;
+    background: url('../img/mobile-logo.svg') center no-repeat;
+    background-size: contain;
+  }
+  .footer .footer-contacts {
+    text-align: left;
+  }
+  .footer .footer-title {
+    margin: 0 0 8px 0;
+  }
+  .footer .menu-item {
+    font-size: 14px;
+  }
+  .footer .phone, .footer .email {
+    font-size: 14px;
+  }
+  .footer .footer-bottom .copyright, .footer .footer-bottom .author {
+    display: block;
+    margin: 0 0 10px 0;
+  }
   
   .messages-cookies-wrapper {
     margin: 0 12px;
@@ -2380,5 +2459,15 @@ ul {
 @media only screen and (max-width : 480px) {
   .section-title .section-title__text {
     font-size: 22px;
+  }
+  .mission-section .mission-title {
+    font-size: 24px;
+  }
+  .mission-section .mission {
+    padding: 25px;
+  }
+  .mission-section .mission-item__text {
+    font-size: 15px;
+    line-height: 1.2;
   }
 }

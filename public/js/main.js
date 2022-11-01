@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sticky desktop menu
   window.onscroll = function() {
     let scrStickyDesktopMenu = window.pageYOffset || document.documentElement.scrollTop,
-        stickyDesktopMenu = document.querySelector(".sticky-desktop-menu");
+        stickyDesktopMenu = document.querySelector('.sticky-desktop-menu');
     if (scrStickyDesktopMenu > 400) {
       stickyDesktopMenu.classList.add('sticky-desktop-menu-active');
     }
@@ -160,12 +160,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Popular categories slider
-  const popularCategoriesSlider = new Swiper('.popular-categories-slider', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    centeredSlides: true,
-    loop: true,
-  });
+  let popularCategoriesSection = document.querySelector('.popular-categories-section');
+
+  if (popularCategoriesSection) {
+    const popularCategoriesSlider = new Swiper('.popular-categories-slider', {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      centeredSlides: true,
+      loop: true,
+    });
+  }
 
 
 

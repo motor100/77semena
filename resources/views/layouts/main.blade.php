@@ -174,9 +174,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-            <div class="logo">
-              <img class="logo-img" src="/img/desktop-logo.svg" alt="">
-            </div>
+            <div class="logo"></div>
           </div>
           <div class="col-xl-2 col-md-3">
             <div class="footer-title">Покупателям</div>
@@ -224,7 +222,7 @@
           </div>
           <div class="col-xl-2 col-md-1 d-none d-lg-block"></div>
           <div class="col-md-3">
-            <div class="footer-contacts text-right">
+            <div class="footer-contacts">
               <div class="footer-title">Мы в соцсетях</div>
               <div class="social-icons">
                 <a href="#" class="social-icon__link">
@@ -249,12 +247,12 @@
       <div class="container">
         <div class="copyright">@ 77semena, <?php echo date("Y"); ?></div>
         <div class="author">
-          <span class="author-text">Дизайн </span>
-          <a href="#" class="author-name">Andrewwebnh</a>
+          <span class="author-text">Дизайн&nbsp;</span>
+          <a href="https://nhfuture.ru/" class="author-name" target="_blank">Andrewwebnh</a>
         </div>
         <div class="author">
-          <span class="author-text">Поддержка </span>
-          <a href="#" class="author-name">Button</a>
+          <span class="author-text">Поддержка&nbsp;</span>
+          <a href="https://mybutton.ru/" class="author-name" target="_blank">Button</a>
         </div>
       </div>
     </div>
