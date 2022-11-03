@@ -388,32 +388,35 @@ ul {
 }
 .header-content .autocomplete-dropdown {
   position: absolute;
-  z-index: 2;
-  left: 0;
   top: calc(100% + 10px);
+  left: 0;
   width: 100%;
-  max-height: 250px;
   padding: 20px;
-  background-color: #E8E8E8;
   border-radius: 15px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  background-color: #E8E8E8;
   opacity: 0;
   visibility: hidden;
-  scrollbar-width: thin;
+  z-index: 2;
   transition: opacity cubic-bezier(0.215, 0.61, 0.355, 1) .3s,visibility cubic-bezier(0.215, 0.61, 0.355, 1) .3s;
 }
 .header-content .autocomplete-dropdown-active {
   opacity: 1;
   visibility: visible;
 }
-.header-content .autocomplete-dropdown::-webkit-scrollbar {
+.header-content .autocomplete-list {
+  max-height: 200px;
+  padding: 0 15px 0 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.header-content .autocomplete-list::-webkit-scrollbar {
   width: 7px;
 }
-.header-content .autocomplete-dropdown::-webkit-scrollbar-track {
+.header-content .autocomplete-list::-webkit-scrollbar-track {
   border-radius: 10px;
 }
-.header-content .autocomplete-dropdown::-webkit-scrollbar-thumb {
+.header-content .autocomplete-list::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #a6a6a6;
 }
@@ -430,19 +433,12 @@ ul {
 }
 .header-content .autocomplete-dropdown .autocomplete-see-all-btn {
   font-size: 14px;
-  color: #3e3e3e;
+  color: #A9A9A9;
   transition: color .3s;
 }
 .header-content .autocomplete-dropdown .autocomplete-see-all-btn:hover {
   color: #5F52A3;
 }
-
-
-
-
-
-
-
 .header-content .cart {
   position: relative;
   width: 53px;
@@ -1065,6 +1061,19 @@ ul {
   visibility: visible;
   transform: none;
 }
+.dostavka-i-oplata .ss-content .ss-list .ss-option {
+  font-family: 'montserrat-medium';
+  padding: 10px 20px;
+  transition: color .3s;
+}
+.dostavka-i-oplata .ss-content .ss-list .ss-option.ss-highlighted,
+.dostavka-i-oplata .ss-content .ss-list .ss-option:hover {
+  color: #8278B8;
+  background-color: #fff;
+}
+.dostavka-i-oplata .ss-content .ss-list .ss-disabled:hover {
+  color: #dedede;
+}
 .dostavka-i-oplata .ss-main .ss-single-selected.ss-open-above ~ .ss-content {
   top: 50px;
 }
@@ -1657,6 +1666,7 @@ ul {
 }
 .catalog .products .ss-content {
   margin: 10px 0 0 0;
+  border: 1px solid #3E3E3E;
   transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) .3s,opacity cubic-bezier(0.215, 0.61, 0.355, 1) .3s,visibility cubic-bezier(0.215, 0.61, 0.355, 1) .3s;
 }
 .catalog .products .ss-content.ss-open {
@@ -1676,6 +1686,18 @@ ul {
 .catalog .products .ss-main .ss-single-selected .ss-arrow span.arrow-down {
   margin: 0;
   transform: rotate(-45deg);
+}
+.catalog .products .ss-content .ss-list .ss-option {
+  padding: 6px 20px;
+  transition: color .3s;
+}
+.catalog .products .ss-content .ss-list .ss-option.ss-highlighted,
+.catalog .products .ss-content .ss-list .ss-option:hover {
+  color: #8278B8;
+  background-color: #fff;
+}
+.catalog .products .ss-content .ss-list .ss-disabled:hover {
+  color: #dedede;
 }
 .catalog .horizontal-line {
   height: 1px;
@@ -1785,9 +1807,9 @@ ul {
   font-family: 'montserrat-semibold';
   font-size: 30px;
 }
-.single-product .single-product-info {
+/* .single-product .single-product-info {
   
-}
+} */
 .single-product .single-product-info {
   display: flex;
   margin: 0 0 32px 0;
@@ -2323,6 +2345,9 @@ ul {
   .section-title .section-title__text {
     font-size: 30px;
   }
+  .section-title .arrow-right {
+    top: 6px;
+  }
   .mission-section .mission-title {
     font-size: 38px;
   }
@@ -2332,6 +2357,9 @@ ul {
   .section-title .section-title__text {
     font-size: 28px;
   }
+  .section-title .arrow-right {
+    top: 3px;
+  }
   .mission-section .mission-title {
     font-size: 36px;
   }
@@ -2340,6 +2368,9 @@ ul {
 @media only screen and (max-width : 992px) {
   .section-title .section-title__text {
     font-size: 26px;
+  }
+  .section-title .arrow-right {
+    top: 0;
   }
 
   .mission-section .mission-title {
@@ -2378,6 +2409,9 @@ ul {
   }
   .section-title .section-title__text {
     font-size: 24px;
+  }
+  .section-title .arrow-right {
+    height: 37px;
   }
 
   .header-content {
@@ -2459,6 +2493,13 @@ ul {
 @media only screen and (max-width : 480px) {
   .section-title .section-title__text {
     font-size: 22px;
+  }
+  .section-title .arrow-right {
+    width: 56px;
+    height: 34px;
+  }
+  .section-title .arrow-right .underline {
+    width: 56px;
   }
   .mission-section .mission-title {
     font-size: 24px;

@@ -117,7 +117,7 @@
                   </li>
                 </ul>
                 <div class="autocomplete-see-all">
-                  <a href="#" class="autocomplete-see-all-btn">Смотреть все</a>
+                  <a href="#" class="autocomplete-see-all-btn">Показать все результаты</a>
                 </div>
               </div>
             </div>
