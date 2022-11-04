@@ -19,16 +19,17 @@
 
     <div class="header-top hidden-mobile">
       <div class="container position-relative">
-        <div class="city js-header-city-btn">
-          <span class="city-text">Город: </span>
+        <div class="city-select js-header-city-btn">
+          <span class="city-text">Город:&nbsp;</span>
           <span class="city-name">
-            <?php if (empty($_COOKIE['city'])): ?>
-              <script>
-                document.cookie = "city=Миасс; path=/; max-age=2629743; samesite=lax";
-              </script>
-            <?php else: ?>
-              <?php echo $_COOKIE['city']; ?>
-            <?php endif; ?>
+            <?php
+            if (empty($_COOKIE['city'])) {
+              setcookie("city", "Миасс", time()+2629743, "/");
+              echo "Миасс";
+            } else {
+              echo $_COOKIE['city'];
+            }
+            ?>
           </span>
         </div>
         <div class="phone">
@@ -262,21 +263,33 @@
     <div class="burger-menu"></div>
   </div>
   <div class="mobile-menu hidden-desktop">
+    <div class="city-select js-mobile-menu-city-btn">
+      <span class="city-text">Город:&nbsp;</span>
+      <span class="city-name">
+        <?php
+        if (empty($_COOKIE['city'])) {
+          echo "Миасс";
+        } else {
+          echo $_COOKIE['city'];
+        }
+        ?>
+      </span>
+    </div>
     <ul class="menu">
       <li class="menu-item">
         <a href="{{ route('home') }}">Главная</a>
       </li>
       <li class="menu-item">
-        <a href="/#categories">Каталог</a>
+        <a href="/catalog">Каталог</a>
       </li>
       <li class="menu-item">
-        <a href="/o-nas">О нас</a>
+        <a href="/o-kompanii">О компании</a>
       </li>
       <li class="menu-item">
-        <a href="/oplata-i-dostavka">Оплата и доставка</a>
+        <a href="/dostavka-i-oplata">Доставка и оплата</a>
       </li>
       <li class="menu-item">
-        <a href="/akcii">Акции</a>
+        <a href="/novosti">Новости</a>
       </li>
       <li class="menu-item">
         <a href="/otzyvy">Отзывы</a>
@@ -285,6 +298,10 @@
         <a href="/kontakty">Контакты</a>
       </li>
     </ul>
+    <div class="phone">
+      <img src="/img/phone-icon.svg" class="phone-image" alt="">
+      <a href="tel:+78587546585" class="phone-text">+7 (858) 754-65-85</a>
+    </div>
   </div>
 
   <div id="callback-modal" class="modal-window callback-modal">
@@ -329,7 +346,7 @@
     </div>
   </div>
 
-  <div id="testimonials-modal" class="modal-window testimonialsk-modal">
+  <div id="testimonials-modal" class="modal-window testimonials-modal">
     <div class="modal-wrapper">
       <div class="modal-area">
         <div class="modal-close">

@@ -276,12 +276,12 @@ ul {
   background-color: #3E3E3E;
   color: #E8E8E8;
 }
+.header .city-select,
 .header .city-text,
-.header .city,
 .header .phone {
   font-size: 14px;
 }
-.header .city,
+.header .city-select,
 .header .phone {
   display: inline-block;
   padding: 7px 0;
@@ -289,7 +289,7 @@ ul {
 .header .phone .phone-number {
   color: #E8E8E8;
 }
-.header .header-top .city {
+.header .header-top .city-select {
   margin: 0 30px 0 0;
   cursor: pointer;
 }
@@ -1222,6 +1222,15 @@ ul {
   top: -40px;
   left: 0;
 }
+.cart .clear-cart {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+}
+.cart .clear-cart .clear-cart__text {
+  font-family: 'montserrat-medium';
+  color: #A9A9A9;
+}
 .cart .info-text {
   margin: 0 0 20px 0;
   font-family: 'montserrat-semibold';
@@ -2095,15 +2104,22 @@ ul {
   left: 0;
   width: 100%;
   height: 100vh;
-  padding: 110px 30px 30px 30px;
+  padding: 130px 30px 30px 30px;
   background-color: #fff;
   z-index: 9;
   opacity: 0;
   visibility: hidden;
   transition: all 1s;
 }
+.mobile-menu .city-select {
+  margin: 0 0 32px 0;
+  cursor: pointer;
+}
+.mobile-menu .city-select .city-name {
+  border-bottom: 1px solid #8278B8;
+}
 .mobile-menu .menu {
-  margin: 0;
+  margin: 0 0 64px 0;
   padding: 0;
   list-style: none;
 }
@@ -2112,6 +2128,9 @@ ul {
 }
 .mobile-menu .menu-item a {
   font-family: 'montserrat-bold';
+  color: #3E3E3E;
+}
+.mobile-menu .phone-text {
   color: #3E3E3E;
 }
 .down {
@@ -2323,6 +2342,7 @@ ul {
 }
 .page404 .btn404 {
   display: block;
+  margin: 0 0 15px 0;
   padding: 10px 0;
   border-radius: 15px;
   font-family: 'montserrat-semibold';

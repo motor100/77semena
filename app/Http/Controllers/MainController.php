@@ -92,6 +92,11 @@ class MainController extends Controller
         return view('cart');
     }
 
+    public function clear_cart()
+    {
+        return redirect('/cart');
+    }
+
     public function poisk(Request $request)
     {
         return view('poisk');

@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let modalWindow = document.querySelectorAll('.modal-window'),
       headerCityBtn = document.querySelector('.js-header-city-btn'),
+      mobileMenuCityBtn = document.querySelector('.js-mobile-menu-city-btn'),
       selectCityModal = document.querySelector('#select-city-modal'),
       headerCallbackBtn = document.querySelector('.js-header-callback-btn'),
       callbackModal = document.querySelector('#callback-modal'),
@@ -33,6 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
       modalCloseBtn = document.querySelectorAll('.modal-window .modal-close');
 
   headerCityBtn.onclick = function () {
+    modalOpen(selectCityModal);
+  }
+
+  mobileMenuCityBtn.onclick = function () {
     modalOpen(selectCityModal);
   }
 
@@ -85,9 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
-  // header city select
+  // city select
   let cityItems = selectCityModal.querySelectorAll('.city-item'),
-      cityName = document.querySelector('.city-name');
+      cityNames = document.querySelectorAll('.city-name');
 
   function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
@@ -100,7 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
     item.onclick = function () {
       let ccity = item.innerText;
       document.cookie = "city=" + ccity + "; path=/; max-age=2629743; samesite=lax";
-      cityName.innerText = ccity;
+      for (let i = 0; i < cityNames.length; i++) {
+        cityNames[i].innerText = ccity;
+      }
       modalClose(selectCityModal);
 
       let cityItemActive = document.querySelector('.city-item-active');
@@ -171,10 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
-
-
-
   // mobile menu
   let burgerMenuWrapper = document.querySelector('.burger-menu-wrapper'),
       mobileMenu = document.querySelector('.mobile-menu'),
@@ -189,17 +192,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let listParentClick = document.querySelectorAll('.mobile-menu li.menu-item a');
   for (let i=0; i < listParentClick.length; i++) {
-    listParentClick[i].onclick = closeMenu;
+    listParentClick[i].onclick = closeMenuA;
   }
 
-  function closeMenu (event) {
+  function closeMenuA (event) {
     event.preventDefault();
+    closeMenu ();
+    let hrefClick = this.href;
+    setTimeout(function() {location.href = hrefClick}, 500);
+  }
+
+  function closeMenu () {
     burgerMenuWrapper.classList.remove('active');
     burgerMenu.classList.remove('close');
     mobileMenu.classList.remove('down');
     body.classList.remove('overflow-hidden');
-    let hrefClick = this.href;
-    setTimeout(function() {location.href = hrefClick}, 500);
   }
 
 
