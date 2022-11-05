@@ -19,7 +19,7 @@
   <div class="section-title-wrapper">
     <div class="container">
       <div class="section-title">
-        <div class="section-title__text">Отзывы</div>
+        <div class="section-title__text section-title-purple">Отзывы</div>
       </div>
     </div>
   </div>

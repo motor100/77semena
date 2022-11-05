@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Testimonial;
+// use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +12,7 @@ class MainController extends Controller
 {
     public function home()
     {
-        $news = \App\Models\Mainnew::limit(4)->get();
+        $news = \App\Models\Mainnew::limit(4)->orderBy('id', 'desc')->get();
         
         foreach ($news as $nw) {
             $nw['short_title'] = Str::limit($nw['title'], 36, '...');
@@ -40,8 +40,8 @@ class MainController extends Controller
     }
 
     public function novosti()
-    {   
-        $news = \App\Models\Mainnew::limit(60)->get();
+    {
+        $news = \App\Models\Mainnew::limit(60)->orderBy('id', 'desc')->get();
 
         foreach ($news as $nw) {
             $nw['short_title'] = Str::limit($nw['title'], 36, '...');
@@ -204,7 +204,7 @@ class MainController extends Controller
             'checkbox' => 'accepted'
         ]);
 
-        $testimonials = new Testimonial([
+        $testimonials = new \App\Models\Testimonial([
             'name' => $request->get('name'),
             'city' => $request->get('city'),
             'text' => $request->get('text'),

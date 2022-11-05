@@ -18,8 +18,8 @@
   <div class="section-title-wrapper">
     <div class="container">
       <div class="section-title">
-        <div class="section-title__text">Ваша корзина</div>
-        <div class="back" onclick="history.back();">
+        <div class="section-title__text section-title-purple">Ваша корзина</div>
+        <div class="back back-absolute" onclick="history.back();">
           <img src="/img/arrow-back.svg" alt="">
           <span class="back-text hidden-mobile">назад</span>
         </div>

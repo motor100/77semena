@@ -25,13 +25,17 @@
       <div class="section-title">
         <div class="section-title__text">{{ $single_novosti->title }}</div>
         <div class="single-novosti__date">{{ $single_novosti->date }}</div>
+        <div class="back back-absolute" onclick="history.back();">
+          <img src="/img/arrow-back.svg" alt="">
+        <span class="back-text hidden-mobile">назад</span>
+      </div>
       </div>
     </div>
   </div>
 
   <div class="text">
     <div class="container">
-      {{ $single_novosti->text }}
+      {!! $single_novosti->text !!}
     </div>
   </div>
 </div>

@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="o-kompanii-image">
+          <div class="o-kompanii-image hidden-mobile">
             <img src="/img/o-kompanii-seeding.svg" alt="">
           </div>
         </div>
@@ -61,12 +61,12 @@
   <div class="o-kompanii-nav">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-xl-3 col-xl-4 col-md-5">
           <a href="/catalog" class="o-kompanii-btn yellow-btn">
             <span class="btn__text">Перейти к покупкам</span>
           </a>
         </div>
-        <div class="col-md-3">
+        <div class="col-xl-3 col-xl-4 col-md-5">
           <a href="/stat-partnerom" class="o-kompanii-btn white-btn">
             <span class="btn__text">Стать партнером</span>
           </a>

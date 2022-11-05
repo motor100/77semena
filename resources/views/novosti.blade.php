@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row">
         @foreach($news as $nw)
-          <div class="col-md-3">
+          <div class="col-lg-3 col-md-4">
             <div class="news-item">
               <div class="news-item__date">
                 <div class="news-item__day">{{ $nw->date['day'] }}</div>

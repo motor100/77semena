@@ -108,7 +108,7 @@
                   <div class="offices-description__contacts-title">Контакты</div>
                   <div class="offices-description__contacts-text">
                     <p>город Миасс, ул. Кирова 53.</p>
-                    <p>Телефон: +7 (950) 723-10-13</p>
+                    <p>Телефон: +7 (858) 754-65-85</p>
                     <p>E-mail: info@77semena.ru</p>
                   </div>
                 </div>
