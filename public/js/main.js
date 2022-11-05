@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   mobileMenuCityBtn.onclick = function () {
+    closeMenu();
     modalOpen(selectCityModal);
   }
 
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // city select
   let cityItems = selectCityModal.querySelectorAll('.city-item'),
-      cityNames = document.querySelectorAll('.city-name');
+      cityNames = document.querySelectorAll('.city-name'); // header city select & mobile menu city select
 
   function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
@@ -108,16 +109,17 @@ document.addEventListener("DOMContentLoaded", () => {
       for (let i = 0; i < cityNames.length; i++) {
         cityNames[i].innerText = ccity;
       }
-      modalClose(selectCityModal);
-
       let cityItemActive = document.querySelector('.city-item-active');
       cityItemActive.classList.remove('city-item-active');
       item.classList.add('city-item-active');
+
+      modalClose(selectCityModal);
     }
 
     if (item.innerText == getCookie('city')) {
       item.classList.add('city-item-active');
     }
+
   });
 
   // search autocomlete see all btn
@@ -135,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   // Quantity from plus to tick
-  itemQuantityCircle = document.querySelectorAll('.item__quantity .circle');
+  itemQuantityCircle = document.querySelectorAll('.add-to-cart-btn .circle');
 
   itemQuantityCircle.forEach((item) => {
     item.onclick = function () {
@@ -185,27 +187,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   burgerMenuWrapper.onclick = function () {
     body.classList.toggle('overflow-hidden');
-    mobileMenu.classList.toggle('down');
+    mobileMenu.classList.toggle('mobile-menu-open');
     burgerMenu.classList.toggle('close');
     burgerMenuWrapper.classList.toggle('active');
   }
 
   let listParentClick = document.querySelectorAll('.mobile-menu li.menu-item a');
   for (let i=0; i < listParentClick.length; i++) {
-    listParentClick[i].onclick = closeMenuA;
+    listParentClick[i].onclick = function (event) {
+      event.preventDefault();
+      closeMenu();
+      let hrefClick = this.href;
+      setTimeout(function() {
+        location.href = hrefClick
+      }, 500);
+    }
   }
 
-  function closeMenuA (event) {
-    event.preventDefault();
-    closeMenu ();
-    let hrefClick = this.href;
-    setTimeout(function() {location.href = hrefClick}, 500);
-  }
-
-  function closeMenu () {
+  function closeMenu() {
     burgerMenuWrapper.classList.remove('active');
     burgerMenu.classList.remove('close');
-    mobileMenu.classList.remove('down');
+    mobileMenu.classList.remove('mobile-menu-open');
     body.classList.remove('overflow-hidden');
   }
 

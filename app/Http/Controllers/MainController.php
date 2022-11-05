@@ -87,13 +87,32 @@ class MainController extends Controller
         return view('kontakty');
     }
 
-    public function cart()
-    {
-        return view('cart');
+    public function cart(Request $request)
+    {   
+        $cart_items = $request->session()->get('cart');
+
+        $products = '';
+
+        if ($cart_items) {
+            $key_items = array_keys($cart_items);
+
+            $products = DB::table('products')
+                        ->whereIn('id', $key_items)
+                        ->get();
+
+            foreach ($products as $key => $value) {
+                $id = $value->id;
+                $value->quantity = $cart_items[$id];
+            }
+
+        }
+        
+        return view('cart', compact('products'));
     }
 
     public function clear_cart()
-    {
+    {   
+        session()->pull('cart', 'default');
         return redirect('/cart');
     }
 

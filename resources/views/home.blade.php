@@ -34,7 +34,7 @@
               <span class="products-item__value">18</span>
               <span class="products-item__currency">&#8381;</span>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="/catalog/single-product" class="full-link"></a>
@@ -52,7 +52,7 @@
               <span class="products-item__value">18</span>
               <span class="products-item__currency">&#8381;</span>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="#" class="full-link"></a>
@@ -70,7 +70,7 @@
               <span class="products-item__value">18</span>
               <span class="products-item__currency">&#8381;</span>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="#" class="full-link"></a>
@@ -88,7 +88,7 @@
               <span class="products-item__value">18</span>
               <span class="products-item__currency">&#8381;</span>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="#" class="full-link"></a>
@@ -267,11 +267,13 @@
             </div>
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__info info-yellow">Хит</div>
-            <div class="products-item__price">
-              <span class="products-item__value">18</span>
-              <span class="products-item__currency">&#8381;</span>
+            <div class="products-item-price-wrapper">
+              <div class="products-item__price">
+                <span class="products-item__value">18</span>
+                <span class="products-item__currency">&#8381;</span>
+              </div>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="/catalog/single-product" class="full-link"></a>
@@ -284,11 +286,13 @@
             </div>
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__info info-yellow">Хит</div>
-            <div class="products-item__price">
-              <span class="products-item__value">18</span>
-              <span class="products-item__currency">&#8381;</span>
+            <div class="products-item-price-wrapper">
+              <div class="products-item__price">
+                <span class="products-item__value">18</span>
+                <span class="products-item__currency">&#8381;</span>
+              </div>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="/catalog/single-product" class="full-link"></a>
@@ -301,11 +305,17 @@
             </div>
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__info info-yellow">Хит</div>
-            <div class="products-item__price">
-              <span class="products-item__value">18</span>
-              <span class="products-item__currency">&#8381;</span>
+            <div class="products-item-price-wrapper">
+              <div class="products-item__old-price">
+                <span class="products-item__value">32</span>
+                <span class="products-item__currency">&#8381;</span>
+              </div>
+              <div class="products-item__price">
+                <span class="products-item__value">18</span>
+                <span class="products-item__currency">&#8381;</span>
+              </div>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="/catalog/single-product" class="full-link"></a>
@@ -318,13 +328,13 @@
             </div>
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__info info-grey">Нет в наличии</div>
-            <div class="products-item__price">
-              <span class="products-item__value">18</span>
-              <span class="products-item__currency">&#8381;</span>
+            <div class="products-item-price-wrapper">
+              <div class="products-item__price">
+                <span class="products-item__value">18</span>
+                <span class="products-item__currency">&#8381;</span>
+              </div>
             </div>
-            <div class="item__quantity" data-id="">
-              <div class="circle"></div>
-            </div>
+            <div class="pre-order">Предзаказ</div>
             <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
@@ -335,11 +345,13 @@
             </div>
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__info info-yellow">Хит</div>
-            <div class="products-item__price">
-              <span class="products-item__value">18</span>
-              <span class="products-item__currency">&#8381;</span>
+            <div class="products-item-price-wrapper">
+              <div class="products-item__price">
+                <span class="products-item__value">18</span>
+                <span class="products-item__currency">&#8381;</span>
+              </div>
             </div>
-            <div class="item__quantity" data-id="">
+            <div class="add-to-cart-btn" data-id="">
               <div class="circle"></div>
             </div>
             <a href="/catalog/single-product" class="full-link"></a>
@@ -352,13 +364,13 @@
             </div>
             <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
             <div class="products-item__info info-grey">Нет в наличии</div>
-            <div class="products-item__price">
-              <span class="products-item__value">18</span>
-              <span class="products-item__currency">&#8381;</span>
+            <div class="products-item-price-wrapper">
+              <div class="products-item__price">
+                <span class="products-item__value">18</span>
+                <span class="products-item__currency">&#8381;</span>
+              </div>
             </div>
-            <div class="item__quantity" data-id="">
-              <div class="circle"></div>
-            </div>
+            <div class="pre-order">Предзаказ</div>
             <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>

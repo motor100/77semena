@@ -67,7 +67,7 @@
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
                   </div>
-                  <div class="item__quantity" data-id="">
+                  <div class="add-to-cart-btn" data-id="">
                     <div class="circle"></div>
                   </div>
                   <a href="#" class="full-link"></a>
@@ -84,7 +84,7 @@
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
                   </div>
-                  <div class="item__quantity" data-id="">
+                  <div class="add-to-cart-btn" data-id="">
                     <div class="circle"></div>
                   </div>
                   <a href="#" class="full-link"></a>
@@ -101,7 +101,7 @@
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
                   </div>
-                  <div class="item__quantity" data-id="">
+                  <div class="add-to-cart-btn" data-id="">
                     <div class="circle"></div>
                   </div>
                   <a href="#" class="full-link"></a>
@@ -118,7 +118,22 @@
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
                   </div>
-                  <div class="item__quantity" data-id="">
+                  <div class="pre-order">Предзаказ</div>
+                  <a href="#" class="full-link"></a>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="products-item">
+                  <div class="products-item__image">
+                    <img src="/img/new-seeds-image.jpg" alt="">
+                  </div>
+                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
+                  <div class="products-item__info info-yellow">Хит</div>
+                  <div class="products-item__price">
+                    <span class="products-item__value">18</span>
+                    <span class="products-item__currency">&nbsp;&#8381;</span>
+                  </div>
+                  <div class="add-to-cart-btn" data-id="">
                     <div class="circle"></div>
                   </div>
                   <a href="#" class="full-link"></a>
@@ -135,7 +150,7 @@
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
                   </div>
-                  <div class="item__quantity" data-id="">
+                  <div class="add-to-cart-btn" data-id="">
                     <div class="circle"></div>
                   </div>
                   <a href="#" class="full-link"></a>
@@ -152,24 +167,7 @@
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
                   </div>
-                  <div class="item__quantity" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="item__quantity" data-id="">
+                  <div class="add-to-cart-btn" data-id="">
                     <div class="circle"></div>
                   </div>
                   <a href="#" class="full-link"></a>
@@ -186,7 +184,7 @@
                     <span class="products-item__value">18</span>
                     <span class="products-item__currency">&nbsp;&#8381;</span>
                   </div>
-                  <div class="item__quantity" data-id="">
+                  <div class="add-to-cart-btn" data-id="">
                     <div class="circle"></div>
                   </div>
                   <a href="#" class="full-link"></a>

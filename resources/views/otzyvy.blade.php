@@ -27,18 +27,6 @@
   <div class="testimonials">
     <div class="container">
       @foreach($testimonials as $ts)
-        <!-- <div class="testimonials-item">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="item-name">{{ $ts->name }}</div>
-              <div class="item-date">{{ $ts->date }}</div>
-              <div class="item-city">{{ $ts->city }}</div>
-            </div>
-            <div class="col-md-10">
-              <div class="item-text">{{ $ts->text }}</div>
-            </div>
-          </div>
-        </div> -->
         <div class="testimonials-item">
           <div class="testimonials-item__info">
             <div class="testimonials-item__name">{{ $ts->name }}</div>
@@ -55,9 +43,9 @@
 
   <div class="testimonials-btn-wrapper">
     <div class="container">
-      <div class="testimonials-btn">
+      <button class="testimonials-btn">
         <div class="testimonials-btn__text">Оставить отзыв</div>
-      </div>
+      </button>
     </div>
   </div>  
 

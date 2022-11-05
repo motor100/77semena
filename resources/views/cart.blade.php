@@ -21,21 +21,29 @@
         <div class="section-title__text">Ваша корзина</div>
         <div class="back" onclick="history.back();">
           <img src="/img/arrow-back.svg" alt="">
-          <span class="back-text">назад</span>
+          <span class="back-text hidden-mobile">назад</span>
         </div>
-        <div class="clear-cart">
-          <a href="/clear-cart">
-            <img src="/img/clear-cart-icon.svg" class="clear-cart__image" alt="">
-            <span class="clear-cart__text">Очистить корзину</span>
-          </a>
-        </div>
+        @if($products)
+          <div class="clear-cart">
+            <a href="/clear-cart">
+              <img src="/img/clear-cart-icon.svg" class="clear-cart__image" alt="">
+              <span class="clear-cart__text">Очистить корзину</span>
+            </a>
+          </div>
+        @endif
       </div>
     </div>
   </div>
 
   <!-- <div class="cart-item__stock">нет в наличии</div> -->
 
+  @if($products)
+    <p>Есть товары</p>
+    @foreach($products as $prd)
+      <p>Товар</p>
+    @endforeach
 
+<!-- 
   <div class="cart-items-wrapper">
     <div class="container">
 
@@ -285,9 +293,10 @@
       </div>
     </div>
   </div>
+ -->
 
-
-  <div class="cart-is-empty">
+  @else
+    <div class="cart-is-empty">
     <div class="container">
       <div class="cart-is-empty-content">
         <div class="row">
@@ -318,7 +327,8 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
+  @endif
 
 </div>
 

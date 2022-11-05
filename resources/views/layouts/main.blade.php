@@ -127,9 +127,11 @@
             <div class="cart-icon">
               <img src="/img/cart-icon.svg" alt="">
             </div>
-            <div class="counter">
-              <div class="counter-text">3</div>
-            </div>
+            @if(isset($cart_count))
+              <div class="counter">
+                <div class="counter-text">{{ $cart_count }}</div>
+              </div>
+            @endif
             <div class="cart-text">корзина</div>
             <a href="/cart" class="full-link"></a>
           </div>
@@ -299,7 +301,7 @@
       </li>
     </ul>
     <div class="phone">
-      <img src="/img/phone-icon.svg" class="phone-image" alt="">
+      <img src="/img/mobile-menu-phone-icon.svg" class="phone-image" alt="">
       <a href="tel:+78587546585" class="phone-text">+7 (858) 754-65-85</a>
     </div>
   </div>
@@ -412,9 +414,11 @@
           <div class="cart-icon">
             <img src="/img/cart-icon.svg" alt="">
           </div>
-          <div class="counter">
-            <div class="counter-text">3</div>
-          </div>
+          @if(isset($cart_count))
+            <div class="counter">
+              <div class="counter-text">{{ $cart_count }}</div>
+            </div>
+          @endif
           <div class="cart-text">корзина</div>
           <a href="/cart" class="full-link"></a>
         </div>
