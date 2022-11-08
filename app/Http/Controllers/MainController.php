@@ -96,6 +96,7 @@ class MainController extends Controller
         if ($cart_items) {
             $key_items = array_keys($cart_items);
 
+            // через модель Products
             $products = DB::table('products')
                         ->whereIn('id', $key_items)
                         ->get();

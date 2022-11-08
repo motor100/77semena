@@ -1999,6 +1999,34 @@ ul {
   background-color: #A9A9A9;
 }
 
+/* Полоса если пользователь авторизован */
+.top-line-is-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  background-color: #343a40;
+  z-index: 1040;
+}
+.top-line-is-login .text-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.top-line-is-login .top-line__text a {
+  color: #c2c7d0;
+  transition: color .3s;
+}
+.top-line-is-login .top-line__text a:hover {
+  color: #fff;
+}
+.top-line-is-login .logout-btn {
+  border: none;
+  padding: 0;
+  background-color: #343a40;
+  color: #fff;
+}
+
 
 /* we use cookie */
 .messages-cookies {

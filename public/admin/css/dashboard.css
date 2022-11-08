@@ -1,0 +1,182 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url(../fonts/sourcesanspro.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro Bold';
+  src: url(../fonts/sourcesansprobold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro Light';
+  src: url(../fonts/sourcesansprolight.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hidden {
+  display: none;
+}
+
+.logout-btn {
+  border: none;
+  padding: 0;
+  background-color: #343a40;
+  color: #fff;
+}
+
+.logo .logo-img {
+  margin-top: -1px;
+  opacity: .8;
+}
+.logo .brand-name {
+  font-size: 18px;
+}
+.header .nav-item .image {
+  margin-right: 10px;
+}
+.header .nav-item .image img {
+  vertical-align: top;
+}
+.header .nav-item .user-name {
+  line-height: 1.2;
+}
+
+.content-wrapper {
+  padding: 0 0 2rem 0;
+}
+.content-wrapper .content {
+  padding: 15px .5rem;
+}
+.content-wrapper .content .category-list {
+  margin: 0 0 50px 0;
+  padding: 0;
+}
+.main-sidebar .sidebar {
+  padding-top: 30px;
+}
+.nav-sidebar .nav-item {
+  margin: 5px 0;
+}
+
+.footer {
+  border-top: 1px solid #dee2e6;
+  color: #869099;
+  padding: .5rem 1rem;
+  font-size: .8rem;
+}
+
+/* категории */
+.category-list .edit-btn {
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 10px;
+}
+.category-list .edit-btn img {
+  width: 100%;
+}
+.category-list .edit-btn__add a {
+  color: green;
+}
+.category-list .edit-btn__remove a {
+  color: red;
+}
+
+/* товары */
+.inputfile {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.custom-inputfile-label {
+  height: 38px;
+  padding: 7px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  color: #212529;
+  background-color: #e9ecef;
+}
+.custom-inputfile-label:hover {
+  background-color: #dde0e3;
+}
+.namefile {
+  margin-left: 10px;
+}
+.inputtext {
+  height: 300px;
+}
+.input-number {
+  -moz-appearance: textfield;
+}
+.input-number::-webkit-inner-spin-button,
+.input-number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.sort-input {
+  width: 100px;
+}
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Добавить категорию */
+.add-new-cat .inputfile {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.add-new-cat .custom-inputfile-label {
+  height: 38px;
+  padding: 7px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  color: #212529;
+  background-color: #e9ecef;
+}
+.add-new-cat .custom-inputfile-label:hover {
+  background-color: #dde0e3;
+}
+.add-new-cat .namefile {
+  margin-left: 10px;
+}
+.add-new-cat .inputtext {
+  height: 300px;
+}
+
+/* Отзывы */
+.reviews-wrapper .item {
+  position: relative;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+.reviews-wrapper .item-text {
+  padding: 0 0 1rem 0;
+}
+.reviews-wrapper .publicate-btn {
+  display: block;
+  margin: 0 0 0 auto;
+}
+.reviews-wrapper .rm-review-form {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+}
+.archive .title {
+  font-weight: bold;
+}
+.archive .delete-btn {
+  color: red;
+}
+.archive .list-btn {
+  margin: 0 0 0 10px;
+}

@@ -87,7 +87,7 @@ Route::get('/chemicals', [MainController::class, 'chemicals']);
 Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
 
 
-
+/*
 Route::middleware('can:view-dashboard')->group(function () {
     // Route::get('/dashboard', [AdminController::class, 'home']);
     Route::get('/dashboard', function () {
@@ -95,11 +95,39 @@ Route::middleware('can:view-dashboard')->group(function () {
     });
 
 });
+*/
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard.home');
+// })->middleware('auth:admin');
+
+// Route::get('/siteadmin', function () {
+//     return view('dashboard.home');
+// })->middleware('auth:admin');
 
 
 Route::get('/profile', function () {
-    return view('profile');
-})->middleware(['auth']);
+    return view('welcome');
+})->middleware('auth:web2');
+
+// Админ панель
+/*
+Route::middleware('auth:admin')->group(function () {
+
+    // Route::get('/dashboard', [AdminController::class, 'hidden_products']);
+
+
+
+    Route::get('/dashboard', function () {
+        return view('dashboard.home');
+    });
+
+});
+*/
+
+Route::get('/dashboard', function () {
+    return view('dashboard.home');
+})->middleware('auth:web');
 
 
 

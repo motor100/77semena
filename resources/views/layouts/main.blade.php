@@ -434,7 +434,10 @@
             <a href="/dashboard">Панель управления</a>
           </div>
           <div class="top-line__text logout">
-            <a href="{{ route('logout') }}">Выйти</a>
+            <form class="form" action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button class="logout-btn" type="submit">Выйти</button>
+            </form>
           </div>
         </div>
       </div>

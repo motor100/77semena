@@ -40,7 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'admin' => [
+        'web2' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'web3' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
