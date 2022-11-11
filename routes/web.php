@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainnewController;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+/*
 
 Route::get('/crud', [MainController::class, 'crud']);
 
@@ -85,7 +86,7 @@ Route::get('/chemicals', [MainController::class, 'chemicals']);
 
 
 Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
-
+*/
 
 /*
 Route::middleware('can:view-dashboard')->group(function () {
@@ -106,9 +107,11 @@ Route::middleware('can:view-dashboard')->group(function () {
 // })->middleware('auth:admin');
 
 
+
+
 Route::get('/profile', function () {
     return view('welcome');
-})->middleware('auth:web2');
+})->middleware(['auth:web2']);
 
 // Админ панель
 /*
@@ -125,11 +128,15 @@ Route::middleware('auth:admin')->group(function () {
 });
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard.home');
-})->middleware('auth:web');
+// Route::get('/dashboard', [AdminController::class, 'home']);
 
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware('auth:web2');
 
+Route::get('/three', function () {
+    return view('three');
+})->middleware(['auth:web2']);
 
 
 /*
