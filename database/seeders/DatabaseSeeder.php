@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             MainnewSeeder::class,
             CitySeeder::class,
             TestimonialSeeder::class,
+            AdminSeeder::class,
         ]);
     }
 }

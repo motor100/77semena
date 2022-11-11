@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-/*
+
 
 Route::get('/crud', [MainController::class, 'crud']);
 
@@ -86,7 +86,7 @@ Route::get('/chemicals', [MainController::class, 'chemicals']);
 
 
 Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
-*/
+
 
 /*
 Route::middleware('can:view-dashboard')->group(function () {
@@ -109,9 +109,9 @@ Route::middleware('can:view-dashboard')->group(function () {
 
 
 
-Route::get('/profile', function () {
-    return view('welcome');
-})->middleware(['auth:web2']);
+// Route::get('/profile', function () {
+//     return view('welcome');
+// })->middleware(['auth:web2']);
 
 // Админ панель
 /*
@@ -134,9 +134,19 @@ Route::middleware('auth:admin')->group(function () {
 //     return view('dashboard');
 // })->middleware('auth:web2');
 
-Route::get('/three', function () {
-    return view('three');
-})->middleware(['auth:web2']);
+// Route::get('/three', function () {
+//     return view('three');
+// })->middleware(['auth:web2']);
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('profile', [\App\Http\Controllers\SiteController::class, 'profile'])
+        ->middleware('password.confirm')
+        ->name('profile');
+});
 
 
 /*
