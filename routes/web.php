@@ -52,12 +52,28 @@ Route::get('/kontakty', [MainController::class, 'kontakty']);
 
 Route::get('/cart', [MainController::class, 'cart']);
 
-Route::get('/clear-cart', [MainController::class, 'clear_cart']);
-
 Route::get('/poisk', [MainController::class, 'poisk']);
 
 
 Route::get('/catalog/single-product', [MainController::class, 'single_product']);
+
+
+
+// Корзина
+Route::post('/ajax/addtocart', [MainController::class, 'ajax_addtocart']);
+
+Route::post('/ajax/rmfromcart', [MainController::class, 'ajax_rmfromcart']);
+
+Route::post('/ajax/minuscart', [MainController::class, 'ajax_minuscart']);
+
+Route::post('/ajax/pluscart', [MainController::class, 'ajax_pluscart']);
+
+Route::post('/ajax/updatecart', [MainController::class, 'ajax_updatecart']);
+
+Route::post('/ajax/sessionfresh', [MainController::class, 'ajax_sessionfresh']);
+
+Route::get('/clear-cart', [MainController::class, 'clear_cart']);
+
 
 
 

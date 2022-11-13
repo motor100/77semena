@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
       otzyvyPage = document.querySelector('.otzyvy'); // страница отзывы
 
 
+  addToCart();
+
+
   // Скрывание кнопки Мы используем куки we use cookie
   let messagesCookies = document.querySelector('.messages-cookies'),
       messagesCookiesClose = document.querySelector('.messages-cookies-close');
@@ -134,16 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-  
-
-  // Quantity from plus to tick
-  itemQuantityCircle = document.querySelectorAll('.add-to-cart-btn .circle');
-
-  itemQuantityCircle.forEach((item) => {
-    item.onclick = function () {
-      item.classList.add('circle-active');
-    }
-  });
 
   // Phone mask
   let elementPhone = document.querySelectorAll('.js-input-phone-mask');
@@ -267,6 +260,43 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+  // Добавление товаров в корзину
+  function addToCart() {
+
+    let addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+
+    for (let i = 0; i < addToCartBtns.length; i++) {
+      addToCartBtns[i].onclick = function() {
+
+        this.children[0].classList.add('circle-active');
+            
+        let formData = {
+          id: this.getAttribute('data-id'),
+          token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        };
+        
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', '/ajax/addtocart');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send('id=' + encodeURIComponent(formData.id) + '&_token=' + encodeURIComponent(formData.token));
+        xhr.onload = function() {
+          if (xhr.response) {
+            document.getElementById('header-cart-counter').innerText = xhr.response;
+            document.getElementById('sticky-menu-cart-counter').innerText = xhr.response;
+            document.getElementById('mobile-cart-counter').classList.remove('hidden');
+            document.getElementById('mobile-cart-counter').innerText = xhr.response;
+
+            window.location.href = '/cart';
+
+          }
+        }
+
+      }
+    }
+  }
+
+
   if(otzyvyPage) {
 
     // Добавление отзывов
@@ -351,6 +381,50 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     });
+
+
+
+    // Удаление товаров из корзины
+    let rmFromCartBtn = document.querySelectorAll('.rm-from-cart-btn'),
+        summWrapper = document.querySelector('.summ-wrapper'),
+        bottomButtons = document.querySelector('.bottom-buttons'),
+        cartIsEmptyText = document.querySelector('.cart-is-empty__text');
+  
+    for (let i = 0; i < rmFromCartBtn.length; i++) {
+      rmFromCartBtn[i].onclick = function() {;
+        rmFromCart(this);
+        productSumm();
+        weightSumm();
+      }
+    }
+
+    function rmFromCart(param) {
+            
+      let formData = {
+        id: param.getAttribute('data-id'),
+        token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      };
+
+      document.querySelector('[data-id="' + formData.id + '"]').remove();
+
+      let itemsInCart = document.querySelectorAll('.item');
+
+      if (itemsInCart.length == 0) {
+        document.location.reload();
+      }
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('post', '/ajax/rmfromcart');
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      xhr.send('id=' + encodeURIComponent(formData.id) + '&_token=' + encodeURIComponent(formData.token));
+      xhr.onload = function() {
+        document.getElementById('header-cart-counter').innerText = xhr.response;
+        document.getElementById('mobile-cart-counter').innerText = xhr.response;
+        if (xhr.response == 0) {
+          document.getElementById('mobile-cart-counter').classList.add('hidden');
+        }
+      }
+    }
 
   }
 

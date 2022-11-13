@@ -128,9 +128,7 @@
               <img src="/img/cart-icon.svg" alt="">
             </div>
             @if(isset($cart_count))
-              <div class="counter">
-                <div class="counter-text">{{ $cart_count }}</div>
-              </div>
+              <div id="header-cart-counter" class="header-cart-counter">{{ $cart_count }}</div>
             @endif
             <div class="cart-text">корзина</div>
             <a href="/cart" class="full-link"></a>
@@ -415,13 +413,34 @@
             <img src="/img/cart-icon.svg" alt="">
           </div>
           @if(isset($cart_count))
-            <div class="counter">
-              <div class="counter-text">{{ $cart_count }}</div>
-            </div>
+            <div id="sticky-menu-cart-counter" class="sticky-menu-cart-counter">{{ $cart_count }}</div>
           @endif
           <div class="cart-text">корзина</div>
           <a href="/cart" class="full-link"></a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed-bottom-menu hidden-desktop">
+    <div class="menu-wrapper">
+      <div class="menu-item">
+        <img src="/img/fixed-bottom-menu-catalog-icon.svg" alt="">
+        <div class="title">Каталог</div>
+        <a href="/catalog" class="full-link"></a>
+      </div>
+      <div class="menu-item cart-menu-item">
+        <img src="/img/fixed-bottom-menu-cart-icon.svg" alt="">
+        <div class="title">Корзина</div>
+        @if(isset($cart_count))
+          <div id="mobile-cart-counter" class="mobile-cart-counter">{{ $cart_count }}</div>
+        @endif
+        <a href="/cart" class="full-link"></a>
+      </div>
+      <div class="menu-item">
+        <img src="/img/fixed-bottom-menu-phone-icon.svg" alt="">
+        <div class="title">Звонок</div>
+        <a href="tel:+78587546585" class="full-link"></a>
       </div>
     </div>
   </div>

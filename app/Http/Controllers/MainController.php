@@ -111,12 +111,6 @@ class MainController extends Controller
         return view('cart', compact('products'));
     }
 
-    public function clear_cart()
-    {   
-        session()->pull('cart', 'default');
-        return redirect('/cart');
-    }
-
     public function poisk(Request $request)
     {
         return view('poisk');
@@ -125,6 +119,16 @@ class MainController extends Controller
     public function single_product()
     {
         return view('single_product');
+    }
+
+    public function ajax_addtocart() {
+        return false;
+    }
+
+    public function clear_cart()
+    {   
+        session()->pull('cart', 'default');
+        return redirect('/cart');
     }
 
 
