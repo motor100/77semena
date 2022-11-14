@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->group(static function () {
+Route::prefix('administrator')->group(static function () {
 
     // Guest routes
     Route::middleware('guest:admin')->group(static function () {

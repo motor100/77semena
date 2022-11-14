@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="/img/mobile-logo.svg" alt="">
             </a>
         </x-slot>
 
@@ -12,44 +12,47 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('admin.login') }}">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <!-- Identity -->
-            <div>
-                <x-label for="identity" :value="__('Admin Email or Username')" />
+            <!-- Email Address -->
+            <div class="form-group">
+                <x-input-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="text" name="identity" :value="old('email')" required autofocus />
+                <x-text-input id="email" class="block mt-1 w-full input" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+            <div class="form-group">
+                <x-input-label for="password" :value="__('Пароль')" />
 
-                <x-input id="password" class="block mt-1 w-full"
+                <x-text-input id="password" class="block mt-1 w-full input"
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />
             </div>
 
             <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
+            <div class="block mt-4 custom-checkbox-wrapper">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 custom-checkbox" name="remember">
+                <label for="remember_me" class="inline-flex items-center custom-checkbox-label"></label>
+                <div class="ml-2 text-sm text-gray-600 checkbox-text">{{ __('Запомнить меня') }}</div>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('admin.password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('admin.password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+            <div class="flex items-center justify-end mt-4 form-footer">
+                @if (Route::has('password.request'))
+                    <div class="forgot-password">
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900 forgot-password-link" href="{{ route('password.request') }}">
+                            {{ __('Забыли пароль?') }}
+                        </a>
+                    </div>
                 @endif
 
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
+                <div class="submit-btn-wrapper">
+                    <x-primary-button class="ml-3">
+                        {{ __('Войти') }}
+                    </x-primary-button>
+                </div>
             </div>
         </form>
     </x-auth-card>

@@ -36,9 +36,9 @@
             <i class="far fa-comments"></i>
             <!-- test -->
             @if(isset($reviews_count))
-            @if($reviews_count > 0)
-              <span id="reviews-counter" class="badge badge-danger navbar-badge">{{ $reviews_count }}</span>
-            @endif
+              @if($reviews_count > 0)
+                <span id="reviews-counter" class="badge badge-danger navbar-badge">{{ $reviews_count }}</span>
+              @endif
             @endif
           </a>
         </li>
@@ -48,9 +48,9 @@
             <i class="far fa-bell"></i>
             <!-- test -->
             @if(isset($orders_count))
-            @if($orders_count > 0)
-              <span id="orders-counter" class="badge badge-warning navbar-badge">{{ $orders_count }}</span>
-            @endif
+              @if($orders_count > 0)
+                <span id="orders-counter" class="badge badge-warning navbar-badge">{{ $orders_count }}</span>
+              @endif
             @endif
           </a>
         </li>
@@ -68,8 +68,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <div class="logo">
         <a href="{{ route('home') }}" class="brand-link">
-          <img src="/admin/img/logo.jpg" alt="" class="logo-img brand-image img-circle elevation-3">
-          <span class="brand-name brand-text font-weight-light">СельхозКомплект</span>
+          <img src="{{ asset('img/favicon.svg') }}" alt="" class="logo-img brand-image img-circle elevation-3">
+          <span class="brand-name brand-text font-weight-light">{{ config('app.name') }}</span>
         </a>
       </div>
 
