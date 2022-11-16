@@ -29,7 +29,10 @@ class MainController extends Controller
 
     public function o_kompanii()
     {
-        return view('o_kompanii');
+        $text = \App\Models\Pages::where('id', '1')
+                            ->value('text');
+
+        return view('o_kompanii', compact('text'));
     }
 
     public function dostavka_i_oplata()

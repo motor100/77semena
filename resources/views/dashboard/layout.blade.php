@@ -149,6 +149,25 @@
                 </p>
               </a>
             </li>
+            <!-- 
+            <li class="nav-item menu-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-list"></i>
+                <p>
+                  Страницы
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/dashboard/o-kompanii" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>О компании</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+             -->
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -179,6 +198,8 @@
 
     <aside class="control-sidebar control-sidebar-dark"></aside>
   </div>
+
+  @yield('script')
   <script src="{{ asset('/admin/js/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('/admin/js/jquery-ui.min.js') }}"></script>
   <script src="{{ asset('/admin/js/bootstrap.bundle.min.js') }}"></script>

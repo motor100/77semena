@@ -61,6 +61,9 @@
 .nav-sidebar .nav-item {
   margin: 5px 0;
 }
+.nav-sidebar > .nav-item .nav-icon.fa-circle {
+  font-size: 10px;
+}
 
 .footer {
   border-top: 1px solid #dee2e6;

@@ -50,6 +50,28 @@ class AdminController extends Controller
         return redirect('/dashboard/testimonials');
     }
 
+    public function o_kompanii()
+    {   
+        $text = \App\Models\Pages::where('id', '1')
+                            ->value('text');
+
+        return view('dashboard.o_kompanii', compact('text'));
+    }
+
+    public function o_kompanii_update(Request $request) {
+
+        $text = $request->input('text');
+
+        $now = date('Y-m-d H:i:s');
+
+        \App\Models\Pages::where('id', '1')
+                        ->update([
+                            'text'=>$text,
+                            'updated_at'=>$now
+                        ]);
+
+        return redirect('/dashboard/o-kompanii');
+    }
 
 
 
@@ -58,7 +80,56 @@ class AdminController extends Controller
 
 
 
+    public function tiny_file_upload(Request $request)
+    {
+        $fileName = $request->file('file')->getClientOriginalName();
+        $mimetype = $request->file('file')->getMimeType();
+        $extension = $request->file('file')->getClientOriginalExtension();
 
+        $filetype = "";
+        switch ($mimetype) {
+            case "image/jpeg":
+                $filetype = ".jpg";
+                break;
+            case "image/png":
+                $filetype = ".png";
+                break;
+            case "image/gif":
+                $filetype = ".gif";
+                break;
+            case "application/pdf":
+                $filetype = ".pdf";
+                break;
+            case "application/msword":
+                $filetype = ".doc";
+                break;
+            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+                $filetype = ".docx";
+                break;
+            case "application/vnd.ms-excel":
+                $filetype = ".xls";
+                break;
+            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+                $filetype = ".xlsx";
+                break;
+            case "application/octet-stream":
+                if($extension == "xlsx") {
+                    $filetype = ".xlsx";
+                }
+                break;
+            default:
+                $filetype = "other";
+        }
+
+        if ($filetype == "other") {
+            return false;
+        }
+
+        $fileName = 'file' . '-' . date('dmY') . '-' . mt_rand() . $filetype;
+
+        $path = $request->file('file')->storeAs('uploads', $fileName, 'public');
+        return response()->json(['location'=>"/storage/$path"]); 
+    }
 
     public function dashboard_404()
     {

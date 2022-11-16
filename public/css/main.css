@@ -2098,6 +2098,11 @@ ul {
   color: #E8E8E8;
 }
 
+.text img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* sticky-desktop-menu */
 .sticky-desktop-menu {
   position: fixed;

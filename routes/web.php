@@ -189,9 +189,13 @@ Route::post('dashboard/publicate-testimonial', [AdminController::class, 'publica
 
 Route::post('dashboard/delete-testimonial', [AdminController::class, 'delete_testimonial']);
 
+Route::get('dashboard/o-kompanii', [AdminController::class, 'o_kompanii']);
+
+Route::post('dashboard/o-kompanii-update', [AdminController::class, 'o_kompanii_update']);
 
 
 
+Route::post('/dashboard/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
 
 
 
