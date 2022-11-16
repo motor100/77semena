@@ -151,7 +151,7 @@
 }
 
 /* Отзывы */
-.reviews-wrapper .item {
+.testimonials-wrapper .item {
   position: relative;
   margin-bottom: 16px;
   padding: 10px 12px;
@@ -159,14 +159,14 @@
   border: 1px solid #ced4da;
   border-radius: .25rem;
 }
-.reviews-wrapper .item-text {
+.testimonials-wrapper .item-text {
   padding: 0 0 1rem 0;
 }
-.reviews-wrapper .publicate-btn {
+.testimonials-wrapper .publicate-btn {
   display: block;
   margin: 0 0 0 auto;
 }
-.reviews-wrapper .rm-review-form {
+.testimonials-wrapper .rm-testimonial-form {
   position: absolute;
   bottom: 10px;
   left: 12px;

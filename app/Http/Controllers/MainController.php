@@ -70,7 +70,7 @@ class MainController extends Controller
     {   
         $testimonials = \App\Models\Testimonial::limit(100)
                                             ->whereNotNull('publicated_at')
-                                            ->orderBy('created_at', 'desc')
+                                            ->orderBy('id', 'desc')
                                             ->get();
 
         foreach ($testimonials as $ts) {

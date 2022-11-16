@@ -1,10 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainnewController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+
+
+
+use App\Http\Controllers\Admin\AdminController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -155,13 +162,37 @@ Route::middleware('auth:admin')->group(function () {
 //     return view('three');
 // })->middleware(['auth:web2']);
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', [AdminController::class, 'home'])->name('dashboard');
 
-    Route::get('profile', [ProfileController::class, 'home'])
-        ->middleware('password.confirm')
-        ->name('profile');
-});
+
+
+require __DIR__.'/auth.php';
+
+
+
+
+
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::get('dashboard', [ProfileController::class, 'home'])->name('dashboard');
+
+//     Route::get('profile', [ProfileController::class, 'home'])
+//         ->middleware('password.confirm')
+//         ->name('profile');
+// });
+
+
+
+Route::get('dashboard', [AdminController::class, 'home']);
+
+Route::get('dashboard/testimonials', [AdminController::class, 'testimonials']);
+
+Route::post('dashboard/publicate-testimonial', [AdminController::class, 'publicate_testimonial']);
+
+Route::post('dashboard/delete-testimonial', [AdminController::class, 'delete_testimonial']);
+
+
+
+
+
 
 
 /*
@@ -178,4 +209,12 @@ Route::middleware('can:view-account')->group(function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+
+
+
+
+
+
+
+
+Route::fallback([AdminController::class, 'dashboard_404']);

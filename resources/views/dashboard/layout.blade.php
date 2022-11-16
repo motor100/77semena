@@ -32,12 +32,11 @@
 
         <!-- Messages Dropdown Menu -->
         <li class="nav-item">
-          <a class="nav-link" href="/dashboard/reviews" title="Отзывы">
+          <a class="nav-link" href="/dashboard/testimonials" title="Отзывы">
             <i class="far fa-comments"></i>
-            <!-- test -->
-            @if(isset($reviews_count))
-              @if($reviews_count > 0)
-                <span id="reviews-counter" class="badge badge-danger navbar-badge">{{ $reviews_count }}</span>
+            @if(isset($testimonials_count))
+              @if($testimonials_count > 0)
+                <span id="reviews-counter" class="badge badge-danger navbar-badge">{{ $testimonials_count }}</span>
               @endif
             @endif
           </a>
@@ -59,7 +58,7 @@
             <div class="image">
               <img src="/admin/img/user-icon.jpg" class="img-circle elevation-2" alt="">
             </div>
-            <span class="user-name">{{ Auth::user()->name }}</span>
+            <span class="user-name">{{-- Auth::user()->name --}}</span>
           </a>
         </li>
       </ul>
@@ -95,7 +94,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/reviews" class="nav-link">
+              <a href="/dashboard/testimonials" class="nav-link">
                 <i class="nav-icon far fa-comments"></i>
                 <p>Отзывы
                 </p>

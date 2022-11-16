@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('administrator')->group(static function () {
+Route::prefix('admin')->group(static function () {
 
     // Guest routes
     Route::middleware('guest:admin')->group(static function () {
@@ -38,8 +38,8 @@ Route::prefix('administrator')->group(static function () {
         // Logout route
         Route::post('logout', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
         // General routes
-        Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.index');
-        Route::get('profile', [\App\Http\Controllers\Admin\HomeController::class, 'profile'])->middleware('password.confirm.admin')->name('admin.profile');
+        Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.index');
+        Route::get('profile', [\App\Http\Controllers\Admin\AdminController::class, 'profile'])->middleware('password.confirm.admin')->name('admin.profile');
     });
 });
 
