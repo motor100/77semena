@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('title')
-Новости
+Товары
 @endsection
 
 @section('dashboardcontent')
@@ -21,18 +21,18 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($news as $nw)
+          @foreach($products as $pr)
             <tr>
-              <th scope="row">{{ $nw->id}}</th>
-              <td>{{ $nw->title}}</td>
+              <th scope="row">{{ $pr->id}}</th>
+              <td>{{ $pr->title}}</td>
               <td class="table-button">
-                <a href="/novosti/{{ $nw->slug }}" class="btn btn-success" target="_blank">
+                <a href="/novosti/{{ $pr->slug }}" class="btn btn-success" target="_blank">
                   <i class="fas fa-eye"></i>
                 </a>
-                <a href="{{ route('novosti-edit', $nw->id) }}" class="btn btn-primary">
+                <a href="{{ route('novosti-edit', $pr->id) }}" class="btn btn-primary">
                   <i class="fas fa-pen"></i>
                 </a>
-                <form class="form" action="{{ route('novosti-destroy', $nw->id) }}" method="get">
+                <form class="form" action="{{ route('novosti-destroy', $pr->id) }}" method="get">
                   @csrf
                   <button type="submit" class="btn btn-danger">
                     <i class="fas fa-trash"></i>
@@ -43,11 +43,6 @@
           @endforeach
         </tbody>
       </table>
-      <div class="pagination-links">
-        <div class="container">
-          {{  $news->links() }}
-        </div>
-      </div>
 
     </div>
   </div>

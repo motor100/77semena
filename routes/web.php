@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainnewController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -182,6 +183,22 @@ Route::get('dashboard/testimonials', [AdminController::class, 'testimonials']);
 Route::post('dashboard/publicate-testimonial', [AdminController::class, 'publicate_testimonial']);
 
 Route::post('dashboard/delete-testimonial', [AdminController::class, 'delete_testimonial']);
+
+
+
+
+Route::get('dashboard/products', [ProductController::class, 'index']);
+
+Route::get('dashboard/products/create', [ProductController::class, 'create'])->name('product-create');
+
+Route::post('dashboard/products/store', [ProductController::class, 'store'])->name('product-store');
+
+Route::get('dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
+
+Route::post('dashboard/products/update', [ProductController::class, 'update'])->name('product-update');
+
+Route::get('dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('product-destroy');
+
 
 
 

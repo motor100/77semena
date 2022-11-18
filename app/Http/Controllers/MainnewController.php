@@ -16,7 +16,7 @@ class MainnewController extends Controller
      */
     public function index()
     {
-        $news = \App\Models\Mainnew::orderBy('id', 'desc')->paginate(20);
+        $news = Mainnew::orderBy('id', 'desc')->paginate(20);
         
         return view('dashboard.novosti', compact('news'));
     }
@@ -159,15 +159,6 @@ class MainnewController extends Controller
             'text' => $text,
             'updated_at' => $now
         ]);
-
-        // Mainnew::where('id', $id)
-        //         ->update([
-        //             'title' => $title,
-        //             'slug' => $slug,
-        //             'image' => $img,
-        //             'text' => $text,
-        //             'updated_at' => $now
-        //         ]);
 
         return redirect('/dashboard/novosti');
     }
