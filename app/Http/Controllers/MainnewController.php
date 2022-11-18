@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Mainnew;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class MainnewController extends Controller
 {
@@ -14,7 +16,9 @@ class MainnewController extends Controller
      */
     public function index()
     {
-        //
+        $news = \App\Models\Mainnew::orderBy('id', 'desc')->paginate(20);
+        
+        return view('dashboard.novosti', compact('news'));
     }
 
     /**
@@ -24,7 +28,7 @@ class MainnewController extends Controller
      */
     public function create()
     {   
-        return view('novosti-create');
+        return view('dashboard.novosti-create');
     }
 
     /**
@@ -34,18 +38,47 @@ class MainnewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'title' => 'required|min:6|max:200',
+            'input-main-file' => 'required|image|mimes:jpg,png,jpeg'
         ]);
 
+        $title = $request->input('title');
+        $text = $request->input('text');
+        $image = $request->file('input-main-file');
+
+        $slug = Str::slug($title);
+
+        $now = date('Y-m-d H:i:s');
+
+        // Проверка на уникальный slug
+        $have_slug = Mainnew::where('slug', $slug)
+                            ->get();
+        if (count($have_slug) > 0) {
+            $newslug = $slug . '-%';
+            $slugs = Mainnew::where('slug', 'like', $newslug)
+                            ->get();
+            $count_slugs = count($slugs) + 1;
+            $slug = $slug . '-' . $count_slugs;
+        }
+
+        $folder = 'news';
+
+        $img = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $image, $folder);
+
         $news = new Mainnew([
-            'title' => $request->get('title'), 
+            'title' => $title,
+            'slug' => $slug,
+            'image' => $img,
+            'text' => $text,
+            'created_at' => $now,
+            'updated_at' => $now
         ]);
 
         $news->save();
 
-        return redirect('/crud');
+        return redirect('/dashboard/novosti');
     }
 
     /**
@@ -65,9 +98,11 @@ class MainnewController extends Controller
      * @param  \App\Models\Mainnew  $mainnew
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mainnew $mainnew)
-    {
-        dd('edit');
+    public function edit(Mainnew $mainnew, $id)
+    {   
+        $nw = Mainnew::find($id);
+
+        return view('dashboard.novosti-update', compact('nw'));
     }
 
     /**
@@ -79,7 +114,62 @@ class MainnewController extends Controller
      */
     public function update(Request $request, Mainnew $mainnew)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:6|max:200',
+        ]);
+
+        $id = $request->input('id');
+
+        $nw = Mainnew::find($id);
+
+        $title = $request->input('title');
+        $text = $request->input('text');
+        $image = $request->file('input-main-file');
+
+        $slug = Str::slug($title);
+
+        $now = date('Y-m-d H:i:s');
+
+        // Проверка на уникальный slug
+        $have_slug = Mainnew::where('slug', $slug)
+                            ->get();
+        if (count($have_slug) > 0) {
+            $newslug = $slug . '-%';
+            $slugs = Mainnew::where('slug', 'like', $newslug)
+                            ->get();
+            $count_slugs = count($slugs) + 1;
+            $slug = $slug . '-' . $count_slugs;
+        }
+
+        $folder = 'news';
+
+        if($image) {
+            if (Storage::disk('public')->exists($nw->image)) {
+                Storage::disk('public')->delete($nw->image);
+            }
+            $img = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $image, $folder);
+        } else {
+            $img = $nw->image;
+        }
+
+        $nw->update([
+            'title' => $title,
+            'slug' => $slug,
+            'image' => $img,
+            'text' => $text,
+            'updated_at' => $now
+        ]);
+
+        // Mainnew::where('id', $id)
+        //         ->update([
+        //             'title' => $title,
+        //             'slug' => $slug,
+        //             'image' => $img,
+        //             'text' => $text,
+        //             'updated_at' => $now
+        //         ]);
+
+        return redirect('/dashboard/novosti');
     }
 
     /**
@@ -88,8 +178,16 @@ class MainnewController extends Controller
      * @param  \App\Models\Mainnew  $mainnew
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mainnew $mainnew)
-    {
-        //
+    public function destroy(Request $request,Mainnew $mainnew, $id)
+    {   
+        $nw = Mainnew::find($id);
+
+        if (Storage::disk('public')->exists($nw->image)) {
+            Storage::disk('public')->delete($nw->image);
+        }
+
+        $nw->delete();
+
+        return redirect('/dashboard/novosti');
     }
 }

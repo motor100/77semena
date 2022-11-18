@@ -24,6 +24,11 @@
     </div>
   </div>
 
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="text">{!! $text !!}</div>
+    </div>
+  </div>
 
 </div>
 

@@ -29,7 +29,7 @@ class MainController extends Controller
 
     public function o_kompanii()
     {
-        $text = \App\Models\Pages::where('id', '1')
+        $text = \App\Models\Page::where('id', '1')
                             ->value('text');
 
         return view('o_kompanii', compact('text'));
@@ -164,14 +164,14 @@ class MainController extends Controller
 
 
 
-    
-
-
 
 
     public function stat_partnerom()
-    {
-        return view('stat_partnerom');
+    {   
+        $text = \App\Models\Page::where('id', '2')
+                            ->value('text');
+
+        return view('stat_partnerom', compact('text'));
     }
 
     public function politika_konfidencialnosti()
@@ -196,12 +196,7 @@ class MainController extends Controller
 
 
     
-    public function crud()
-    {   
-        $news = \App\Models\Mainnew::orderBy('id', 'desc')->paginate(20);
-        
-        return view('crud', compact('news'));
-    }
+    
 
     public function ajax_testimonial(Request $request)
     {   

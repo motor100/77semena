@@ -29,13 +29,7 @@ use App\Http\Controllers\Admin\AdminController;
 // });
 
 
-Route::get('/crud', [MainController::class, 'crud']);
 
-Route::get('/novosti/create', [MainnewController::class, 'create'])->name('novosti-create');
-
-Route::post('/novosti/store', [MainnewController::class, 'store'])->name('novosti-store');
-
-Route::get('/novosti/{id}/edit', [MainnewController::class, 'edit'])->name('novosti-edit');
 
 
 // /dashboard/tinyfileupload // в файле tiny-file-upload.js
@@ -189,9 +183,31 @@ Route::post('dashboard/publicate-testimonial', [AdminController::class, 'publica
 
 Route::post('dashboard/delete-testimonial', [AdminController::class, 'delete_testimonial']);
 
+
+
+Route::get('dashboard/novosti', [MainnewController::class, 'index']);
+
+Route::get('dashboard/novosti/create', [MainnewController::class, 'create'])->name('novosti-create');
+
+Route::post('dashboard/novosti/store', [MainnewController::class, 'store'])->name('novosti-store');
+
+Route::get('dashboard/novosti/{id}/edit', [MainnewController::class, 'edit'])->name('novosti-edit');
+
+Route::post('dashboard/novosti/update', [MainnewController::class, 'update'])->name('novosti-update');
+
+Route::get('dashboard/novosti/{id}/destroy', [MainnewController::class, 'destroy'])->name('novosti-destroy');
+
+
+
+
 Route::get('dashboard/o-kompanii', [AdminController::class, 'o_kompanii']);
 
 Route::post('dashboard/o-kompanii-update', [AdminController::class, 'o_kompanii_update']);
+
+Route::get('dashboard/stat-partnerom', [AdminController::class, 'stat_partnerom']);
+
+Route::post('dashboard/stat-partnerom-update', [AdminController::class, 'stat_partnerom_update']);
+
 
 
 

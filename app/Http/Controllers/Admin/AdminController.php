@@ -31,12 +31,12 @@ class AdminController extends Controller
         $publicated_at = date('Y-m-d H:i:s');
 
         \App\Models\Testimonial::where('id', $id)
-                        ->update(array(
+                        ->update([
                             'name' => $name,
                             'text' => $text,
                             'publicated_at' => $publicated_at,
                             'updated_at' => $now
-                        ));
+                        ]);
 
         return redirect('/dashboard/testimonials');
     }
@@ -52,19 +52,19 @@ class AdminController extends Controller
 
     public function o_kompanii()
     {   
-        $text = \App\Models\Pages::where('id', '1')
+        $text = \App\Models\Page::where('id', '1')
                             ->value('text');
 
         return view('dashboard.o_kompanii', compact('text'));
     }
 
-    public function o_kompanii_update(Request $request) {
-
+    public function o_kompanii_update(Request $request)
+    {
         $text = $request->input('text');
 
         $now = date('Y-m-d H:i:s');
 
-        \App\Models\Pages::where('id', '1')
+        \App\Models\Page::where('id', '1')
                         ->update([
                             'text'=>$text,
                             'updated_at'=>$now
@@ -73,12 +73,84 @@ class AdminController extends Controller
         return redirect('/dashboard/o-kompanii');
     }
 
+    public function stat_partnerom()
+    {
+        $text = \App\Models\Page::where('id', '2')
+                            ->value('text');
+
+        return view('dashboard.stat_partnerom', compact('text'));
+    }
+
+    public function stat_partnerom_update(Request $request)
+    {
+        $text = $request->input('text');
+
+        $now = date('Y-m-d H:i:s');
+
+        \App\Models\Page::where('id', '2')
+                        ->update([
+                            'text'=>$text,
+                            'updated_at'=>$now
+                        ]);
+
+        return redirect('/dashboard/stat-partnerom');
+    }
 
 
 
 
+    /*
+    * Переименование файла
+    * Обязательный агрумент $file
+    * Illuminate\Http\UploadedFile object
+    * Обязательный агрумент $slug
+    * Строка
+    */
+    public static function rename_file($slug, $file, $folder = '')
+    {   
+        if ($folder) {
+            $folder = $folder . '/';
+        }
+        
+        $mimetype = $file->getMimeType();
+        $filetype = "";
+        switch ($mimetype) {
+            case "image/jpeg":
+                $filetype = ".jpg";
+                break;
+            case "image/png":
+                $filetype = ".png";
+                break;
+            case "application/pdf":
+                $filetype = ".pdf";
+                break;
+            case "application/msword":
+                $filetype = ".doc";
+                break;
+            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+                $filetype = ".docx";
+                break;
+            case "application/vnd.ms-excel":
+                $filetype = ".xls";
+                break;
+            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+                $filetype = ".xlsx";
+                break;
+            case "application/octet-stream":
+                if($file->getClientOriginalExtension() == "xlsx") {
+                    $filetype = ".xlsx";
+                }
+                break;
+        }
 
+        $new_filename = $slug . '-' . date('dmY') . '-' . mt_rand() . $filetype;
+        $tmppathfilename = $file->getPathname();
+        $pathname = public_path('storage') . "/uploads/" . $folder . $new_filename;
+        $pathnametobase = "/uploads/" . $folder . $new_filename;
+        move_uploaded_file($tmppathfilename, $pathname);
 
+        return $pathnametobase;
+    }
 
     public function tiny_file_upload(Request $request)
     {
@@ -134,7 +206,7 @@ class AdminController extends Controller
     public function dashboard_404()
     {
         $requestUri = request()->getRequestUri();
-        // dd(auth()->user());
+
         if (auth()->check() && auth()->user()->role == "admin") {
             if (strpos($requestUri, 'dashboard')) {
                 return view('dashboard.404');

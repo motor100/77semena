@@ -33,9 +33,12 @@
     </div>
   </div>
 
-  <div class="text">
+  <div class="content-wrapper">
     <div class="container">
-      {!! $single_novosti->text !!}
+      <div class="image">
+        <img src="{{ asset('storage' . $single_novosti->image) }}" alt="">
+        </div>
+      <div class="text">{!! $single_novosti->text !!}</div>
     </div>
   </div>
 </div>

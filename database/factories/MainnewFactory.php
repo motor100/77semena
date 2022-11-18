@@ -20,7 +20,6 @@ class MainnewFactory extends Factory
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug,
             'image' => $this->faker->imageUrl(),
-            'gallery' => NULL,
             'text' => $this->faker->text(100),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()

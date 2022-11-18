@@ -108,13 +108,6 @@
               </a>
             </li>        
             <li class="nav-item">
-              <a href="/dashboard/about" class="nav-link">
-                <i class="nav-icon nav-icon fas fa-edit"></i>
-                <p>О нас
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="/dashboard/payanddelivery" class="nav-link">
                 <i class="nav-icon fas fa-truck"></i>
                 <p>Доставка
@@ -149,7 +142,14 @@
                 </p>
               </a>
             </li>
-            <!-- 
+
+            <li class="nav-item">
+              <a href="/dashboard/novosti" class="nav-link">
+                <i class="nav-icon nav-icon fas fa-edit"></i>
+                <p>Новости
+                </p>
+              </a>
+            </li>
             <li class="nav-item menu-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-list"></i>
@@ -158,16 +158,24 @@
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
+              <!-- <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/dashboard/o-kompanii" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>О компании</p>
                   </a>
                 </li>
+              </ul> -->
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/dashboard/stat-partnerom" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Стать партнером</p>
+                  </a>
+                </li>
               </ul>
             </li>
-             -->
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
