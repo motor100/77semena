@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 <div class="new-products-section">
   <div class="home-page-section-title-wrapper">
     <div class="container">
@@ -22,7 +21,7 @@
   <div class="new-products products">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
           <div class="new-products-item">
             <div class="new-products-item__content">
               <div class="new-products-item__image">
@@ -40,7 +39,7 @@
             <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
           <div class="new-products-item">
             <div class="new-products-item__content">
               <div class="new-products-item__image">
@@ -58,7 +57,7 @@
             <a href="#" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6 d-md-block d-none">
           <div class="new-products-item">
             <div class="new-products-item__content">
               <div class="new-products-item__image">
@@ -76,7 +75,7 @@
             <a href="#" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6 d-md-block d-none">
           <div class="new-products-item">
             <div class="new-products-item__content">
               <div class="new-products-item__image">
@@ -149,7 +148,7 @@
   <div class="popular-categories hidden-mobile">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
           <div class="popular-category-item">
             <div class="popular-category-item-title-wrapper">
               <div class="popular-category-item__title">Перцы</div>
@@ -161,7 +160,7 @@
             <a href="/peppers" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
           <div class="popular-category-item">
             <div class="popular-category-item-title-wrapper">
               <div class="popular-category-item__title">Томаты</div>
@@ -173,7 +172,7 @@
             <a href="/tomatoes" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
           <div class="popular-category-item">
             <div class="popular-category-item-title-wrapper">
               <div class="popular-category-item__title">Огурцы</div>
@@ -185,7 +184,7 @@
             <a href="/cucumbers" class="full-link"></a>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6">
           <div class="popular-category-item">
             <div class="popular-category-item-title-wrapper">
               <div class="popular-category-item__title">Агрохимия</div>
@@ -260,7 +259,7 @@
   <div class="new-seeds products">
     <div class="container">
       <div class="row">
-        <div class="col-xxl-2 col-lg-3">
+        <div class="col-xxl-2 col-lg-3 col-sm-6">
           <div class="products-item">
             <div class="products-item__image">
               <img src="/img/new-seeds-image.jpg" alt="">
@@ -279,7 +278,7 @@
             <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
-        <div class="col-xxl-2 col-lg-3">
+        <div class="col-xxl-2 col-lg-3 col-sm-6">
           <div class="products-item">
             <div class="products-item__image">
               <img src="/img/new-seeds-image.jpg" alt="">
@@ -298,7 +297,7 @@
             <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
-        <div class="col-xxl-2 col-lg-3">
+        <div class="col-xxl-2 col-lg-3 col-sm-6">
           <div class="products-item">
             <div class="products-item__image">
               <img src="/img/new-seeds-image.jpg" alt="">
@@ -321,7 +320,7 @@
             <a href="/catalog/single-product" class="full-link"></a>
           </div>
         </div>
-        <div class="col-xxl-2 col-lg-3">
+        <div class="col-xxl-2 col-lg-3 col-sm-6">
           <div class="products-item">
             <div class="products-item__image">
               <img src="/img/new-seeds-image.jpg" alt="">
@@ -392,7 +391,7 @@
       </div>
     </div>
   </div>
-  <div class="news">
+  <div class="news hidden-mobile">
     <div class="container">
       <div class="row">
         @foreach($news as $nw)
@@ -411,8 +410,27 @@
       </div>
     </div>
   </div>
-</div>
 
+  <div class="news-slider-wrapper hidden-desktop">
+    <div class="container">
+      <div class="news-slider swiper hidden-desktop">
+        <div class="swiper-wrapper">
+          @foreach($news as $nw)
+            <div class="news-item swiper-slide">
+              <div class="news-item__date">
+                <div class="news-item__day">{{ $nw->date['day'] }}</div>
+                <div class="news-item__month-year">{{ $nw->date['month-year'] }}</div>
+              </div>
+              <div class="news-item__title">{{ $nw->short_title }}</div>
+              <div class="news-item__arrow"></div>
+              <!-- <a class="full-link" href="/novosti/{{ $nw->slug }}"></a> -->
+            </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('script')

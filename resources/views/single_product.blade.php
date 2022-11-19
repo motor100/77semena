@@ -28,7 +28,7 @@
     <div class="container">
       <div class="back" onclick="history.back();">
         <img src="/img/arrow-back.svg" alt="">
-        <span class="back-text">назад</span>
+        <span class="back-text hidden-mobile">назад</span>
       </div>
     </div>
   </div>
@@ -67,24 +67,20 @@
             </div>
           </div>
 
-
-
-
-
         </div>
         <div class="col-md-5">
           <div class="single-product-title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1</div>
           <div class="single-product-info">
             <div class="products-item__price">
               <span class="products-item__value">18</span>
-              <span class="products-item__currency">&nbsp;&#8381;</span>
+              <span class="products-item__currency">&#8381;</span>
             </div>
             <div class="single-product-stock single-product-in-stock">в наличии на складе</div>
             <!-- <div class="single-product-stock single-product-out-of-stock">Нет в наличии</div> -->
           </div>
-          <div class="add-to-cart-btn">
+          <button class="add-to-cart-btn">
             <div class="add-to-cart-btn__text" data-id="{{-- $single_product->id --}}">Добавить в корзину</div>
-          </div>
+          </button>
           <div class="horizontal-line"></div>
           <div class="single-product-delivery-info">
             <div class="single-product-city-wrapper">

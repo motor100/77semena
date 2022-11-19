@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('text');
             $table->string('code');
+            // quantity
             $table->integer('price'); // оптовый и розничный прайс
             $table->integer('price'); // оптовый и розничный прайс
             $table->string('scu')->nullable();

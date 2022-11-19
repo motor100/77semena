@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Общие переменные
   let body = document.querySelector('body'),
-      header = document.querySelector('.header'), // header
-      homePage = document.querySelector('.home-page'), // главная страница
+      newsSection = document.querySelector('.news-section'), 
       cartPage = document.querySelector('.cart .cart-items-wrapper'), // страница корзина
       catalogPage = document.querySelector('.catalog'), // страница каталог
       singleProduct = document.querySelector('.single-product'), // страница товара
@@ -264,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Добавление товаров в корзину
   function addToCart() {
 
-    let addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+    let addToCartBtns = document.querySelectorAll('.products .add-to-cart-btn');
 
     for (let i = 0; i < addToCartBtns.length; i++) {
       addToCartBtns[i].onclick = function() {
@@ -294,6 +293,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       }
     }
+  }
+
+  if(newsSection) {
+    const newsSlider = new Swiper('.news-slider', {
+      slidesPerView: 'auto',
+      loop: true,
+      spaceBetween: 20,
+    });
   }
 
 

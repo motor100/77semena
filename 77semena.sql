@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 16 2022 г., 22:28
+-- Время создания: Ноя 18 2022 г., 21:16
 -- Версия сервера: 5.7.33
 -- Версия PHP: 8.1.1
 
@@ -181,7 +181,8 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `title`, `text`, `created_at`, `updated_at`) VALUES
-(1, 'О компании', '<div class=\"text\">\r\n<div class=\"text-subtitle\">Наша миссия</div>\r\n<p>&laquo;Предоставить любому клиенту самый широкий ассортимент посадочного материала лучшего качества от надежных поставщиков, высокий уровень сервиса и конкурентные цены&raquo;.</p>\r\n<p>Ежегодно, перед каждым сезоном мы лично проверяем семена на всхожесть и энергию роста в собственной лаборатории! Не говоря уже о том, что вся продукция (посевной материал), поступающая на наши склады, имеет сертификаты соответствия на сортовые и посевные качества, соответствующие требованиям ГОСТ. А на наших складах поддерживаются самые высокие стандарты хранения с оптимальной температурой и влажностью воздуха.</p>\r\n</div>\r\n<div class=\"suppliers\">\r\n<div class=\"suppliers-subtitle\">В нашем магазине 77semena.ru представлена продукция следующих поставщиков:</div>\r\n<ul class=\"suppliers-list\">\r\n<li class=\"suppliers-list__item\">Семена от Челябинской селекционной станции</li>\r\n<li class=\"suppliers-list__item\">Семена Уральский дачник</li>\r\n<li class=\"suppliers-list__item\">Семена Аэлита</li>\r\n<li class=\"suppliers-list__item\">Семена Гавриш</li>\r\n<li class=\"suppliers-list__item\">Семена Поиск</li>\r\n<li class=\"suppliers-list__item\">Семена Агрос, в том числе цветы Sakata</li>\r\n<li class=\"suppliers-list__item\">Семена Русский огород</li>\r\n</ul>\r\n<div class=\"suppliers-remark\">(список будет пополняться)</div>\r\n</div>', '2022-11-16 17:42:17', '2022-11-16 14:19:30');
+(1, 'О компании', '<div class=\"text\">\r\n<div class=\"text-subtitle\">Наша миссия</div>\r\n<p>&laquo;Предоставить любому клиенту самый широкий ассортимент посадочного материала лучшего качества от надежных поставщиков, высокий уровень сервиса и конкурентные цены&raquo;.</p>\r\n<p>Ежегодно, перед каждым сезоном мы лично проверяем семена на всхожесть и энергию роста в собственной лаборатории! Не говоря уже о том, что вся продукция (посевной материал), поступающая на наши склады, имеет сертификаты соответствия на сортовые и посевные качества, соответствующие требованиям ГОСТ. А на наших складах поддерживаются самые высокие стандарты хранения с оптимальной температурой и влажностью воздуха.</p>\r\n</div>\r\n<div class=\"suppliers\">\r\n<div class=\"suppliers-subtitle\">В нашем магазине 77semena.ru представлена продукция следующих поставщиков:</div>\r\n<ul class=\"suppliers-list\">\r\n<li class=\"suppliers-list__item\">Семена от Челябинской селекционной станции</li>\r\n<li class=\"suppliers-list__item\">Семена Уральский дачник</li>\r\n<li class=\"suppliers-list__item\">Семена Аэлита</li>\r\n<li class=\"suppliers-list__item\">Семена Гавриш</li>\r\n<li class=\"suppliers-list__item\">Семена Поиск</li>\r\n<li class=\"suppliers-list__item\">Семена Агрос, в том числе цветы Sakata</li>\r\n<li class=\"suppliers-list__item\">Семена Русский огород</li>\r\n</ul>\r\n<div class=\"suppliers-remark\">(список будет пополняться)</div>\r\n</div>', '2022-11-16 17:42:17', '2022-11-16 14:19:30'),
+(2, 'Стать партнером', '<p>Описание</p>', '2022-11-18 06:23:27', '2022-11-18 01:33:31');
 
 -- --------------------------------------------------------
 
@@ -420,7 +421,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `mainnews`
 --
 ALTER TABLE `mainnews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
@@ -432,7 +433,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
