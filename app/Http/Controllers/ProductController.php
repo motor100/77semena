@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -26,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.products-create');
     }
 
     /**
@@ -82,6 +84,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prd = Product::find($id);
+
+        if (Storage::disk('public')->exists($prd->image)) {
+            Storage::disk('public')->delete($prd->image);
+        }
+
+        $prd->delete();
+
+        return redirect('/dashboard/products');
     }
 }

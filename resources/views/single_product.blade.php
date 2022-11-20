@@ -69,7 +69,7 @@
 
         </div>
         <div class="col-md-5">
-          <div class="single-product-title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1</div>
+          <div class="single-product-title">{{ $single_product->title }}</div>
           <div class="single-product-info">
             <div class="products-item__price">
               <span class="products-item__value">18</span>

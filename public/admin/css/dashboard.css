@@ -73,7 +73,7 @@
 }
 
 /* категории */
-.category-list .edit-btn {
+/* .category-list .edit-btn {
   width: 20px;
   height: 20px;
   margin: 0 0 0 10px;
@@ -86,9 +86,9 @@
 }
 .category-list .edit-btn__remove a {
   color: red;
-}
+} */
 
-/* товары */
+/* Прикрепить файл */
 .inputfile {
   position: absolute;
   z-index: -1;
@@ -130,7 +130,7 @@
 }
 
 /* Добавить категорию */
-.add-new-cat .inputfile {
+/* .add-new-cat .inputfile {
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -151,7 +151,7 @@
 }
 .add-new-cat .inputtext {
   height: 300px;
-}
+} */
 
 /* Отзывы */
 .testimonials-wrapper .item {
@@ -193,4 +193,12 @@
 }
 .image-preview img {
   width: 100%;
+}
+
+/* Таблица */
+.table .number-column {
+  width: 65px;
+}
+.table .button-column {
+  width: 160px;
 }

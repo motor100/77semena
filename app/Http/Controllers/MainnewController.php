@@ -112,7 +112,7 @@ class MainnewController extends Controller
      * @param  \App\Models\Mainnew  $mainnew
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mainnew $mainnew)
+    public function update(Request $request)
     {
         $request->validate([
             'title' => 'required|min:6|max:200',
@@ -169,7 +169,7 @@ class MainnewController extends Controller
      * @param  \App\Models\Mainnew  $mainnew
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,Mainnew $mainnew, $id)
+    public function destroy($id)
     {   
         $nw = Mainnew::find($id);
 

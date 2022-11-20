@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('text');
             $table->integer('code');
             $table->integer('quantity');
+            // Категория и подкатегория
             $table->integer('wholesale_price');
             $table->integer('retail_price');
             $table->integer('sku')->nullable();

@@ -11,13 +11,13 @@
   <div class="content">
     <div class="container-fluid">
 
-      <a href="{{ route('novosti-create') }}" class="btn btn-success mb-3">Добавить</a>
+      <a href="{{ route('products-create') }}" class="btn btn-success mb-3">Добавить</a>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">№</th>
+            <th class="number-column" scope="col">№</th>
             <th scope="col">Название</th>
-            <th></th>
+            <th class="button-column"></th>
           </tr>
         </thead>
         <tbody>
@@ -26,13 +26,13 @@
               <th scope="row">{{ $pr->id}}</th>
               <td>{{ $pr->title}}</td>
               <td class="table-button">
-                <a href="/novosti/{{ $pr->slug }}" class="btn btn-success" target="_blank">
+                <a href="/catalog/{{ $pr->slug }}" class="btn btn-success" target="_blank">
                   <i class="fas fa-eye"></i>
                 </a>
-                <a href="{{ route('novosti-edit', $pr->id) }}" class="btn btn-primary">
+                <a href="{{ route('products-edit', $pr->id) }}" class="btn btn-primary">
                   <i class="fas fa-pen"></i>
                 </a>
-                <form class="form" action="{{ route('novosti-destroy', $pr->id) }}" method="get">
+                <form class="form" action="{{ route('products-destroy', $pr->id) }}" method="get">
                   @csrf
                   <button type="submit" class="btn btn-danger">
                     <i class="fas fa-trash"></i>

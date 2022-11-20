@@ -15,9 +15,9 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">№</th>
+            <th class="number-column" scope="col">№</th>
             <th scope="col">Название</th>
-            <th></th>
+            <th class="button-column"></th>
           </tr>
         </thead>
         <tbody>

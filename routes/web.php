@@ -41,6 +41,8 @@ Route::get('/', [MainController::class, 'home']) -> name('home');
 
 Route::get('/catalog', [MainController::class, 'catalog']);
 
+Route::get('/catalog/{slug}', [MainController::class, 'single_product']);
+
 Route::get('/o-kompanii', [MainController::class, 'o_kompanii']);
 
 Route::get('/dostavka-i-oplata', [MainController::class, 'dostavka_i_oplata']);
@@ -189,15 +191,15 @@ Route::post('dashboard/delete-testimonial', [AdminController::class, 'delete_tes
 
 Route::get('dashboard/products', [ProductController::class, 'index']);
 
-Route::get('dashboard/products/create', [ProductController::class, 'create'])->name('product-create');
+Route::get('dashboard/products/create', [ProductController::class, 'create'])->name('products-create');
 
-Route::post('dashboard/products/store', [ProductController::class, 'store'])->name('product-store');
+Route::post('dashboard/products/store', [ProductController::class, 'store'])->name('products-store');
 
-Route::get('dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
+Route::get('dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('products-edit');
 
-Route::post('dashboard/products/update', [ProductController::class, 'update'])->name('product-update');
+Route::post('dashboard/products/update', [ProductController::class, 'update'])->name('products-update');
 
-Route::get('dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('product-destroy');
+Route::get('dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('products-destroy');
 
 
 

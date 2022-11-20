@@ -27,6 +27,27 @@ class MainController extends Controller
         return view('catalog');
     }
 
+    public function single_product($slug)
+    {
+        if (is_string($slug) && strlen($slug) > 3 && strlen($slug) < 100) {
+
+            $single_product = \App\Models\Product::where('slug', $slug)->first();
+
+            if ($single_product) {
+
+                $single_product->gallery = $single_product->galleries;
+
+                return view('single_product', compact('single_product'));
+
+            } else {
+                return abort(404);
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+    
+
     public function o_kompanii()
     {
         $text = \App\Models\Page::where('id', '1')
@@ -119,10 +140,10 @@ class MainController extends Controller
         return view('poisk');
     }
 
-    public function single_product()
-    {
-        return view('single_product');
-    }
+    // public function single_product()
+    // {
+    //     return view('single_product');
+    // }
 
     public function ajax_addtocart() {
         return false;
