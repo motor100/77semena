@@ -24,13 +24,13 @@ class CitySeeder extends Seeder
                             ['city' => 'Челябинск'],
                             ['city' => 'Магнитогорск']
                         ))
-                        ->state(new Sequence(
-                            ['postal_code' => '456300'],
-                            ['postal_code' => '456200'],
-                            ['postal_code' => '456440'],
-                            ['postal_code' => '454000'],
-                            ['postal_code' => '455000']
-                        ))
+                        // ->state(new Sequence(
+                        //     ['postal_code' => '456300'],
+                        //     ['postal_code' => '456200'],
+                        //     ['postal_code' => '456440'],
+                        //     ['postal_code' => '454000'],
+                        //     ['postal_code' => '455000']
+                        // ))
                         ->create();
     }
 }

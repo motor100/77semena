@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('city');
-            $table->string('region');
+            $table->integer('product_id')->unsigned();
+            $table->string('image')->index();
             $table->timestamps();
+
+            // создать внешний ключ (foreign key)
+            // $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('galleries');
     }
 };

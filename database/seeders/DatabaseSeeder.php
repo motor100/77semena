@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             TestimonialSeeder::class,
             AdminSeeder::class,
+            ProductSeeder::class,
+            GallerySeeder::class,
         ]);
     }
 }
