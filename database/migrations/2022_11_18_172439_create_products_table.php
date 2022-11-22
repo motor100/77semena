@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('image');
             $table->text('text');
-            $table->integer('code');
+            $table->Biginteger('code', 20);
             $table->integer('quantity');
             // Категория и подкатегория
             $table->integer('wholesale_price');

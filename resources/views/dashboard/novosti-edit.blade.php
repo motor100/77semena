@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('title')
-Добавить новость
+Редактировать новость
 @endsection
 
 @section('dashboardcontent')

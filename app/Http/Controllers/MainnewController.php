@@ -102,7 +102,7 @@ class MainnewController extends Controller
     {   
         $nw = Mainnew::find($id);
 
-        return view('dashboard.novosti-update', compact('nw'));
+        return view('dashboard.novosti-edit', compact('nw'));
     }
 
     /**
