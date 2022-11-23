@@ -35,9 +35,16 @@
       </div>
       <div class="form-group mb-3">
         <div class="label-text mb-1">Изображение</div>
-        <input type="file" name="input-main-file" id="input-main-file" class="inputfile" required accept="image/jpeg,image/png">
+        <input type="file" name="input-main-file" id="input-main-file" class="inputfile" accept="image/jpeg,image/png">
         <label for="input-main-file" class="custom-inputfile-label">Выберите файл</label>
         <span class="namefile main-file-text">Файл не выбран</span>
+      </div>
+      <div class="form-group">
+        <div class="image-preview">
+          @foreach($pr->galleries as $gl)
+            <img src="{{ asset('storage' . $gl->image) }}" alt="">
+          @endforeach
+        </div>
       </div>
       <div class="form-group mb-3">
         <div class="label-text mb-1">Галерея</div>
@@ -66,16 +73,17 @@
         <input type="number" class="form-control input-sku input-number" name="sku" id="sku" min="0" step="1" value="{{ $pr->sku }}">
       </div>
       <div class="form-group mb-3">
-        <label for="title">Вес</label>
+        <label for="title">Вес, гр.</label>
         <input type="number" class="form-control input-weight input-number" name="weight" id="weight" min="0" step="1" value="{{ $pr->weight }}">
       </div>
       <div class="form-group mb-3">
         <label for="title">Производитель</label>
         <input type="rext" class="form-control" name="brand" id="brand" maxlength="200" value="{{ $pr->brand }}">
       </div>
+      <input type="hidden" name="id" value="{{ $pr->id }}">
 
       @csrf
-      <button type="submit" class="btn btn-primary">Добавить</button>
+      <button type="submit" class="btn btn-primary">Обновить</button>
     </form>
 
   </div>

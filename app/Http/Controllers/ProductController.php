@@ -147,11 +147,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $request->validate([
             'title' => 'required|min:6|max:200',
-            'input-main-file' => 'required|image|mimes:jpg,png,jpeg',
             'code' => 'required|min:10|max:16',
             'quantity' => 'required|min:0|max:10000',
             'wholesale-price' => 'required|min:0',
@@ -179,15 +178,17 @@ class ProductController extends Controller
 
         $now = date('Y-m-d H:i:s');
 
-        // Проверка на уникальный slug
-        $have_slug = Product::where('slug', $slug)
-                            ->get();
-        if (count($have_slug) > 0) {
-            $newslug = $slug . '-%';
-            $slugs = Product::where('slug', 'like', $newslug)
-                            ->get();
-            $count_slugs = count($slugs) + 1;
-            $slug = $slug . '-' . $count_slugs;
+        if($slug != $pr->slug) {
+            // Проверка на уникальный slug
+            $have_slug = Product::where('slug', $slug)
+                                ->get();
+            if (count($have_slug) > 0) {
+                $newslug = $slug . '-%';
+                $slugs = Product::where('slug', 'like', $newslug)
+                                ->get();
+                $count_slugs = count($slugs) + 1;
+                $slug = $slug . '-' . $count_slugs;
+            }
         }
 
         $folder = 'products';
@@ -208,7 +209,8 @@ class ProductController extends Controller
                     Storage::disk('public')->delete($gl->image);
                 }
             }
-            $old_gallery->delete();            
+
+            Gallery::where('product_id', $id)->delete();
 
             $gallery_array = [];
             foreach($gallery as $gl) {
@@ -223,10 +225,23 @@ class ProductController extends Controller
             Gallery::insert($gallery_array);
         }
 
-        
+        $pr->update([
+            'title' => $title,
+            'slug' => $slug,
+            'image' => $img,
+            'text' => $text,
+            'code' => $code,
+            'quantity' => $quantity,
+            'wholesale_price' => $wholesale_price,
+            'retail_price' => $retail_price,
+            'sku' => $sku,
+            'weight' => $weight,
+            'brand' => $brand,
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
 
-        return redirect('/dashboard/novosti');
-
+        return redirect('/dashboard/products');
     }
 
     /**

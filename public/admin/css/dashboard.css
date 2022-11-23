@@ -188,11 +188,10 @@
 .table-button .form {
   display: inline-block;
 }
-.image-preview {
-  max-width: 150px;
-}
 .image-preview img {
-  width: 100%;
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
 }
 
 /* Таблица */

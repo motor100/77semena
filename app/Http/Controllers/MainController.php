@@ -35,7 +35,7 @@ class MainController extends Controller
 
             if ($single_product) {
 
-                $single_product->gallery = $single_product->galleries;
+                // $single_product->gallery = $single_product->galleries;
 
                 return view('single_product', compact('single_product'));
 

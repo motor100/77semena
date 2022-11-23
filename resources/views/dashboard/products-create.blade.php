@@ -61,7 +61,7 @@
         <input type="number" class="form-control input-sku input-number" name="sku" id="sku" min="0" step="1">
       </div>
       <div class="form-group mb-3">
-        <label for="title">Вес</label>
+        <label for="title">Вес, гр.</label>
         <input type="number" class="form-control input-weight input-number" name="weight" id="weight" min="0" step="1">
       </div>
       <div class="form-group mb-3">
