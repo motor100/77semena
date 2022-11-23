@@ -56,6 +56,25 @@
               </select>
             </div>
             <div class="row">
+              @foreach($products as $pr)
+                <div class="col-3">
+                  <div class="products-item">
+                    <div class="products-item__image">
+                      <img src="{{ asset('storage' .  $pr->image) }}" alt="">
+                    </div>
+                    <div class="products-item__title">{{ $pr->title }}</div>
+                    <div class="products-item__info info-yellow">Хит</div>
+                    <div class="products-item__price">
+                      <span class="products-item__value">{{ $pr->retail_price }}</span>
+                      <span class="products-item__currency">&nbsp;&#8381;</span>
+                    </div>
+                    <div class="add-to-cart-btn" data-id="{{ $pr->id }}">
+                      <div class="circle"></div>
+                    </div>
+                    <a href="/catalog/{{ $pr->slug }}" class="full-link"></a>
+                  </div>
+                </div>
+              @endforeach
               <div class="col-3">
                 <div class="products-item">
                   <div class="products-item__image">

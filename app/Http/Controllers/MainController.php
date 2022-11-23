@@ -23,8 +23,10 @@ class MainController extends Controller
     }
 
     public function catalog()
-    {
-        return view('catalog');
+    {   
+        $products = \App\Models\Product::limit(12)->orderBy('id', 'desc')->get();
+
+        return view('catalog', compact('products'));
     }
 
     public function single_product($slug)
@@ -34,11 +36,7 @@ class MainController extends Controller
             $single_product = \App\Models\Product::where('slug', $slug)->first();
 
             if ($single_product) {
-
-                // $single_product->gallery = $single_product->galleries;
-
                 return view('single_product', compact('single_product'));
-
             } else {
                 return abort(404);
             }
@@ -46,7 +44,6 @@ class MainController extends Controller
             return redirect('/');
         }
     }
-    
 
     public function o_kompanii()
     {
