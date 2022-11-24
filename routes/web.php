@@ -3,6 +3,7 @@
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainnewController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -202,6 +203,17 @@ Route::post('dashboard/products/update', [ProductController::class, 'update'])->
 Route::get('dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('products-destroy');
 
 
+Route::get('dashboard/category', [CategoryController::class, 'index']);
+
+Route::get('dashboard/category/create', [CategoryController::class, 'create'])->name('category-create');
+
+Route::post('dashboard/category/store', [CategoryController::class, 'store'])->name('category-store');
+
+Route::get('dashboard/category/{id}/edit', [CategoryController::class, 'edit'])->name('category-edit');
+
+Route::post('dashboard/category/update', [CategoryController::class, 'update'])->name('category-update');
+
+Route::get('dashboard/subcategory/create', [CategoryController::class, 'subcategory_create'])->name('subcategory-create');
 
 
 Route::get('dashboard/novosti', [MainnewController::class, 'index']);

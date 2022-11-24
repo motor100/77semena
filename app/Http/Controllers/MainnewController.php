@@ -98,7 +98,7 @@ class MainnewController extends Controller
      * @param  \App\Models\Mainnew  $mainnew
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mainnew $mainnew, $id)
+    public function edit($id)
     {   
         $nw = Mainnew::find($id);
 

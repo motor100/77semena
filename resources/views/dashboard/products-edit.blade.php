@@ -28,6 +28,14 @@
         <label for="text">Описание</label>
         <textarea class="form-control" name="text" id="text">{{ $pr->text }}</textarea>
       </div>
+      <div class="form-group mb-3">
+        <div class="label-text mb-1">Категория</div>
+        <select name="category" id="category" class="form-select mt-1">
+          @foreach($category as $ct)
+            <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+          @endforeach
+        </select>
+      </div>
       <div class="form-group">
         <div class="image-preview">
           <img src="{{ asset('storage' . $pr->image) }}" alt="">

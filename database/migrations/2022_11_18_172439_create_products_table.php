@@ -17,11 +17,11 @@ return new class extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug')->unique();
+            $table->integer('category');
             $table->string('image');
             $table->text('text');
-            $table->Biginteger('code', 20);
+            $table->biginteger('code');
             $table->integer('quantity');
-            // Категория и подкатегория
             $table->integer('wholesale_price');
             $table->integer('retail_price');
             $table->integer('sku')->nullable();

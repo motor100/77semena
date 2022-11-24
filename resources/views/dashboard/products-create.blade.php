@@ -19,7 +19,7 @@
       </div>
     @endif
 
-    <form class="form" action="{{ route('products-update') }}" method="post" enctype="multipart/form-data">
+    <form class="form" action="{{ route('products-store') }}" method="post" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="title">Название</label>
         <input type="rext" class="form-control" name="title" id="title" maxlength="200" required>
@@ -27,6 +27,14 @@
       <div class="form-group mb-3">
         <label for="text">Описание</label>
         <textarea class="form-control" name="text" id="text"></textarea>
+      </div>
+      <div class="form-group mb-3">
+        <div class="label-text mb-1">Категория</div>
+        <select name="category" id="category" class="form-select mt-1">
+          @foreach($category as $ct)
+            <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+          @endforeach
+        </select>
       </div>
       <div class="form-group mb-3">
         <div class="label-text mb-1">Изображение</div>

@@ -28,8 +28,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('dashboard.products-create');
+    {   
+        $category = \App\Models\Category::all();
+
+        return view('dashboard.products-create', compact('category'));
     }
 
     /**
@@ -50,6 +52,7 @@ class ProductController extends Controller
         ]);
 
         $title = $request->input('title');
+        $category = $request->input('category');
         $text = $request->input('text');
         $image = $request->file('input-main-file');
         $gallery = $request->file('input-gallery-file');
@@ -84,6 +87,7 @@ class ProductController extends Controller
         $product = new Product([
             'title' => $title,
             'slug' => $slug,
+            'category' => $category,
             'image' => $img,
             'text' => $text,
             'code' => $code,
@@ -137,7 +141,9 @@ class ProductController extends Controller
     {
         $pr = Product::find($id);
 
-        return view('dashboard.products-edit', compact('pr'));
+        $category = \App\Models\Category::all();
+
+        return view('dashboard.products-edit', compact('pr', 'category'));
     }
 
     /**
@@ -162,6 +168,7 @@ class ProductController extends Controller
         $pr = Product::find($id);
 
         $title = $request->input('title');
+        $category = $request->input('category');
         $text = $request->input('text');
         $image = $request->file('input-main-file');
         $gallery = $request->file('input-gallery-file');
@@ -175,7 +182,7 @@ class ProductController extends Controller
         $brand = $request->input('brand');
 
         $slug = Str::slug($title);
-
+        dd($category);
         $now = date('Y-m-d H:i:s');
 
         if($slug != $pr->slug) {
@@ -228,6 +235,7 @@ class ProductController extends Controller
         $pr->update([
             'title' => $title,
             'slug' => $slug,
+            'category' => $category,
             'image' => $img,
             'text' => $text,
             'code' => $code,

@@ -87,7 +87,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/addcategory" class="nav-link">
+              <a href="/dashboard/category" class="nav-link">
                 <i class="nav-icon fas fa-th-list"></i>
                 <p>Категории
                 </p>
@@ -108,20 +108,13 @@
               </a>
             </li>        
             <li class="nav-item">
-              <a href="/dashboard/payanddelivery" class="nav-link">
-                <i class="nav-icon fas fa-truck"></i>
-                <p>Доставка
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="/dashboard/city" class="nav-link">
                 <i class="nav-icon fas fa-city"></i>
                 <p>Города
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="/dashboard/popular-product" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>Популярный товар
@@ -141,8 +134,7 @@
                 <p>Товары на главной
                 </p>
               </a>
-            </li>
-
+            </li> -->
             <li class="nav-item">
               <a href="/dashboard/novosti" class="nav-link">
                 <i class="nav-icon nav-icon fas fa-edit"></i>
