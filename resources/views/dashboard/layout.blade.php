@@ -108,7 +108,7 @@
               </a>
             </li>        
             <li class="nav-item">
-              <a href="/dashboard/city" class="nav-link">
+              <a href="/dashboard/cities" class="nav-link">
                 <i class="nav-icon fas fa-city"></i>
                 <p>Города
                 </p>

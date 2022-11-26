@@ -339,7 +339,7 @@
         <div class="modal-title">Ваш город</div>
         <div class="city-select">
           @foreach($cities as $city)
-            <div class="city-item">{{ $city->city }}</div>
+            <div class="city-item">{{ $city->title }}</div>
           @endforeach
         </div>
       </div>

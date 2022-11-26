@@ -4,6 +4,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\MainnewController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -227,6 +228,19 @@ Route::get('dashboard/novosti/{id}/edit', [MainnewController::class, 'edit'])->n
 Route::post('dashboard/novosti/update', [MainnewController::class, 'update'])->name('novosti-update');
 
 Route::get('dashboard/novosti/{id}/destroy', [MainnewController::class, 'destroy'])->name('novosti-destroy');
+
+
+
+Route::get('dashboard/cities', [CityController::class, 'index']);
+
+Route::get('dashboard/cities/create', [CityController::class, 'create'])->name('cities-create');
+
+Route::post('dashboard/cities/store', [CityController::class, 'store'])->name('cities-store');
+
+Route::get('dashboard/cities/{id}/edit', [CityController::class, 'edit'])->name('cities-edit');
+
+Route::post('dashboard/cities/update', [CityController::class, 'update'])->name('cities-update');
+
 
 
 
