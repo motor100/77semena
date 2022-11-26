@@ -22,7 +22,7 @@
     <form class="form" action="{{ route('category-store') }}" method="post">
       <div class="form-group mb-3">
         <label for="title">Заголовок</label>
-        <input type="rext" class="form-control" name="title" id="title" maxlength="200" required>
+        <input type="text" class="form-control" name="title" id="title" maxlength="200" required>
       </div>
 
       @csrf

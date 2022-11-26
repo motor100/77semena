@@ -18,11 +18,11 @@ class CitySeeder extends Seeder
         \App\Models\City::factory()
                         ->count(5)
                         ->state(new Sequence(
-                            ['city' => 'Миасс'],
-                            ['city' => 'Златоуст'],
-                            ['city' => 'Чебаркуль'],
-                            ['city' => 'Челябинск'],
-                            ['city' => 'Магнитогорск']
+                            ['title' => 'Миасс'],
+                            ['title' => 'Златоуст'],
+                            ['title' => 'Чебаркуль'],
+                            ['title' => 'Челябинск'],
+                            ['title' => 'Магнитогорск']
                         ))
                         // ->state(new Sequence(
                         //     ['postal_code' => '456300'],

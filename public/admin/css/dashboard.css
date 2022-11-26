@@ -64,6 +64,9 @@
 .nav-sidebar > .nav-item .nav-icon.fa-circle {
   font-size: 10px;
 }
+.form-group textarea {
+  resize: none;
+}
 
 .footer {
   border-top: 1px solid #dee2e6;

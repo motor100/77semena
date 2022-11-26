@@ -114,6 +114,13 @@
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="/dashboard/offices" class="nav-link">
+                <i class="nav-icon fas fa-boxes"></i>
+                <p>ПВЗ
+                </p>
+              </a>
+            </li>
             <!-- <li class="nav-item">
               <a href="/dashboard/popular-product" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>

@@ -22,11 +22,11 @@
     <form class="form" action="{{ route('cities-store') }}" method="post">
       <div class="form-group mb-3">
         <label for="title">Название</label>
-        <input type="rext" class="form-control" name="title" id="title" maxlength="200" required>
+        <input type="text" class="form-control" name="title" id="title" maxlength="200" required>
       </div>
       <div class="form-group mb-3">
         <label for="region">Область</label>
-        <input type="rext" class="form-control" name="region" id="region" maxlength="200" required>
+        <input type="text" class="form-control" name="region" id="region" maxlength="200" required>
       </div>
 
       @csrf

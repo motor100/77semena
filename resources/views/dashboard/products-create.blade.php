@@ -22,7 +22,7 @@
     <form class="form" action="{{ route('products-store') }}" method="post" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="title">Название</label>
-        <input type="rext" class="form-control" name="title" id="title" maxlength="200" required>
+        <input type="text" class="form-control" name="title" id="title" maxlength="200" required>
       </div>
       <div class="form-group mb-3">
         <label for="text">Описание</label>
@@ -74,7 +74,7 @@
       </div>
       <div class="form-group mb-3">
         <label for="title">Производитель</label>
-        <input type="rext" class="form-control" name="brand" id="brand" maxlength="200">
+        <input type="text" class="form-control" name="brand" id="brand" maxlength="200">
       </div>
 
       @csrf

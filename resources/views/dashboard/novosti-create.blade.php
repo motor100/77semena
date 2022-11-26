@@ -22,7 +22,7 @@
     <form class="form" action="{{ route('novosti-store') }}" method="post" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="title">Заголовок</label>
-        <input type="rext" class="form-control" name="title" id="title" maxlength="200" required>
+        <input type="text" class="form-control" name="title" id="title" maxlength="200" required>
       </div>
       <div class="form-group mb-3">
         <label for="text">Описание</label>

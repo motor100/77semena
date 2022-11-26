@@ -13,4 +13,5 @@ class Gallery extends Model
         'product_id',
         'image',
     ];
+    
 }

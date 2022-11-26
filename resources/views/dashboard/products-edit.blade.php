@@ -22,7 +22,7 @@
     <form class="form" action="{{ route('products-update') }}" method="post" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="title">Название</label>
-        <input type="rext" class="form-control" name="title" id="title" maxlength="200" required value="{{ $pr->title }}">
+        <input type="text" class="form-control" name="title" id="title" maxlength="200" required value="{{ $pr->title }}">
       </div>
       <div class="form-group mb-3">
         <label for="text">Описание</label>
@@ -86,7 +86,7 @@
       </div>
       <div class="form-group mb-3">
         <label for="title">Производитель</label>
-        <input type="rext" class="form-control" name="brand" id="brand" maxlength="200" value="{{ $pr->brand }}">
+        <input type="text" class="form-control" name="brand" id="brand" maxlength="200" value="{{ $pr->brand }}">
       </div>
       <input type="hidden" name="id" value="{{ $pr->id }}">
 

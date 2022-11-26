@@ -5,6 +5,7 @@ use App\Http\Controllers\MainnewController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -241,6 +242,17 @@ Route::get('dashboard/cities/{id}/edit', [CityController::class, 'edit'])->name(
 
 Route::post('dashboard/cities/update', [CityController::class, 'update'])->name('cities-update');
 
+
+
+Route::get('dashboard/offices', [OfficeController::class, 'index']);
+
+Route::get('dashboard/offices/create', [OfficeController::class, 'create'])->name('offices-create');
+
+Route::post('dashboard/offices/store', [OfficeController::class, 'store'])->name('offices-store');
+
+Route::get('dashboard/offices/{id}/edit', [OfficeController::class, 'edit'])->name('offices-edit');
+
+Route::post('dashboard/offices/update', [OfficeController::class, 'update'])->name('offices-update');
 
 
 

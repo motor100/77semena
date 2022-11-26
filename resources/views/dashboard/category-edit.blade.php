@@ -22,7 +22,7 @@
     <form class="form" action="{{ route('category-update') }}" method="post">
       <div class="form-group mb-3">
         <label for="title">Заголовок</label>
-        <input type="rext" class="form-control" name="title" id="title" maxlength="200" required value="{{ $ct->title }}">
+        <input type="text" class="form-control" name="title" id="title" maxlength="200" required value="{{ $ct->title }}">
       </div>
       @if($ct->parent > 0)
       <div class="form-group mb-3">
