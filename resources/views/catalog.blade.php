@@ -60,7 +60,7 @@
                 <div class="col-3">
                   <div class="products-item">
                     <div class="products-item__image">
-                      <img src="{{ asset('storage' .  $pr->image) }}" alt="">
+                      <img src="{{ asset('storage/uploads/products/' .  $pr->image) }}" alt="">
                     </div>
                     <div class="products-item__title">{{ $pr->title }}</div>
                     <div class="products-item__info info-yellow">Хит</div>

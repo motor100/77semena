@@ -146,7 +146,7 @@ class AdminController extends Controller
         $new_filename = $slug . '-' . date('dmY') . '-' . mt_rand() . $filetype;
         $tmppathfilename = $file->getPathname();
         $pathname = public_path('storage') . "/uploads/" . $folder . $new_filename;
-        $pathnametobase = "/uploads/" . $folder . $new_filename;
+        $pathnametobase = $new_filename;
         move_uploaded_file($tmppathfilename, $pathname);
 
         return $pathnametobase;

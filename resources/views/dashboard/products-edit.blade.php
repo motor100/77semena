@@ -39,7 +39,7 @@
       </div>
       <div class="form-group">
         <div class="image-preview">
-          <img src="{{ asset('storage' . $pr->image) }}" alt="">
+          <img src="{{ asset('storage/uploads/products/' . $pr->image) }}" alt="">
         </div>
       </div>
       <div class="form-group mb-3">
@@ -51,7 +51,7 @@
       <div class="form-group">
         <div class="image-preview">
           @foreach($pr->galleries as $gl)
-            <img src="{{ asset('storage' . $gl->image) }}" alt="">
+            <img src="{{ asset('storage/uploads/products/' . $gl->image) }}" alt="">
           @endforeach
         </div>
       </div>

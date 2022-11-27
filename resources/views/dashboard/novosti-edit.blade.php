@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
         <div class="image-preview">
-          <img src="{{ asset('storage' . $nw->image) }}" alt="">
+          <img src="{{ asset('storage/uploads/news/' . $nw->image) }}" alt="">
         </div>
       </div>
       <div class="form-group mb-3">

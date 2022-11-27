@@ -203,8 +203,8 @@ class ProductController extends Controller
         $folder = 'products';
 
         if($image) {
-            if (Storage::disk('public')->exists($pr->image)) {
-                Storage::disk('public')->delete($pr->image);
+            if (Storage::disk('public')->exists('/uploads/products/' . $pr->image)) {
+                Storage::disk('public')->delete('/uploads/products/' . $pr->image);
             }
             $img = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $image, $folder);
         } else {
@@ -214,8 +214,8 @@ class ProductController extends Controller
         if($gallery) {
             $old_gallery = Gallery::where('product_id', $id)->get();
             foreach($old_gallery as $gl) {
-                if (Storage::disk('public')->exists($gl->image)) {
-                    Storage::disk('public')->delete($gl->image);
+                if (Storage::disk('public')->exists('/uploads/products/' . $gl->image)) {
+                    Storage::disk('public')->delete('/uploads/products/' . $gl->image);
                 }
             }
 
@@ -264,8 +264,16 @@ class ProductController extends Controller
     {
         $prd = Product::find($id);
 
-        if (Storage::disk('public')->exists($prd->image)) {
-            Storage::disk('public')->delete($prd->image);
+        // Удаление файла product image
+        if (Storage::disk('public')->exists('/uploads/products/' . $prd->image)) {
+            Storage::disk('public')->delete('/uploads/products/' . $prd->image);
+        }
+
+        // Удаление файлов gallery images 
+        foreach($prd->galleries as $gl) {
+            if (Storage::disk('public')->exists('/uploads/products/' . $gl->image)) {
+                Storage::disk('public')->delete('/uploads/products/' . $gl->image);
+            }
         }
 
         $prd->delete();

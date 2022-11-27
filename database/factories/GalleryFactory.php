@@ -18,7 +18,7 @@ class GalleryFactory extends Factory
     {
         return [
             'product_id' => $this->faker->numberBetween(1, 20),
-            'image' => $this->faker->imageUrl(),
+            'image' => $this->faker->numberBetween(0, 10) . '.jpg',
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()
         ];

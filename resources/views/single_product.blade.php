@@ -40,13 +40,13 @@
             <div class="swiper-wrapper">
               <div class="slider-item swiper-slide">
                 <div class="slider-item__image">
-                  <img src="{{ asset('storage' . $single_product->image) }}" alt="">
+                  <img src="{{ asset('storage/uploads/products/' . $single_product->image) }}" alt="">
                 </div>
               </div>
               @foreach($single_product->galleries as $gl )
                 <div class="slider-item swiper-slide">
                   <div class="slider-item__image">
-                    <img src="{{ asset('storage' . $gl->image) }}" alt="">
+                    <img src="{{ asset('storage/uploads/products/' . $gl->image) }}" alt="">
                   </div>
                 </div>
               @endforeach

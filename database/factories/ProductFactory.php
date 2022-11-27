@@ -15,12 +15,13 @@ class ProductFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-    {
+    {   
+        $filepath = storage_path('app/public/images');
         return [
             'title' => $this->faker->sentence(3),
             'slug' => $this->faker->slug(),
             'category_id' => $this->faker->numberBetween(0, 10),
-            'image' => $this->faker->imageUrl(),
+            'image' => $this->faker->numberBetween(0, 10) . '.jpg',
             'text' => $this->faker->text(),
             'code' => $this->faker->randomNumber(5, true),
             'quantity' => $this->faker->randomNumber(3, false),

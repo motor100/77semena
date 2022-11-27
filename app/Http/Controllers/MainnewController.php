@@ -144,8 +144,8 @@ class MainnewController extends Controller
         $folder = 'news';
 
         if($image) {
-            if (Storage::disk('public')->exists($nw->image)) {
-                Storage::disk('public')->delete($nw->image);
+            if (Storage::disk('public')->exists('/uploads/news/' . $nw->image)) {
+                Storage::disk('public')->delete('/uploads/news/' . $nw->image);
             }
             $img = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $image, $folder);
         } else {
@@ -173,8 +173,8 @@ class MainnewController extends Controller
     {   
         $nw = Mainnew::find($id);
 
-        if (Storage::disk('public')->exists($nw->image)) {
-            Storage::disk('public')->delete($nw->image);
+        if (Storage::disk('public')->exists('/uploads/news/' . $nw->image)) {
+            Storage::disk('public')->delete('/uploads/news/' . $nw->image);
         }
 
         $nw->delete();
