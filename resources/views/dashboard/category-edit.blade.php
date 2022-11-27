@@ -27,6 +27,7 @@
       @if($ct->parent > 0)
       <div class="form-group mb-3">
         <select name="parent" class="form-select mt-1">
+          <option value="{{ $current_ct->id }}" selected>{{ $current_ct->title }}</option>
           @foreach($parent_ct as $pct)
             <option value="{{ $pct->id }}">{{ $pct->title }}</option>
           @endforeach

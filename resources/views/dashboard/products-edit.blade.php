@@ -31,6 +31,7 @@
       <div class="form-group mb-3">
         <div class="label-text mb-1">Категория</div>
         <select name="category" id="category" class="form-select mt-1">
+          <option value="{{ $current_category->id }}" selected>{{ $current_category->title }}</option>
           @foreach($category as $ct)
             <option value="{{ $ct->id }}">{{ $ct->title }}</option>
           @endforeach

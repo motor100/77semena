@@ -101,7 +101,9 @@ class CategoryController extends Controller
 
         $parent_ct = Category::where('parent', '0')->get();
 
-        return view('dashboard.category-edit', compact('ct', 'parent_ct'));
+        $current_ct = $parent_ct->where('id', $ct->parent)->first();
+
+        return view('dashboard.category-edit', compact('ct', 'parent_ct', 'current_ct'));
     }
 
     /**

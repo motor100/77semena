@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug')->unique();
-            $table->integer('category');
+            $table->integer('category_id');
             $table->string('image');
             $table->text('text');
             $table->biginteger('code');

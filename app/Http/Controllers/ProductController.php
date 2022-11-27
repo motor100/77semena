@@ -87,7 +87,7 @@ class ProductController extends Controller
         $product = new Product([
             'title' => $title,
             'slug' => $slug,
-            'category' => $category,
+            'category_id' => $category,
             'image' => $img,
             'text' => $text,
             'code' => $code,
@@ -143,7 +143,9 @@ class ProductController extends Controller
 
         $category = \App\Models\Category::all();
 
-        return view('dashboard.products-edit', compact('pr', 'category'));
+        $current_category = $category->where('id', $pr->category_id)->first();
+
+        return view('dashboard.products-edit', compact('pr', 'category', 'current_category'));
     }
 
     /**
@@ -182,7 +184,7 @@ class ProductController extends Controller
         $brand = $request->input('brand');
 
         $slug = Str::slug($title);
-        dd($category);
+
         $now = date('Y-m-d H:i:s');
 
         if($slug != $pr->slug) {
@@ -235,7 +237,7 @@ class ProductController extends Controller
         $pr->update([
             'title' => $title,
             'slug' => $slug,
-            'category' => $category,
+            'category_id' => $category,
             'image' => $img,
             'text' => $text,
             'code' => $code,
