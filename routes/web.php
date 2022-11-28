@@ -100,15 +100,8 @@ Route::get('/dokumenty', [MainController::class, 'dokumenty']);
 
 Route::get('/novinki', [MainController::class, 'novinki']);
 
-Route::get('/peppers', [MainController::class, 'peppers']);
 
-Route::get('/tomatoes', [MainController::class, 'tomatoes']);
-
-Route::get('/cucumbers', [MainController::class, 'cucumbers']);
-
-Route::get('/chemicals', [MainController::class, 'chemicals']);
-
-
+// ajax
 Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
 
 
@@ -269,6 +262,16 @@ Route::post('dashboard/stat-partnerom-update', [AdminController::class, 'stat_pa
 
 
 Route::post('/dashboard/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
+
+
+
+// profile
+Route::get('profile', [ProfileController::class, 'home']);
+
+Route::get('calc', [ProfileController::class, 'calc']);
+
+Route::get('profile/done-orders', [ProfileController::class, 'done_orders']);
+
 
 
 

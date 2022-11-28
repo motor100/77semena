@@ -157,7 +157,7 @@
             <div class="popular-category-item__image">
               <img src="/img/popular-category-pepper.png" alt="">
             </div>
-            <a href="/peppers" class="full-link"></a>
+            <a href="/catalog?category=percy" class="full-link"></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -169,7 +169,7 @@
             <div class="popular-category-item__image">
               <img src="/img/popular-category-tomato.png" alt="">
             </div>
-            <a href="/tomatoes" class="full-link"></a>
+            <a href="/catalog?category=tomaty" class="full-link"></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -181,7 +181,7 @@
             <div class="popular-category-item__image">
               <img src="/img/popular-category-cucumber.png" alt="">
             </div>
-            <a href="/cucumbers" class="full-link"></a>
+            <a href="/catalog?category=ogurcy" class="full-link"></a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -193,7 +193,7 @@
             <div class="popular-category-item__image">
               <img src="/img/popular-category-chemical.png" alt="">
             </div>
-            <a href="/chemicals" class="full-link"></a>
+            <a href="/catalog?category=agrohimiya" class="full-link"></a>
           </div>
         </div>
       </div>

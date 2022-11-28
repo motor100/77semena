@@ -1,0 +1,276 @@
+@font-face {
+  font-family: 'montserrat-regular';
+  src: url(../fonts/montserrat-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-light';
+  src: url(../fonts/montserrat-light.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-medium';
+  src: url(../fonts/montserrat-medium.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-semibold';
+  src: url(../fonts/montserrat-semibold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'montserrat-bold';
+  src: url(../fonts/montserrat-bold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+body {
+  min-width: 320px;
+  max-width: 1920px;
+  position: relative;
+  font-family: "montserrat-regular", sans-serif;
+  color: #3e3e3e;
+  margin: 0 auto;
+}
+input:active,
+input:focus,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+input::-moz-focus-inner {
+  border: 0;
+}
+textarea {
+  resize: none;
+}
+a, a:focus, a:active {
+  outline: none;
+}
+a, a:hover {
+  text-decoration: none;
+}
+button, button:focus, button:active {
+  outline: none;
+}
+img {
+  border-style: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.full-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.clear-both {
+  clear: both;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-center {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.hidden-desktop {
+  display: none;
+}
+.position-relative {
+  position: relative;
+}
+.page-title {
+  font-family: 'montserrat-semibold';
+  font-size: 32px;
+}
+
+/* header */
+.header {
+  margin: 0 0 32px 0;
+  padding: 16px 0;
+  background-color: #E8E8E8;
+}
+.header .logo {
+  width: 160px;
+}
+.header .top-menu .menu-item {
+  display: inline-block;
+  margin: 0 8px;
+}
+.header .top-menu .menu-item a {
+  border-bottom: 1px solid #E8E8E8;
+  color: #3E3E3E;
+  line-height: 1.3;
+  transition: border-bottom .3s;
+}
+.header .top-menu .menu-item a:hover {
+  border-bottom: 1px solid #3E3E3E;
+}
+.header .logout .logout-btn {
+  padding: 0;
+  border: none;
+}
+.header .logout .logout-btn:hover {
+  padding: 0;
+  border: none;
+  background-color: #E8E8E8;
+}
+.header .logout .logout-text {
+  font-size: 13px;
+}
+.header .logout .logout-image {
+  width: 25px;
+}
+
+
+/* orders-table */
+.orders-table th,
+.orders-table td {
+  padding: 15px;
+}
+.orders-table .table-header {
+  border-bottom: 2px solid #E8E8E8;
+}
+
+.orders-table .middle-cell {
+  border-left: 2px solid #E8E8E8;
+  border-right: 2px solid #E8E8E8;
+}
+
+
+
+/* footer */
+.footer {
+  margin: 64px 0 0 0;
+}
+.footer .horizontal-line {
+  height: 2px;
+  background-color: #3E3E3E;
+}
+.footer .footer-content {
+  padding: 32px 0;
+}
+.footer .support .support-text {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+}
+.footer .support .support-phone {
+  font-family: 'montserrat-semibold';
+  font-size: 24px;
+}
+.footer .to-home .to-home-btn {
+  display: block;
+  height: 56px;
+  padding: 15px 0;
+  border-radius: 28px;
+  background-color: #3E3E3E;
+  color: #E8E8E8;
+  text-align: center;
+}
+
+
+
+/* pagination */
+.pagination-links .pagination {
+  width: max-content;
+  height: 42px;
+  margin: 0 0 0 auto;
+  padding: 0;
+  text-align: center;
+  list-style: none;
+}
+.pagination-links .pagination .link {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #E8E8E8;
+  overflow: hidden;
+  transition: background-color .3s;
+}
+.pagination-links .pagination .link:last-child {
+  margin: 0 0 0 5px;
+}
+.pagination-links .pagination .link :hover,
+.pagination-links .pagination .active {
+  background-color: #8278B8;
+}
+.pagination-links .pagination .link a {
+  display: block;
+  padding: 9px 0;
+  font-size: 16px;
+  color: #3E3E3E;
+  transition: color .3s;
+}
+.pagination-links .pagination .link:hover a,
+.pagination-links .pagination .active a {
+  font-family: 'montserrat-bold';
+  color: #E8E8E8;
+}
+
+
+
+@media only screen and (max-width : 1400px) {
+  
+}
+
+@media only screen and (max-width : 1200px) {
+  
+}
+
+@media only screen and (max-width : 992px) {
+  
+
+  .breadcrumbs {
+    margin: 0 0 40px 0;
+  }
+
+ 
+}
+
+@media only screen and (max-width : 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  .hidden-desktop {
+    display: block;
+  }
+  
+  .breadcrumbs {
+    margin: 0 0 32px 0;
+    font-size: 12px;
+  }
+
+  
+}
+
+@media only screen and (max-width : 480px) {
+ 
+}
