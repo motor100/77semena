@@ -22,11 +22,41 @@ class MainController extends Controller
         return view('home', compact('news'));
     }
 
-    public function catalog()
+    public function catalog(Request $request)
     {   
-        $products = \App\Models\Product::limit(12)->orderBy('id', 'desc')->get();
+        // Get query param
+        $query_category = $request->query('category');
 
-        return view('catalog', compact('products'));
+        // Categories
+        // Get all categories
+        $categories = \App\Models\Category::all();
+
+        // Get parent categories
+        $parent_category = $categories->where('parent', '0');
+
+        // Get child categories
+        foreach($parent_category as $pct) {
+            $child_category = $categories->where('parent', $pct->id);
+            if (count($child_category) > 0) {
+                $pct->child_category = $child_category;
+            }
+        }
+
+        // Products
+        // Get products with query param
+        $category = false;
+        if($query_category) {
+            $category = $categories->where('slug', $query_category)->first();
+        }
+        
+        if($category) {
+            $products = \App\Models\Product::where('category_id', $category->id)->limit(12)->orderBy('id', 'desc')->get();
+            $category_title = $category->title;
+            return view('catalog', compact('products', 'parent_category', 'category_title'));
+        } else {
+            $products = \App\Models\Product::limit(12)->orderBy('id', 'desc')->get();
+            return view('catalog', compact('products', 'parent_category'));
+        }
     }
 
     public function single_product($slug)

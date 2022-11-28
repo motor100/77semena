@@ -1661,6 +1661,7 @@ ul {
 }
 .catalog .catalog-nav .catalog-nav-item__title {
   position: relative;
+  display: block;
   margin: 0 0 5px 0;
   font-family: 'montserrat-medium';
   color: #A9A9A9;

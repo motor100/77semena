@@ -29,26 +29,33 @@
               <div class="catalog-nav-title">Категории</div>
               <!-- <div class="catalog-nav-arrow"></div> -->
             </div>
-            <div class="catalog-nav-item">
-              <div class="catalog-nav-item__title">Семена</div>
-              <div class="catalog-nav-arrow"></div>
-              <ul class="catalog-nav-submenu">
-                <li class="catalog-nav-submenu-item">Овощи</li>
-                <li class="catalog-nav-submenu-item">Газон</li>
-                <li class="catalog-nav-submenu-item">Цветы</li>
-                <li class="catalog-nav-submenu-item">Ягоды</li>
-              </ul>
-            </div>
-            <div class="catalog-nav-item">
-              <div class="catalog-nav-item__title">Агрохимия</div>
-              <div class="catalog-nav-arrow"></div>
-            </div>
+            @foreach($parent_category as $pct)
+              <div class="catalog-nav-item">
+                @if($pct->child_category)
+                  <div class="catalog-nav-item__title">{{ $pct->title }}</div>
+                  <div class="catalog-nav-arrow"></div>
+                  <ul class="catalog-nav-submenu">
+                    @foreach($pct->child_category as $cct)
+                      <li class="catalog-nav-submenu-item">
+                        <a href="/catalog?category={{ $cct->slug }}">{{ $cct->title }}</a>
+                      </li>
+                    @endforeach
+                  </ul>
+                @else
+                  <a href="/catalog?category={{ $pct->slug }}" class="catalog-nav-item__title">{{ $pct->title }}</a>
+                @endif
+              </div>
+            @endforeach
           </div>
         </div>
         <div class="col-md-10">
           <div class="products">
             <div class="products-title-wrapper">
-              <div class="products-title">Газон</div>
+              @if(isset($category_title))
+                <div class="products-title">{{ $category_title }}</div>
+              @else
+                <div class="products-title">Каталог</div>
+              @endif
               <select name="" id="products-filter" class="products-filter">
                 <option value="new-products">Сначала дорогие</option>
                 <option value="cheap-first">Сначала дешевые</option>
