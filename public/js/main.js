@@ -436,6 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (catalogPage) {
+    // Open/close nav menu item
     let catalogNavItemTitle = document.querySelectorAll('.catalog-nav-item__title');
 
     catalogNavItemTitle.forEach((item) => {
@@ -444,6 +445,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Remove selector catalog-nav-item-active width less 768px
+    // let windowInnerWidth = window.innerWidth;
+    // if (windowInnerWidth < 768) {
+    //   let catalogNavItemActive = document.querySelector('.catalog-nav-item-active');
+    //   catalogNavItemActive.classList.remove('catalog-nav-item-active');
+    // }
+
+    // Custom slim select
     const productsFilterSelect = new SlimSelect({
       select: '#products-filter',
       showSearch: false,

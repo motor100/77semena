@@ -27,9 +27,9 @@
           <div class="catalog-nav">
             <div class="catalog-nav-title-wrapper">
               <div class="catalog-nav-title">Категории</div>
-              <div class="catalog-nav-arrow"></div>
+              <!-- <div class="catalog-nav-arrow"></div> -->
             </div>
-            <div class="catalog-nav-item catalog-nav-item-active">
+            <div class="catalog-nav-item">
               <div class="catalog-nav-item__title">Семена</div>
               <div class="catalog-nav-arrow"></div>
               <ul class="catalog-nav-submenu">
@@ -57,7 +57,7 @@
             </div>
             <div class="row">
               @foreach($products as $pr)
-                <div class="col-3">
+                <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="products-item">
                     <div class="products-item__image">
                       <img src="{{ asset('storage/uploads/products/' .  $pr->image) }}" alt="">
@@ -75,140 +75,6 @@
                   </div>
                 </div>
               @endforeach
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="add-to-cart-btn" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="add-to-cart-btn" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="add-to-cart-btn" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-grey">Нет в наличии</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="pre-order">Предзаказ</div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="add-to-cart-btn" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="add-to-cart-btn" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-yellow">Хит</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="add-to-cart-btn" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="products-item">
-                  <div class="products-item__image">
-                    <img src="/img/new-seeds-image.jpg" alt="">
-                  </div>
-                  <div class="products-item__title">Клубника ЛЕСНАЯ F1</div>
-                  <div class="products-item__info info-grey">Нет в наличии</div>
-                  <div class="products-item__price">
-                    <span class="products-item__value">18</span>
-                    <span class="products-item__currency">&nbsp;&#8381;</span>
-                  </div>
-                  <div class="add-to-cart-btn" data-id="">
-                    <div class="circle"></div>
-                  </div>
-                  <a href="#" class="full-link"></a>
-                </div>
-              </div>
             </div>
           </div>
           <div class="horizontal-line"></div>

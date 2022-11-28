@@ -77,7 +77,7 @@
               <span class="products-item__currency">&#8381;</span>
             </div>
             @if($single_product->quantity > 0)
-              <div class="single-product-stock single-product-in-stock">в наличии на складе</div>
+              <div class="single-product-stock single-product-in-stock">В наличии</div>
             @else
               <div class="single-product-stock single-product-out-of-stock">Нет в наличии</div>
             @endif
