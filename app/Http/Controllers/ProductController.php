@@ -15,9 +15,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $products = Product::orderBy('id', 'desc')->limit(50)->get();
+    public function index(Request $request)
+    {   
+        $title = $request->input('q');
+
+        $products = '';
+
+        if($title) {
+            $code = htmlspecialchars($title);
+            $products = \App\Models\Product::where('title', 'like', "%{$title}%")->get();
+        } else {
+            $products = Product::orderBy('id', 'desc')->limit(20)->get();
+        }
         
         return view('dashboard.products', compact('products'));
     }
@@ -138,13 +147,14 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        
         $pr = Product::find($id);
 
         $category = \App\Models\Category::all();
 
         $current_category = $category->where('id', $pr->category_id)->first();
-
+        // dd($pr->category_id);
         return view('dashboard.products-edit', compact('pr', 'category', 'current_category'));
     }
 

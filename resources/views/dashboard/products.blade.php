@@ -11,6 +11,16 @@
   <div class="content">
     <div class="container-fluid">
 
+      <form class="form mb-5" action="/dashboard/products" method="get">
+        <div class="form-group mb-3">
+          <label for="q">Поиск</label>
+          <input type="text" class="form-control input-number" name="q" id="q" maxlength="200" required>
+        </div>
+
+        @csrf
+        <button type="submit" class="btn btn-primary">Найти</button>
+      </form>
+
       <a href="{{ route('products-create') }}" class="btn btn-success mb-3">Добавить</a>
       <table class="table table-striped">
         <thead>
