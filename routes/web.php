@@ -200,6 +200,11 @@ Route::post('dashboard/products/update', [ProductController::class, 'update'])->
 Route::get('dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('products-destroy');
 
 
+Route::get('dashboard/warehouse', [AdminController::class, 'warehouse']);
+
+Route::post('dashboard/warehouse/update', [AdminController::class, 'warehouse_update']);
+
+
 Route::get('dashboard/category', [CategoryController::class, 'index']);
 
 Route::get('dashboard/category/create', [CategoryController::class, 'create'])->name('category-create');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {   
@@ -20,6 +21,45 @@ class AdminController extends Controller
                                         ->get();
 
         return view('dashboard.testimonials', compact('testimonials'));
+    }
+
+    public function warehouse(Request $request)
+    {   
+        $code = $request->input('q');
+
+        $product = '';
+
+        if($code) {
+            $code = htmlspecialchars($code);
+            $product = \App\Models\Product::where('code', 'like', "%{$code}%")->first();
+        }
+
+        return view('dashboard.warehouse', compact('product'));
+    }
+
+    public function warehouse_update(Request $request)
+    {   
+        $request->validate([
+            'quantity' => 'required|min:0',
+        ]);
+
+        $id = $request->input('id');
+        $quantity = $request->input('quantity');
+
+        $pr = \App\Models\Product::find($id);
+
+        $now = date('Y-m-d H:i:s');
+
+        if($pr) {
+            $pr->update([
+                'quantity' => $quantity,
+                'updated_at' => $now
+            ]);
+    
+            return redirect('/dashboard/warehouse');
+        } else {
+            return Redirect::back()->withErrors(['msg' => 'Ошибка']);
+        }
     }
 
     public function publicate_testimonial(Request $request)

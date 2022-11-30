@@ -87,6 +87,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/dashboard/warehouse" class="nav-link">
+                <i class="nav-icon fas fa-truck"></i>
+                <p>Склад</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/dashboard/category" class="nav-link">
                 <i class="nav-icon fas fa-th-list"></i>
                 <p>Категории
