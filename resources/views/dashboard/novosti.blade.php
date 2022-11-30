@@ -23,8 +23,8 @@
         <tbody>
           @foreach($news as $nw)
             <tr>
-              <th scope="row">{{ $nw->id}}</th>
-              <td>{{ $nw->title}}</td>
+              <th scope="row">{{ $nw->id }}</th>
+              <td>{{ $nw->title }}</td>
               <td class="table-button">
                 <a href="/novosti/{{ $nw->slug }}" class="btn btn-success" target="_blank">
                   <i class="fas fa-eye"></i>

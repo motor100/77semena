@@ -102,6 +102,8 @@ Route::get('/novinki', [MainController::class, 'novinki']);
 
 
 // ajax
+Route::post('/ajax/search', [MainController::class, 'ajax_search']);
+
 Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
 
 

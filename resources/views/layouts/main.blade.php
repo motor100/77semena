@@ -55,7 +55,7 @@
               <span class="catalog-btn__text">Каталог</span>
             </a>
           </div>
-          <form class="form" action="/poisk" method="get">
+          <form class="form search-form" action="/poisk" method="get">
             <div class="form-container position-relative">
               <input type="text" class="search-input" name="q" minlength="3" maxlength="20" autocomplete="off" required>
               @csrf
@@ -65,55 +65,14 @@
                   <path d="M16.4437 16.4438L21 21.0001" stroke="#A9A9A9" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
+
+
               <!-- <div class="autocomplete-dropdown autocomplete-dropdown-active"> -->
               <div class="autocomplete-dropdown">
-                <ul class="autocomplete-list">
+                <ul class="autocomplete-list js-search-rezult">
                   <li class="autocomplete-list-item">
                     <div class="autocomplete-list-item__title">Семена арбуза «Семена Алтая» ЭКО 15шт</div>
-                    <div class="autocomplete-list-item__price">
-                      <span class="autocomplete-list-item__value">48</span>
-                      <span class="autocomplete-list-item__currency">&#8381;</span>
-                    </div>
-                    <a href="#" class="full-link"></a>
-                  </li>
-                  <li class="autocomplete-list-item">
-                    <div class="autocomplete-list-item__title">Клубника ЛЕСНАЯ F1</div>
-                    <div class="autocomplete-list-item__price">
-                      <span class="autocomplete-list-item__value">25</span>
-                      <span class="autocomplete-list-item__currency">&#8381;</span>
-                    </div>
-                    <a href="#" class="full-link"></a>
-                  </li>
-                  <li class="autocomplete-list-item">
-                    <div class="autocomplete-list-item__title">Семена арбуза «Семена Алтая» ЭКО 15шт</div>
-                    <div class="autocomplete-list-item__price">
-                      <span class="autocomplete-list-item__value">48</span>
-                      <span class="autocomplete-list-item__currency">&#8381;</span>
-                    </div>
-                    <a href="#" class="full-link"></a>
-                  </li>
-                  <li class="autocomplete-list-item">
-                    <div class="autocomplete-list-item__title">Клубника ЛЕСНАЯ F1</div>
-                    <div class="autocomplete-list-item__price">
-                      <span class="autocomplete-list-item__value">25</span>
-                      <span class="autocomplete-list-item__currency">&#8381;</span>
-                    </div>
-                    <a href="#" class="full-link"></a>
-                  </li>
-                  <li class="autocomplete-list-item">
-                    <div class="autocomplete-list-item__title">Семена арбуза «Семена Алтая» ЭКО 15шт</div>
-                    <div class="autocomplete-list-item__price">
-                      <span class="autocomplete-list-item__value">48</span>
-                      <span class="autocomplete-list-item__currency">&#8381;</span>
-                    </div>
-                    <a href="#" class="full-link"></a>
-                  </li>
-                  <li class="autocomplete-list-item">
-                    <div class="autocomplete-list-item__title">Клубника ЛЕСНАЯ F1</div>
-                    <div class="autocomplete-list-item__price">
-                      <span class="autocomplete-list-item__value">25</span>
-                      <span class="autocomplete-list-item__currency">&#8381;</span>
-                    </div>
+                    <div class="autocomplete-list-item__price">48&#8381;</div>
                     <a href="#" class="full-link"></a>
                   </li>
                 </ul>
@@ -121,6 +80,10 @@
                   <a href="#" class="autocomplete-see-all-btn">Показать все результаты</a>
                 </div>
               </div>
+
+
+
+
             </div>
           </form>
           <div class="cart hidden-mobile">

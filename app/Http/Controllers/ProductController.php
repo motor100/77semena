@@ -247,7 +247,6 @@ class ProductController extends Controller
             'sku' => $sku,
             'weight' => $weight,
             'brand' => $brand,
-            'created_at' => $now,
             'updated_at' => $now
         ]);
 

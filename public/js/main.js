@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
       catalogPage = document.querySelector('.catalog'), // страница каталог
       singleProduct = document.querySelector('.single-product'), // страница товара
       dostavkaIOplataPage = document.querySelector('.dostavka-i-oplata'), // страница доставка и оплата
-      otzyvyPage = document.querySelector('.otzyvy'); // страница отзывы
+      otzyvyPage = document.querySelector('.otzyvy'), // страница отзывы
+      token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // csrf token
 
 
   addToCart();
@@ -124,16 +125,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  // search autocomlete see all btn
-  let searchInput = document.querySelector('.search-input'),
-      token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      autocompleteSseeAllBtn = document.querySelector('.autocomplete-see-all-btn');
+  // search
+  let searchForm = document.querySelector('.search-form'),
+      searchInput = document.querySelector('.search-input'),
+      autocompleteDropdown = document.querySelector('.autocomplete-dropdown'),
+      searchRezult = document.querySelector('.js-search-rezult');
+    
+  searchInput.oninput = function () {
 
-  if (searchInput) {
-    searchInput.oninput = function () {
-      if(searchInput.value.length >=3) {
-        autocompleteSseeAllBtn.href = '/poisk?q=' + searchInput.value + '&_token=' + token;
+    let searchInputValue = document.querySelector('.search-input').value;
+    console.log(searchInputValue.length);
+
+    if (searchInputValue.length > 3 && searchInputValue.length < 40) {
+
+      let formData = {
+        product: searchInputValue,
+        token: token
+      };
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('post', '/ajax/search');
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      xhr.send('product=' + encodeURIComponent(formData.product) + '&_token=' + encodeURIComponent(formData.token));
+      xhr.onload = function() {
+        
+        // Получаю данные в виде json массива
+        let response = xhr.response;
+        let autocompleteSeeAllBtn = document.querySelector('.autocomplete-see-all-btn');
+        autocompleteDropdown.classList.add('autocomplete-dropdown-active');
+
+        if (response) {
+
+          searchRezult.innerHTML = '';
+          response = JSON.parse(response);
+
+          // Формирую html из массива данных
+          response.forEach((item) => {
+            let tmpEl = document.createElement('li');
+            tmpEl.className = "autocomplete-list-item";
+            tmpEl.innerHTML = '<div class="autocomplete-list-item__title">' + item.title + '</div>';
+            tmpEl.innerHTML += '<div class="autocomplete-list-item__price">' + item.price + '&#8381;</span>';
+            tmpEl.innerHTML += '<a href="/catalog/' + item.slug + '" class="full-link autocomplete-list-item__link"></a>';
+            searchRezult.append(tmpEl);
+          });
+
+          // Функция очищает форму и удаляет селектор
+          function resetForm() {
+            searchForm.reset();
+            autocompleteDropdown.classList.remove('autocomplete-dropdown-active');
+          }
+
+          // Добавляю клик на найденные элементы
+          let autocompleteListItemLink = document.querySelectorAll('.autocomplete-list-item__link');
+
+          autocompleteListItemLink.forEach((item) => {
+            item.onclick = resetForm;
+          });
+
+          // Добавляю клик на ссылку Показать все результаты
+          // Меняю href у ссылки
+          autocompleteSeeAllBtn.classList.remove('hidden');
+          autocompleteSeeAllBtn.classList.add('visible');
+          autocompleteSeeAllBtn.href = '/poisk?q=' + searchInput.value + '&_token=' + token;
+          autocompleteSeeAllBtn.onclick = resetForm;
+
+        } else {
+          searchRezult.innerHTML = '';
+          let tmpEl = document.createElement('li');
+          tmpEl.className = "no-product";
+          tmpEl.innerText = "Товаров не найдено";
+          searchRezult.append(tmpEl);
+          autocompleteSeeAllBtn.classList.remove('visible');
+          autocompleteSeeAllBtn.classList.add('hidden');
+        }
       }
+    } else {
+      // Если менее 3 символов скрываю результаты поиска
+      autocompleteDropdown.classList.remove('autocomplete-dropdown-active');
     }
   }
 
@@ -244,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name: inputName.value,
         phone: inputPhone.value,
         checkbox: inputCheckbox.checked,
-        token: form.querySelector('input[name="_token"]').value
+        token: token
       };
 
       let request = new XMLHttpRequest();
@@ -272,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
         let formData = {
           id: this.getAttribute('data-id'),
-          token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+          token: token,
         };
         
         let xhr = new XMLHttpRequest();
@@ -352,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
           city: inputCity.value,
           text: inputText.value,
           checkbox: inputCheckbox.checked,
-          token: form.querySelector('input[name="_token"]').value
+          token: token
         };
 
         let request = new XMLHttpRequest();
@@ -409,7 +477,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
       let formData = {
         id: param.getAttribute('data-id'),
-        token: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        token: token,
       };
 
       document.querySelector('[data-id="' + formData.id + '"]').remove();

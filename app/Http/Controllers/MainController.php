@@ -163,14 +163,41 @@ class MainController extends Controller
     }
 
     public function poisk(Request $request)
-    {
-        return view('poisk');
-    }
+    {   
+        // Search
+        $product = $request->input('q');
 
-    // public function single_product()
-    // {
-    //     return view('single_product');
-    // }
+        if (!$product) {
+            return redirect('/');
+        }
+
+        $product = htmlspecialchars($product);
+
+        $products = \App\Models\Product::where('title', 'like', "%{$product}%")
+                                        ->orWhere('text', 'like', "%{$product}%")
+                                        ->get();
+
+        if (!$products) {
+            return redirect('/');
+        };
+
+        // Categories
+        // Get all categories
+        $categories = \App\Models\Category::all();
+
+        // Get parent categories
+        $parent_category = $categories->where('parent', '0');
+
+        // Get child categories
+        foreach($parent_category as $pct) {
+            $child_category = $categories->where('parent', $pct->id);
+            if (count($child_category) > 0) {
+                $pct->child_category = $child_category;
+            }
+        }
+
+        return view('poisk', compact('products', 'parent_category'));
+    }
 
     public function ajax_addtocart() {
         return false;
@@ -243,8 +270,38 @@ class MainController extends Controller
     }
 
 
-    
-    
+    public function ajax_search(Request $request)
+    {   
+        $product = $request->input('product');
+
+        if (!$product) {
+            return false;
+        }
+
+        $product = htmlspecialchars($product);
+
+        $products = \App\Models\Product::where('title', 'like', "%{$product}%")
+                                        ->orWhere('text', 'like', "%{$product}%")
+                                        ->get();
+
+        $products_array = [];
+
+        if ($products && count($products) > 0) {
+            foreach ($products as $value) {
+                $product_item = [];
+                $product_item['title'] = $value->title;
+                $product_item['price'] = $value->retail_price;
+                $product_item['slug'] = $value->slug;
+                $products_array[] = $product_item;
+            }
+        } else {
+            return false;
+        }
+
+        $products_array = json_encode($products_array, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+        return $products_array;
+    }
 
     public function ajax_testimonial(Request $request)
     {   
