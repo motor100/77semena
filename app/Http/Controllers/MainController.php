@@ -19,7 +19,23 @@ class MainController extends Controller
             $nw['date'] = MainController::datetime_format($nw['created_at'], 2);
         }
 
-        return view('home', compact('news'));
+        $new_products = \App\Models\Product::orderBy('id', 'desc')->limit(4)->get();
+
+        $i = 0;
+        foreach($new_products as $pr) {
+            $pr->count = $i;
+            $i++;
+        }
+
+        $promo_products = \App\Models\Product::whereNotNull('promo_price')->limit(6)->orderBy('id', 'desc')->get();
+
+        $i = 0;
+        foreach($promo_products as $pr) {
+            $pr->count = $i;
+            $i++;
+        }
+
+        return view('home', compact('news', 'new_products', 'promo_products'));
     }
 
     public function catalog(Request $request)

@@ -50,7 +50,7 @@
       </div>
       <div class="form-group mb-3">
         <label for="title">Штрихкод</label>
-        <input type="number" class="form-control input-code input-number" name="code" id="code" min="0" step="1" required>
+        <input type="number" class="form-control input-code input-number" name="code" id="code" min="0" step="1" minlength="8" maxlength="15" required>
       </div>
       <div class="form-group mb-3">
         <label for="title">Количество</label>
@@ -63,6 +63,10 @@
       <div class="form-group mb-3">
         <label for="title">Розничная цена</label>
         <input type="number" class="form-control input-retail-price input-number" name="retail-price" id="retail-price" min="0" step="1" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="title">Акционная цена</label>
+        <input type="number" class="form-control input-promo-price input-number" name="promo-price" id="promo-price" min="0" step="1">
       </div>
       <div class="form-group mb-3">
         <label for="title">Артикул</label>

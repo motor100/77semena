@@ -25,6 +25,7 @@ class Product extends Model
         'quantity',
         'wholesale_price',
         'retail_price',
+        'promo_price',
         'sku',
         'weight',
         'brand',

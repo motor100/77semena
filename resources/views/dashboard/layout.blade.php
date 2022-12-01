@@ -220,7 +220,7 @@
   <script src="{{ asset('/admin/js/jquery.overlayScrollbars.min.js') }}"></script>
   <script src="{{ asset('/admin/js/adminlte.js') }}"></script>
   <script src="{{ asset('/admin/js/demo.js') }}"></script>
-  <!-- <script src="{{ asset('/admin/js/dashboard.js') }}"></script> -->
+  <script src="{{ asset('/admin/js/dashboard.js') }}"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button)

@@ -78,6 +78,10 @@
         <input type="number" class="form-control input-retail-price input-number" name="retail-price" id="retail-price" min="0" step="1" required value="{{ $pr->retail_price }}">
       </div>
       <div class="form-group mb-3">
+        <label for="title">Акционная цена</label>
+        <input type="number" class="form-control input-promo-price input-number" name="promo-price" id="promo-price" min="0" step="1" value="{{ $pr->promo_price }}">
+      </div>
+      <div class="form-group mb-3">
         <label for="title">Артикул</label>
         <input type="number" class="form-control input-sku input-number" name="sku" id="sku" min="0" step="1" value="{{ $pr->sku }}">
       </div>

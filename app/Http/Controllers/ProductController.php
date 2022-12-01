@@ -70,6 +70,7 @@ class ProductController extends Controller
         $code = $request->input('code');
         $wholesale_price = $request->input('wholesale-price');
         $retail_price = $request->input('retail-price');
+        $promo_price = $request->input('promo-price');
         $sku = $request->input('sku');
         $weight = $request->input('weight');
         $brand = $request->input('brand');
@@ -89,6 +90,10 @@ class ProductController extends Controller
             $slug = $slug . '-' . $count_slugs;
         }
 
+        if(!$promo_price) {
+            $promo_price = NULL;
+        }
+
         $folder = 'products';
 
         $img = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $image, $folder);
@@ -103,6 +108,7 @@ class ProductController extends Controller
             'quantity' => $quantity,
             'wholesale_price' => $wholesale_price,
             'retail_price' => $retail_price,
+            'promo_price' => $promo_price,
             'sku' => $sku,
             'weight' => $weight,
             'brand' => $brand,
@@ -148,13 +154,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {   
-        
         $pr = Product::find($id);
 
         $category = \App\Models\Category::all();
 
         $current_category = $category->where('id', $pr->category_id)->first();
-        // dd($pr->category_id);
+
         return view('dashboard.products-edit', compact('pr', 'category', 'current_category'));
     }
 
@@ -189,6 +194,7 @@ class ProductController extends Controller
         $code = $request->input('code');
         $wholesale_price = $request->input('wholesale-price');
         $retail_price = $request->input('retail-price');
+        $promo_price = $request->input('promo-price');
         $sku = $request->input('sku');
         $weight = $request->input('weight');
         $brand = $request->input('brand');
@@ -208,6 +214,10 @@ class ProductController extends Controller
                 $count_slugs = count($slugs) + 1;
                 $slug = $slug . '-' . $count_slugs;
             }
+        }
+
+        if(!$promo_price) {
+            $promo_price = NULL;
         }
 
         $folder = 'products';
@@ -254,6 +264,7 @@ class ProductController extends Controller
             'quantity' => $quantity,
             'wholesale_price' => $wholesale_price,
             'retail_price' => $retail_price,
+            'promo_price' => $promo_price,
             'sku' => $sku,
             'weight' => $weight,
             'brand' => $brand,
