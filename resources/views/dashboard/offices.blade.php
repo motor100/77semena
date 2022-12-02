@@ -45,11 +45,10 @@
   </div>
 
 </div>
-<!-- 
+
 <script>
   // Изменение цвета активного пункта меню
-  let navLink = document.querySelectorAll('.nav-sidebar .menu-item > .nav-link');
-  navLink[7].classList.add('active');
+  let navLink = document.querySelectorAll('.nav-sidebar .nav-item > .nav-link');
+  navLink[6].classList.add('active');
 </script>
- -->
 @endsection

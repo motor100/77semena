@@ -205,6 +205,10 @@ Route::get('dashboard/warehouse', [AdminController::class, 'warehouse']);
 Route::post('dashboard/warehouse/update', [AdminController::class, 'warehouse_update']);
 
 
+Route::get('dashboard/orders', [AdminController::class, 'orders']);
+
+
+
 Route::get('dashboard/category', [CategoryController::class, 'index']);
 
 Route::get('dashboard/category/create', [CategoryController::class, 'create'])->name('category-create');

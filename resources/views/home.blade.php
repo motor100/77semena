@@ -13,7 +13,7 @@
         <div class="arrow-right">
           <div class="line"></div>
           <div class="underline"></div>
-          <a class="full-link" href="/novinki"></a>
+          <a class="full-link" href="/catalog"></a>
         </div>
       </div>
     </div>

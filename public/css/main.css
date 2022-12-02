@@ -1610,22 +1610,22 @@ ul {
 }
 
 
-/* poisk */
-.poisk .no-products-found .no-products-found-content {
+/* no-products-found */
+.no-products-found .no-products-found-content {
   margin: 0 0 64px 0;
 }
-.poisk .no-products-found .no-products-found-image {
+.no-products-found .no-products-found-image {
   width: 100%;
   max-width: 914px;
   margin: 0 auto;
 }
-.poisk .no-products-found .no-products-found-text {
+.no-products-found .no-products-found-text {
   font-family: 'montserrat-semibold';
   font-size: 30px;
   color: #5F52A3;
   text-align: center;
 }
-.poisk .no-products-found .no-products-found-btn {
+.no-products-found .no-products-found-btn {
   display: block;
   max-width: 1023px;
   margin: 0 auto;
@@ -1635,7 +1635,7 @@ ul {
   background-color: #8278B8;
   text-align: center;
 }
-.poisk .no-products-found .no-products-found-btn .cart-is-empty-btn__text {
+.no-products-found .no-products-found-btn .cart-is-empty-btn__text {
   font-family: 'montserrat-semibold';
   font-size: 18px;
   color: #E8E8E8;
@@ -1726,11 +1726,12 @@ ul {
 }
 .catalog .catalog-nav .catalog-nav-submenu-item {
   margin: 5px 0;
+}
+.catalog .catalog-nav .catalog-nav-submenu-item a {
   color: #A9A9A9;
-  cursor: pointer;
   transition: color .3s;
 }
-.catalog .catalog-nav .catalog-nav-submenu-item:hover {
+.catalog .catalog-nav .catalog-nav-submenu-item a:hover {
   color: #3E3E3E;
 }
 .catalog .products .products-title-wrapper {
@@ -2541,6 +2542,9 @@ ul {
   .mission-section .mission-title {
     font-size: 38px;
   }
+  .products .products-item__price {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width : 1200px) {
@@ -2579,6 +2583,9 @@ ul {
     background-size: contain;
   }
 
+  .products .products-item__price {
+    font-size: 18px;
+  }
   .products .add-to-cart-btn {
     width: 35px;
     height: 35px;
@@ -2660,6 +2667,10 @@ ul {
 
   .breadcrumbs {
     margin: 0 0 40px 0;
+  }
+
+  .new-products-section .new-products-item {
+    padding: 20px;
   }
 
   .mission-section .mission-title {
@@ -2820,10 +2831,13 @@ ul {
   }
   .products .products-item__price {
     font-size: 20px;
+    line-height: 1.2;
   }
   .products .products-item__info {
     font-size: 13px;
   }
+
+  
 
 
 }

@@ -13,6 +13,11 @@ class AdminController extends Controller
         return view('dashboard.home');
     }
 
+    public function orders()
+    {
+        return view('dashboard.orders');
+    }
+
     public function testimonials()
     {   
         $testimonials = \App\Models\Testimonial::whereNull('publicated_at')

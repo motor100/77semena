@@ -62,40 +62,65 @@
                 <option value="expensive-first">Новинки</option>
               </select>
             </div>
-            <div class="row">
-              @foreach($products as $pr)
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="products-item">
-                    <div class="products-item__image">
-                      <img src="{{ asset('storage/uploads/products/' .  $pr->image) }}" alt="">
-                    </div>
-                    <div class="products-item__title">{{ $pr->title }}</div>
-                    @if($pr->quantity > 0)
-                      <div class="products-item__info info-yellow">Хит</div>
-                    @else
-                      <div class="products-item__info info-grey">Нет в наличии</div>
-                    @endif
-                    <div class="products-item__price">
-                      <span class="products-item__value">{{ $pr->retail_price }}</span>
-                      <span class="products-item__currency">&nbsp;&#8381;</span>
-                    </div>
-                    @if($pr->quantity > 0)
-                      <div class="add-to-cart-btn" data-id="{{ $pr->id }}">
-                        <div class="circle"></div>
+
+
+            @if(count($products) > 0)
+              <div class="row">
+                @foreach($products as $pr)
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="products-item">
+                      <div class="products-item__image">
+                        <img src="{{ asset('storage/uploads/products/' .  $pr->image) }}" alt="">
                       </div>
-                    @else
-                      <div class="pre-order" data-id="{{ $pr->id }}">Предзаказ</div>
-                    @endif
-                    <a href="/catalog/{{ $pr->slug }}" class="full-link"></a>
+                      <div class="products-item__title">{{ $pr->title }}</div>
+                      @if($pr->quantity > 0)
+                        <div class="products-item__info info-yellow">Хит</div>
+                      @else
+                        <div class="products-item__info info-grey">Нет в наличии</div>
+                      @endif
+                      <div class="products-item__price">
+                        <span class="products-item__value">{{ $pr->retail_price }}</span>
+                        <span class="products-item__currency">&nbsp;&#8381;</span>
+                      </div>
+                      @if($pr->quantity > 0)
+                        <div class="add-to-cart-btn" data-id="{{ $pr->id }}">
+                          <div class="circle"></div>
+                        </div>
+                      @else
+                        <div class="pre-order" data-id="{{ $pr->id }}">Предзаказ</div>
+                      @endif
+                      <a href="/catalog/{{ $pr->slug }}" class="full-link"></a>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            @else
+              <div class="no-products-found">
+                <div class="no-products-found-content">
+                  <div class="no-products-found-image">
+                    <img src="/img/no-products-found.svg" alt="">
                   </div>
                 </div>
-              @endforeach
+                <div class="no-products-found-content">
+                  <div class="no-products-found-text">К сожалению такого товара нет. Возможно он появиться позже.</div>
+                </div>
+                <div class="no-products-found-content">
+                  <a href="/catalog" class="no-products-found-btn">
+                    <span class="cart-is-empty-btn__text">Вернуться в каталог</span>
+                  </a>
+                </div>
+              </div>
+            @endif
+
+
+
+          </div>
+          @if(count($products) > 20)
+            <div class="horizontal-line"></div>
+            <div class="view-more">
+              <span class="view-more__text">Показать еще</span>
             </div>
-          </div>
-          <div class="horizontal-line"></div>
-          <div class="view-more">
-            <span class="view-more__text">Показать еще</span>
-          </div>
+          @endif
         </div>
       </div>
     </div>

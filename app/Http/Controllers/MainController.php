@@ -66,11 +66,11 @@ class MainController extends Controller
         }
         
         if($category) {
-            $products = \App\Models\Product::where('category_id', $category->id)->limit(12)->orderBy('id', 'desc')->get();
+            $products = \App\Models\Product::where('category_id', $category->id)->limit(20)->orderBy('id', 'desc')->get();
             $category_title = $category->title;
             return view('catalog', compact('products', 'parent_category', 'category_title'));
         } else {
-            $products = \App\Models\Product::limit(12)->orderBy('id', 'desc')->get();
+            $products = \App\Models\Product::limit(20)->orderBy('id', 'desc')->get();
             return view('catalog', compact('products', 'parent_category'));
         }
     }

@@ -93,6 +93,13 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/dashboard/orders" class="nav-link">
+                <i class="nav-icon fas fa-shopping-cart"></i>
+                <p>Заказы
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/dashboard/category" class="nav-link">
                 <i class="nav-icon fas fa-th-list"></i>
                 <p>Категории
@@ -106,13 +113,6 @@
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="/dashboard/orders" class="nav-link">
-                <i class="nav-icon fas fa-shopping-cart"></i>
-                <p>Заказы
-                </p>
-              </a>
-            </li>        
             <li class="nav-item">
               <a href="/dashboard/cities" class="nav-link">
                 <i class="nav-icon fas fa-city"></i>
@@ -180,7 +180,6 @@
                 </li>
               </ul>
             </li>
-
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
