@@ -542,11 +542,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (dostavkaIOplataPage) {
+    // City select
     const selectCity = new SlimSelect({
       select: '#select-city',
       showSearch: false,
       searchFocus: false,
     })
+
+    // Описание ПВЗ
+    let officesItems = document.querySelectorAll('.offices .offices-name .offices-item'),
+        officesDescriptionItems = document.querySelectorAll('.offices-description-item');
+
+    for (let i = 0; i < officesItems.length; i++) {
+      officesItems[i].onclick = function() {
+        let officesDescriptionItemActive = document.querySelector('.offices-description-item-active');
+        if(officesDescriptionItemActive) {
+          officesDescriptionItemActive.classList.remove('offices-description-item-active');
+        }
+        officesDescriptionItems[i].classList.add('offices-description-item-active');
+      }
+    }
+
+
   }
 
 

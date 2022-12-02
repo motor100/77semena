@@ -1165,6 +1165,9 @@ ul {
 .dostavka-i-oplata .ss-content .ss-list .ss-disabled:hover {
   color: #dedede;
 }
+.ss-main .ss-single-selected .placeholder {
+  line-height: 1.2;
+}
 .dostavka-i-oplata .ss-main .ss-single-selected.ss-open-above ~ .ss-content {
   top: 50px;
 }
@@ -1206,9 +1209,19 @@ ul {
   width: 42%;
 }
 .dostavka-i-oplata .offices-description__contacts {
+  height: 100%;
   padding: 11%;
   border-radius: 15px;
   background-color: #988FCA;
+}
+.dostavka-i-oplata .offices-description-item {
+  display: none;
+}
+.dostavka-i-oplata .offices-description-item-active {
+  display: block;
+}
+.dostavka-i-oplata .offices-description-item p {
+  margin-bottom: 8px;
 }
 .dostavka-i-oplata .pay-info__title {
   margin: 0 0 32px 0;
@@ -1269,6 +1282,7 @@ ul {
   line-height: 1.2;
 }
 .offices .offices-name .offices-items {
+  padding: 0 20px 0 0;
   overflow-y: auto;
   scrollbar-color: #fff rgba(255,255,255,0.18);
   scrollbar-width: thin;
@@ -1282,6 +1296,8 @@ ul {
 .offices .offices-name .offices-item {
   display: flex;
   margin: 0 0 20px 0;
+  align-items: center;
+  cursor: pointer;
 }
 .offices .offices-name .offices-item__image {
   margin: 0 16px 0 0;
@@ -1760,6 +1776,7 @@ ul {
   padding: 15px 20px;
   border: 1px solid #3E3E3E;
   border-radius: 0;
+  line-height: 1.2;
 }
 .catalog .products .ss-content {
   margin: 10px 0 0 0;

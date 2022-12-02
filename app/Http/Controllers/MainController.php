@@ -101,9 +101,13 @@ class MainController extends Controller
 
     public function dostavka_i_oplata()
     {   
-        $cities = \App\Models\City::get();
+        // Cities
+        $cities = \App\Models\City::all();
+        
+        // Offices
+        $offices = \App\Models\Office::all();
 
-        return view('dostavka_i_oplata', compact('cities'));
+        return view('dostavka_i_oplata', compact('cities', 'offices'));
     }
 
     public function novosti()

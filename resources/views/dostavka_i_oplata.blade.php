@@ -34,13 +34,11 @@
         <div class="row">
           <div class="col-md-5">
             <div class="label">Ваш город</div>
-
             <select name="" id="select-city" class="select-city">
               @foreach($cities as $city)
                 <option value="{{ $city->title }}">{{ $city->title }}</option>
               @endforeach
             </select>
-
           </div>
         </div>
       </div>
@@ -59,58 +57,36 @@
               <div class="offices-name">
                 <div class="offices-name__title">Места выдачи товара</div>
                 <div class="offices-items">
-                  <div class="offices-item">
-                    <div class="offices-item__image">
-                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
+                  @foreach($offices as $office)
+                    <div class="offices-item">
+                      <div class="offices-item__image">
+                        <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
+                      </div>
+                      <div class="offices-item__address">{{ $office->title }},&nbsp;{{ $office->address }}</div>
                     </div>
-                    <div class="offices-item__address">Миасс, ул. 8 Июля, 1</div>
-                  </div>
-                  <div class="offices-item">
-                    <div class="offices-item__image">
-                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                    </div>
-                    <div class="offices-item__address">Миасс, ул. Автозаводцев 21</div>
-                  </div>
-                  <div class="offices-item">
-                    <div class="offices-item__image">
-                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                    </div>
-                    <div class="offices-item__address">Миасс, ул. Автозаводцев 65</div>
-                  </div>
-                  <div class="offices-item">
-                    <div class="offices-item__image">
-                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                    </div>
-                    <div class="offices-item__address">Миасс, ул. Орловская 11</div>
-                  </div>
-                  <div class="offices-item">
-                    <div class="offices-item__image">
-                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                    </div>
-                    <div class="offices-item__address">Миасс, пр. Октября 15</div>
-                  </div>
-                  <div class="offices-item">
-                    <div class="offices-item__image">
-                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                    </div>
-                    <div class="offices-item__address">Миасс, ул. Ленина 1/А</div>
-                  </div>
-                  <div class="offices-item">
-                    <div class="offices-item__image">
-                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                    </div>
-                    <div class="offices-item__address">Миасс, ул. Спортивная 15</div>
-                  </div>
+                  @endforeach
                 </div>
               </div>
               <div class="offices-description">
                 <div class="offices-description__contacts">
                   <div class="offices-description__contacts-title">Контакты</div>
-                  <div class="offices-description__contacts-text">
+                  @foreach($offices as $office)
+                    <div class="offices-description-item">
+                      <p>{{ $office->city->title }}</p>
+                      <p>{{ $office->title }}</p>
+                      <p>{{ $office->address }}</p>
+                      <p>{{ $office->description }}</p>
+                      <p>Пн-Пт:&nbsp;{{ $office->time_weekday }}</p>
+                      <p>Сб:&nbsp;{{ $office->time_saturday }}</p>
+                      <p>Вс:&nbsp;{{ $office->time_sunday }}</p>
+                      
+                    </div>
+                  @endforeach
+                  <!-- <div class="offices-description-item">
                     <p>город Миасс, ул. Кирова 53.</p>
                     <p>Телефон: +7 (858) 754-65-85</p>
                     <p>E-mail: info@77semena.ru</p>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
