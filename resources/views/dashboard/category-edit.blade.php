@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('title')
-Добавить категорию
+Редактировать категорию
 @endsection
 
 @section('dashboardcontent')
@@ -27,9 +27,12 @@
       @if($ct->parent > 0)
       <div class="form-group mb-3">
         <select name="parent" class="form-select mt-1">
-          <option value="{{ $current_ct->id }}" selected>{{ $current_ct->title }}</option>
           @foreach($parent_ct as $pct)
-            <option value="{{ $pct->id }}">{{ $pct->title }}</option>
+            @if($pct->id == $current_ct->id)
+              <option value="{{ $pct->id }}" selected>{{ $pct->title }}</option>
+            @else
+              <option value="{{ $pct->id }}">{{ $pct->title }}</option>
+            @endif
           @endforeach
         </select>
       </div>

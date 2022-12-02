@@ -50,6 +50,17 @@ class CategorySeeder extends Seeder
                                 ['slug' => 'cvety'],
                                 ['slug' => 'yagody']
                             ))
+                            ->state(new Sequence(
+                                ['count_children' => 7],
+                                ['count_children' => 0],
+                                ['count_children' => 0],
+                                ['count_children' => 0],
+                                ['count_children' => 0],
+                                ['count_children' => 0],
+                                ['count_children' => 0],
+                                ['count_children' => 0],
+                                ['count_children' => 0]
+                            ))
                             ->create();
     }
 }

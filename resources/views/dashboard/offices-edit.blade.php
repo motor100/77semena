@@ -27,9 +27,12 @@
       <div class="form-group mb-3">
         <div class="label-text mb-1">Город</div>
         <select name="city" id="city" class="form-select mt-1">
-          <option value="{{ $current_city->id }}" selected>{{ $current_city->title }}</option>
           @foreach($city as $ct)
-            <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+            @if($ct->id == $current_category->id)
+              <option value="{{ $ct->id }}" selected>{{ $ct->title }}</option>
+            @else
+              <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+            @endif
           @endforeach
         </select>
       </div>

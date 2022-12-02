@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('category_id');
             $table->string('image');
             $table->text('text');
-            $table->biginteger('code');
+            $table->biginteger('code')->unique();
             $table->integer('quantity');
             $table->integer('wholesale_price');
             $table->integer('retail_price');

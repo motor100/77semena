@@ -13,5 +13,6 @@ class Category extends Model
         'title',
         'parent',
         'slug',
+        'count_children',
     ];
 }

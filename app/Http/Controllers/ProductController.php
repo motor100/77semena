@@ -38,7 +38,7 @@ class ProductController extends Controller
      */
     public function create()
     {   
-        $category = \App\Models\Category::all();
+        $category = \App\Models\Category::where('count_children', 0)->get();
 
         return view('dashboard.products-create', compact('category'));
     }
@@ -54,7 +54,7 @@ class ProductController extends Controller
         $request->validate([
             'title' => 'required|min:6|max:200',
             'input-main-file' => 'required|image|mimes:jpg,png,jpeg',
-            'code' => 'required|min:10|max:16',
+            'code' => 'required|min:10|max:16|unique:App\Models\Product,code',
             'quantity' => 'required|min:0|max:10000',
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
@@ -120,17 +120,19 @@ class ProductController extends Controller
 
         $id = $product->id;
 
-        $gallery_array = [];
-        foreach($gallery as $gl) {
-            $gallery_item = [];
-            $gallery_item["product_id"] = $id;
-            $gallery_item["image"] = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $gl, $folder);
-            $gallery_item["created_at"] = $now;
-            $gallery_item["updated_at"] = $now;
-            $gallery_array[] = $gallery_item;
-        }
+        if($gallery) {
+            $gallery_array = [];
+            foreach($gallery as $gl) {
+                $gallery_item = [];
+                $gallery_item["product_id"] = $id;
+                $gallery_item["image"] = \App\Http\Controllers\Admin\AdminController::rename_file($slug, $gl, $folder);
+                $gallery_item["created_at"] = $now;
+                $gallery_item["updated_at"] = $now;
+                $gallery_array[] = $gallery_item;
+            }
 
-        Gallery::insert($gallery_array);
+            Gallery::insert($gallery_array);
+        }
 
         return redirect('/dashboard/products');
     }
@@ -156,7 +158,7 @@ class ProductController extends Controller
     {   
         $pr = Product::find($id);
 
-        $category = \App\Models\Category::all();
+        $category = \App\Models\Category::where('count_children', 0)->get();
 
         $current_category = $category->where('id', $pr->category_id)->first();
 

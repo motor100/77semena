@@ -61,14 +61,20 @@ class CategoryController extends Controller
             $slug = $slug . '-' . $count_slugs;
         }
 
-        if (!$parent) {
-            $parent = '0';
+        if($parent) {
+            $cat = Category::where('id', $parent)->first();
+            $cat->update([
+                'count_children' => $cat->count_children + 1,
+            ]);
+        } else {
+            $parent = 0;
         }
 
         $category = new Category([
             'title' => $title,
             'parent' => $parent,
             'slug' => $slug,
+            'count_children' => 0,
             'created_at' => $now,
             'updated_at' => $now
         ]);
@@ -143,14 +149,32 @@ class CategoryController extends Controller
             }
         }
 
-        if ($ct->parent == '0') {
+        if ($ct->parent == 0) {
             $parent = $ct->parent;
+        } else {
+
+            // $ct->parent текущая
+            // $parent новая
+            $old_cat = Category::where('id', $ct->parent)->first();
+            $old_cat->update([
+                'count_children' => $old_cat->count_children - 1,
+            ]);
+
+            $new_cat = Category::where('id', $parent)->first();
+            $new_cat->update([
+                'count_children' => $new_cat->count_children + 1,
+            ]);
+            // -1 у текущей
+            // +1 у новой
         }
+
+        // dd($parent);
 
         $ct->update([
             'title' => $title,
-            'slug' => $slug,
             'parent' => $parent,
+            'slug' => $slug,
+            'count_children' => 0,
             'created_at' => $now,
             'updated_at' => $now
         ]);

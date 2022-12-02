@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('parent');
             $table->string('title');
             $table->string('slug')->unique();
+            $table->integer('count_children');
             $table->timestamps();
         });
     }
