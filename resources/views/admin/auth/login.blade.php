@@ -12,14 +12,22 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <!-- <form method="POST" action="{{-- route('login') --}}"> -->
+        <form method="POST" action="{{ route('admin.login') }}">
             @csrf
 
             <!-- Email Address -->
-            <div class="form-group">
-                <x-input-label for="email" :value="__('Email')" />
+            <!-- <div class="form-group">
+                <x-input-label for="email" :value="__('Admin Email')" />
 
                 <x-text-input id="email" class="block mt-1 w-full input" type="email" name="email" :value="old('email')" required autofocus />
+            </div> -->
+
+            <!-- Identity -->
+            <div class="form-group">
+                <x-input-label for="identity" :value="__('Admin Email')" />
+
+                <x-text-input id="email" class="block mt-1 w-full input" type="text" name="identity" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->

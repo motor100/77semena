@@ -43,8 +43,8 @@
           </div>
           <div class="col-md-1">
             <div class="logout">
-              <!-- <form class="form" action="{{-- route('logout') --}}" method="POST"> -->
-              <form class="form" action="/profile" method="get">
+              <form class="form" action="{{ route('logout') }}" method="POST">
+              <!-- <form class="form" action="/logout" method="get"> -->
                 @csrf
                 <button class="logout-btn" type="submit">
                   <span class="logout-text">выход</span>

@@ -7,7 +7,6 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -32,10 +31,6 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        // if (Gate::check('view-dashboard')) {
-        //     return redirect()->intended(RouteServiceProvider::DASHBOARD);
-        // }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

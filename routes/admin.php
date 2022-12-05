@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\MainnewController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\OfficeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +44,111 @@ Route::prefix('admin')->group(static function () {
         // Logout route
         Route::post('logout', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
         // General routes
-        Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.index');
-        Route::get('profile', [\App\Http\Controllers\Admin\AdminController::class, 'profile'])->middleware('password.confirm.admin')->name('admin.profile');
+        // Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+        // Route::get('profile', [AdminController::class, 'profile'])->middleware('password.confirm.admin')->name('admin.profile');
+
+        
+        Route::get('/', [AdminController::class, 'home'])->name('admin.index');;
+
+        Route::get('testimonials', [AdminController::class, 'testimonials']);
+
+        Route::post('publicate-testimonial', [AdminController::class, 'publicate_testimonial']);
+
+        Route::post('delete-testimonial', [AdminController::class, 'delete_testimonial']);
+
+
+        Route::get('products', [ProductController::class, 'index']);
+
+        Route::get('products/create', [ProductController::class, 'create'])->name('products-create');
+
+        Route::post('products/store', [ProductController::class, 'store'])->name('products-store');
+
+        Route::get('products/{id}/edit', [ProductController::class, 'edit'])->name('products-edit');
+
+        Route::post('products/update', [ProductController::class, 'update'])->name('products-update');
+
+        Route::get('products/{id}/destroy', [ProductController::class, 'destroy'])->name('products-destroy');
+
+
+        Route::get('warehouse', [AdminController::class, 'warehouse']);
+
+        Route::post('warehouse/update', [AdminController::class, 'warehouse_update']);
+
+
+        Route::get('orders', [AdminController::class, 'orders']);
+
+
+        Route::get('category', [CategoryController::class, 'index']);
+
+        Route::get('category/create', [CategoryController::class, 'create'])->name('category-create');
+
+        Route::post('category/store', [CategoryController::class, 'store'])->name('category-store');
+
+        Route::get('category/{id}/edit', [CategoryController::class, 'edit'])->name('category-edit');
+
+        Route::post('category/update', [CategoryController::class, 'update'])->name('category-update');
+
+        Route::get('subcategory/create', [CategoryController::class, 'subcategory_create'])->name('subcategory-create');
+
+
+        Route::get('novosti', [MainnewController::class, 'index']);
+
+        Route::get('novosti/create', [MainnewController::class, 'create'])->name('novosti-create');
+
+        Route::post('novosti/store', [MainnewController::class, 'store'])->name('novosti-store');
+
+        Route::get('novosti/{id}/edit', [MainnewController::class, 'edit'])->name('novosti-edit');
+
+        Route::post('novosti/update', [MainnewController::class, 'update'])->name('novosti-update');
+
+        Route::get('novosti/{id}/destroy', [MainnewController::class, 'destroy'])->name('novosti-destroy');
+
+
+        Route::get('cities', [CityController::class, 'index']);
+
+        Route::get('cities/create', [CityController::class, 'create'])->name('cities-create');
+
+        Route::post('cities/store', [CityController::class, 'store'])->name('cities-store');
+
+        Route::get('cities/{id}/edit', [CityController::class, 'edit'])->name('cities-edit');
+
+        Route::post('cities/update', [CityController::class, 'update'])->name('cities-update');
+
+
+        Route::get('offices', [OfficeController::class, 'index']);
+
+        Route::get('offices/create', [OfficeController::class, 'create'])->name('offices-create');
+
+        Route::post('offices/store', [OfficeController::class, 'store'])->name('offices-store');
+
+        Route::get('offices/{id}/edit', [OfficeController::class, 'edit'])->name('offices-edit');
+
+        Route::post('offices/update', [OfficeController::class, 'update'])->name('offices-update');
+
+
+        Route::get('o-kompanii', [AdminController::class, 'o_kompanii']);
+
+        Route::post('o-kompanii-update', [AdminController::class, 'o_kompanii_update']);
+
+        Route::get('stat-partnerom', [AdminController::class, 'stat_partnerom']);
+
+        Route::post('stat-partnerom-update', [AdminController::class, 'stat_partnerom_update']);
+
+
+        Route::post('/dashboard/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
+
+
+
+
+
+
+
+
+
+
+
+
+
     });
 });
 

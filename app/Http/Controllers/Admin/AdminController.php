@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 class AdminController extends Controller
 {   
     public function home()
+    // public function index()
     {
         return view('dashboard.home');
     }

@@ -6,10 +6,10 @@
   <title>Панель управления | @yield('title')</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}" type="image/x-icon">
-  <link rel="stylesheet" href="{{ asset('/admin/css/all.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('/admin/css/adminlte.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('/admin/css/overlayscrollbars.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('/admin/css/dashboard.css') }}">
+  <link rel="stylesheet" href="{{ asset('/adminpanel/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/adminpanel/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/adminpanel/css/overlayscrollbars.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/adminpanel/css/dashboard.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -32,7 +32,7 @@
 
         <!-- Messages Dropdown Menu -->
         <li class="nav-item">
-          <a class="nav-link" href="/dashboard/testimonials" title="Отзывы">
+          <a class="nav-link" href="/admin/testimonials" title="Отзывы">
             <i class="far fa-comments"></i>
             @if(isset($testimonials_count))
               @if($testimonials_count > 0)
@@ -43,7 +43,7 @@
         </li>
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item">
-          <a class="nav-link" href="/dashboard/orders" title="Заказы">
+          <a class="nav-link" href="/admin/orders" title="Заказы">
             <i class="far fa-bell"></i>
             <!-- test -->
             @if(isset($orders_count))
@@ -56,9 +56,9 @@
         <li class="nav-item">
           <a class="nav-link d-flex" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
             <div class="image">
-              <img src="/admin/img/user-icon.jpg" class="img-circle elevation-2" alt="">
+              <img src="/adminpanel/img/user-icon.jpg" class="img-circle elevation-2" alt="">
             </div>
-            <span class="user-name">{{-- Auth::user()->name --}}</span>
+            <span class="user-name">{{ Auth::user()->name }}</span>
           </a>
         </li>
       </ul>
@@ -81,75 +81,75 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="/dashboard/products" class="nav-link">
+              <a href="/admin/products" class="nav-link">
                 <i class="nav-icon fab fa-product-hunt"></i>
                 <p>Товары</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/warehouse" class="nav-link">
+              <a href="/admin/warehouse" class="nav-link">
                 <i class="nav-icon fas fa-truck"></i>
                 <p>Склад</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/orders" class="nav-link">
+              <a href="/admin/orders" class="nav-link">
                 <i class="nav-icon fas fa-shopping-cart"></i>
                 <p>Заказы
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/category" class="nav-link">
+              <a href="/admin/category" class="nav-link">
                 <i class="nav-icon fas fa-th-list"></i>
                 <p>Категории
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/testimonials" class="nav-link">
+              <a href="/admin/testimonials" class="nav-link">
                 <i class="nav-icon far fa-comments"></i>
                 <p>Отзывы
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/cities" class="nav-link">
+              <a href="/admin/cities" class="nav-link">
                 <i class="nav-icon fas fa-city"></i>
                 <p>Города
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/offices" class="nav-link">
+              <a href="/admin/offices" class="nav-link">
                 <i class="nav-icon fas fa-boxes"></i>
                 <p>ПВЗ
                 </p>
               </a>
             </li>
             <!-- <li class="nav-item">
-              <a href="/dashboard/popular-product" class="nav-link">
+              <a href="/admin/popular-product" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>Популярный товар
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/new-product" class="nav-link">
+              <a href="/admin/new-product" class="nav-link">
                 <i class="nav-icon fas fa-angle-double-up"></i>
                 <p>Новинки
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/dashboard/popular-product-home" class="nav-link">
+              <a href="/admin/popular-product-home" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
                 <p>Товары на главной
                 </p>
               </a>
             </li> -->
             <li class="nav-item">
-              <a href="/dashboard/novosti" class="nav-link">
+              <a href="/admin/novosti" class="nav-link">
                 <i class="nav-icon nav-icon fas fa-edit"></i>
                 <p>Новости
                 </p>
@@ -165,7 +165,7 @@
               </a>
               <!-- <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/dashboard/o-kompanii" class="nav-link">
+                  <a href="/admin/o-kompanii" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>О компании</p>
                   </a>
@@ -173,7 +173,7 @@
               </ul> -->
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/dashboard/stat-partnerom" class="nav-link">
+                  <a href="/admin/stat-partnerom" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Стать партнером</p>
                   </a>
@@ -212,14 +212,14 @@
   </div>
 
   @yield('script')
-  <script src="{{ asset('/admin/js/jquery-3.6.0.min.js') }}"></script>
-  <script src="{{ asset('/admin/js/jquery-ui.min.js') }}"></script>
-  <script src="{{ asset('/admin/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('/admin/js/summernote-bs4.min.js') }}"></script>
-  <script src="{{ asset('/admin/js/jquery.overlayScrollbars.min.js') }}"></script>
-  <script src="{{ asset('/admin/js/adminlte.js') }}"></script>
-  <script src="{{ asset('/admin/js/demo.js') }}"></script>
-  <script src="{{ asset('/admin/js/dashboard.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/jquery-3.6.0.min.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/jquery-ui.min.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/summernote-bs4.min.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/jquery.overlayScrollbars.min.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/adminlte.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/demo.js') }}"></script>
+  <script src="{{ asset('/adminpanel/js/dashboard.js') }}"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button)

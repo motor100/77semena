@@ -37,16 +37,15 @@ class LoginRequest extends FormRequest
     /**
      * Attempt to authenticate the request's credentials.
      *
-     * @param string|null $guard_name
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate($guard_name = null)
+    public function authenticate()
     {
         $this->ensureIsNotRateLimited();
-
-        if (! Auth::guard($guard_name)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        
+        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -89,6 +88,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey()
     {
-        return Str::lower($this->input('email')).'|'.$this->ip();
+        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
     }
 }

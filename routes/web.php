@@ -176,103 +176,11 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('dashboard', [AdminController::class, 'home']);
-
-Route::get('dashboard/testimonials', [AdminController::class, 'testimonials']);
-
-Route::post('dashboard/publicate-testimonial', [AdminController::class, 'publicate_testimonial']);
-
-Route::post('dashboard/delete-testimonial', [AdminController::class, 'delete_testimonial']);
 
 
 
 
-Route::get('dashboard/products', [ProductController::class, 'index']);
 
-Route::get('dashboard/products/create', [ProductController::class, 'create'])->name('products-create');
-
-Route::post('dashboard/products/store', [ProductController::class, 'store'])->name('products-store');
-
-Route::get('dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('products-edit');
-
-Route::post('dashboard/products/update', [ProductController::class, 'update'])->name('products-update');
-
-Route::get('dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('products-destroy');
-
-
-Route::get('dashboard/warehouse', [AdminController::class, 'warehouse']);
-
-Route::post('dashboard/warehouse/update', [AdminController::class, 'warehouse_update']);
-
-
-Route::get('dashboard/orders', [AdminController::class, 'orders']);
-
-
-
-Route::get('dashboard/category', [CategoryController::class, 'index']);
-
-Route::get('dashboard/category/create', [CategoryController::class, 'create'])->name('category-create');
-
-Route::post('dashboard/category/store', [CategoryController::class, 'store'])->name('category-store');
-
-Route::get('dashboard/category/{id}/edit', [CategoryController::class, 'edit'])->name('category-edit');
-
-Route::post('dashboard/category/update', [CategoryController::class, 'update'])->name('category-update');
-
-Route::get('dashboard/subcategory/create', [CategoryController::class, 'subcategory_create'])->name('subcategory-create');
-
-
-Route::get('dashboard/novosti', [MainnewController::class, 'index']);
-
-Route::get('dashboard/novosti/create', [MainnewController::class, 'create'])->name('novosti-create');
-
-Route::post('dashboard/novosti/store', [MainnewController::class, 'store'])->name('novosti-store');
-
-Route::get('dashboard/novosti/{id}/edit', [MainnewController::class, 'edit'])->name('novosti-edit');
-
-Route::post('dashboard/novosti/update', [MainnewController::class, 'update'])->name('novosti-update');
-
-Route::get('dashboard/novosti/{id}/destroy', [MainnewController::class, 'destroy'])->name('novosti-destroy');
-
-
-
-Route::get('dashboard/cities', [CityController::class, 'index']);
-
-Route::get('dashboard/cities/create', [CityController::class, 'create'])->name('cities-create');
-
-Route::post('dashboard/cities/store', [CityController::class, 'store'])->name('cities-store');
-
-Route::get('dashboard/cities/{id}/edit', [CityController::class, 'edit'])->name('cities-edit');
-
-Route::post('dashboard/cities/update', [CityController::class, 'update'])->name('cities-update');
-
-
-
-Route::get('dashboard/offices', [OfficeController::class, 'index']);
-
-Route::get('dashboard/offices/create', [OfficeController::class, 'create'])->name('offices-create');
-
-Route::post('dashboard/offices/store', [OfficeController::class, 'store'])->name('offices-store');
-
-Route::get('dashboard/offices/{id}/edit', [OfficeController::class, 'edit'])->name('offices-edit');
-
-Route::post('dashboard/offices/update', [OfficeController::class, 'update'])->name('offices-update');
-
-
-
-
-Route::get('dashboard/o-kompanii', [AdminController::class, 'o_kompanii']);
-
-Route::post('dashboard/o-kompanii-update', [AdminController::class, 'o_kompanii_update']);
-
-Route::get('dashboard/stat-partnerom', [AdminController::class, 'stat_partnerom']);
-
-Route::post('dashboard/stat-partnerom-update', [AdminController::class, 'stat_partnerom_update']);
-
-
-
-
-Route::post('/dashboard/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
 
 
 
