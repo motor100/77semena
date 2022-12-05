@@ -137,18 +137,6 @@ Route::prefix('admin')->group(static function () {
 
         Route::post('/dashboard/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
 
-
-
-
-
-
-
-
-
-
-
-
-
     });
 });
 

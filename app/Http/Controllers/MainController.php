@@ -229,37 +229,51 @@ class MainController extends Controller
         return redirect('/cart');
     }
 
-
-
-    // temp
     public function novinki()
-    {
-        return view('novinki');
+    {   
+        // Categories
+        // Get all categories
+        $categories = \App\Models\Category::all();
+
+        // Get parent categories
+        $parent_category = $categories->where('parent', '0');
+
+        // Get child categories
+        foreach($parent_category as $pct) {
+            $child_category = $categories->where('parent', $pct->id);
+            if (count($child_category) > 0) {
+                $pct->child_category = $child_category;
+            }
+        }
+
+        // Products
+        $products = \App\Models\Product::limit(20)->orderBy('id', 'desc')->get();
+
+        return view('novinki', compact('products', 'parent_category'));
     }
 
-    public function peppers()
-    {
-        return view('peppers');
+    public function akcii()
+    {   
+        // Categories
+        // Get all categories
+        $categories = \App\Models\Category::all();
+
+        // Get parent categories
+        $parent_category = $categories->where('parent', '0');
+
+        // Get child categories
+        foreach($parent_category as $pct) {
+            $child_category = $categories->where('parent', $pct->id);
+            if (count($child_category) > 0) {
+                $pct->child_category = $child_category;
+            }
+        }
+
+        // Products
+        $products = \App\Models\Product::whereNotNull('promo_price')->limit(20)->orderBy('id', 'desc')->get();
+
+        return view('akcii', compact('products', 'parent_category'));
     }
-
-    public function tomatoes()
-    {
-        return view('tomatoes');
-    }
-
-    public function cucumbers()
-    {
-        return view('cucumbers');
-    }
-
-    public function chemicals()
-    {
-        return view('chemicals');
-    }
-
-
-
-
 
     public function stat_partnerom()
     {   

@@ -62,9 +62,9 @@ Route::get('/cart', [MainController::class, 'cart']);
 
 Route::get('/poisk', [MainController::class, 'poisk']);
 
+Route::get('/novinki', [MainController::class, 'novinki']);
 
-Route::get('/catalog/single-product', [MainController::class, 'single_product']);
-
+Route::get('/akcii', [MainController::class, 'akcii']);
 
 
 // Корзина
@@ -83,8 +83,6 @@ Route::post('/ajax/sessionfresh', [MainController::class, 'ajax_sessionfresh']);
 Route::get('/clear-cart', [MainController::class, 'clear_cart']);
 
 
-
-
 Route::get('/stat-partnerom', [MainController::class, 'stat_partnerom']);
 
 Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
@@ -94,11 +92,6 @@ Route::get('/polzovatelskoe-soglashenie-s-publichnoj-ofertoj', [MainController::
 Route::get('/garantiya-vozvrata-denezhnyh-sredstv', [MainController::class, 'garantiya_vozvrata_denezhnyh_sredstv']);
 
 Route::get('/dokumenty', [MainController::class, 'dokumenty']);
-
-
-// temp
-
-Route::get('/novinki', [MainController::class, 'novinki']);
 
 
 // ajax
@@ -166,21 +159,13 @@ require __DIR__.'/auth.php';
 
 
 
-// Route::middleware(['auth', 'verified'])->group(function () {
-//     Route::get('dashboard', [ProfileController::class, 'home'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', [ProfileController::class, 'home'])->name('dashboard');
 
-//     Route::get('profile', [ProfileController::class, 'home'])
-//         ->middleware('password.confirm')
-//         ->name('profile');
-// });
-
-
-
-
-
-
-
-
+    Route::get('profile', [ProfileController::class, 'home'])
+        ->middleware('password.confirm')
+        ->name('profile');
+});
 
 
 
