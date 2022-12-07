@@ -23,7 +23,7 @@
           <img src="/img/arrow-back.svg" alt="">
           <span class="back-text hidden-mobile">назад</span>
         </div>
-        @if($products)
+        @if(count($products_in_stock) > 0 || count($products_out_of_stock) > 0)
           <div class="clear-cart">
             <a href="/clear-cart">
               <img src="/img/clear-cart-icon.svg" class="clear-cart__image" alt="">
@@ -37,106 +37,113 @@
 
   <!-- <div class="cart-item__stock">нет в наличии</div> -->
 
-  @if($products)
-    <p>Есть товары</p>
-    @foreach($products as $prd)
-      <p>Товар</p>
-    @endforeach
+  @if(count($products_in_stock) > 0 || count($products_out_of_stock) > 0)
+    @if(count($products_in_stock) > 0)
+      <div class="cart-items-wrapper">
+        <div class="container">
+          <div class="info-text">Товар есть в наличии &nbsp;&nbsp;&nbsp;Доставка 1-2 дня</div>
+          @foreach($products_in_stock as $pr)
+            @if($products_in_stock->counter == 1)
+              <div class="cart-item one-cart-item" data-id="{{ $pr->id }}">
+            @else
+              @if($pr->count == 0)
+                <div class="cart-item first-cart-item" data-id="{{ $pr->id }}">
+              @elseif($pr->count + 1 == $products_in_stock->counter)
+                <div class="cart-item last-cart-item" data-id="{{ $pr->id }}">
+              @else
+                <div class="cart-item" data-id="{{ $pr->id }}">
+              @endif
+            @endif
+              <div class="cart-item__image">
+                <img src="{{ asset('storage/uploads/products/' . $pr->image) }}" alt="">
+              </div>
+              <div class="cart-item__content">
+                <div class="cart-item__stock cart-item__in-stock">в наличии {{ $pr->stock }} &nbsp;шт</div>
+                <div class="cart-item__title">{{ $pr->title }}</div>
 
-<!-- 
-  <div class="cart-items-wrapper">
-    <div class="container">
+                <div class="cart-item__quantity">
+                  <button type="button" class="quantity-button quantity-minus">
+                    <div class="circle"></div>
+                  </button>
+                  <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
+                  <button type="button" class="quantity-button quantity-plus">
+                    <div class="circle"></div>
+                  </button>
+                </div>
 
-      <div class="info-text">Товар есть в наличии &nbsp;&nbsp;&nbsp;Доставка 1-2 дня</div>
+                <div class="cart-item__price">
+                  <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
+                  <span class="cart-item__price-currency"> &#8381;</span>
+                </div>
 
-      <div class="cart-item first-cart-item">
-        <div class="cart-item__image">
-          <img src="/img/product-image.jpg" alt="">
-        </div>
-        <div class="cart-item__content">
-          <div class="cart-item__stock cart-item__in-stock">в наличии</div>
-          <div class="cart-item__title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1 Огурец "СИБИРСКАЯ ГИРЛЯНДА" F1</div>
-
-          <div class="cart-item__quantity">
-            <button type="button" class="quantity-button quantity-minus">
-              <div class="circle"></div>
-            </button>
-            <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
-            <button type="button" class="quantity-button quantity-plus">
-              <div class="circle"></div>
-            </button>
-          </div>
-
-          <div class="cart-item__price">
-            <span class="cart-item__price-text">36</span>
-            <span class="cart-item__price-currency">&nbsp;&#8381;</span>
-          </div>
-
-          <div class="cart-item__trash">
-            <img src="/img/trash-icon.svg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-item__image">
-          <img src="/img/product-image.jpg" alt="">
-        </div>
-        <div class="cart-item__content">
-          <div class="cart-item__stock cart-item__in-stock">в наличии</div>
-          <div class="cart-item__title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1 Огурец "СИБИРСКАЯ ГИРЛЯНДА" F1</div>
-
-          <div class="cart-item__quantity">
-            <button type="button" class="quantity-button quantity-minus">
-              <div class="circle"></div>
-            </button>
-            <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
-            <button type="button" class="quantity-button quantity-plus">
-              <div class="circle"></div>
-            </button>
-          </div>
-
-          <div class="cart-item__price">
-            <span class="cart-item__price-text">36</span>
-            <span class="cart-item__price-currency"> &#8381;</span>
-          </div>
-
-          <div class="cart-item__trash">
-            <img src="/img/trash-icon.svg" alt="">
-          </div>
+                <!-- <div class="cart-item__trash rm-from-cart-btn" data-id="{{ $pr->id }}">
+                  <img src="/img/trash-icon.svg" alt="">
+                </div> -->
+                <form class="form" action="/rmfromcart"  method="post">
+                  <input type="hidden" name="id" value="{{ $pr->id }}">
+                  @csrf
+                  <input type="submit" value="Удалить">
+                </form>
+              </div>
+            </div>
+          @endforeach
         </div>
       </div>
-      <div class="cart-item last-cart-item">
-        <div class="cart-item__image">
-          <img src="/img/product-image.jpg" alt="">
-        </div>
-        <div class="cart-item__content">
-          <div class="cart-item__stock cart-item__in-stock">в наличии</div>
-          <div class="cart-item__title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1 Огурец "СИБИРСКАЯ ГИРЛЯНДА" F1</div>
+    @endif
+    @if(count($products_out_of_stock) > 0)
+      <div class="cart-items-wrapper">
+        <div class="container">
+          <div class="info-text">Предзаказ &nbsp;&nbsp;&nbsp;Доставка 2 недели</div>
+          @foreach($products_out_of_stock as $pr)
+            @if($products_out_of_stock->counter == 1)
+              <div class="cart-item one-cart-item" data-id="{{ $pr->id }}">
+            @else
+              @if($pr->count == 0)
+                <div class="cart-item first-cart-item" data-id="{{ $pr->id }}">
+              @elseif($pr->count + 1 == $products_out_of_stock->counter)
+                <div class="cart-item last-cart-item" data-id="{{ $pr->id }}">
+              @else
+                <div class="cart-item" data-id="{{ $pr->id }}">
+              @endif
+            @endif
+              <div class="cart-item__image">
+                <img src="{{ asset('storage/uploads/products/' . $pr->image) }}" alt="">
+              </div>
+              <div class="cart-item__content">
+                <div class="cart-item__stock cart-item__out-of-stock">нет в наличии</div>
+                <div class="cart-item__title">{{ $pr->title }}</div>
 
-          <div class="cart-item__quantity">
-            <button type="button" class="quantity-button quantity-minus">
-              <div class="circle"></div>
-            </button>
-            <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
-            <button type="button" class="quantity-button quantity-plus">
-              <div class="circle"></div>
-            </button>
-          </div>
+                <div class="cart-item__quantity">
+                  <button type="button" class="quantity-button quantity-minus">
+                    <div class="circle"></div>
+                  </button>
+                  <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
+                  <button type="button" class="quantity-button quantity-plus">
+                    <div class="circle"></div>
+                  </button>
+                </div>
 
-          <div class="cart-item__price">
-            <span class="cart-item__price-text">36</span>
-            <span class="cart-item__price-currency"> &#8381;</span>
-          </div>
+                <div class="cart-item__price">
+                  <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
+                  <span class="cart-item__price-currency"> &#8381;</span>
+                </div>
 
-          <div class="cart-item__trash">
-            <img src="/img/trash-icon.svg" alt="">
-          </div>
+                <form class="form" action="/rmfromcart"  method="post">
+                  <input type="hidden" name="id" value="{{ $pr->id }}">
+                  @csrf
+                  <input type="submit" value="Удалить">
+                </form>
+
+                <!-- <div class="cart-item__trash rm-from-cart-btn" data-id="{{ $pr->id }}">
+                  <img src="/img/trash-icon.svg" alt="">
+                </div> -->
+              </div>
+            </div>
+          @endforeach
         </div>
       </div>
-
-    </div>
-  </div>  
-  
+    @endif
+  <!-- 
   <div class="cart-items-wrapper">
     <div class="container">
 
@@ -172,6 +179,7 @@
       </div>
     </div>
   </div>
+   -->
 
   <div class="summary-wrapper">
     <div class="container">
@@ -293,40 +301,39 @@
       </div>
     </div>
   </div>
- -->
 
   @else
     <div class="cart-is-empty">
-    <div class="container">
-      <div class="cart-is-empty-content">
-        <div class="row">
-          <div class="col-md-8 mx-auto">
-            <div class="cart-is-empty-image">
-              <img src="/img/cart-is-empty.svg" alt="">
+      <div class="container">
+        <div class="cart-is-empty-content">
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <div class="cart-is-empty-image">
+                <img src="/img/cart-is-empty.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-is-empty-content">
+          <div class="row">
+            <div class="cart-is-empty-text">УПС.... В вашей корзине ничего нет(</div>
+          </div>
+        </div>
+        <div class="cart-is-empty-content">
+          <div class="row">
+            <div class="col-md-3 ms-auto">
+              <div class="cart-is-empty-btn cart-is-empty-back-btn" onclick="history.back();">
+                <span class="cart-is-empty-btn__text">Вернуться назад</span>
+              </div>
+            </div>
+            <div class="col-md-3 me-auto">
+              <a href="/" class="cart-is-empty-btn cart-is-empty-home-btn">
+                <span class="cart-is-empty-btn__text">Главная</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div class="cart-is-empty-content">
-        <div class="row">
-          <div class="cart-is-empty-text">УПС.... В вашей корзине ничего нет(</div>
-        </div>
-      </div>
-      <div class="cart-is-empty-content">
-        <div class="row">
-          <div class="col-md-3 ms-auto">
-            <div class="cart-is-empty-btn cart-is-empty-back-btn" onclick="history.back();">
-              <span class="cart-is-empty-btn__text">Вернуться назад</span>
-            </div>
-          </div>
-          <div class="col-md-3 me-auto">
-            <a href="/" class="cart-is-empty-btn cart-is-empty-home-btn">
-              <span class="cart-is-empty-btn__text">Главная</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   @endif
 

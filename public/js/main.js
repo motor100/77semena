@@ -331,12 +331,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Добавление товаров в корзину
   function addToCart() {
 
-    let addToCartBtns = document.querySelectorAll('.products .add-to-cart-btn');
+    let addToCartBtns = document.querySelectorAll('.products .add-to-cart');
 
     for (let i = 0; i < addToCartBtns.length; i++) {
       addToCartBtns[i].onclick = function() {
 
-        this.children[0].classList.add('circle-active');
+        if (this.classList[0] == 'add-to-cart-btn') {
+          this.children[0].classList.add('circle-active');
+        } else {
+          this.innerText = 'В корзине';
+        }
             
         let formData = {
           id: this.getAttribute('data-id'),
@@ -350,15 +354,13 @@ document.addEventListener("DOMContentLoaded", () => {
         xhr.onload = function() {
           if (xhr.response) {
             document.getElementById('header-cart-counter').innerText = xhr.response;
+            document.getElementById('header-cart-counter').classList.remove('hidden');
             document.getElementById('sticky-menu-cart-counter').innerText = xhr.response;
-            document.getElementById('mobile-cart-counter').classList.remove('hidden');
+            document.getElementById('sticky-menu-cart-counter').classList.remove('hidden');
             document.getElementById('mobile-cart-counter').innerText = xhr.response;
-
-            window.location.href = '/cart';
-
+            document.getElementById('mobile-cart-counter').classList.remove('hidden');
           }
         }
-
       }
     }
   }
@@ -458,21 +460,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
+/*
     // Удаление товаров из корзины
     let rmFromCartBtn = document.querySelectorAll('.rm-from-cart-btn'),
-        summWrapper = document.querySelector('.summ-wrapper'),
-        bottomButtons = document.querySelector('.bottom-buttons'),
+        // summWrapper = document.querySelector('.summ-wrapper'),
+        // bottomButtons = document.querySelector('.bottom-buttons'),
         cartIsEmptyText = document.querySelector('.cart-is-empty__text');
   
     for (let i = 0; i < rmFromCartBtn.length; i++) {
-      rmFromCartBtn[i].onclick = function() {;
+      rmFromCartBtn[i].onclick = function() {
         rmFromCart(this);
-        productSumm();
-        weightSumm();
+        // productSumm();
+        // weightSumm();
       }
     }
-
+*/
     function rmFromCart(param) {
             
       let formData = {
@@ -480,25 +482,26 @@ document.addEventListener("DOMContentLoaded", () => {
         token: token,
       };
 
-      document.querySelector('[data-id="' + formData.id + '"]').remove();
-
-      let itemsInCart = document.querySelectorAll('.item');
-
-      if (itemsInCart.length == 0) {
-        document.location.reload();
-      }
-
       let xhr = new XMLHttpRequest();
       xhr.open('post', '/ajax/rmfromcart');
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
       xhr.send('id=' + encodeURIComponent(formData.id) + '&_token=' + encodeURIComponent(formData.token));
       xhr.onload = function() {
         document.getElementById('header-cart-counter').innerText = xhr.response;
+        document.getElementById('sticky-menu-cart-counter').innerText = xhr.response;
         document.getElementById('mobile-cart-counter').innerText = xhr.response;
         if (xhr.response == 0) {
           document.getElementById('mobile-cart-counter').classList.add('hidden');
         }
       }
+
+      document.querySelector('[data-id="' + formData.id + '"]').remove();
+
+      // let itemsInCart = document.querySelectorAll('.cart-item');
+
+      // if (itemsInCart.length == 0) {
+        document.location.reload();
+      // }
     }
 
   }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 // use App\Models\Testimonial;
+
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
@@ -162,24 +164,45 @@ class MainController extends Controller
     {   
         $cart_items = $request->session()->get('cart');
 
-        $products = '';
+        $products_in_stock = collect();
+        $products_out_of_stock = collect();
 
         if ($cart_items) {
             $key_items = array_keys($cart_items);
 
-            // через модель Products
-            $products = DB::table('products')
-                        ->whereIn('id', $key_items)
-                        ->get();
+            $products = Product::whereIn('id', $key_items)->get();
 
-            foreach ($products as $key => $value) {
-                $id = $value->id;
-                $value->quantity = $cart_items[$id];
+            $products_in_stock = collect();
+            $products_out_of_stock = collect();
+
+            foreach ($products as $pr) {
+                if($pr->stock > 0) {
+                    $products_in_stock[] = $pr;
+                } else {
+                    $products_out_of_stock[] = $pr;
+                }
             }
 
+            $i = 0;
+            foreach ($products_in_stock as $pr) {
+                $id = $pr->id;
+                $pr->quantity = $cart_items[$id];
+                $products_in_stock->counter = count($products_in_stock);
+                $pr->count = $i;
+                $i++;
+            }
+
+            $i = 0;
+            foreach ($products_out_of_stock as $pr) {
+                $id = $pr->id;
+                $pr->quantity = $cart_items[$id];
+                $products_out_of_stock->counter = count($products_out_of_stock);
+                $pr->count = $i;
+                $i++;
+            }
         }
-        
-        return view('cart', compact('products'));
+
+        return view('cart', compact('products_in_stock', 'products_out_of_stock'));
     }
 
     public function poisk(Request $request)
@@ -219,8 +242,55 @@ class MainController extends Controller
         return view('poisk', compact('products', 'parent_category'));
     }
 
-    public function ajax_addtocart() {
-        return false;
+    public function ajax_addtocart(Request $request)
+    {
+        $id = $request->input('id');
+
+        $cart_items = $request->session()->get('cart');
+
+        if ($cart_items) { // Если есть сессия cart, то добавляю в конец массива
+            if(count($cart_items) < 9) { // Количество товара в корзине менее 10
+                if (array_key_exists($id, $cart_items)) { // Если есть товар, то прибавляю количество
+                    $product_count = $cart_items[$id];
+                    $request->session()->put('cart.'.$id, ($product_count + 1));
+                    $count = count($request->session()->get('cart'));
+            
+                    return $count;
+                } else {
+                    $request->session()->put('cart.'.$id, 1);
+                    $count = count($request->session()->get('cart'));
+            
+                    return $count;
+                }
+            } else {
+                return false;
+            }
+        } else { // Если нет, то создаю массив cart и добавляю туда значение 
+            $request->session()->put('cart', [$id => 1]);
+            $count = count($request->session()->get('cart'));
+            
+            return $count;
+        }
+    }
+
+    public function ajax_rmfromcart(Request $request)
+    {   
+        $id = $request->input('id');
+
+        $request->session()->pull('cart.'.$id, 'default');
+
+        $count = count($request->session()->get('cart'));
+
+        return $count;
+    }
+
+    public function rmfromcart(Request $request)
+    {   
+        $id = $request->input('id');
+
+        $request->session()->pull('cart.'.$id, 'default');
+
+        return redirect('/cart');
     }
 
     public function clear_cart()

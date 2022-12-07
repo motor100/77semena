@@ -72,6 +72,8 @@ Route::post('/ajax/addtocart', [MainController::class, 'ajax_addtocart']);
 
 Route::post('/ajax/rmfromcart', [MainController::class, 'ajax_rmfromcart']);
 
+Route::post('/rmfromcart', [MainController::class, 'rmfromcart']);
+
 Route::post('/ajax/minuscart', [MainController::class, 'ajax_minuscart']);
 
 Route::post('/ajax/pluscart', [MainController::class, 'ajax_pluscart']);

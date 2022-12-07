@@ -427,7 +427,7 @@ ul {
   height: 32px;
   margin: 0 auto;
 }
-.header-content .cart .counter {
+.header-content .cart .cart-counter {
   position: absolute;
   top: -5px;
   right: 5px;
@@ -707,11 +707,7 @@ ul {
   font-family: 'montserrat-bold';
   font-size: 22px;
 }
-.products .add-to-cart-btn {
-  right: 8px;
-  bottom: 11px;
-}
-.products .pre-order {
+.products .pre-order-btn {
   position: absolute;
   right: 8px;
   bottom: 14px;
@@ -723,20 +719,24 @@ ul {
   font-size: 14px;
   color: #E8E8E8;
   text-align: center;
+  z-index: 1;
+  cursor: pointer;
 }
 /* add-to-cart-btn */
 .products .add-to-cart-btn {
   position: absolute;
+  right: 8px;
+  bottom: 11px;
   width: 43px;
   height: 43px;
   z-index: 1;
+  cursor: pointer;
 }
 .products .add-to-cart-btn .circle {
   width: 43px;
   height: 43px;
   border-radius: 50%;
   background-color: #8278B8;
-  cursor: pointer;
 }
 .products .add-to-cart-btn .circle::before,
 .products .add-to-cart-btn .circle::after {
@@ -2082,18 +2082,20 @@ ul {
   font-size: 13px;
   color: #2a2a2a;
 }
-.fixed-bottom-menu .mobile-cart-counter {
+.fixed-bottom-menu .cart-counter {
   position: absolute;
   top: 0;
   right: 11px;
   width: 18px;
   height: 18px;
-  background-color: #54b761;
   border-radius: 50%;
+  background-color: #FFD439;
+  font-family: 'montserrat-semibold';
   font-size: 10px;
-  color: #fff;
-  padding: 2px;
+  line-height: 1.8;
+  text-align: center;
 }
+
 
 /* Полоса если пользователь авторизован */
 .top-line-is-login {

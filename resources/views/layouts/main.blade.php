@@ -66,7 +66,6 @@
                 </svg>
               </button>
 
-
               <!-- <div class="autocomplete-dropdown autocomplete-dropdown-active"> -->
               <div class="autocomplete-dropdown">
                 <ul class="autocomplete-list js-search-rezult">
@@ -81,9 +80,6 @@
                 </div>
               </div>
 
-
-
-
             </div>
           </form>
           <div class="cart hidden-mobile">
@@ -91,7 +87,9 @@
               <img src="/img/cart-icon.svg" alt="">
             </div>
             @if(isset($cart_count))
-              <div id="header-cart-counter" class="header-cart-counter">{{ $cart_count }}</div>
+              <div id="header-cart-counter" class="cart-counter">{{ $cart_count }}</div>
+            @else
+              <div id="header-cart-counter" class="cart-counter hidden"></div>
             @endif
             <div class="cart-text">корзина</div>
             <a href="/cart" class="full-link"></a>
@@ -376,7 +374,9 @@
             <img src="/img/cart-icon.svg" alt="">
           </div>
           @if(isset($cart_count))
-            <div id="sticky-menu-cart-counter" class="sticky-menu-cart-counter">{{ $cart_count }}</div>
+            <div id="sticky-menu-cart-counter" class="cart-counter">{{ $cart_count }}</div>
+          @else
+            <div id="sticky-menu-cart-counter" class="cart-counter hidden"></div>
           @endif
           <div class="cart-text">корзина</div>
           <a href="/cart" class="full-link"></a>
@@ -396,7 +396,9 @@
         <img src="/img/fixed-bottom-menu-cart-icon.svg" alt="">
         <div class="title">Корзина</div>
         @if(isset($cart_count))
-          <div id="mobile-cart-counter" class="mobile-cart-counter">{{ $cart_count }}</div>
+          <div id="mobile-cart-counter" class="cart-counter">{{ $cart_count }}</div>
+        @else
+          <div id="mobile-cart-counter" class="cart-counter hidden"></div>
         @endif
         <a href="/cart" class="full-link"></a>
       </div>

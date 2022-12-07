@@ -21,7 +21,7 @@
         </div>
       @endif
 
-      <form class="form mb-5" action="/dashboard/warehouse" method="get">
+      <form class="form mb-5" action="/dashboard/stock" method="get">
         <div class="form-group mb-3">
           <label for="q">Поиск по штрихкоду</label>
           <input type="number" class="form-control input-number" name="q" id="q" maxlength="200" required>
@@ -33,10 +33,10 @@
 
       @if($product)
         <div class="search-rezult">
-          <div class="product-title">{{ $product->title }},&nbsp;количество&nbsp;{{ $product->quantity }}</div>
+          <div class="product-title">{{ $product->title }},&nbsp;количество&nbsp;{{ $product->stock }}</div>
         </div>
 
-        <form class="form" action="/dashboard/warehouse/update" method="post">
+        <form class="form" action="/dashboard/stock/update" method="post">
           <div class="form-group mb-3">
             <label for="quantity">Количество</label>
             <input type="number" class="form-control input-number" name="quantity" id="quantity" min="0" step="1" required>

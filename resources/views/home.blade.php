@@ -42,7 +42,7 @@
                 @endif
                 <span class="products-item__currency">&#8381;</span>
               </div>
-              <div class="add-to-cart-btn" data-id="{{ $pr->id }}">
+              <div class="add-to-cart-btn add-to-cart" data-id="{{ $pr->id }}">
                 <div class="circle"></div>
               </div>
               <a href="/catalog/{{ $pr->slug }}" class="full-link"></a>

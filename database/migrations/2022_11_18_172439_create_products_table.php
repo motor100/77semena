@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('text');
             $table->biginteger('code')->unique();
-            $table->integer('quantity');
+            $table->biginteger('stock');
             $table->integer('wholesale_price');
             $table->integer('retail_price');
             $table->integer('promo_price')->nullable();

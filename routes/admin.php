@@ -70,9 +70,9 @@ Route::prefix('admin')->group(static function () {
         Route::get('products/{id}/destroy', [ProductController::class, 'destroy'])->name('products-destroy');
 
 
-        Route::get('warehouse', [AdminController::class, 'warehouse']);
+        Route::get('stock', [AdminController::class, 'stock']);
 
-        Route::post('warehouse/update', [AdminController::class, 'warehouse_update']);
+        Route::post('stock/update', [AdminController::class, 'stock_update']);
 
 
         Route::get('orders', [AdminController::class, 'orders']);

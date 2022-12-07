@@ -73,7 +73,7 @@
                         <img src="{{ asset('storage/uploads/products/' .  $pr->image) }}" alt="">
                       </div>
                       <div class="products-item__title">{{ $pr->title }}</div>
-                      @if($pr->quantity > 0)
+                      @if($pr->stock > 0)
                         <div class="products-item__info info-yellow">Хит</div>
                       @else
                         <div class="products-item__info info-grey">Нет в наличии</div>
@@ -82,12 +82,12 @@
                         <span class="products-item__value">{{ $pr->retail_price }}</span>
                         <span class="products-item__currency">&nbsp;&#8381;</span>
                       </div>
-                      @if($pr->quantity > 0)
-                        <div class="add-to-cart-btn" data-id="{{ $pr->id }}">
+                      @if($pr->stock > 0)
+                        <div class="add-to-cart-btn add-to-cart" data-id="{{ $pr->id }}">
                           <div class="circle"></div>
                         </div>
                       @else
-                        <div class="pre-order" data-id="{{ $pr->id }}">Предзаказ</div>
+                        <div class="pre-order-btn add-to-cart" data-id="{{ $pr->id }}">Предзаказ</div>
                       @endif
                       <a href="/catalog/{{ $pr->slug }}" class="full-link"></a>
                     </div>

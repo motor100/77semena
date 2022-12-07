@@ -29,7 +29,7 @@ class AdminController extends Controller
         return view('dashboard.testimonials', compact('testimonials'));
     }
 
-    public function warehouse(Request $request)
+    public function stock(Request $request)
     {   
         $code = $request->input('q');
 
@@ -40,10 +40,10 @@ class AdminController extends Controller
             $product = \App\Models\Product::where('code', 'like', "%{$code}%")->first();
         }
 
-        return view('dashboard.warehouse', compact('product'));
+        return view('dashboard.stock', compact('product'));
     }
 
-    public function warehouse_update(Request $request)
+    public function stock_update(Request $request)
     {   
         $request->validate([
             'quantity' => 'required|min:0',
@@ -62,7 +62,7 @@ class AdminController extends Controller
                 'updated_at' => $now
             ]);
     
-            return redirect('/dashboard/warehouse');
+            return redirect('/dashboard/stock');
         } else {
             return Redirect::back()->withErrors(['msg' => 'Ошибка']);
         }
