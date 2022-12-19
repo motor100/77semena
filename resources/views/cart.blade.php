@@ -35,20 +35,18 @@
     </div>
   </div>
 
-  <!-- <div class="cart-item__stock">нет в наличии</div> -->
-
-  @if(count($products_in_stock) > 0 || count($products_out_of_stock) > 0)
-    @if(count($products_in_stock) > 0)
+  @if($products_in_stock->count() > 0 || $products_out_of_stock->count() > 0)
+    @if($products_in_stock->count() > 0)
       <div class="cart-items-wrapper">
         <div class="container">
           <div class="info-text">Товар есть в наличии &nbsp;&nbsp;&nbsp;Доставка 1-2 дня</div>
           @foreach($products_in_stock as $pr)
-            @if($products_in_stock->counter == 1)
+            @if($products_in_stock->count() == 1)
               <div class="cart-item one-cart-item" data-id="{{ $pr->id }}">
             @else
               @if($pr->count == 0)
                 <div class="cart-item first-cart-item" data-id="{{ $pr->id }}">
-              @elseif($pr->count + 1 == $products_in_stock->counter)
+              @elseif($pr->count + 1 == $products_in_stock->count())
                 <div class="cart-item last-cart-item" data-id="{{ $pr->id }}">
               @else
                 <div class="cart-item" data-id="{{ $pr->id }}">
@@ -75,14 +73,12 @@
                   <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
                   <span class="cart-item__price-currency"> &#8381;</span>
                 </div>
-
-                <!-- <div class="cart-item__trash rm-from-cart-btn" data-id="{{ $pr->id }}">
-                  <img src="/img/trash-icon.svg" alt="">
-                </div> -->
-                <form class="form" action="/rmfromcart"  method="post">
+                <form class="form cart-item__trash rm-from-cart-btn" action="/rmfromcart"  method="post">
                   <input type="hidden" name="id" value="{{ $pr->id }}">
                   @csrf
-                  <input type="submit" value="Удалить">
+                  <button type="submit" class="rm-from-cart-submit-btn">
+                    <img src="/img/trash-icon.svg" alt="">
+                  </button>
                 </form>
               </div>
             </div>
@@ -90,17 +86,17 @@
         </div>
       </div>
     @endif
-    @if(count($products_out_of_stock) > 0)
+    @if($products_out_of_stock->count() > 0)
       <div class="cart-items-wrapper">
         <div class="container">
           <div class="info-text">Предзаказ &nbsp;&nbsp;&nbsp;Доставка 2 недели</div>
           @foreach($products_out_of_stock as $pr)
-            @if($products_out_of_stock->counter == 1)
+            @if($products_out_of_stock->count() == 1)
               <div class="cart-item one-cart-item" data-id="{{ $pr->id }}">
             @else
               @if($pr->count == 0)
                 <div class="cart-item first-cart-item" data-id="{{ $pr->id }}">
-              @elseif($pr->count + 1 == $products_out_of_stock->counter)
+              @elseif($pr->count + 1 == $products_out_of_stock->count())
                 <div class="cart-item last-cart-item" data-id="{{ $pr->id }}">
               @else
                 <div class="cart-item" data-id="{{ $pr->id }}">
@@ -127,59 +123,19 @@
                   <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
                   <span class="cart-item__price-currency"> &#8381;</span>
                 </div>
-
-                <form class="form" action="/rmfromcart"  method="post">
+                <form class="form cart-item__trash rm-from-cart-btn" action="/rmfromcart"  method="post">
                   <input type="hidden" name="id" value="{{ $pr->id }}">
                   @csrf
-                  <input type="submit" value="Удалить">
+                  <button type="submit" class="rm-from-cart-submit-btn">
+                    <img src="/img/trash-icon.svg" alt="">
+                  </button>
                 </form>
-
-                <!-- <div class="cart-item__trash rm-from-cart-btn" data-id="{{ $pr->id }}">
-                  <img src="/img/trash-icon.svg" alt="">
-                </div> -->
               </div>
             </div>
           @endforeach
         </div>
       </div>
     @endif
-  <!-- 
-  <div class="cart-items-wrapper">
-    <div class="container">
-
-      <div class="info-text">Предзаказ &nbsp;&nbsp;&nbsp;Доставка 2 недели</div>
-
-      <div class="cart-item one-cart-item">
-        <div class="cart-item__image">
-          <img src="/img/product-image.jpg" alt="">
-        </div>
-        <div class="cart-item__content">
-          <div class="cart-item__stock cart-item__out-of-stock">нет в наличии</div>
-          <div class="cart-item__title">Огурец «СИБИРСКАЯ ГИРЛЯНДА» F1 Огурец "СИБИРСКАЯ ГИРЛЯНДА" F1</div>
-
-          <div class="cart-item__quantity">
-            <button type="button" class="quantity-button quantity-minus">
-              <div class="circle"></div>
-            </button>
-            <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
-            <button type="button" class="quantity-button quantity-plus">
-              <div class="circle"></div>
-            </button>
-          </div>
-
-          <div class="cart-item__price">
-            <span class="cart-item__price-text">36</span>
-            <span class="cart-item__price-currency"> &#8381;</span>
-          </div>
-
-          <div class="cart-item__trash">
-            <img src="/img/trash-icon.svg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-   -->
 
   <div class="summary-wrapper">
     <div class="container">

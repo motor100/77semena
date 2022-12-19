@@ -65,7 +65,7 @@
 
 
             @if(count($products) > 0)
-              <div class="row">
+              <div class="row js-insert-products">
                 @foreach($products as $pr)
                   <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="products-item">
@@ -111,13 +111,10 @@
                 </div>
               </div>
             @endif
-
-
-
           </div>
-          @if(count($products) > 20)
+          @if($products_count > 20)
             <div class="horizontal-line"></div>
-            <div class="view-more">
+            <div class="view-more js-view-more-btn" data-page="2" data-page-max="{{-- $page_max --}}">
               <span class="view-more__text">Показать еще</span>
             </div>
           @endif

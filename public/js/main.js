@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Добавление товаров в корзину
   function addToCart() {
 
-    let addToCartBtns = document.querySelectorAll('.products .add-to-cart');
+    let addToCartBtns = document.querySelectorAll('.add-to-cart');
 
     for (let i = 0; i < addToCartBtns.length; i++) {
       addToCartBtns[i].onclick = function() {
@@ -340,6 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
           this.children[0].classList.add('circle-active');
         } else {
           this.innerText = 'В корзине';
+          console.log(this.innerText);
         }
             
         let formData = {
@@ -475,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 */
-    function rmFromCart(param) {
+    function rmitemFromCart(param) {
             
       let formData = {
         id: param.getAttribute('data-id'),
@@ -483,7 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       let xhr = new XMLHttpRequest();
-      xhr.open('post', '/ajax/rmfromcart');
+      xhr.open('post', '/ajax/rmitemfromcart');
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
       xhr.send('id=' + encodeURIComponent(formData.id) + '&_token=' + encodeURIComponent(formData.token));
       xhr.onload = function() {
@@ -528,7 +529,27 @@ document.addEventListener("DOMContentLoaded", () => {
       select: '#products-filter',
       showSearch: false,
       searchFocus: false,
-    })
+    });
+
+    // View more
+    let viewMoreBtn = document.querySelector('.js-view-more-btn'),
+        jsInsertProducts = document.querySelector('.js-insert-products');
+
+    if (viewMoreBtn) {
+      viewMoreBtn.onclick = function() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', '/ajax/testviewmore');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send('_token=' + encodeURIComponent(token));
+        xhr.addEventListener('load', function() {
+          let tmpEl = document.createElement('div');
+          tmpEl.className = "more-products";
+          tmpEl.innerHTML = xhr.responseText;
+          jsInsertProducts.append(tmpEl);
+        });
+      }
+    }
+
   }
     
   if (singleProduct) {

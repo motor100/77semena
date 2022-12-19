@@ -22,7 +22,7 @@ class Product extends Model
         'image',
         'text',
         'code',
-        'quantity',
+        'stock',
         'wholesale_price',
         'retail_price',
         'promo_price',

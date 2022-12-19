@@ -76,15 +76,13 @@
               <span class="products-item__value">{{ $single_product->retail_price }}</span>
               <span class="products-item__currency">&#8381;</span>
             </div>
-            @if($single_product->quantity > 0)
+            @if($single_product->stock > 0)
               <div class="single-product-stock single-product-in-stock">В наличии</div>
             @else
               <div class="single-product-stock single-product-out-of-stock">Нет в наличии</div>
             @endif
           </div>
-          <button class="add-to-cart-btn">
-            <div class="add-to-cart-btn__text" data-id="{{ $single_product->id }}">Добавить в корзину</div>
-          </button>
+          <button class="single-add-to-cart-btn add-to-cart" data-id="{{ $single_product->id }}">Добавить в корзину</button>
           <div class="horizontal-line"></div>
           <div class="single-product-delivery-info">
             <div class="single-product-city-wrapper">

@@ -17,24 +17,20 @@ class MainController extends Controller
         $news = \App\Models\Mainnew::limit(4)->orderBy('id', 'desc')->get();
         
         foreach ($news as $nw) {
-            $nw['short_title'] = Str::limit($nw['title'], 36, '...');
-            $nw['date'] = MainController::datetime_format($nw['created_at'], 2);
+            $nw->short_title = Str::limit($nw->title, 36, '...');
+            $nw->date = MainController::datetime_format($nw->created_at, 2);
         }
 
-        $new_products = \App\Models\Product::orderBy('id', 'desc')->limit(4)->get();
+        $new_products = Product::orderBy('id', 'desc')->limit(4)->get();
 
-        $i = 0;
-        foreach($new_products as $pr) {
-            $pr->count = $i;
-            $i++;
+        foreach($new_products as $pr => $value) {
+            $value->count = $pr;
         }
 
-        $promo_products = \App\Models\Product::whereNotNull('promo_price')->limit(6)->orderBy('id', 'desc')->get();
+        $promo_products = Product::whereNotNull('promo_price')->limit(6)->orderBy('id', 'desc')->get();
 
-        $i = 0;
-        foreach($promo_products as $pr) {
-            $pr->count = $i;
-            $i++;
+        foreach($promo_products as $pr => $value) {
+            $value->count = $pr;
         }
 
         return view('home', compact('news', 'new_products', 'promo_products'));
@@ -68,12 +64,16 @@ class MainController extends Controller
         }
         
         if($category) {
-            $products = \App\Models\Product::where('category_id', $category->id)->limit(20)->orderBy('id', 'desc')->get();
+            $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->get();
+            $products_count = $products->count();
+            $products = $products->take(20);
             $category_title = $category->title;
-            return view('catalog', compact('products', 'parent_category', 'category_title'));
+            return view('catalog', compact('products', 'parent_category', 'category_title', 'products_count'));
         } else {
-            $products = \App\Models\Product::limit(20)->orderBy('id', 'desc')->get();
-            return view('catalog', compact('products', 'parent_category'));
+            $products = Product::orderBy('id', 'desc')->get();
+            $products_count = $products->count();
+            $products = $products->take(20);
+            return view('catalog', compact('products', 'parent_category', 'products_count'));
         }
     }
 
@@ -81,7 +81,7 @@ class MainController extends Controller
     {
         if (is_string($slug) && strlen($slug) > 3 && strlen($slug) < 100) {
 
-            $single_product = \App\Models\Product::where('slug', $slug)->first();
+            $single_product = Product::where('slug', $slug)->first();
 
             if ($single_product) {
                 return view('single_product', compact('single_product'));
@@ -117,8 +117,8 @@ class MainController extends Controller
         $news = \App\Models\Mainnew::limit(60)->orderBy('id', 'desc')->get();
 
         foreach ($news as $nw) {
-            $nw['short_title'] = Str::limit($nw['title'], 36, '...');
-            $nw['date'] = MainController::datetime_format($nw['created_at'], 2);
+            $nw->short_title = Str::limit($nw->title, 36, '...');
+            $nw->date = MainController::datetime_format($nw->created_at, 2);
         }
 
         $news = MainController::custom_paginator($news, 12);
@@ -134,7 +134,7 @@ class MainController extends Controller
             return abort(404);
         }
         
-        $single_novosti['date'] = MainController::datetime_format($single_novosti['created_at'], 1);
+        $single_novosti->date = MainController::datetime_format($single_novosti->created_at, 1);
 
         return view('single_novosti', compact('single_novosti'));
     }
@@ -147,7 +147,7 @@ class MainController extends Controller
                                             ->get();
 
         foreach ($testimonials as $ts) {
-            $ts['date'] = MainController::datetime_format($ts['created_at'], 3);
+            $ts->date = MainController::datetime_format($ts->created_at, 3);
         }
 
         $testimonials = MainController::custom_paginator($testimonials, 10);
@@ -172,8 +172,11 @@ class MainController extends Controller
 
             $products = Product::whereIn('id', $key_items)->get();
 
-            $products_in_stock = collect();
-            $products_out_of_stock = collect();
+            // $filtered = $products->filter(function ($value, $key) {
+            //     return $value->stock == 0;
+            // });
+            
+            // $filtered->all();
 
             foreach ($products as $pr) {
                 if($pr->stock > 0) {
@@ -183,24 +186,20 @@ class MainController extends Controller
                 }
             }
 
-            $i = 0;
-            foreach ($products_in_stock as $pr) {
-                $id = $pr->id;
-                $pr->quantity = $cart_items[$id];
-                $products_in_stock->counter = count($products_in_stock);
-                $pr->count = $i;
-                $i++;
+            foreach ($products_in_stock as $pr => $value) {
+                $id = $value->id;
+                $value->quantity = $cart_items[$id];
+                $value->count = $pr;
             }
 
-            $i = 0;
-            foreach ($products_out_of_stock as $pr) {
-                $id = $pr->id;
-                $pr->quantity = $cart_items[$id];
-                $products_out_of_stock->counter = count($products_out_of_stock);
-                $pr->count = $i;
-                $i++;
+            foreach ($products_out_of_stock as $pr => $value) {
+                $id = $value->id;
+                $value->quantity = $cart_items[$id];
+                $value->count = $pr;
             }
         }
+
+        // dd($products_out_of_stock);
 
         return view('cart', compact('products_in_stock', 'products_out_of_stock'));
     }
@@ -273,7 +272,7 @@ class MainController extends Controller
         }
     }
 
-    public function ajax_rmfromcart(Request $request)
+    public function ajax_rmitemfromcart(Request $request)
     {   
         $id = $request->input('id');
 
@@ -282,6 +281,35 @@ class MainController extends Controller
         $count = count($request->session()->get('cart'));
 
         return $count;
+    }
+
+    public function ajax_productsviewmore(Request $request)
+    {
+        $page = 2;
+
+        $start = 20;
+        $step = 20;
+
+        $products = \App\Models\Product::offset($start)
+                        ->limit($step)
+                        ->orderBy('id', 'desc')
+                        ->get();
+        
+        // dd($products);
+
+        $html = '';
+
+        foreach ($reviews as $value) {
+            $html .= '<div class="item">';
+            $html .= '<div class="item-title">' . $value->name . '</div>';
+            $html .= '<div class="item-date-and-name">';
+            $html .= '<span class="item-date">Опубликовано ' . $value->publicated_at . ', </span>';
+            $html .= '<span class="item-name">пользователем ' . $value->name . '</span>';
+            $html .= '</div>';
+            $html .= '<div class="item-text">' . $value->text . '</div>';
+            $html .= '</div>';
+        }
+
     }
 
     public function rmfromcart(Request $request)

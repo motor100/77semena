@@ -21,7 +21,7 @@
         </div>
       @endif
 
-      <form class="form mb-5" action="/dashboard/stock" method="get">
+      <form class="form mb-5" action="/admin/stock" method="get">
         <div class="form-group mb-3">
           <label for="q">Поиск по штрихкоду</label>
           <input type="number" class="form-control input-number" name="q" id="q" maxlength="200" required>

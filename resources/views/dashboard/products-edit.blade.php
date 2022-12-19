@@ -70,7 +70,7 @@
       </div>
       <div class="form-group mb-3">
         <label for="title">Количество</label>
-        <input type="number" class="form-control input-quantity input-number" name="quantity" id="quantity" min="0" step="1" required value="{{ $pr->quantity }}">
+        <input type="number" class="form-control input-stock input-number" name="stock" id="stock" min="0" step="1" required value="{{ $pr->stock }}">
       </div>
       <div class="form-group mb-3">
         <label for="title">Оптовая цена</label>

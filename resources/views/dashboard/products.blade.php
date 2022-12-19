@@ -11,7 +11,7 @@
   <div class="content">
     <div class="container-fluid">
 
-      <form class="form mb-5" action="/dashboard/products" method="get">
+      <form class="form mb-5" action="/admin/products" method="get">
         <div class="form-group mb-3">
           <label for="q">Поиск</label>
           <input type="text" class="form-control input-number" name="q" id="q" maxlength="200" required>

@@ -55,7 +55,7 @@ class ProductController extends Controller
             'title' => 'required|min:6|max:200',
             'input-main-file' => 'required|image|mimes:jpg,png,jpeg',
             'code' => 'required|min:10|max:16|unique:App\Models\Product,code',
-            'quantity' => 'required|min:0|max:10000',
+            'stock' => 'required|min:0|max:10000',
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
         ]);
@@ -66,7 +66,7 @@ class ProductController extends Controller
         $image = $request->file('input-main-file');
         $gallery = $request->file('input-gallery-file');
         $code = $request->input('code');
-        $quantity = $request->input('quantity');
+        $stock = $request->input('stock');
         $code = $request->input('code');
         $wholesale_price = $request->input('wholesale-price');
         $retail_price = $request->input('retail-price');
@@ -105,7 +105,7 @@ class ProductController extends Controller
             'image' => $img,
             'text' => $text,
             'code' => $code,
-            'quantity' => $quantity,
+            'stock' => $stock,
             'wholesale_price' => $wholesale_price,
             'retail_price' => $retail_price,
             'promo_price' => $promo_price,
@@ -134,7 +134,7 @@ class ProductController extends Controller
             Gallery::insert($gallery_array);
         }
 
-        return redirect('/dashboard/products');
+        return redirect('/admin/products');
     }
 
     /**
@@ -177,7 +177,7 @@ class ProductController extends Controller
         $request->validate([
             'title' => 'required|min:6|max:200',
             'code' => 'required|min:10|max:16',
-            'quantity' => 'required|min:0|max:10000',
+            'stock' => 'required|min:0|max:10000',
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
         ]);
@@ -192,7 +192,7 @@ class ProductController extends Controller
         $image = $request->file('input-main-file');
         $gallery = $request->file('input-gallery-file');
         $code = $request->input('code');
-        $quantity = $request->input('quantity');
+        $stock = $request->input('stock');
         $code = $request->input('code');
         $wholesale_price = $request->input('wholesale-price');
         $retail_price = $request->input('retail-price');
@@ -263,7 +263,7 @@ class ProductController extends Controller
             'image' => $img,
             'text' => $text,
             'code' => $code,
-            'quantity' => $quantity,
+            'stock' => $stock,
             'wholesale_price' => $wholesale_price,
             'retail_price' => $retail_price,
             'promo_price' => $promo_price,
@@ -273,7 +273,7 @@ class ProductController extends Controller
             'updated_at' => $now
         ]);
 
-        return redirect('/dashboard/products');
+        return redirect('/admin/products');
     }
 
     /**
@@ -300,6 +300,6 @@ class ProductController extends Controller
 
         $prd->delete();
 
-        return redirect('/dashboard/products');
+        return redirect('/admin/products');
     }
 }

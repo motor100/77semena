@@ -70,7 +70,7 @@ Route::get('/akcii', [MainController::class, 'akcii']);
 // Корзина
 Route::post('/ajax/addtocart', [MainController::class, 'ajax_addtocart']);
 
-Route::post('/ajax/rmfromcart', [MainController::class, 'ajax_rmfromcart']);
+Route::post('/ajax/rmitemfromcart', [MainController::class, 'ajax_rmitemfromcart']);
 
 Route::post('/rmfromcart', [MainController::class, 'rmfromcart']);
 
@@ -100,6 +100,8 @@ Route::get('/dokumenty', [MainController::class, 'dokumenty']);
 Route::post('/ajax/search', [MainController::class, 'ajax_search']);
 
 Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
+
+Route::post('/ajax/testviewmore', [MainController::class, 'ajax_productsviewmore']);
 
 
 /*
