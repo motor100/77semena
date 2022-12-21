@@ -7,8 +7,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
 
 class MainController extends Controller
 {
@@ -27,7 +27,11 @@ class MainController extends Controller
             $value->count = $pr;
         }
 
-        $promo_products = Product::whereNotNull('promo_price')->limit(6)->orderBy('id', 'desc')->get();
+        $promo_products = Product::whereNotNull('promo_price')
+                                    ->where('stock', '>', '0')
+                                    ->limit(6)
+                                    ->orderBy('id', 'desc')
+                                    ->get();
 
         foreach($promo_products as $pr => $value) {
             $value->count = $pr;
@@ -68,12 +72,20 @@ class MainController extends Controller
             $products_count = $products->count();
             $products = $products->take(20);
             $category_title = $category->title;
-            return view('catalog', compact('products', 'parent_category', 'category_title', 'products_count'));
+
+            $step = 20;
+            $page_max = ceil( $products_count / $step);
+
+            return view('catalog', compact('products', 'parent_category', 'category_title', 'products_count', 'page_max'));
         } else {
             $products = Product::orderBy('id', 'desc')->get();
             $products_count = $products->count();
             $products = $products->take(20);
-            return view('catalog', compact('products', 'parent_category', 'products_count'));
+
+            $step = 20;
+            $page_max = ceil( $products_count / $step);
+
+            return view('catalog', compact('products', 'parent_category', 'products_count', 'page_max'));
         }
     }
 
@@ -294,21 +306,38 @@ class MainController extends Controller
                         ->limit($step)
                         ->orderBy('id', 'desc')
                         ->get();
-        
-        // dd($products);
 
-        $html = '';
+        $array = [];
 
-        foreach ($reviews as $value) {
-            $html .= '<div class="item">';
-            $html .= '<div class="item-title">' . $value->name . '</div>';
-            $html .= '<div class="item-date-and-name">';
-            $html .= '<span class="item-date">Опубликовано ' . $value->publicated_at . ', </span>';
-            $html .= '<span class="item-name">пользователем ' . $value->name . '</span>';
+        foreach ($products as $prd) {
+            $html = '';
+            $html .= '<div class="products-item">';
+            $html .= '<div class="products-item__image">';
+            $html .= '<img src="/storage/uploads/products/' .  $prd->image . '" alt="">';
             $html .= '</div>';
-            $html .= '<div class="item-text">' . $value->text . '</div>';
+            $html .= '<div class="products-item__title">' . $prd->title . '</div>';
+            if($prd->stock > 0) {
+                $html .= '<div class="products-item__info info-yellow">Хит</div>';
+            } else {
+                $html .= '<div class="products-item__info info-grey">Нет в наличии</div>';
+            }
+            $html .= '<div class="products-item__price">';
+            $html .= '<span class="products-item__value">' . $prd->retail_price . '</span>';
+            $html .= '<span class="products-item__currency">&nbsp;&#8381;</span>';
             $html .= '</div>';
+            if($prd->stock > 0) {
+                $html .= '<div class="add-to-cart-btn add-to-cart" data-id="{{ $pr->id }}">';
+                $html .= '<div class="circle"></div>';
+                $html .= '</div>';
+            } else {
+                $html .= '<div class="pre-order-btn add-to-cart" data-id="' . $prd->id . '">Предзаказ</div>';
+            }
+            $html .= '<a href="/catalog/' . $prd->slug . '" class="full-link"></a>';
+            $html .= '</div>';
+            $array[] = $html;
         }
+
+        return $array;
 
     }
 
@@ -368,7 +397,11 @@ class MainController extends Controller
         }
 
         // Products
-        $products = \App\Models\Product::whereNotNull('promo_price')->limit(20)->orderBy('id', 'desc')->get();
+        $products = \App\Models\Product::whereNotNull('promo_price')
+                                        ->where('stock', '>', '0')
+                                        ->limit(20)
+                                        ->orderBy('id', 'desc')
+                                        ->get();
 
         return view('akcii', compact('products', 'parent_category'));
     }

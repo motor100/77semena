@@ -56,6 +56,7 @@ class ProductController extends Controller
             'input-main-file' => 'required|image|mimes:jpg,png,jpeg',
             'code' => 'required|min:10|max:16|unique:App\Models\Product,code',
             'stock' => 'required|min:0|max:10000',
+            'buying-price' => 'required|min:0',
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
         ]);
@@ -68,10 +69,10 @@ class ProductController extends Controller
         $code = $request->input('code');
         $stock = $request->input('stock');
         $code = $request->input('code');
+        $buying_price = $request->input('buying-price');
         $wholesale_price = $request->input('wholesale-price');
         $retail_price = $request->input('retail-price');
         $promo_price = $request->input('promo-price');
-        $sku = $request->input('sku');
         $weight = $request->input('weight');
         $brand = $request->input('brand');
 
@@ -106,10 +107,10 @@ class ProductController extends Controller
             'text' => $text,
             'code' => $code,
             'stock' => $stock,
+            'buying_price' => $buying_price,
             'wholesale_price' => $wholesale_price,
             'retail_price' => $retail_price,
             'promo_price' => $promo_price,
-            'sku' => $sku,
             'weight' => $weight,
             'brand' => $brand,
             'created_at' => $now,
@@ -178,6 +179,7 @@ class ProductController extends Controller
             'title' => 'required|min:6|max:200',
             'code' => 'required|min:10|max:16',
             'stock' => 'required|min:0|max:10000',
+            'buying-price' => 'required|min:0',
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
         ]);
@@ -194,10 +196,10 @@ class ProductController extends Controller
         $code = $request->input('code');
         $stock = $request->input('stock');
         $code = $request->input('code');
+        $buying_price = $request->input('buying-price');
         $wholesale_price = $request->input('wholesale-price');
         $retail_price = $request->input('retail-price');
         $promo_price = $request->input('promo-price');
-        $sku = $request->input('sku');
         $weight = $request->input('weight');
         $brand = $request->input('brand');
 
@@ -264,10 +266,10 @@ class ProductController extends Controller
             'text' => $text,
             'code' => $code,
             'stock' => $stock,
+            'buying_price' => $buying_price,
             'wholesale_price' => $wholesale_price,
             'retail_price' => $retail_price,
             'promo_price' => $promo_price,
-            'sku' => $sku,
             'weight' => $weight,
             'brand' => $brand,
             'updated_at' => $now

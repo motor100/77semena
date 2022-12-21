@@ -49,35 +49,35 @@
         <span class="namefile gallery-file-text">Файлы не выбраны</span>
       </div>
       <div class="form-group mb-3">
-        <label for="title">Штрихкод</label>
+        <label for="code">Штрихкод</label>
         <input type="number" class="form-control input-code input-number" name="code" id="code" min="0" step="1" minlength="8" maxlength="15" required>
       </div>
       <div class="form-group mb-3">
-        <label for="title">Количество</label>
+        <label for="stock">Количество</label>
         <input type="number" class="form-control input-stock input-number" name="stock" id="stock" min="0" step="1" required>
       </div>
       <div class="form-group mb-3">
-        <label for="title">Оптовая цена</label>
+        <label for="buying-price">Закупочная цена</label>
+        <input type="number" class="form-control input-buying-price input-number" name="buying-price" id="buying-price" min="0" step="1">
+      </div>
+      <div class="form-group mb-3">
+        <label for="wholesale-price">Оптовая цена</label>
         <input type="number" class="form-control input-wholesale-price input-number" name="wholesale-price" id="wholesale-price" min="0" step="1" required>
       </div>
       <div class="form-group mb-3">
-        <label for="title">Розничная цена</label>
+        <label for="retail-price">Розничная цена</label>
         <input type="number" class="form-control input-retail-price input-number" name="retail-price" id="retail-price" min="0" step="1" required>
       </div>
       <div class="form-group mb-3">
-        <label for="title">Акционная цена</label>
+        <label for="promo-price">Акционная цена</label>
         <input type="number" class="form-control input-promo-price input-number" name="promo-price" id="promo-price" min="0" step="1">
       </div>
       <div class="form-group mb-3">
-        <label for="title">Артикул</label>
-        <input type="number" class="form-control input-sku input-number" name="sku" id="sku" min="0" step="1">
-      </div>
-      <div class="form-group mb-3">
-        <label for="title">Вес, гр.</label>
+        <label for="weight">Вес, гр.</label>
         <input type="number" class="form-control input-weight input-number" name="weight" id="weight" min="0" step="1">
       </div>
       <div class="form-group mb-3">
-        <label for="title">Производитель</label>
+        <label for="brand">Производитель</label>
         <input type="text" class="form-control" name="brand" id="brand" maxlength="200">
       </div>
 

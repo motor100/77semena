@@ -22,10 +22,10 @@ return new class extends Migration
             $table->text('text');
             $table->biginteger('code')->unique();
             $table->biginteger('stock');
+            $table->integer('buying_price');
             $table->integer('wholesale_price');
             $table->integer('retail_price');
             $table->integer('promo_price')->nullable();
-            $table->integer('sku')->nullable();
             $table->integer('weight')->nullable();
             $table->string('brand')->nullable();
             $table->timestamps();

@@ -65,9 +65,15 @@
                       </div>
                       <div class="products-item__title">{{ $pr->title }}</div>
                       <div class="products-item__info info-yellow">Хит</div>
-                      <div class="products-item__price">
-                        <span class="products-item__value">{{ $pr->retail_price }}</span>
-                        <span class="products-item__currency">&nbsp;&#8381;</span>
+                      <div class="products-item-price-wrapper">
+                        <div class="products-item__old-price">
+                          <span class="products-item__value">{{ $pr->retail_price }}</span>
+                          <span class="products-item__currency">&#8381;</span>
+                        </div>
+                        <div class="products-item__price">
+                          <span class="products-item__value">{{ $pr->promo_price }}</span>
+                          <span class="products-item__currency">&#8381;</span>
+                        </div>
                       </div>
                       <div class="add-to-cart-btn" data-id="{{ $pr->id }}">
                         <div class="circle"></div>

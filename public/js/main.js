@@ -531,23 +531,40 @@ document.addEventListener("DOMContentLoaded", () => {
       searchFocus: false,
     });
 
-    // View more
-    let viewMoreBtn = document.querySelector('.js-view-more-btn'),
+    // Catalog view more
+    let catalogViewMoreBtn = document.querySelector('.js-view-more-btn'),
         jsInsertProducts = document.querySelector('.js-insert-products');
 
-    if (viewMoreBtn) {
-      viewMoreBtn.onclick = function() {
-        let xhr = new XMLHttpRequest();
-        xhr.open('post', '/ajax/testviewmore');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        xhr.send('_token=' + encodeURIComponent(token));
-        xhr.addEventListener('load', function() {
-          let tmpEl = document.createElement('div');
-          tmpEl.className = "more-products";
-          tmpEl.innerHTML = xhr.responseText;
-          jsInsertProducts.append(tmpEl);
-        });
-      }
+    if (catalogViewMoreBtn) {
+      catalogViewMoreBtn.onclick = catalogMore;
+    }
+
+    function catalogMore() {
+      let page = catalogViewMoreBtn.getAttribute('data-page'),
+          pageMax = catalogViewMoreBtn.getAttribute('data-page-max');
+
+        if (Number(page) < Number(pageMax)) {
+          catalogViewMoreBtn.setAttribute('data-page', Number(page) + 1);
+          page = Number(page) + 1;
+        }
+    
+        if (page == pageMax) {
+          this.classList.add('hidden');
+        }
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('post', '/ajax/testviewmore');
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      xhr.send('_token=' + encodeURIComponent(token));
+      xhr.addEventListener('load', function() {
+        let obj = JSON.parse(xhr.response);
+        for (key in obj) {
+          let insertEl = document.createElement('div');
+          insertEl.className = "col-lg-3 col-md-4 col-sm-6";
+          insertEl.innerHTML += obj[key];
+          jsInsertProducts.append(insertEl);
+        }
+      });
     }
 
   }

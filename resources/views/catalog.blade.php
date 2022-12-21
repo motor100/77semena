@@ -63,7 +63,6 @@
               </select>
             </div>
 
-
             @if(count($products) > 0)
               <div class="row js-insert-products">
                 @foreach($products as $pr)
@@ -78,10 +77,30 @@
                       @else
                         <div class="products-item__info info-grey">Нет в наличии</div>
                       @endif
-                      <div class="products-item__price">
-                        <span class="products-item__value">{{ $pr->retail_price }}</span>
-                        <span class="products-item__currency">&nbsp;&#8381;</span>
-                      </div>
+                      @if($pr->stock > 0)
+                        <div class="products-item-price-wrapper">
+                          @if($pr->promo_price)
+                            <div class="products-item__old-price">
+                              <span class="products-item__value">{{ $pr->retail_price }}</span>
+                              <span class="products-item__currency">&#8381;</span>
+                            </div>
+                            <div class="products-item__price">
+                              <span class="products-item__value">{{ $pr->promo_price }}</span>
+                              <span class="products-item__currency">&#8381;</span>
+                            </div>
+                          @else
+                          <div class="products-item__price">
+                            <span class="products-item__value">{{ $pr->retail_price }}</span>
+                            <span class="products-item__currency">&nbsp;&#8381;</span>
+                          </div>
+                          @endif
+                        </div>
+                      @else
+                        <div class="products-item__price">
+                          <span class="products-item__value">{{ $pr->retail_price }}</span>
+                          <span class="products-item__currency">&nbsp;&#8381;</span>
+                        </div>
+                      @endif
                       @if($pr->stock > 0)
                         <div class="add-to-cart-btn add-to-cart" data-id="{{ $pr->id }}">
                           <div class="circle"></div>
@@ -114,7 +133,7 @@
           </div>
           @if($products_count > 20)
             <div class="horizontal-line"></div>
-            <div class="view-more js-view-more-btn" data-page="2" data-page-max="{{-- $page_max --}}">
+            <div class="view-more js-view-more-btn" data-page="2" data-page-max="{{ $page_max }}">
               <span class="view-more__text">Показать еще</span>
             </div>
           @endif

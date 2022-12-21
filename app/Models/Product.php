@@ -23,10 +23,10 @@ class Product extends Model
         'text',
         'code',
         'stock',
+        'buying_price',
         'wholesale_price',
         'retail_price',
         'promo_price',
-        'sku',
         'weight',
         'brand',
     ];
