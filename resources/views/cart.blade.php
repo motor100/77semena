@@ -73,6 +73,7 @@
                   <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
                   <span class="cart-item__price-currency"> &#8381;</span>
                 </div>
+                <div class="cart-item__weight hidden">{{ $pr->weight }}</div>
                 <form class="form cart-item__trash rm-from-cart-btn" action="/rmfromcart"  method="post">
                   <input type="hidden" name="id" value="{{ $pr->id }}">
                   @csrf
@@ -123,6 +124,7 @@
                   <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
                   <span class="cart-item__price-currency"> &#8381;</span>
                 </div>
+                <div class="cart-item__weight hidden">{{ $pr->weight }}</div>
                 <form class="form cart-item__trash rm-from-cart-btn" action="/rmfromcart"  method="post">
                   <input type="hidden" name="id" value="{{ $pr->id }}">
                   @csrf
@@ -143,13 +145,13 @@
         <div class="summary-flex-container">
           <div class="summary-item">
             <span class="summary-item__title">Товары&nbsp;</span>
-            <span class="summary-item__value">108</span>
-            <span class="summary-item__unit">&nbsp;&#8381;</span>
+            <span class="summary-item__value summary-quantity">0</span>
+            <span class="summary-item__unit">шт</span>
           </div>
           <div class="summary-item">
             <span class="summary-item__title">Вес&nbsp;</span>
-            <span class="summary-item__value">2,485</span>
-            <span class="summary-item__unit">&nbsp;кг</span>
+            <span class="summary-item__value summary-weight">0</span>
+            <span class="summary-item__unit">гр</span>
           </div>
           <div class="summary-item">
             <span class="summary-item__title">Скидка&nbsp;</span>

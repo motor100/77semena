@@ -441,6 +441,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (cartPage) {
 
+    quantityCalc();
+    weightCalc();
+
     let cartItems = document.querySelectorAll('.cart-item');
     cartItems.forEach((item) => {
 
@@ -451,14 +454,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
       quantityMinus.onclick = function(){
         quantityNumber.stepDown();
-        // calc();
+        quantityCalc();
+        weightCalc();
       }
       quantityPlus.onclick = function(){
         quantityNumber.stepUp();
-        // calc();
+        quantityCalc();
+        weightCalc();
       }
 
+      
+
     });
+
+    // Total product quantity in cart
+    function quantityCalc() {
+      let cartItems = document.querySelectorAll('.cart-item'),
+          quantitySumm = 0;
+
+      cartItems.forEach((item) => {
+        let quantityNumberValue = item.querySelector('.quantity-number').value;
+        quantityNumberValue = Number(quantityNumberValue);
+        quantitySumm += quantityNumberValue;
+        document.querySelector('.summary-quantity').innerText = quantitySumm;
+        return false;
+      });
+    }
+
+    // Total product weight in cart
+    function weightCalc() {
+      let cartItems = document.querySelectorAll('.cart-item'),
+      totalWeight = 0;
+
+      cartItems.forEach((item) => {
+        let quantityNumberValue = item.querySelector('.quantity-number').value,
+            itemWeight = item.querySelector('.cart-item__weight').innerText,
+            summItemWeight = 0;
+        quantityNumberValue = Number(quantityNumberValue);
+        summItemWeight = quantityNumberValue * Number(itemWeight);
+        totalWeight += summItemWeight;
+        document.querySelector('.summary-weight').innerText = totalWeight;
+        return false;
+      });
+    }
 
 
 /*

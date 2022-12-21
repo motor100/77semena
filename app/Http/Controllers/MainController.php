@@ -191,7 +191,7 @@ class MainController extends Controller
             // $filtered->all();
 
             foreach ($products as $pr) {
-                if($pr->stock > 0) {
+                if ($pr->stock > 0) {
                     $products_in_stock[] = $pr;
                 } else {
                     $products_out_of_stock[] = $pr;
@@ -211,7 +211,6 @@ class MainController extends Controller
             }
         }
 
-        // dd($products_out_of_stock);
 
         return view('cart', compact('products_in_stock', 'products_out_of_stock'));
     }

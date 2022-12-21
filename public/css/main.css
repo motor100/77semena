@@ -1492,9 +1492,15 @@ ul {
 }
 .cart .summary-wrapper .summary-item {
   margin: 0 0 16px 0;
+  width: 18%;
+  flex-shrink: 0;
 }
 .cart .summary-wrapper .summary-item__title {
   font-family: 'montserrat-bold';
+}
+.cart .summary-wrapper .summary-quantity {
+  display: inline-block;
+  width: 28px;
 }
 .cart .summary-wrapper .summary-item__uppercase-title {
   text-transform: uppercase;
