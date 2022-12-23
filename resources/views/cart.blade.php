@@ -60,19 +60,33 @@
                 <div class="cart-item__title">{{ $pr->title }}</div>
 
                 <div class="cart-item__quantity">
-                  <button type="button" class="quantity-button quantity-minus">
+                  <button type="button" class="quantity-button quantity-minus" data-id="{{ $pr->id }}">
                     <div class="circle"></div>
                   </button>
-                  <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
-                  <button type="button" class="quantity-button quantity-plus">
+                  <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" data-id="{{ $pr->id }}" value="{{ $pr->quantity }}">
+                  <button type="button" class="quantity-button quantity-plus" data-id="{{ $pr->id }}">
                     <div class="circle"></div>
                   </button>
                 </div>
 
-                <div class="cart-item__price">
-                  <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
-                  <span class="cart-item__price-currency"> &#8381;</span>
+                <div class="cart-item__price-wrapper">
+                  @if($pr->promo_price)
+                    <div class="cart-item__old-price">
+                      <span class="cart-item__value">{{ $pr->retail_price }}</span>
+                      <span class="cart-item__currency">&#8381;</span>
+                    </div>
+                    <div class="cart-item__price">
+                      <span class="cart-item__value">{{ $pr->promo_price }}</span>
+                      <span class="cart-item__currency">&#8381;</span>
+                    </div>
+                  @else
+                  <div class="cart-item__price">
+                    <span class="cart-item__value">{{ $pr->retail_price }}</span>
+                    <span class="cart-item__currency">&nbsp;&#8381;</span>
+                  </div>
+                  @endif
                 </div>
+
                 <div class="cart-item__weight hidden">{{ $pr->weight }}</div>
                 <form class="form cart-item__trash rm-from-cart-btn" action="/rmfromcart"  method="post">
                   <input type="hidden" name="id" value="{{ $pr->id }}">
@@ -111,19 +125,33 @@
                 <div class="cart-item__title">{{ $pr->title }}</div>
 
                 <div class="cart-item__quantity">
-                  <button type="button" class="quantity-button quantity-minus">
+                  <button type="button" class="quantity-button quantity-minus" data-id="{{ $pr->id }}">
                     <div class="circle"></div>
                   </button>
-                  <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" value="1">
-                  <button type="button" class="quantity-button quantity-plus">
+                  <input class="quantity-number" type="number" name="quantity" max="100" min="1" step="1" data-id="{{ $pr->id }}" value="{{ $pr->quantity }}">
+                  <button type="button" class="quantity-button quantity-plus" data-id="{{ $pr->id }}">
                     <div class="circle"></div>
                   </button>
                 </div>
 
-                <div class="cart-item__price">
-                  <span class="cart-item__price-text">{{ $pr->retail_price }}</span>
-                  <span class="cart-item__price-currency"> &#8381;</span>
+                <div class="cart-item__price-wrapper">
+                  @if($pr->promo_price)
+                    <div class="cart-item__old-price">
+                      <span class="cart-item__value">{{ $pr->retail_price }}</span>
+                      <span class="cart-item__currency">&#8381;</span>
+                    </div>
+                    <div class="cart-item__price">
+                      <span class="cart-item__value">{{ $pr->promo_price }}</span>
+                      <span class="cart-item__currency">&#8381;</span>
+                    </div>
+                  @else
+                  <div class="cart-item__price">
+                    <span class="cart-item__value">{{ $pr->retail_price }}</span>
+                    <span class="cart-item__currency">&nbsp;&#8381;</span>
+                  </div>
+                  @endif
                 </div>
+
                 <div class="cart-item__weight hidden">{{ $pr->weight }}</div>
                 <form class="form cart-item__trash rm-from-cart-btn" action="/rmfromcart"  method="post">
                   <input type="hidden" name="id" value="{{ $pr->id }}">
@@ -155,12 +183,12 @@
           </div>
           <div class="summary-item">
             <span class="summary-item__title">Скидка&nbsp;</span>
-            <span class="summary-item__value">28</span>
+            <span class="summary-item__value summary-discount">0</span>
             <span class="summary-item__unit">&nbsp;&#8381;</span>
           </div>
           <div class="summary-item">
             <span class="summary-item__title summary-item__uppercase-title">Итого&nbsp;</span>
-            <span class="summary-item__value">80</span>
+            <span class="summary-item__value summary-summ">0</span>
             <span class="summary-item__unit">&nbsp;&#8381;</span>
           </div>
         </div>
@@ -236,18 +264,19 @@
     <div class="container">
       <div class="customer">
         <div class="customer-title">Карточка клиента</div>
-        <form action="" class="form">
+        <form action="/order-handler" class="form" method="post">
           <div class="customer-flex-container">
             <div class="customer-item">
-              <label for="customer-name" class="label">Имя и фамилия</label>
-              <input type="text" id="customer-name" class="input-field" required minlength="3" maxlength="20">
+              <label for="name" class="label">Имя и фамилия</label>
+              <input type="text" id="name" name="name" class="input-field" minlength="3" maxlength="20" required>
             </div>
             <div class="customer-item">
-              <label for="customer-phone" class="label">Номер телефона</label>
-              <input type="text" id="customer-phone" class="input-field js-input-phone-mask" required maxlength="18">
+              <label for="phone" class="label">Номер телефона</label>
+              <input type="text" id="phone" name="phone" class="input-field js-input-phone-mask" maxlength="18" required>
             </div>
+            @csrf
             <div class="customer-item">
-              <button type="button" class="submit-btn js-cart-btn">
+              <button type="submit" class="submit-btn js-cart-btn">
                 <span class="submit-btn__text">Оплатить</span>
               </button>
               <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-callback-modal" checked required onchange="document.querySelector('.js-cart-btn').disabled = !this.checked;">

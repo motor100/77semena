@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('wholesale_price');
             $table->integer('retail_price');
             $table->integer('promo_price')->nullable();
-            $table->integer('weight')->nullable();
+            $table->integer('weight');
             $table->string('brand')->nullable();
             $table->timestamps();
         });

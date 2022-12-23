@@ -16,7 +16,6 @@ class ProductFactory extends Factory
      */
     public function definition()
     {   
-        $filepath = storage_path('app/public/images');
         return [
             'title' => $this->faker->sentence(3),
             'slug' => $this->faker->slug(),
@@ -29,7 +28,7 @@ class ProductFactory extends Factory
             'wholesale_price' => $this->faker->numberBetween(0, 100),
             'retail_price' => $this->faker->numberBetween(100, 200),
             'promo_price' => NULL,
-            'weight' => $this->faker->randomNumber(3, false),
+            'weight' => $this->faker->numberBetween(1, 100),
             'brand' => $this->faker->word(),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()

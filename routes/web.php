@@ -60,6 +60,8 @@ Route::get('/kontakty', [MainController::class, 'kontakty']);
 
 Route::get('/cart', [MainController::class, 'cart']);
 
+Route::post('/order-handler', [MainController::class, 'order_handler']);
+
 Route::get('/poisk', [MainController::class, 'poisk']);
 
 Route::get('/novinki', [MainController::class, 'novinki']);

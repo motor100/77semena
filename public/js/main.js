@@ -443,6 +443,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     quantityCalc();
     weightCalc();
+    discountCalc();
+    summCalc();
 
     let cartItems = document.querySelectorAll('.cart-item');
     cartItems.forEach((item) => {
@@ -456,11 +458,15 @@ document.addEventListener("DOMContentLoaded", () => {
         quantityNumber.stepDown();
         quantityCalc();
         weightCalc();
+        discountCalc();
+        summCalc();
       }
       quantityPlus.onclick = function(){
         quantityNumber.stepUp();
         quantityCalc();
         weightCalc();
+        discountCalc();
+        summCalc();
       }
 
       
@@ -476,9 +482,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let quantityNumberValue = item.querySelector('.quantity-number').value;
         quantityNumberValue = Number(quantityNumberValue);
         quantitySumm += quantityNumberValue;
-        document.querySelector('.summary-quantity').innerText = quantitySumm;
-        return false;
+        // document.querySelector('.summary-quantity').innerText = quantitySumm;
+        // return false;
       });
+      document.querySelector('.summary-quantity').innerText = quantitySumm;
+      return false;
     }
 
     // Total product weight in cart
@@ -493,11 +501,55 @@ document.addEventListener("DOMContentLoaded", () => {
         quantityNumberValue = Number(quantityNumberValue);
         summItemWeight = quantityNumberValue * Number(itemWeight);
         totalWeight += summItemWeight;
-        document.querySelector('.summary-weight').innerText = totalWeight;
-        return false;
+        // document.querySelector('.summary-weight').innerText = totalWeight;
+        // return false;
       });
+      document.querySelector('.summary-weight').innerText = totalWeight;
+      return false;
     }
 
+    // Total product discount in cart
+    function discountCalc() {
+      let cartItems = document.querySelectorAll('.cart-item'),
+      totalDiscount = 0;
+
+      cartItems.forEach((item) => {
+        let oldPrice = item.querySelector('.cart-item__old-price');
+        if (oldPrice) {
+          let quantityNumberValue = item.querySelector('.quantity-number').value,
+              price = item.querySelector('.cart-item__price'),
+              summItemDiscount = 0;
+
+          if (Number(oldPrice.children[0].innerText) > Number(price.children[0].innerText)) {
+            summItemDiscount = Number(quantityNumberValue) * (Number(oldPrice.children[0].innerText) - Number(price.children[0].innerText));
+            totalDiscount += summItemDiscount;
+          }
+        }
+        
+      });
+      
+      document.querySelector('.summary-discount').innerText = totalDiscount;
+      return false;
+    }
+
+    // Total product summ in cart
+    function summCalc() {
+      let cartItems = document.querySelectorAll('.cart-item'),
+          totalSumm = 0;
+
+      cartItems.forEach((item) => {
+        let quantityNumberValue = item.querySelector('.quantity-number').value,
+            itemPrice = item.querySelector('.cart-item__price').children[0].innerText,
+            summItemSumm = 0;
+        summItemSumm = Number(quantityNumberValue) * Number(itemPrice);
+        totalSumm += summItemSumm;
+      });
+
+      document.querySelector('.summary-summ').innerText = totalSumm;
+      return false;
+    }
+
+    // ajax_pluscart
 
 /*
     // Удаление товаров из корзины

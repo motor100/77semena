@@ -59,6 +59,7 @@ class ProductController extends Controller
             'buying-price' => 'required|min:0',
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
+            'weight' => 'required|min:1',
         ]);
 
         $title = $request->input('title');
@@ -182,6 +183,7 @@ class ProductController extends Controller
             'buying-price' => 'required|min:0',
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
+            'weight' => 'required|min:1',
         ]);
 
         $id = $request->input('id');

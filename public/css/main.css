@@ -1443,9 +1443,20 @@ ul {
 .cart .cart-item .quantity-plus .circle:after {
   transform: rotate(90deg);
 }
+.cart .cart-item .cart-item__price-wrapper {
+  display: flex;
+  align-items: center;
+}
+.cart .cart-item .cart-item__old-price {
+  margin: 0 16px 0 0;
+  font-family: 'montserrat-semibold';
+  font-size: 18px;
+  color: #A9A9A9;
+  text-decoration: line-through;
+}
 .cart .cart-item .cart-item__price {
   font-family: 'montserrat-semibold';
-  font-size: 32px;
+  font-size: 25px;
 }
 .cart .cart-item .cart-item__trash {
   position: absolute;

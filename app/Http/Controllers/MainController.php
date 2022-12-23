@@ -215,6 +215,34 @@ class MainController extends Controller
         return view('cart', compact('products_in_stock', 'products_out_of_stock'));
     }
 
+    public function order_handler(Request $request)
+    {   
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+
+        $products = [];
+
+        $cart_items = session()->get('cart');
+
+        if ($cart_items) {
+            $key_items = array_keys($cart_items);
+
+            $prds = Product::whereIn('id', $key_items)->get();
+
+            foreach($prds as $prd) {
+                foreach($cart_items as $item => $value) {
+                    if ($prd->id == $item) {
+                        $prd->quantity = $value;
+                    }
+                }
+            }
+
+            $products = $prds;
+        }
+
+        dd($products);
+    }
+
     public function poisk(Request $request)
     {   
         // Search

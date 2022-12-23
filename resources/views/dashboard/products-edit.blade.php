@@ -90,7 +90,7 @@
       </div>
       <div class="form-group mb-3">
         <label for="weight">Вес, гр.</label>
-        <input type="number" class="form-control input-weight input-number" name="weight" id="weight" min="0" step="1" value="{{ $pr->weight }}">
+        <input type="number" class="form-control input-weight input-number" name="weight" id="weight" min="0" step="1" value="{{ $pr->weight }}" required>
       </div>
       <div class="form-group mb-3">
         <label for="brand">Производитель</label>
@@ -104,6 +104,12 @@
 
   </div>
 </div>
+
+<script>
+  // Изменение цвета активного пункта меню
+  let navLink = document.querySelectorAll('.nav-sidebar .nav-item > .nav-link');
+  navLink[0].classList.add('active');
+</script>
 
 <script>
   // Выбор файла Изображение
