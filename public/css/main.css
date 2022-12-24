@@ -1560,6 +1560,9 @@ ul {
   background-color: #3E3E3E;
   color: #fff;
 }
+.cart .customer .input-field.required {
+  border-bottom: 1px solid red;
+}
 .cart .customer .submit-btn {
   display: block;
   width: 100%;

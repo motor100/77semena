@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Окна
   let modalWindow = document.querySelectorAll('.modal-window'),
       headerCityBtn = document.querySelector('.js-header-city-btn'),
       mobileMenuCityBtn = document.querySelector('.js-mobile-menu-city-btn'),
@@ -134,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
   searchInput.oninput = function () {
 
     let searchInputValue = document.querySelector('.search-input').value;
-    console.log(searchInputValue.length);
 
     if (searchInputValue.length > 3 && searchInputValue.length < 40) {
 
@@ -271,7 +271,35 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.remove('overflow-hidden');
   }
 
+  /*
+  * Функция проверки обязательных полей
+  * Принимает параметр form, DOM элемент тег form
+  * Проверяет наличие аттрибута required у input
+  * Если все поля заполнены, возвращает true
+  * Иначе false
+  */
+  function checkRequiredFields(form) {
 
+    let input = form.querySelectorAll('.input-field');
+    let arr = [];
+    let valid;
+    for (let i = 0; i < input.length; i++) {
+      let attr = input[i].hasAttribute('required');
+      if (attr && input[i].value == "" ) {
+        input[i].classList.add('required');
+        arr.push(false);
+      }
+    }
+
+    if (arr.length == 0) {
+      for (let i = 0; i < input.length; i++) {
+        input[i].classList.remove('required');
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   // Отправка формы ajax в модальном окне
   let callbackModalForm = document.querySelector("#callback-modal-form"),
@@ -307,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       for (let i = 0; i < inputs.length; i++) {
         inputs[i].classList.remove('required');
       }
-
+ 
       let formData = {
         name: inputName.value,
         phone: inputPhone.value,
@@ -324,9 +352,10 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Спасибо. Мы свяжемся с вами.");
 
       callbackModalForm.reset();
+    } else {
+      return false;
     }
   }
-
 
   // Добавление товаров в корзину
   function addToCart() {
@@ -460,6 +489,7 @@ document.addEventListener("DOMContentLoaded", () => {
         weightCalc();
         discountCalc();
         summCalc();
+        ajax_minuscart(this);
       }
       quantityPlus.onclick = function(){
         quantityNumber.stepUp();
@@ -467,9 +497,8 @@ document.addEventListener("DOMContentLoaded", () => {
         weightCalc();
         discountCalc();
         summCalc();
+        ajax_pluscart(this);
       }
-
-      
 
     });
 
@@ -546,10 +575,44 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       document.querySelector('.summary-summ').innerText = totalSumm;
+      document.querySelector('#input-summ').value = totalSumm;
       return false;
     }
 
-    // ajax_pluscart
+    // Увеличение количество одного товара в корзине
+    function ajax_pluscart(element) {
+
+      let formData = {
+        id: element.getAttribute('data-id'),
+      };
+      
+      let xhr = new XMLHttpRequest();
+      xhr.open('post', '/ajax/pluscart');
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      xhr.send('id=' + encodeURIComponent(formData.id) + '&_token=' + encodeURIComponent(token));
+
+    }
+
+    // Уменьшение количество одного товара в корзине
+    function ajax_minuscart(element) {
+
+      let formData = {
+        id: element.getAttribute('data-id'),
+      };
+      
+      let xhr = new XMLHttpRequest();
+      xhr.open('post', '/ajax/minuscart');
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      xhr.send('id=' + encodeURIComponent(formData.id) + '&_token=' + encodeURIComponent(token));
+
+    }
+
+    let cartForm = document.querySelector('#cart-form'),
+        cartBtn = document.querySelector('#cart-btn');
+
+    cartBtn.onclick = function(event) {
+      checkRequiredFields(cartForm);
+    }
 
 /*
     // Удаление товаров из корзины

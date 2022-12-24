@@ -9,14 +9,52 @@ use Illuminate\Support\Facades\Redirect;
 class AdminController extends Controller
 {   
     public function home()
-    // public function index()
     {
         return view('dashboard.home');
     }
 
     public function orders()
-    {
-        return view('dashboard.orders');
+    {   
+        $orders = \App\Models\Order::orderBy('id', 'desc')
+                                    ->limit(50)
+                                    ->get();
+
+        foreach ($orders as $rd) {
+            $prds = json_decode($rd->products);
+            $prds = implode("<br>", $prds);
+            $rd->prds = $prds;
+            // Laravel
+            $rd->date = $rd->created_at->format("d-m-Y");
+            // Laravel
+            // $rd->date = \Carbon\Carbon::parse($rd->created_at)->format("d-m-Y");
+            // PHP
+            // $rd->date = date("d-m-Y", strtotime($rd->created_at));
+        }
+        
+        $orders = \App\Http\Controllers\MainController::custom_paginator($orders, 12);
+
+        return view('dashboard.orders', compact('orders'));
+    }
+
+    public function order($id)
+    {   
+        if ($id) {
+            $order = \App\Models\Order::where('id', $id)->first();
+
+            $prds = json_decode($order->products);
+            $prds = implode("; ", $prds);
+            $order->prds = $prds;
+
+            // $cstmr = json_decode($order->customer);
+            // $cstmr_string = implode("; ", $cstmr);
+            // $order->cstmr_string = $cstmr_string;
+            // $order->cstmr_array = $cstmr;
+
+            return view('dashboard.order', compact('order'));
+
+        } else {
+            return view('dashboard.orders');
+        } 
     }
 
     public function testimonials()

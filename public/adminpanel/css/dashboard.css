@@ -207,3 +207,15 @@
 .table .button-column {
   width: 160px;
 }
+.table .payment {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin: 5px 0 0 10px;
+}
+.table .payment-green {
+  background-color: green;
+}
+.table .payment-red {
+  background-color: red;
+}

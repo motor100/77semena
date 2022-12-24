@@ -77,6 +77,10 @@ Route::prefix('admin')->group(static function () {
 
         Route::get('orders', [AdminController::class, 'orders']);
 
+        Route::get('order/{id}', [AdminController::class, 'order']);
+
+        Route::post('order/update', [AdminController::class, 'edit_order'])->name('order-update');
+
 
         Route::get('category', [CategoryController::class, 'index']);
 

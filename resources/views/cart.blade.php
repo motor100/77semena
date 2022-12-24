@@ -264,7 +264,7 @@
     <div class="container">
       <div class="customer">
         <div class="customer-title">Карточка клиента</div>
-        <form action="/order-handler" class="form" method="post">
+        <form id="cart-form" class="form" action="/order-handler" method="post">
           <div class="customer-flex-container">
             <div class="customer-item">
               <label for="name" class="label">Имя и фамилия</label>
@@ -274,9 +274,11 @@
               <label for="phone" class="label">Номер телефона</label>
               <input type="text" id="phone" name="phone" class="input-field js-input-phone-mask" maxlength="18" required>
             </div>
+            <input type="hidden" name="summ" id="input-summ" value="0">
+
             @csrf
             <div class="customer-item">
-              <button type="submit" class="submit-btn js-cart-btn">
+              <button type="submit" id="cart-btn" class="submit-btn js-cart-btn">
                 <span class="submit-btn__text">Оплатить</span>
               </button>
               <input type="checkbox" name="checkbox" class="custom-checkbox" id="checkbox-callback-modal" checked required onchange="document.querySelector('.js-cart-btn').disabled = !this.checked;">

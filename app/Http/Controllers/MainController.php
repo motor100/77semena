@@ -211,7 +211,6 @@ class MainController extends Controller
             }
         }
 
-
         return view('cart', compact('products_in_stock', 'products_out_of_stock'));
     }
 
@@ -219,6 +218,10 @@ class MainController extends Controller
     {   
         $name = $request->input('name');
         $phone = $request->input('phone');
+        $summ = $request->input('summ');
+        // ПВЗ
+        // Проверка if has('name') && has('phone') && has('summ') return redirect '/'
+        $now = date('Y-m-d H:i:s');
 
         $products = [];
 
@@ -237,10 +240,80 @@ class MainController extends Controller
                 }
             }
 
-            $products = $prds;
+            foreach ($prds as $value) {
+                $products[] = $value->title . ' ' . $value->quantity . 'шт';
+            }
         }
 
-        dd($products);
+        $products = json_encode($products, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+        // Запись в базу и получение id новой записи
+        $order_number = \App\Models\Order::insertGetId([
+                            'products' => $products,
+                            'name' => $name,
+                            'phone' => $phone,
+                            'price' => $summ,
+                            'status' => 'В обработке',
+                            'payment' => 0,
+                            'created_at' => $now,
+                            'updated_at' => $now
+                            ]
+                        );
+        
+        // Очистка корзины
+
+        // Тут переброска в юкассу
+        // Номер заказа
+        // Сумма
+        
+        // dd($products);
+
+        // Очистка корзины
+        session()->pull('cart', 'default');
+
+        // Редирект на страницу Спасибо за ваш заказ с номером заказа
+        return redirect()->route('thankyou', ['order_number' => $order_number]);
+    }
+
+    public function thankyou(Request $request)
+    {
+        if ($request->has('order_number')) {
+            $order_number = $request->input('order_number');
+
+            return view('thank_you', compact('order_number'));
+        } else {
+
+            return view('thank_you');
+        }
+    }
+
+    public function ajax_pluscart(Request $request)
+    {   
+        $id = $request->input('id');
+
+        $cart_items = $request->session()->get('cart');
+
+        $product_count = $cart_items[$id];
+        $request->session()->put('cart.' . $id, ($product_count + 1));
+
+        return true;
+    }
+
+    public function ajax_minuscart(Request $request)
+    {   
+        $id = $request->input('id');
+
+        $cart_items = $request->session()->get('cart');
+
+        $product_count = $cart_items[$id];
+        
+        if ($product_count > 1) {
+            $request->session()->put('cart.' . $id, ($product_count - 1));
+    
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function poisk(Request $request)
@@ -365,7 +438,6 @@ class MainController extends Controller
         }
 
         return $array;
-
     }
 
     public function rmfromcart(Request $request)

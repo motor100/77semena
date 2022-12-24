@@ -45,7 +45,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/admin/orders" title="Заказы">
             <i class="far fa-bell"></i>
-            <!-- test -->
             @if(isset($orders_count))
               @if($orders_count > 0)
                 <span id="orders-counter" class="badge badge-warning navbar-badge">{{ $orders_count }}</span>
