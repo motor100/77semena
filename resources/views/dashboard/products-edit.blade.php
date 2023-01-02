@@ -96,6 +96,10 @@
         <label for="brand">Производитель</label>
         <input type="text" class="form-control" name="brand" id="brand" maxlength="200" value="{{ $pr->brand }}">
       </div>
+      <div class="form-group mb-3">
+        <label for="position">Позиция на складе</label>
+        <input type="number" class="form-control input-position input-number" name="position" id="position" max="1000000" value="{{ $pr->position }}" required>
+      </div>
       <input type="hidden" name="id" value="{{ $pr->id }}">
 
       @csrf

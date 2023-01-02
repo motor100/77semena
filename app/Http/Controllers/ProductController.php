@@ -60,6 +60,7 @@ class ProductController extends Controller
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
             'weight' => 'required|min:1',
+            'position' => 'required|min:1|max:1000000',
         ]);
 
         $title = $request->input('title');
@@ -76,6 +77,7 @@ class ProductController extends Controller
         $promo_price = $request->input('promo-price');
         $weight = $request->input('weight');
         $brand = $request->input('brand');
+        $position = $request->input('position');
 
         $slug = Str::slug($title);
 
@@ -114,6 +116,7 @@ class ProductController extends Controller
             'promo_price' => $promo_price,
             'weight' => $weight,
             'brand' => $brand,
+            'position' => $position,
             'created_at' => $now,
             'updated_at' => $now
         ]);
@@ -184,6 +187,7 @@ class ProductController extends Controller
             'wholesale-price' => 'required|min:0',
             'retail-price' => 'required|min:0',
             'weight' => 'required|min:1',
+            'position' => 'required|min:1|max:1000000',
         ]);
 
         $id = $request->input('id');
@@ -204,6 +208,7 @@ class ProductController extends Controller
         $promo_price = $request->input('promo-price');
         $weight = $request->input('weight');
         $brand = $request->input('brand');
+        $position = $request->input('position');
 
         $slug = Str::slug($title);
 
@@ -274,6 +279,7 @@ class ProductController extends Controller
             'promo_price' => $promo_price,
             'weight' => $weight,
             'brand' => $brand,
+            'position' => $position,
             'updated_at' => $now
         ]);
 

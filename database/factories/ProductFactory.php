@@ -30,6 +30,7 @@ class ProductFactory extends Factory
             'promo_price' => NULL,
             'weight' => $this->faker->numberBetween(1, 100),
             'brand' => $this->faker->word(),
+            'position' => $this->faker->numberBetween(1, 1000),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()
         ];

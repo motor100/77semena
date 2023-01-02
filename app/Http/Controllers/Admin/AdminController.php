@@ -41,17 +41,13 @@ class AdminController extends Controller
         if ($id) {
             $order = \App\Models\Order::where('id', $id)->first();
 
+            // Преобразование json в массив
             $prds = json_decode($order->products);
-            $prds = implode("; ", $prds);
+            // Преобразование массива в строку с разделителем <br>
+            $prds = implode("<br>", $prds);
             $order->prds = $prds;
 
-            // $cstmr = json_decode($order->customer);
-            // $cstmr_string = implode("; ", $cstmr);
-            // $order->cstmr_string = $cstmr_string;
-            // $order->cstmr_array = $cstmr;
-
             return view('dashboard.order', compact('order'));
-
         } else {
             return view('dashboard.orders');
         } 

@@ -41,7 +41,7 @@ class MainController extends Controller
     }
 
     public function catalog(Request $request)
-    {   
+    {
         // Get query param
         $query_category = $request->query('category');
 
@@ -233,12 +233,23 @@ class MainController extends Controller
             $prds = Product::whereIn('id', $key_items)->get();
 
             foreach($prds as $prd) {
-                foreach($cart_items as $item => $value) {
-                    if ($prd->id == $item) {
+                foreach($cart_items as $key => $value) {
+                    if ($prd->id == $key) {
                         $prd->quantity = $value;
                     }
                 }
             }
+
+            // Сортировка коллекции
+            // Категория Семена, все кроме категории 2. Сортировка по position
+            $cat1 = $prds->where('category_id', '<>', '2')->sortBy('position');
+            // Категория Агрохимия, категории 2. Сортировка по position
+            $cat2 = $prds->where('category_id', '2')->sortBy('position');
+
+            // Объединение в одну коллекцию
+            // Сначала Семена, потом Агрохимия
+            // К коллекции cat1 (Семена) присоединяю коллекцию cat2 (Агрохимия)
+            $prds = $cat1->merge($cat2);
 
             foreach ($prds as $value) {
                 $products[] = $value->title . ' ' . $value->quantity . 'шт';

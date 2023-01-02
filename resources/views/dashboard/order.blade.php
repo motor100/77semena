@@ -14,10 +14,7 @@
         <p>{{ $order->id }}</p>
         <p>{{ $order->date }}</p>
         <p>{{ $order->status }}</p>
-        <p>{{ $order->prds }}</p>
-
-          <p>111</p>
-
+        <p>{!! $order->prds !!}</p>
       </div>
 
       <div class="order-edit">

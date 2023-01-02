@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('promo_price')->nullable();
             $table->integer('weight');
             $table->string('brand')->nullable();
+            $table->integer('position');
             $table->timestamps();
         });
     }

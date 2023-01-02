@@ -80,6 +80,10 @@
         <label for="brand">Производитель</label>
         <input type="text" class="form-control" name="brand" id="brand" maxlength="200">
       </div>
+      <div class="form-group mb-3">
+        <label for="position">Позиция на складе</label>
+        <input type="number" class="form-control input-position input-number" name="position" id="position" max="1000000" required>
+      </div>
 
       @csrf
       <button type="submit" class="btn btn-primary">Добавить</button>

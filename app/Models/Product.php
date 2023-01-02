@@ -29,6 +29,7 @@ class Product extends Model
         'promo_price',
         'weight',
         'brand',
+        'position',
     ];
     
 }
