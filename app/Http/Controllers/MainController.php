@@ -440,6 +440,57 @@ class MainController extends Controller
         return $array;
     }
 
+    public function ajax_productsfilter(Request $request)
+    {  
+        if ($request->has("sort")) {
+            $orderBy = $request->input("sort");
+
+            if ($orderBy == "price_desc") {
+                $products = Product::orderBy("retail_price", "desc")->get();
+            }
+
+            if ($orderBy == "price_asc") {
+                $products = Product::orderBy("retail_price", "asc")->get();
+            }
+
+            $array = [];
+
+            foreach ($products as $prd) {
+                $html = '';
+                $html .= '<div class="products-item">';
+                $html .= '<div class="products-item__image">';
+                $html .= '<img src="/storage/uploads/products/' .  $prd->image . '" alt="">';
+                $html .= '</div>';
+                $html .= '<div class="products-item__title">' . $prd->title . '</div>';
+                if($prd->stock > 0) {
+                    $html .= '<div class="products-item__info info-yellow">Хит</div>';
+                } else {
+                    $html .= '<div class="products-item__info info-grey">Нет в наличии</div>';
+                }
+                $html .= '<div class="products-item__price">';
+                $html .= '<span class="products-item__value">' . $prd->retail_price . '</span>';
+                $html .= '<span class="products-item__currency">&nbsp;&#8381;</span>';
+                $html .= '</div>';
+                if($prd->stock > 0) {
+                    $html .= '<div class="add-to-cart-btn add-to-cart" data-id="{{ $pr->id }}">';
+                    $html .= '<div class="circle"></div>';
+                    $html .= '</div>';
+                } else {
+                    $html .= '<div class="pre-order-btn add-to-cart" data-id="' . $prd->id . '">Предзаказ</div>';
+                }
+                $html .= '<a href="/catalog/' . $prd->slug . '" class="full-link"></a>';
+                $html .= '</div>';
+                $array[] = $html;
+            }
+
+            return $array;
+
+            // return $products;
+        } else {
+            return false;
+        }
+    }
+
     public function rmfromcart(Request $request)
     {   
         $id = $request->input('id');

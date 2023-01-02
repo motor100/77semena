@@ -105,7 +105,9 @@ Route::post('/ajax/search', [MainController::class, 'ajax_search']);
 
 Route::post('/ajax/testimonial', [MainController::class, 'ajax_testimonial']);
 
-Route::post('/ajax/testviewmore', [MainController::class, 'ajax_productsviewmore']);
+Route::post('/ajax/productsviewmore', [MainController::class, 'ajax_productsviewmore']);
+
+Route::post('/ajax/productsfilter', [MainController::class, 'ajax_productsfilter']);
 
 
 /*

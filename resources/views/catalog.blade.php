@@ -56,10 +56,9 @@
               @else
                 <div class="products-title">Каталог</div>
               @endif
-              <select name="" id="products-filter" class="products-filter">
-                <option value="new-products">Сначала дорогие</option>
-                <option value="cheap-first">Сначала дешевые</option>
-                <option value="expensive-first">Новинки</option>
+              <select name="products-filter" id="products-filter" class="products-filter">
+                <option value="price_desc">Сначала дорогие</option>
+                <option value="price_asc">Сначала дешевые</option>
               </select>
             </div>
 

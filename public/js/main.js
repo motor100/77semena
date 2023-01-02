@@ -661,6 +661,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (catalogPage) {
+
     // Open/close nav menu item
     let catalogNavItemTitle = document.querySelectorAll('.catalog-nav-item__title');
 
@@ -684,6 +685,40 @@ document.addEventListener("DOMContentLoaded", () => {
       searchFocus: false,
     });
 
+    // Filter by price
+    let productsFilter = document.querySelector('.products-filter'),
+        jsInsertProducts1 = document.querySelector('.js-insert-products');
+
+    productsFilter.onchange = getFilterData;
+
+    function getFilterData() {
+
+      const formData = {
+        sort: productsFilter.value,
+      };
+
+      fetch('/ajax/productsfilter', {
+        method: 'POST', // method
+        headers: {'Content-Type':'application/x-www-form-urlencoded'}, // content type
+        cache: 'no-cache',
+        body: 'sort=' + encodeURIComponent(formData.sort) + '&_token=' + encodeURIComponent(token), // request body
+      })
+      .then((response) => response.json())
+      .then(json => {
+        jsInsertProducts1.innerHTML = '';
+        json.forEach(item => {
+          let insertEl = document.createElement("div");
+          insertEl.className = "col-lg-3 col-md-4 col-sm-6";
+          insertEl.innerHTML += item;
+          jsInsertProducts1.append(insertEl);
+        })
+      })
+      .catch((error) => {
+        jsInsertProducts1.innerHTML = '<p>Что-то пошло не так</p>';
+      })
+    }
+
+
     // Catalog view more
     let catalogViewMoreBtn = document.querySelector('.js-view-more-btn'),
         jsInsertProducts = document.querySelector('.js-insert-products');
@@ -706,7 +741,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
       let xhr = new XMLHttpRequest();
-      xhr.open('post', '/ajax/testviewmore');
+      xhr.open('post', '/ajax/productsviewmore');
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
       xhr.send('_token=' + encodeURIComponent(token));
       xhr.addEventListener('load', function() {
