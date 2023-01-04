@@ -416,7 +416,7 @@ class MainController extends Controller
 
     public function ajax_productsviewmore(Request $request)
     {
-        $page = 2;
+        // $page = 2;
 
         $start = 20;
         $step = 20;
@@ -445,7 +445,7 @@ class MainController extends Controller
             $html .= '<span class="products-item__currency">&nbsp;&#8381;</span>';
             $html .= '</div>';
             if($prd->stock > 0) {
-                $html .= '<div class="add-to-cart-btn add-to-cart" data-id="{{ $pr->id }}">';
+                $html .= '<div class="add-to-cart-btn add-to-cart" data-id="' . $prd->id . '">';
                 $html .= '<div class="circle"></div>';
                 $html .= '</div>';
             } else {
@@ -569,7 +569,7 @@ class MainController extends Controller
                 $html .= '<span class="products-item__currency">&nbsp;&#8381;</span>';
                 $html .= '</div>';
                 if($prd->stock > 0) {
-                    $html .= '<div class="add-to-cart-btn add-to-cart" data-id="{{ $pr->id }}">';
+                    $html .= '<div class="add-to-cart-btn add-to-cart" data-id="' . $prd->id . '">';
                     $html .= '<div class="circle"></div>';
                     $html .= '</div>';
                 } else {

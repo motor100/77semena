@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Добавление товаров в корзину
+  // Функция добавление товаров в корзину
   function addToCart() {
 
     let addToCartBtns = document.querySelectorAll('.add-to-cart');
@@ -369,7 +369,6 @@ document.addEventListener("DOMContentLoaded", () => {
           this.children[0].classList.add('circle-active');
         } else {
           this.innerText = 'В корзине';
-          console.log(this.innerText);
         }
             
         let formData = {
@@ -625,7 +624,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-
     // Проверка обязательных полей Имя и Телефон
     let cartForm = document.querySelector('#cart-form'),
         cartBtn = document.querySelector('#cart-btn');
@@ -752,17 +750,16 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
 
-
     // Catalog view more
     let catalogViewMoreBtn = document.querySelector('.js-view-more-btn'),
         jsInsertProducts = document.querySelector('.js-insert-products');
 
-    // Если кнопка Показать еще есть, то функцию catalogMore() при клике
+    // Если кнопка Показать еще есть, то функцию catalogViewMore() при клике
     if (catalogViewMoreBtn) {
-      catalogViewMoreBtn.onclick = catalogMore;
+      catalogViewMoreBtn.onclick = catalogViewMore;
     }
 
-    function catalogMore() {
+    function catalogViewMore() {
       let curPage = catalogViewMoreBtn.getAttribute('data-cur-page'),
           page = catalogViewMoreBtn.getAttribute('data-page'),
           pageMax = catalogViewMoreBtn.getAttribute('data-page-max');
@@ -792,6 +789,8 @@ document.addEventListener("DOMContentLoaded", () => {
           insertEl.innerHTML += obj[key];
           jsInsertProducts.append(insertEl);
         }
+        // Вызываю функцию addToCart() чтобы повесить клик на новые товары
+        addToCart();
       });
     }
 
