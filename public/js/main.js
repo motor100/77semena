@@ -692,16 +692,34 @@ document.addEventListener("DOMContentLoaded", () => {
     productsFilter.onchange = getFilterData;
 
     function getFilterData() {
+      
+      // Получаю текущую категорию и страницу
+      let cat = document.querySelector('.products .products-title'), // Заголовок
+          catalogViewMoreBtn = document.querySelector('.js-view-more-btn'); // Кнопка Показать еще
+
+      // По умолчанию номер текущей страницы = 1
+      let curPage = 1;
+
+      // Если кнопка Показать еще есть, то получаю данные из аттрибута data-cur-page
+      if (catalogViewMoreBtn) {
+        curPage = catalogViewMoreBtn.getAttribute('data-cur-page'); // Номер текущей страницы
+      }
 
       const formData = {
-        sort: productsFilter.value,
+        cat: cat.innerText, // Название категории
+        curPage: curPage, // Номер текущей страницы
+        sort: productsFilter.value, // Сортировка desc или asc
       };
+
+      console.log(formData.cat);
+      console.log(formData.curPage);
+      console.log(formData.sort);
 
       fetch('/ajax/productsfilter', {
         method: 'POST', // method
         headers: {'Content-Type':'application/x-www-form-urlencoded'}, // content type
         cache: 'no-cache',
-        body: 'sort=' + encodeURIComponent(formData.sort) + '&_token=' + encodeURIComponent(token), // request body
+        body: 'cat=' + encodeURIComponent(formData.cat) + '&cur_page=' + encodeURIComponent(formData.curPage) +  '&sort=' + encodeURIComponent(formData.sort) + '&_token=' + encodeURIComponent(token), // request body
       })
       .then((response) => response.json())
       .then(json => {
@@ -723,19 +741,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let catalogViewMoreBtn = document.querySelector('.js-view-more-btn'),
         jsInsertProducts = document.querySelector('.js-insert-products');
 
+    // Если кнопка Показать еще есть, то функцию catalogMore() при клике
     if (catalogViewMoreBtn) {
       catalogViewMoreBtn.onclick = catalogMore;
     }
 
     function catalogMore() {
-      let page = catalogViewMoreBtn.getAttribute('data-page'),
+      let curPage = catalogViewMoreBtn.getAttribute('data-cur-page'),
+          page = catalogViewMoreBtn.getAttribute('data-page'),
           pageMax = catalogViewMoreBtn.getAttribute('data-page-max');
+
+        // Аттрибут data-cur-page для фильтра по цене
+        catalogViewMoreBtn.setAttribute('data-cur-page', Number(curPage) + 1);
 
         if (Number(page) < Number(pageMax)) {
           catalogViewMoreBtn.setAttribute('data-page', Number(page) + 1);
           page = Number(page) + 1;
         }
-    
+        
+        // Скрывание кнопки если page = pageMax
         if (page == pageMax) {
           this.classList.add('hidden');
         }

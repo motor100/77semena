@@ -52,11 +52,11 @@
               <div class="products-title-wrapper">
                 <div class="products-title">Новинки</div>
                 <select name="" id="products-filter" class="products-filter">
-                  <option value="new-products">Сначала дорогие</option>
-                  <option value="cheap-first">Сначала дешевые</option>
+                  <option value="price_desc">Сначала дорогие</option>
+                  <option value="price_asc">Сначала дешевые</option>
                 </select>
               </div>
-              <div class="row">
+              <div class="row js-insert-products">
                 @foreach($products as $pr)
                   <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="products-item">

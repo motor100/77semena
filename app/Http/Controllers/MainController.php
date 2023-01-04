@@ -241,9 +241,9 @@ class MainController extends Controller
             }
 
             // Сортировка коллекции
-            // Категория Семена, все кроме категории 2. Сортировка по position
+            // Категория Семена, все кроме категории 2. Сортировка по значению в столбце position
             $cat1 = $prds->where('category_id', '<>', '2')->sortBy('position');
-            // Категория Агрохимия, категории 2. Сортировка по position
+            // Категория Агрохимия, категории 2. Сортировка по значению в столбце position
             $cat2 = $prds->where('category_id', '2')->sortBy('position');
 
             // Объединение в одну коллекцию
@@ -338,9 +338,9 @@ class MainController extends Controller
 
         $product = htmlspecialchars($product);
 
-        $products = \App\Models\Product::where('title', 'like', "%{$product}%")
-                                        ->orWhere('text', 'like', "%{$product}%")
-                                        ->get();
+        $products = Product::where('title', 'like', "%{$product}%")
+                            ->orWhere('text', 'like', "%{$product}%")
+                            ->get();
 
         if (!$products) {
             return redirect('/');
@@ -413,10 +413,10 @@ class MainController extends Controller
         $start = 20;
         $step = 20;
 
-        $products = \App\Models\Product::offset($start)
-                        ->limit($step)
-                        ->orderBy('id', 'desc')
-                        ->get();
+        $products = Product::offset($start)
+                            ->limit($step)
+                            ->orderBy('id', 'desc')
+                            ->get();
 
         $array = [];
 
@@ -453,15 +453,93 @@ class MainController extends Controller
 
     public function ajax_productsfilter(Request $request)
     {  
-        if ($request->has("sort")) {
+        if ($request->has("cat") && $request->has("cur_page") && $request->has("sort")) {
+            $cat = $request->input("cat");
+            $cur_page = $request->input("cur_page");
             $orderBy = $request->input("sort");
 
-            if ($orderBy == "price_desc") {
-                $products = Product::orderBy("retail_price", "desc")->get();
-            }
+            $products = [];
 
-            if ($orderBy == "price_asc") {
-                $products = Product::orderBy("retail_price", "asc")->get();
+            // Проверка на Новинки, Акции или категорию
+            if ($cat == "Новинки") { // Новинки
+                
+                // Последние 20 товаров
+                $products = Product::limit(20)->orderBy('id', 'desc')->get();
+
+                if ($orderBy == "price_desc") {
+                    // Сортировка по цене retail_price desc
+                    $products = $products->sortByDesc("retail_price");
+                }
+
+                if ($orderBy == "price_asc") {
+                    // Сортировка по цене retail_price asc
+                    $products = $products->sortBy("retail_price");
+                }
+
+            } elseif ($cat == "Акции") { // Акции
+
+                // Последние 20 товаров у которых есть цена promo_price и на складе > 0
+                $products = Product::whereNotNull('promo_price')
+                                    ->where('stock', '>', '0')
+                                    ->limit(20)
+                                    ->orderBy('id', 'desc')
+                                    ->get();
+
+                if ($orderBy == "price_desc") {
+                    // Сортировка по цене retail_price desc
+                    $products = $products->sortByDesc("retail_price");
+                }
+
+                if ($orderBy == "price_asc") {
+                    // Сортировка по цене retail_price asc
+                    $products = $products->sortBy("retail_price");
+                }
+
+            } else { // категория
+
+                // Количество товаров на странице
+                $step = 20;
+
+                // По умолчанию одна страница и количество товаров = $step
+                $limit = $step;
+                
+                // Если $page > 1, то получаю количество товаров $step * $page
+                if ($cur_page > 1) {
+                    $limit = $step * $cur_page;
+                }
+
+                $category_id = \App\Models\Category::where('title', $cat)->value('id');
+
+                if ($category_id) { // Если category_id есть, то это получаю товары из этой категории
+                    
+                    if ($orderBy == "price_desc") {
+                        $products = Product::where('category_id', $category_id)
+                                            ->limit($limit)
+                                            ->orderBy("retail_price", "desc")
+                                            ->get();
+                    }
+        
+                    if ($orderBy == "price_asc") {
+                        $products = Product::where('category_id', $category_id)
+                                            ->limit($limit)
+                                            ->orderBy("retail_price", "asc")
+                                            ->get();
+                    }
+
+                } else { // Если category_id нет, то это получаю все товары
+                    if ($orderBy == "price_desc") {
+                        $products = Product::orderBy("retail_price", "desc")
+                                            ->limit($limit)
+                                            ->get();
+                    }
+        
+                    if ($orderBy == "price_asc") {
+                        $products = Product::orderBy("retail_price", "asc")
+                                            ->limit($limit)
+                                            ->get();
+                    }
+                }
+
             }
 
             $array = [];
@@ -495,8 +573,6 @@ class MainController extends Controller
             }
 
             return $array;
-
-            // return $products;
         } else {
             return false;
         }
@@ -535,7 +611,8 @@ class MainController extends Controller
         }
 
         // Products
-        $products = \App\Models\Product::limit(20)->orderBy('id', 'desc')->get();
+        // Последние 20 товаров
+        $products = Product::limit(20)->orderBy('id', 'desc')->get();
 
         return view('novinki', compact('products', 'parent_category'));
     }
@@ -558,11 +635,12 @@ class MainController extends Controller
         }
 
         // Products
-        $products = \App\Models\Product::whereNotNull('promo_price')
-                                        ->where('stock', '>', '0')
-                                        ->limit(20)
-                                        ->orderBy('id', 'desc')
-                                        ->get();
+        // Последние 20 товаров у которых есть цена promo_price и на складе > 0
+        $products = Product::whereNotNull('promo_price')
+                            ->where('stock', '>', '0')
+                            ->limit(20)
+                            ->orderBy('id', 'desc')
+                            ->get();
 
         return view('akcii', compact('products', 'parent_category'));
     }
@@ -606,9 +684,9 @@ class MainController extends Controller
 
         $product = htmlspecialchars($product);
 
-        $products = \App\Models\Product::where('title', 'like', "%{$product}%")
-                                        ->orWhere('text', 'like', "%{$product}%")
-                                        ->get();
+        $products = Product::where('title', 'like', "%{$product}%")
+                            ->orWhere('text', 'like', "%{$product}%")
+                            ->get();
 
         $products_array = [];
 

@@ -132,7 +132,7 @@
           </div>
           @if($products_count > 20)
             <div class="horizontal-line"></div>
-            <div class="view-more js-view-more-btn" data-page="2" data-page-max="{{ $page_max }}">
+            <div class="view-more js-view-more-btn" data-cur-page="1" data-page="2" data-page-max="{{ $page_max }}">
               <span class="view-more__text">Показать еще</span>
             </div>
           @endif
