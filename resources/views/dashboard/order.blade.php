@@ -1,7 +1,7 @@
 @extends('dashboard.layout')
 
 @section('title')
-Заказы
+Заказ {{ $order->id }}
 @endsection
 
 @section('dashboardcontent')
@@ -11,10 +11,31 @@
     <div class="container-fluid">
 
       <div class="order-content">
-        <p>{{ $order->id }}</p>
-        <p>{{ $order->date }}</p>
-        <p>{{ $order->status }}</p>
-        <p>{!! $order->prds !!}</p>
+        <div class="form-group mb-3">
+          <div class="label-text mb-1">Товары</div>
+          <div class="order-info">{!! $order->prds !!}</div>
+        </div>
+        <div class="form-group mb-3">
+          <div class="label-text mb-1">Оплата</div>
+          @if($order->payment)
+            <div class="order-info">Оплачен</div>
+          @else
+            <div class="order-info order-info-red">Оплаты нет</div>
+          @endif
+        </div>
+        <div class="form-group mb-3">
+          <div class="label-text mb-1">ПВЗ</div>
+          <div class="order-info">{{ $order->office }}</div>
+        </div>
+        <div class="form-group mb-3">
+          <div class="label-text mb-1">Время</div>
+          <div class="order-info">{{ $order->date }}</div>
+        </div>
+        <div class="form-group mb-3">
+          <div class="label-text mb-1">Покупатель</div>
+          <div class="order-info">{{ $order->name }}</div>
+          <div class="order-info">{{ $order->phone }}</div>
+        </div>
       </div>
 
       <div class="order-edit">
@@ -22,9 +43,11 @@
           <div class="form-group mb-3">
             <div class="label-text mb-1">Статус</div>
             <select name="status" id="status" class="form-select">
+              <option value="{{ $order->status }}" selected>{{ $order->status }}</option>
               <option value="В обработке">В обработке</option>
-              <option value="Завершен">Завершен</option>
-              <option value="Оплачен">Оплачен</option>
+              <option value="Склад">Склад</option>
+              <option value="Отправлен в ПВЗ">Отправлен в ПВЗ</option>
+              <option value="Выдан">Выдан</option>
             </select>
           </div>
           <div class="form-group mb-3">
@@ -33,6 +56,7 @@
           </div>
           <input type="hidden" name="id" value="{{ $order->id }}">
           @csrf
+
           <input type="submit" class="btn btn-primary" value="Обновить">
         </form>
       </div>

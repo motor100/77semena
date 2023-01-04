@@ -13,6 +13,7 @@ class Order extends Model
         'products',
         'customer',
         'price',
+        'office_id',
         'status',
     ];
 }

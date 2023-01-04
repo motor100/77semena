@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->integer('price');
+            $table->integer('office_id');
             $table->string('status');
             $table->integer('payment');
             $table->timestamps();

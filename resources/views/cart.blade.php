@@ -201,52 +201,19 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5">
+        <h1>Выбор города</h1>
           <div class="offices-info">
             <div class="offices-name">
               <div class="offices-name__title">Места выдачи товара</div>
               <div class="offices-items">
-                <div class="offices-item">
-                  <div class="offices-item__image">
-                    <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
+                @foreach($offices as $office)
+                  <div class="offices-item" data-id="{{ $office->id }}">
+                    <div class="offices-item__image">
+                      <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
+                    </div>
+                    <div class="offices-item__address">{{ $office->address }}</div>
                   </div>
-                  <div class="offices-item__address">Миасс, ул. 8 Июля, 1</div>
-                </div>
-                <div class="offices-item">
-                  <div class="offices-item__image">
-                    <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                  </div>
-                  <div class="offices-item__address">Миасс, ул. Автозаводцев 21</div>
-                </div>
-                <div class="offices-item">
-                  <div class="offices-item__image">
-                    <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                  </div>
-                  <div class="offices-item__address">Миасс, ул. Автозаводцев 65</div>
-                </div>
-                <div class="offices-item">
-                  <div class="offices-item__image">
-                    <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                  </div>
-                  <div class="offices-item__address">Миасс, ул. Орловская 11</div>
-                </div>
-                <div class="offices-item">
-                  <div class="offices-item__image">
-                    <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                  </div>
-                  <div class="offices-item__address">Миасс, пр. Октября 15</div>
-                </div>
-                <div class="offices-item">
-                  <div class="offices-item__image">
-                    <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                  </div>
-                  <div class="offices-item__address">Миасс, ул. Ленина 1/А</div>
-                </div>
-                <div class="offices-item">
-                  <div class="offices-item__image">
-                    <img src="/img/dostavka-i-oplata-geolocation-icon.svg" alt="">
-                  </div>
-                  <div class="offices-item__address">Миасс, ул. Спортивная 15</div>
-                </div>
+                @endforeach
               </div>
             </div>
           </div>
@@ -275,6 +242,7 @@
               <input type="text" id="phone" name="phone" class="input-field js-input-phone-mask" maxlength="18" required>
             </div>
             <input type="hidden" name="summ" id="input-summ" value="0">
+            <input type="hidden" name="office" id="input-office" value="">
 
             @csrf
             <div class="customer-item">

@@ -483,6 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
           quantityPlus = item.querySelector('.quantity-plus'),
           quantityNumber = item.querySelector('.quantity-number');
 
+      // Расчет товар -1
       quantityMinus.onclick = function(){
         quantityNumber.stepDown();
         quantityCalc();
@@ -491,6 +492,8 @@ document.addEventListener("DOMContentLoaded", () => {
         summCalc();
         ajax_minuscart(this);
       }
+
+      // Расчет товар +1
       quantityPlus.onclick = function(){
         quantityNumber.stepUp();
         quantityCalc();
@@ -607,6 +610,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    // Выбор ПВЗ
+    let offices = document.querySelectorAll('.offices-item'),
+        inputOffice = document.querySelector('#input-office');
+
+    offices.forEach((item) => {
+      item.onclick = function() {
+        let officesItemActive = document.querySelector('.offices-item-active');
+        if (officesItemActive) {
+          officesItemActive.classList.remove('offices-item-active');
+        }
+        item.classList.add('offices-item-active');
+        inputOffice.value = item.getAttribute('data-id');
+      }
+    });
+
+
+    // Проверка обязательных полей Имя и Телефон
     let cartForm = document.querySelector('#cart-form'),
         cartBtn = document.querySelector('#cart-btn');
 
@@ -710,10 +730,6 @@ document.addEventListener("DOMContentLoaded", () => {
         curPage: curPage, // Номер текущей страницы
         sort: productsFilter.value, // Сортировка desc или asc
       };
-
-      console.log(formData.cat);
-      console.log(formData.curPage);
-      console.log(formData.sort);
 
       fetch('/ajax/productsfilter', {
         method: 'POST', // method

@@ -21,15 +21,15 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($cities as $ct)
+          @foreach($cities as $city)
             <tr>
-              <th scope="row">{{ $ct->id}}</th>
-              <td>{{ $ct->title }},&nbsp;{{ $ct->region }}</td>
+              <th scope="row">{{ $city->id}}</th>
+              <td>{{ $city->title }},&nbsp;{{ $city->region }}</td>
               <td class="table-button">
                 <a href="#" class="btn btn-success">
                   <i class="fas fa-eye"></i>
                 </a>
-                <a href="{{ route('cities-edit', $ct->id) }}" class="btn btn-primary">
+                <a href="{{ route('cities-edit', $city->id) }}" class="btn btn-primary">
                   <i class="fas fa-pen"></i>
                 </a>
                 <button type="submit" class="btn btn-danger">

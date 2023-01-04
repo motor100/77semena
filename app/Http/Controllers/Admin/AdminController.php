@@ -46,6 +46,12 @@ class AdminController extends Controller
             // Преобразование массива в строку с разделителем <br>
             $prds = implode("<br>", $prds);
             $order->prds = $prds;
+            $order->date = $order->created_at->format("H-i d-m-Y");
+
+            // Получение ПВЗ по id
+            $office = \App\Models\Office::where('id', $order->office_id)->first();
+
+            $order->office = $office->city->title . ", " . $office->title . ", " . $office->address;
 
             return view('dashboard.order', compact('order'));
         } else {

@@ -27,8 +27,8 @@
       <div class="form-group mb-3">
         <div class="label-text mb-1">Город</div>
         <select name="city" id="city" class="form-select mt-1">
-          @foreach($cities as $ct)
-            <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+          @foreach($cities as $city)
+            <option value="{{ $city->id }}">{{ $city->title }}</option>
           @endforeach
         </select>
       </div>

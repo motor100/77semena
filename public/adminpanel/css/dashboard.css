@@ -219,3 +219,8 @@
 .table .payment-red {
   background-color: red;
 }
+
+/* Заказы */
+.order-info-red {
+  color: red;
+}

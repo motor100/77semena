@@ -211,16 +211,23 @@ class MainController extends Controller
             }
         }
 
-        return view('cart', compact('products_in_stock', 'products_out_of_stock'));
+        // Offices
+        $offices = \App\Models\Office::all();
+
+        return view('cart', compact('products_in_stock', 'products_out_of_stock', 'offices'));
     }
 
     public function order_handler(Request $request)
     {   
+        if ($request->has('name') && $request->has('phone') && $request->has('summ') && $request->has('office')) {
+            return redirect('/');
+        }
+
         $name = $request->input('name');
         $phone = $request->input('phone');
         $summ = $request->input('summ');
-        // ПВЗ
-        // Проверка if has('name') && has('phone') && has('summ') return redirect '/'
+        $office_id = $request->input('office');
+
         $now = date('Y-m-d H:i:s');
 
         $products = [];
@@ -264,6 +271,7 @@ class MainController extends Controller
                             'name' => $name,
                             'phone' => $phone,
                             'price' => $summ,
+                            'office_id' => $office_id,
                             'status' => 'В обработке',
                             'payment' => 0,
                             'created_at' => $now,
