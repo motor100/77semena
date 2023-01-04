@@ -79,7 +79,7 @@ Route::prefix('admin')->group(static function () {
 
         Route::get('order/{id}', [AdminController::class, 'order']);
 
-        Route::post('order/update', [AdminController::class, 'edit_order'])->name('order-update');
+        Route::post('order/update', [AdminController::class, 'order_update'])->name('order-update');
 
 
         Route::get('category', [CategoryController::class, 'index']);
@@ -139,8 +139,7 @@ Route::prefix('admin')->group(static function () {
         Route::post('stat-partnerom-update', [AdminController::class, 'stat_partnerom_update']);
 
 
-        Route::post('/dashboard/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
+        Route::post('/admin/tinyfileupload', [AdminController::class, 'tiny_file_upload']);
 
     });
 });
-

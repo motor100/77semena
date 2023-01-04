@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('office_id');
             $table->string('status');
+            $table->string('comment');
             $table->integer('payment');
             $table->timestamps();
         });

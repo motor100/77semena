@@ -15,5 +15,6 @@ class Order extends Model
         'price',
         'office_id',
         'status',
+        'comment',
     ];
 }

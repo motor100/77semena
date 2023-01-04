@@ -59,6 +59,24 @@ class AdminController extends Controller
         } 
     }
 
+    public function order_update(Request $request)
+    {
+        $id = $request->input('id');
+        $status = $request->input('status');
+        $comment = $request->input('comment');
+
+        $now = date('Y-m-d H:i:s');
+
+        \App\Models\Order::where('id', $id)
+                        ->update([
+                            'status' => $status,
+                            'comment' => $comment,
+                            'updated_at' => $now
+                        ]);
+
+        return redirect('/admin/orders');
+    }
+
     public function testimonials()
     {   
         $testimonials = \App\Models\Testimonial::whereNull('publicated_at')
@@ -113,6 +131,8 @@ class AdminController extends Controller
         $id = $request->input('id');
         $name = $request->input('name');
         $text = $request->input('text');
+
+        // now и publicated_at одинаковые
         $now = date('Y-m-d H:i:s');
         $publicated_at = date('Y-m-d H:i:s');
 

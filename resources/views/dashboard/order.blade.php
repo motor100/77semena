@@ -39,7 +39,7 @@
       </div>
 
       <div class="order-edit">
-        <form class="form" action="/dashboard/edit-order" method="post">
+        <form class="form" action="{{ route('order-update') }}" method="post">
           <div class="form-group mb-3">
             <div class="label-text mb-1">Статус</div>
             <select name="status" id="status" class="form-select">
@@ -52,7 +52,7 @@
           </div>
           <div class="form-group mb-3">
             <label for="comment" class="form-check-label d-block mb-1">Комментарий</label>
-            <input type="text" name="comment" id="comment" class="form-control" value="{{ $order->comment }}">
+            <input type="text" name="comment" id="comment" class="form-control" maxlength="250" value="{{ $order->comment }}">
           </div>
           <input type="hidden" name="id" value="{{ $order->id }}">
           @csrf
