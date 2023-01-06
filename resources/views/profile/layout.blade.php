@@ -6,8 +6,7 @@
   <title>Кабинет партнера | @yield('title')</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}" type="image/x-icon">
-  <link rel="stylesheet" href="{{ asset('/css/bootstrap-grid.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/bootstrap-reboot.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/profilepanel/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/profilepanel/css/profile.css') }}">
 </head>
 <body>
@@ -19,13 +18,15 @@
         <div class="row">
           <div class="col-md-2">
             <div class="logo">
-              <img src="/img/desktop-logo.svg" alt="">
+              <a href="{{ route('home') }}">
+                <img src="/img/desktop-logo.svg" alt="">
+              </a>
             </div>
           </div>
           <div class="col-md-4">
             <div class="partner">
-              <span class="partner-text">ЛК партнера:&nbsp;</span>
-              <span class="partner-name">Дачник, 8 июля 1</span>
+              <!-- <span class="partner-text">ЛК партнера:&nbsp;</span> -->
+              <span class="partner-name">{{ $office->title }}&nbsp;{{ $office->address }}</span>
             </div>
           </div>
           <div class="col-md-5">
@@ -37,14 +38,13 @@
                 <a href="/calc">Расчеты</a>
               </li>
               <li class="menu-item">
-                <a href="/profile/done-orders">Выданные заказы</a>
+                <a href="/done-orders">Выданные заказы</a>
               </li>
             </ul>
           </div>
           <div class="col-md-1">
             <div class="logout">
               <form class="form" action="{{ route('logout') }}" method="POST">
-              <!-- <form class="form" action="/logout" method="get"> -->
                 @csrf
                 <button class="logout-btn" type="submit">
                   <span class="logout-text">выход</span>

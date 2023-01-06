@@ -6,25 +6,23 @@
 
 @section('profilecontent')
 
-<div class="done-orders">
+<div class="orders done-orders">
     <div class="content">
 
-        <div class="row">
-          <div class="col-md-6">
-            <table class="orders-table">
-              <tr class="table-header">
-                <th>№</th>
-                <th class="middle-cell">ФИО</th>
-                <th>Телефон</th>
-              </tr>
-              <tr>
-                <td>178G541R</td>
-                <td class="middle-cell">Никитин Алексей Михайлович</td>
-                <td>+7 921 654 45 85</td>
-              </tr>
-            </table>
-          </div>
-        </div>
+      <table class="orders-table">
+        <tr class="table-header">
+          <th class="number-cell">№</th>
+          <th class="name-cell">ФИО</th>
+          <th class="phone-cell">Телефон</th>
+        </tr>
+        @foreach($orders as $order)
+          <tr class="orders-table-row" onclick="window.location.href='/order/{{ $order->id }}'; return false">
+            <td>{{ $order->id }}</td>
+            <td class="name-cell">{{ $order->name }}</td>
+            <td>{{ $order->phone }}</td>
+          </tr>
+        @endforeach
+      </table>
         
     </div>
 </div>

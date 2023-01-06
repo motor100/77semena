@@ -173,18 +173,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ProfileController::class, 'home'])->name('dashboard');
 
     Route::get('profile', [ProfileController::class, 'home'])
-        ->middleware('password.confirm')
+        // ->middleware('password.confirm')
         ->name('profile');
-});
+
+    Route::get('order/{id}', [ProfileController::class, 'order']);
+
+    Route::post('order/update', [ProfileController::class, 'order_update'])->name('profile-order-update');
+
+    Route::get('calc', [ProfileController::class, 'calc']);
+
+    Route::get('done-orders', [ProfileController::class, 'done_orders']);
+}); 
 
 
 
 // profile
-Route::get('profile', [ProfileController::class, 'home']);
+// Route::get('profile', [ProfileController::class, 'home']);
 
-Route::get('calc', [ProfileController::class, 'calc']);
+// Route::get('calc', [ProfileController::class, 'calc']);
 
-Route::get('profile/done-orders', [ProfileController::class, 'done_orders']);
+// Route::get('profile/done-orders', [ProfileController::class, 'done_orders']);
 
 
 

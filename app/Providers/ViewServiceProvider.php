@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -23,7 +25,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {   
-        
+        // Шаблон главной страницы
         // view()->composer('*', function ($view) // прикрепить компоновщик ко всем шаблонам
         view()->composer('layouts.main', function ($view) // прикрепить компоновщик к шаблону layouts.main
         {
@@ -40,7 +42,7 @@ class ViewServiceProvider extends ServiceProvider
             
         });
 
-
+        // Шаблон панели администратора
         view()->composer('dashboard.layout', function ($view)
         {
             // New testimonials
@@ -55,6 +57,18 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('orders_count', $orders_count);
         });
 
+        // Шаблон личный кабинет
+        view()->composer('profile.layout', function ($view)
+        {
+            // User
+            $user = Auth::user();
 
+            // Если пользователя есть, то 
+            if ($user) {
+                $office = \App\Models\Office::where('id', $user->id)->first();
+
+                $view->with('office', $office);
+            }
+        });
     }
 }

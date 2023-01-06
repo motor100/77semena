@@ -219,10 +219,10 @@ class MainController extends Controller
 
     public function order_handler(Request $request)
     {   
-        if ($request->has('name') && $request->has('phone') && $request->has('summ') && $request->has('office')) {
+        if (!$request->has("name") && !$request->has("phone") && !$request->has("summ") && !$request->has("office")) {
             return redirect('/');
         }
-
+        
         $name = $request->input('name');
         $phone = $request->input('phone');
         $summ = $request->input('summ');

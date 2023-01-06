@@ -56,7 +56,7 @@ class AdminController extends Controller
             return view('dashboard.order', compact('order'));
         } else {
             return view('dashboard.orders');
-        } 
+        }
     }
 
     public function order_update(Request $request)

@@ -109,6 +109,9 @@ ul {
   font-family: 'montserrat-semibold';
   font-size: 32px;
 }
+.label-text {
+  font-weight: 700;
+}
 
 /* header */
 .header {
@@ -150,18 +153,34 @@ ul {
 
 
 /* orders-table */
+.orders-table {
+  width: 100%;
+}
+.orders-table tr {
+  border-bottom: 2px solid #E8E8E8;
+}
 .orders-table th,
 .orders-table td {
   padding: 15px;
 }
-.orders-table .table-header {
-  border-bottom: 2px solid #E8E8E8;
+.orders-table .orders-table-row {
+  cursor: pointer;
+  transition: background-color .2s;
 }
-
-.orders-table .middle-cell {
+.orders-table .orders-table-row:hover {
+  background-color: #E8E8E8;
+}
+.orders-table .number-cell {
+  width: 80px;
+}
+.orders-table .name-cell {
   border-left: 2px solid #E8E8E8;
   border-right: 2px solid #E8E8E8;
 }
+.orders-table .phone-cell {
+  width: 175px;
+}
+
 
 
 

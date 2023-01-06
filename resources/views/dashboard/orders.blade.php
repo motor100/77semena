@@ -15,21 +15,15 @@
             <th>Номер</th>
             <th>Дата</th>
             <th>Статус</th>
-            <!-- <th>Товары</th> -->
-            <!-- <th>Имя</th> -->
             <th>Оплата</th>
             <th>Комментарий</th>
           </tr>
           @if(isset($orders))
             @foreach($orders as $order)
-              <tr>
-                <td>
-                  <a href="/admin/order/{{ $order->id }}">{{ $order->id }}</a>
-                </td>
+              <tr class="orders-table-row" onclick="window.location.href='/admin/order/{{ $order->id }}'; return false">
+                <td>{{ $order->id }}</td>
                 <td>{{ $order->date }}</td>
                 <td>{{ $order->status }}</td>
-                <!-- <td>{--!! $order->prds !!--}</td> -->
-                <!-- <td>{{-- $order->name --}}</td> -->
                 @if ($order->payment)
                   <td>
                     <div class="payment payment-green"></div>

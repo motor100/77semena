@@ -20,6 +20,13 @@
 .hidden {
   display: none;
 }
+.full-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 .logout-btn {
   border: none;
@@ -221,6 +228,13 @@
 }
 
 /* Заказы */
+.orders-table-row {
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.orders-table-row:hover {
+  background-color: rgba(255,255,255,0.7);
+}
 .order-info-red {
   color: red;
 }
