@@ -27,7 +27,6 @@
           <div class="catalog-nav">
             <div class="catalog-nav-title-wrapper">
               <div class="catalog-nav-title">Категории</div>
-              <!-- <div class="catalog-nav-arrow"></div> -->
             </div>
             @foreach($parent_category as $pct)
               <div class="catalog-nav-item">

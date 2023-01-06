@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // search
   let searchForm = document.querySelector('.search-form'),
       searchInput = document.querySelector('.search-input'),
+      searchClose = document.querySelector('.search-close'),
       autocompleteDropdown = document.querySelector('.autocomplete-dropdown'),
       searchRezult = document.querySelector('.js-search-rezult');
     
@@ -137,6 +138,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let searchInputValue = document.querySelector('.search-input').value;
 
     if (searchInputValue.length > 3 && searchInputValue.length < 40) {
+
+      // Функция очистки формы и удаления селекторов
+      function resetForm() {
+        searchForm.reset();
+        autocompleteDropdown.classList.remove('autocomplete-dropdown-active');
+        searchClose.classList.remove('search-close-active');
+      }
 
       let formData = {
         product: searchInputValue,
@@ -153,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let response = xhr.response;
         let autocompleteSeeAllBtn = document.querySelector('.autocomplete-see-all-btn');
         autocompleteDropdown.classList.add('autocomplete-dropdown-active');
+        searchClose.classList.add('search-close-active');
 
         if (response) {
 
@@ -169,12 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchRezult.append(tmpEl);
           });
 
-          // Функция очищает форму и удаляет селектор
-          function resetForm() {
-            searchForm.reset();
-            autocompleteDropdown.classList.remove('autocomplete-dropdown-active');
-          }
-
           // Добавляю клик на найденные элементы
           let autocompleteListItemLink = document.querySelectorAll('.autocomplete-list-item__link');
 
@@ -186,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Меняю href у ссылки
           autocompleteSeeAllBtn.classList.remove('hidden');
           autocompleteSeeAllBtn.classList.add('visible');
-          autocompleteSeeAllBtn.href = '/poisk?q=' + searchInput.value + '&_token=' + token;
+          autocompleteSeeAllBtn.href = '/poisk?q=' + searchInput.value;
           autocompleteSeeAllBtn.onclick = resetForm;
 
         } else {
@@ -202,7 +205,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // Если менее 3 символов скрываю результаты поиска
       autocompleteDropdown.classList.remove('autocomplete-dropdown-active');
+      searchClose.classList.remove('search-close-active');
     }
+
+    // Очистка результатов
+    searchClose.onclick = resetForm;
   }
 
   // Phone mask
@@ -697,17 +704,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // }
 
     // Custom slim select
-    const productsFilterSelect = new SlimSelect({
-      select: '#products-filter',
-      showSearch: false,
-      searchFocus: false,
-    });
+    let productsFilterElement = document.querySelector('#products-filter');
+
+    if (productsFilterElement) {
+      const productsFilterSelect = new SlimSelect({
+        select: '#products-filter',
+        showSearch: false,
+        searchFocus: false,
+      });
+    }
 
     // Filter by price
     let productsFilter = document.querySelector('.products-filter'),
         jsInsertProducts1 = document.querySelector('.js-insert-products');
 
-    productsFilter.onchange = getFilterData;
+    if (productsFilter) {
+      productsFilter.onchange = getFilterData;
+    }
 
     function getFilterData() {
       

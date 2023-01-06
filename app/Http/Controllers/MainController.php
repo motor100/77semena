@@ -338,16 +338,16 @@ class MainController extends Controller
     public function poisk(Request $request)
     {   
         // Search
-        $product = $request->input('q');
+        $q = $request->input('q');
 
-        if (!$product) {
+        if (!$q) {
             return redirect('/');
         }
 
-        $product = htmlspecialchars($product);
+        $q = htmlspecialchars($q);
 
-        $products = Product::where('title', 'like', "%{$product}%")
-                            ->orWhere('text', 'like', "%{$product}%")
+        $products = Product::where('title', 'like', "%{$q}%")
+                            ->orWhere('text', 'like', "%{$q}%")
                             ->get();
 
         if (!$products) {
@@ -468,7 +468,7 @@ class MainController extends Controller
 
             $products = [];
 
-            // Проверка на Новинки, Акции или категорию
+            // Проверка на Новинки, Акции, Поиск или категорию
             if ($cat == "Новинки") { // Новинки
                 
                 // Последние 20 товаров
@@ -514,6 +514,40 @@ class MainController extends Controller
                                         ->orderBy('retail_price', 'asc')
                                         ->get();
                 }
+
+            } elseif ($cat == "Поиск") { // Поиск
+
+                // Получаю referer
+                $ref = $request->headers->get('referer');
+
+                if ($ref) {
+
+                    // Разбираю строку и получаю get параметр q
+                    $parts = parse_url($ref);
+                    parse_str($parts["query"], $query);
+                    $q = $query["q"];
+
+                    $q = htmlspecialchars($q);
+
+                    if ($orderBy == "price_desc") {
+                        // Сортировка по цене retail_price desc
+                        $products = Product::where('title', 'like', "%{$q}%")
+                                            ->orWhere('text', 'like', "%{$q}%")
+                                            ->orderBy("retail_price", "desc")
+                                            ->get();
+                    }
+
+                    if ($orderBy == "price_asc") {
+                        // Сортировка по цене retail_price asc
+                        $products = Product::where('title', 'like', "%{$q}%")
+                                            ->orWhere('text', 'like', "%{$q}%")
+                                            ->orderBy("retail_price", "asc")
+                                            ->get();
+                    }
+
+                } else {
+                    return false;
+                }          
 
             } else { // категория
 

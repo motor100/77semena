@@ -2,6 +2,10 @@
 
 @extends('layouts.main')
 
+@section('style')
+  <link rel="stylesheet" href="{{ asset('css/slimselect.min.css') }}">
+@endsection
+
 @section('content')
 
 <div class="breadcrumbs">
@@ -47,8 +51,12 @@
             <div class="products">
               <div class="products-title-wrapper">
                 <div class="products-title">Поиск</div>
+                <select name="products-filter" id="products-filter" class="products-filter">
+                  <option value="price_desc">Сначала дорогие</option>
+                  <option value="price_asc">Сначала дешевые</option>
+                </select>
               </div>
-              <div class="row">
+              <div class="row js-insert-products">
                 @foreach($products as $pr)
                   <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="products-item">
@@ -101,4 +109,8 @@
   
 </div>
 
+@endsection
+
+@section('script')
+  <script src="{{ asset('js/slimselect.min.js') }}"></script>
 @endsection
