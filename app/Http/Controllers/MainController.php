@@ -472,35 +472,47 @@ class MainController extends Controller
             if ($cat == "Новинки") { // Новинки
                 
                 // Последние 20 товаров
-                $products = Product::limit(20)->orderBy('id', 'desc')->get();
+                // $products = Product::limit(20)->orderBy('id', 'desc')->get();
 
                 if ($orderBy == "price_desc") {
                     // Сортировка по цене retail_price desc
-                    $products = $products->sortByDesc("retail_price");
+                    $products = Product::limit(20)->orderBy('retail_price', 'desc')->get();
+                    // $products = $products->sortByDesc("retail_price");
                 }
 
                 if ($orderBy == "price_asc") {
                     // Сортировка по цене retail_price asc
-                    $products = $products->sortBy("retail_price");
+                    // $products = $products->sortBy("retail_price");
+                    $products = Product::limit(20)->orderBy('retail_price', 'asc')->get();
                 }
 
             } elseif ($cat == "Акции") { // Акции
 
                 // Последние 20 товаров у которых есть цена promo_price и на складе > 0
-                $products = Product::whereNotNull('promo_price')
-                                    ->where('stock', '>', '0')
-                                    ->limit(20)
-                                    ->orderBy('id', 'desc')
-                                    ->get();
+                // $products = Product::whereNotNull('promo_price')
+                //                     ->where('stock', '>', '0')
+                //                     ->limit(20)
+                //                     ->orderBy('id', 'desc')
+                //                     ->get();
 
                 if ($orderBy == "price_desc") {
                     // Сортировка по цене retail_price desc
-                    $products = $products->sortByDesc("retail_price");
+                    // $products = $products->sortByDesc("retail_price");
+                    $products = Product::whereNotNull('promo_price')
+                                        ->where('stock', '>', '0')
+                                        ->limit(20)
+                                        ->orderBy('retail_price', 'desc')
+                                        ->get();
                 }
 
                 if ($orderBy == "price_asc") {
                     // Сортировка по цене retail_price asc
-                    $products = $products->sortBy("retail_price");
+                    // $products = $products->sortBy("retail_price");
+                    $products = Product::whereNotNull('promo_price')
+                                        ->where('stock', '>', '0')
+                                        ->limit(20)
+                                        ->orderBy('retail_price', 'asc')
+                                        ->get();
                 }
 
             } else { // категория
