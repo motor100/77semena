@@ -41,36 +41,18 @@ class ProfileController extends Controller
         $orders = \App\Http\Controllers\ProfileController::getDoneOrders();
 
         foreach($orders as $order) {
-            $order->prds = [
-                '0' => [
-                    'id' => 31,
-                    'quantity' => 5
-                ],
-                '1' => [
-                    'id' => 32,
-                    'quantity' => 3
-                ],
-                '2' => [
-                    'id' => 29,
-                    'quantity' => 3
-                ],
-                '3' => [
-                    'id' => 30,
-                    'quantity' => 3
-                ],
-            ];
+            $prds = json_decode($order->products, true);
 
             // Сумма заказа
             $order_summ = 0;
 
-            foreach($order->prds as $rd) {
+            foreach($prds as $rd) {
                 $product = \App\Models\Product::where('id', $rd['id'])->first();
                 // Сумма товара с учетом количества
                 $product_summ = ($product->retail_price - $product->wholesale_price) * $rd['quantity'];
                 $order_summ += $product_summ;
                 $order->order_summ = $order_summ;
             }
-
         }
 
         return view('profile.calc', compact('orders'));
@@ -89,10 +71,15 @@ class ProfileController extends Controller
             $order = \App\Models\Order::where('id', $id)->first();
 
             // Преобразование json в массив
-            $prds = json_decode($order->products);
-            // Преобразование массива в строку с разделителем <br>
-            $prds = implode("<br>", $prds);
-            $order->prds = $prds;
+            $prds = json_decode($order->products, true);
+        
+            $products = "";
+
+            foreach($prds as $pr) {
+                $products .= $pr["title"] . " " . $pr["quantity"] . "шт" . "<br>";
+            }
+
+            $order->prds = $products;
             $order->date = $order->created_at->format("H-i d-m-Y");
 
             // Получение ПВЗ по id
