@@ -258,8 +258,19 @@ class MainController extends Controller
             // К коллекции cat1 (Семена) присоединяю коллекцию cat2 (Агрохимия)
             $prds = $cat1->merge($cat2);
 
+            // foreach ($prds as $value) {
+            //     $products[] = $value->title . ' ' . $value->quantity . 'шт';
+            // }
+            
+            $products = []; 
+
             foreach ($prds as $value) {
-                $products[] = $value->title . ' ' . $value->quantity . 'шт';
+                $pr = [
+                    'id' => $value->id,
+                    'title' => $value->title,
+                    'quantity' => $value->quantity
+                ];
+                $products[] = $pr;
             }
         }
 

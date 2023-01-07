@@ -20,9 +20,16 @@ class AdminController extends Controller
                                     ->get();
 
         foreach ($orders as $rd) {
-            $prds = json_decode($rd->products);
-            $prds = implode("<br>", $prds);
-            $rd->prds = $prds;
+            // Преобразование json в массив
+            $prds = json_decode($rd->products, true);
+
+            $products = "";
+
+            foreach($prds as $pr) {
+                $products .= $pr["title"] . " " . $pr["quantity"] . "шт" . "<br>";
+            }
+
+            $rd->prds = $products;
             // Laravel
             $rd->date = $rd->created_at->format("d-m-Y");
             // Laravel
@@ -42,10 +49,15 @@ class AdminController extends Controller
             $order = \App\Models\Order::where('id', $id)->first();
 
             // Преобразование json в массив
-            $prds = json_decode($order->products);
-            // Преобразование массива в строку с разделителем <br>
-            $prds = implode("<br>", $prds);
-            $order->prds = $prds;
+            $prds = json_decode($order->products, true);
+
+            $products = "";
+
+            foreach($prds as $pr) {
+                $products .= $pr["title"] . " " . $pr["quantity"] . "шт" . "<br>";
+            }
+            
+            $order->prds = $products;
             $order->date = $order->created_at->format("H-i d-m-Y");
 
             // Получение ПВЗ по id
