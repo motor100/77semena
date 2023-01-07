@@ -37,32 +37,48 @@ class ProfileController extends Controller
 
     public function calc()
     {   
-        return view('profile.calc');
+        // Все выданные заказы для этого ПВЗ
+        $orders = \App\Http\Controllers\ProfileController::getDoneOrders();
+
+        foreach($orders as $order) {
+            $order->prds = [
+                '0' => [
+                    'id' => 31,
+                    'quantity' => 5
+                ],
+                '1' => [
+                    'id' => 32,
+                    'quantity' => 3
+                ],
+                '2' => [
+                    'id' => 29,
+                    'quantity' => 3
+                ],
+                '3' => [
+                    'id' => 30,
+                    'quantity' => 3
+                ],
+            ];
+
+            // Сумма заказа
+            $order_summ = 0;
+
+            foreach($order->prds as $rd) {
+                $product = \App\Models\Product::where('id', $rd['id'])->first();
+                // Сумма товара с учетом количества
+                $product_summ = ($product->retail_price - $product->wholesale_price) * $rd['quantity'];
+                $order_summ += $product_summ;
+                $order->order_summ = $order_summ;
+            }
+
+        }
+
+        return view('profile.calc', compact('orders'));
     }
 
     public function done_orders()
     {   
-        // Пользователь
-        $user = Auth::user();
-
-        // Если пользователя нет, то редирект на главную
-        if (!$user) {
-            return redirect('/');
-        }
-
-        // ПВЗ для этого пользователя
-        $office = \App\Models\Office::where('id', $user->id)->first();
-
-        // Заказы
-        $orders = \App\Models\Order::where([
-                                        ['office_id', $office->id],
-                                        // Платеж от юкассы
-                                        // ->where('payment', '1')
-                                        ['status', 'Выдан'],
-                                        ['payment', '0']
-                                    ])
-                                    ->orderBy('id', 'desc')
-                                    ->get();
+        $orders = \App\Http\Controllers\ProfileController::getDoneOrders();
 
         return view('profile.done-orders', compact('orders'));
     }
@@ -112,5 +128,30 @@ class ProfileController extends Controller
         }
     }
 
-    
+    public static function getDoneOrders()
+    {
+        // Пользователь
+        $user = Auth::user();
+
+        // Если пользователя нет, то редирект на главную
+        if (!$user) {
+            return redirect('/');
+        }
+
+        // ПВЗ для этого пользователя
+        $office = \App\Models\Office::where('id', $user->id)->first();
+
+        // Заказы
+        $orders = \App\Models\Order::where([
+                                        ['office_id', $office->id],
+                                        // Платеж от юкассы
+                                        // ->where('payment', '1')
+                                        ['status', 'Выдан'],
+                                        ['payment', '0']
+                                    ])
+                                    ->orderBy('id', 'desc')
+                                    ->get();
+
+        return $orders;
+    }
 }
