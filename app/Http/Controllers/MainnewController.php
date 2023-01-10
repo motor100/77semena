@@ -78,7 +78,7 @@ class MainnewController extends Controller
 
         $news->save();
 
-        return redirect('/dashboard/novosti');
+        return redirect('/admin/novosti');
     }
 
     /**
@@ -160,7 +160,7 @@ class MainnewController extends Controller
             'updated_at' => $now
         ]);
 
-        return redirect('/dashboard/novosti');
+        return redirect('/admin/novosti');
     }
 
     /**
@@ -179,6 +179,6 @@ class MainnewController extends Controller
 
         $nw->delete();
 
-        return redirect('/dashboard/novosti');
+        return redirect('/admin/novosti');
     }
 }

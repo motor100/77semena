@@ -81,7 +81,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('/dashboard/category');
+        return redirect('/admin/category');
     }
 
     /**
@@ -179,7 +179,7 @@ class CategoryController extends Controller
             'updated_at' => $now
         ]);
 
-        return redirect('/dashboard/category');
+        return redirect('/admin/category');
     }
 
     /**

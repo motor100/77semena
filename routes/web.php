@@ -109,6 +109,8 @@ Route::post('/ajax/productsviewmore', [MainController::class, 'ajax_productsview
 
 Route::post('/ajax/productsfilter', [MainController::class, 'ajax_productsfilter']);
 
+Route::post('/ajax/map', [MainController::class, 'ajax_map']);
+
 
 /*
 Route::middleware('can:view-dashboard')->group(function () {

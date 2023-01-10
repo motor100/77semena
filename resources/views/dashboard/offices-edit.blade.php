@@ -28,7 +28,7 @@
         <div class="label-text mb-1">Город</div>
         <select name="city" id="city" class="form-select mt-1">
           @foreach($city as $ct)
-            @if($ct->id == $current_category->id)
+            @if($ct->id == $current_city->id)
               <option value="{{ $ct->id }}" selected>{{ $ct->title }}</option>
             @else
               <option value="{{ $ct->id }}">{{ $ct->title }}</option>
@@ -39,6 +39,10 @@
       <div class="form-group mb-3">
         <label for="address">Адрес</label>
         <input type="text" class="form-control" name="address" id="address" maxlength="200" required value="{{ $office->address }}">
+      </div>
+      <div class="form-group mb-3">
+        <label for="coords">Координаты</label>
+        <input type="text" class="form-control" name="coords" id="coords" minlength="10" maxlength="25" required value="{{ $office->coords }}">
       </div>
       <div class="form-group mb-3">
         <label for="description">Описание</label>

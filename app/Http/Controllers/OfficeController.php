@@ -42,12 +42,14 @@ class OfficeController extends Controller
         $request->validate([
             'title' => 'required|min:3|max:200',
             'address' => 'required|min:3|max:200',
+            'coords' => 'required|min:10|max:25',
             'time_weekday' => 'required'
         ]);
 
         $title = $request->input('title');
         $city = $request->input('city');
         $address = $request->input('address');
+        $coords = $request->input('coords');
         $description = $request->input('description');
         $time_weekday = $request->input('time_weekday');
         $time_saturday = $request->input('time_saturday');
@@ -61,6 +63,7 @@ class OfficeController extends Controller
             'city_id' => $city,
             'title' => $title,
             'address' => $address,
+            'coords' => $coords,
             'description' => $description,
             'time_weekday' => $time_weekday,
             'time_saturday' => $time_saturday,
@@ -71,7 +74,7 @@ class OfficeController extends Controller
 
         $office->save();
 
-        return redirect('/dashboard/offices');
+        return redirect('/admin/offices');
     }
 
     /**
@@ -114,6 +117,7 @@ class OfficeController extends Controller
         $request->validate([
             'title' => 'required|min:3|max:200',
             'address' => 'required|min:3|max:200',
+            'coords' => 'required|min:10|max:25',
             'time_weekday' => 'required'
         ]);
 
@@ -124,6 +128,7 @@ class OfficeController extends Controller
         $title = $request->input('title');
         $city = $request->input('city');
         $address = $request->input('address');
+        $coords = $request->input('coords');
         $description = $request->input('description');
         $time_weekday = $request->input('time_weekday');
         $time_saturday = $request->input('time_saturday');
@@ -137,6 +142,7 @@ class OfficeController extends Controller
             'city_id' => $city,
             'title' => $title,
             'address' => $address,
+            'coords' => $coords,
             'description' => $description,
             'time_weekday' => $time_weekday,
             'time_saturday' => $time_saturday,
@@ -145,7 +151,7 @@ class OfficeController extends Controller
             'updated_at' => $now
         ]);
 
-        return redirect('/dashboard/offices');
+        return redirect('/admin/offices');
     }
 
     /**

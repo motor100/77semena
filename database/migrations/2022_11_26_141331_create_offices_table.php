@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('city_id')->unsigned();
             $table->string('title');
             $table->string('address');
+            $table->string('coords');
             $table->text('description')->nullable();
             $table->string('time_weekday');
             $table->string('time_saturday')->nullable();

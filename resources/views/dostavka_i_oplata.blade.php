@@ -48,8 +48,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5">
-            <div class="temp-map">
-              <img src="/img/temp-map.jpg" alt="">
+            <div id="map" class="map">
             </div>
           </div>
           <div class="col-md-7">
@@ -79,14 +78,8 @@
                       <p>Пн-Пт:&nbsp;{{ $office->time_weekday }}</p>
                       <p>Сб:&nbsp;{{ $office->time_saturday }}</p>
                       <p>Вс:&nbsp;{{ $office->time_sunday }}</p>
-                      
                     </div>
                   @endforeach
-                  <!-- <div class="offices-description-item">
-                    <p>город Миасс, ул. Кирова 53.</p>
-                    <p>Телефон: +7 (858) 754-65-85</p>
-                    <p>E-mail: info@77semena.ru</p>
-                  </div> -->
                 </div>
               </div>
             </div>
@@ -128,4 +121,5 @@
 
 @section('script')
   <script src="{{ asset('js/slimselect.min.js') }}"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=43769839-ea8a-4276-aede-298fecb6e04e"></script>
 @endsection

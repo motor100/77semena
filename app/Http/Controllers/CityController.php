@@ -56,7 +56,7 @@ class CityController extends Controller
 
         $city->save();
 
-        return redirect('/dashboard/cities');
+        return redirect('/admin/cities');
     }
 
     /**
@@ -113,7 +113,7 @@ class CityController extends Controller
             'updated_at' => $now
         ]);
 
-        return redirect('/dashboard/cities');
+        return redirect('/admin/cities');
     }
 
     /**

@@ -13,6 +13,7 @@ class Office extends Model
         'city_id',
         'title',
         'address',
+        'coords',
         'description',
         'time_weekday',
         'time_saturday',

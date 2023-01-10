@@ -13,4 +13,10 @@ class City extends Model
         'title',
         'region',
     ];
+
+    // Получить все офисы для этого города
+    // public function offices()
+    // {
+    //     return $this->hasMany(Office::class);
+    // }
 }

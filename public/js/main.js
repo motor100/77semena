@@ -824,11 +824,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (dostavkaIOplataPage) {
     // City select
-    const selectCity = new SlimSelect({
+    const selectCityConst = new SlimSelect({
       select: '#select-city',
       showSearch: false,
       searchFocus: false,
     })
+
+    // Карта
+    let selectCity = document.getElementById('select-city');
+
+    getCities();
+
+    selectCity.onchange = getCities;
+
+    function getCities() {
+
+      let cityTitle = selectCity.value;
+
+      fetch('/ajax/map', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'}, // content type
+        cache: 'no-cache',
+        body: 'city=' + encodeURIComponent(cityTitle) + '&_token=' + encodeURIComponent(token),
+      })
+      .then((response) => response.json())
+      .then(json => {
+        console.log(json);
+
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+
+
+
+    ymaps.ready(mapInit);
+
+    function mapInit() {
+      let myMap = new ymaps.Map('map', {
+        center: [55.046616, 60.109337],
+        zoom: 15,
+        controls: ['smallMapDefaultSet']
+      }, {
+        searchControlProvider: 'yandex#search'
+      })
+
+      let myGeoObject1 = new ymaps.Placemark([55.050684, 60.107008], {
+        balloonContentHeader: "Балун бульвар Мира",
+        balloonContentBody: "Описание",
+        balloonContentFooter: "Не спрашивай что такое балун - сам не знаю",
+      }, {
+        preset: 'islands#icon',
+        iconColor: '#0095b6'
+      });
+
+      myMap.geoObjects.add(myGeoObject1);
+
+    }
+
 
     // Описание ПВЗ
     let officesItems = document.querySelectorAll('.offices .offices-name .offices-item'),

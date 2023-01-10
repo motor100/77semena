@@ -37,6 +37,10 @@
         <input type="text" class="form-control" name="address" id="address" maxlength="200" required>
       </div>
       <div class="form-group mb-3">
+        <label for="coords">Координаты</label>
+        <input type="text" class="form-control" name="coords" id="coords" minlength="10" maxlength="25" required>
+      </div>
+      <div class="form-group mb-3">
         <label for="description">Описание</label>
         <textarea name="description" id="description" class="form-control" cols="20" rows="5"></textarea>
       </div>

@@ -643,6 +643,23 @@ class MainController extends Controller
         }
     }
 
+    public function ajax_map(Request $request)
+    {
+        if (!$request->has("city")) {
+            return false;
+        }
+
+        $city = $request->input("city");
+
+        // City
+        $city_id = \App\Models\City::where("title", $city)->value("id");
+
+        // Offices
+        $offices = \App\Models\Office::where("city_id", $city_id)->get();
+
+        return json_encode($offices);
+    }
+
     public function rmfromcart(Request $request)
     {   
         $id = $request->input('id');
